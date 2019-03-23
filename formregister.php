@@ -46,7 +46,7 @@
 	<div class="col-xs-10">
 	
 		<section class="panel form-wizard" id="w4">
-		<form class="form-horizontal" action="insertRegister.php" method="post" onsubmit="validateForm()" >
+		<form class="form-horizontal" action="insertRegister.php" method="post" >
 			<header class="panel-heading center">
 				<label class="panel-title">Registration Form</label>
 			</header>
@@ -151,7 +151,7 @@
 						</div>
 
 						<div id="w4-info" class="tab-pane">
-							<h1 style="text-align:center" id="nextnya">Please click next!</h1>
+							<h1 style="text-align:center" id="nextnya">Silahkan lewati langkah ini</h1>
 							<div id="hm">
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="w4-last-name">NIM</label>
@@ -164,7 +164,8 @@
 									<div class="col-sm-7">
 									<select class="form-control input-sm mb-md" name="ps" id="ps">
 										<?php
-										$queryps = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0");
+										include('koneksi.php');
+										$queryps = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");
 										while($dataps=mysqli_fetch_array($queryps)){
 										?>
 										<option value="<?php echo $dataps['id_programStudi'] ?>"><?php echo $dataps['nama_programStudi']?></option>
@@ -373,15 +374,4 @@
 				$('#ipk').append(a);
 		});
 		});
-</script>
-<script>
-function validateForm(){
-	var x= $("input[name=email]").val();
-	if(x>0){
-		alert("Email telah terdaftar, coba email lain!");
-		event.preventDefault();
-	}else{
-		alert("Akun telah terdaftar, konfirmasi email anda");
-	}
-}
 </script>
