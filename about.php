@@ -4,9 +4,8 @@
             <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5 w3-content w3-section" data-aos="fade-up">
 
   <img class="mySlides w3-animate-fading img-fluid rounded" src="images/uph9.png" style="width:100%">
-  <img class="mySlides w3-animate-fading img-fluid rounded" src="images/uph7.png" style="width:100%">
   <img class="mySlides w3-animate-fading img-fluid rounded" src="images/uph5.jpg" style="width:100%">
-  <img class="mySlides w3-animate-fading img-fluid rounded" src="images/uph3.jpg" style="width:100%">
+  <img class="mySlides w3-animate-fading img-fluid rounded" src="images/uph10.png" style="width:100%">
               
             </div>
             <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">

@@ -1,4 +1,4 @@
-      <section class="section bg-light pb-0"  >
+<section class="section bg-light pb-0"  >
         <div class="container">
          
           <div class="row check-availabilty" id="next">
@@ -55,11 +55,55 @@
                   <div class="col-md-6 col-lg-3 align-self-end">
                     <button class="btn btn-primary btn-block text-white btn btn-outline-white-primary">Check Availabilty</button>
                   </div>
+                    
+                    <section class="rowtab">
+                    <div class="col-md-12">
+							<div class="tabs">
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a href="#lab" data-toggle="tab"><strong>Laboratories</strong></a>
+									</li>
+									<li>
+                                        <a href="#meet" data-toggle="tab"><strong>Meeting Rooms</strong></a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="lab" class="tab-pane active">
+										<p>Laboratories</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+									</div>
+									<div id="meet" class="tab-pane">
+										<p>Meeting Rooms</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+      </section>
+                    
                 </div>
               </form>
             </div>
-
-
           </div>
         </div>
-      </section>
+        
+    
+    </section>
+
+        <!-- Vendor -->
+		<script src="template/octopus/assets/vendor/jquery/jquery.js"></script>
+		<script src="template/octopus/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="template/octopus/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="template/octopus/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="template/octopus/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="template/octopus/assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="template/octopus/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="template/octopus/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="template/octopus/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="template/octopus/assets/javascripts/theme.init.js"></script>

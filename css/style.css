@@ -1379,3 +1379,9 @@ textarea.form-control {
     color: #000 !important;
     font-size: 20px;
 }
+
+.rowtab{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+}
