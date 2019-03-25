@@ -46,8 +46,6 @@ $msg = wordwrap($msg,70);
 mail($emailnya,"Click&Rent: Konfirmasi Email Anda",$msg);
 */
 header("location:index.php");
-}else{
- echo "<script>alert('gagal, email sama');</script>";
 }
 }
 

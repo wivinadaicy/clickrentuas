@@ -6,14 +6,14 @@
                 
                 
 				if(selectedProfesi==3){
-					$("#detailnya").hide();
+					$("#tiga").hide();
                     $("#hm").hide();
                     $("#mahasiswa").hide();
                     $('#nextnya').show();
                 }
 
                 if(selectedProfesi==4){
-					$("#detailnya").show();
+					$("#tiga").show();
                     $("#hm").show();
                     $("#mahasiswa").show();
                     $('#nextnya').hide();

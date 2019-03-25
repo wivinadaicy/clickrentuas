@@ -57,16 +57,16 @@
 					</div>
 					<ul class="wizard-steps">
 						<li class="active">
-							<a href="#w4-account" data-toggle="tab"><span>1</span>Account Info</a>
+							<a href="#w4-account" data-toggle="tab" id="satu"><span>1</span>Account Info</a>
 						</li>
 						<li>
-							<a href="#w4-profile" data-toggle="tab" ><span>2</span>Profile Info</a>
+							<a href="##w4-profile" data-toggle="tab" id="dua" ><span>2</span>Profile Info</a>
 						</li>
 						<li>
-							<a href="#w4-info" data-toggle="tab"  id="detailnya"><span>3</span>Info Detail</a>
+							<a href="##w4-info" data-toggle="tab"  id="tiga"><span>3</span>Info Detail</a>
 						</li>
 						<li>
-							<a href="#w4-confirm" data-toggle="tab" ><span>4</span>Confirmation</a>
+							<a href="##w4-confirm" data-toggle="tab" id="empat"><span>4</span>Confirmation</a>
 						</li>
 					</ul>
 				</div>
@@ -80,11 +80,12 @@
 								<label class="col-sm-3 control-label" for="w4-username"></label>
 								<div class="col-sm-7">
 									<div class="input-group mb-md">
-								<span class="input-group-addon">
-									<i class="fa fa-envelope"></i>
-								</span>
-								<input class="form-control" placeholder="Email" required type="email" name="email" id="formEmail">
+										<span class="input-group-addon">
+											<i class="fa fa-envelope"></i>
+										</span>
+										<input class="form-control" placeholder="Email" oninput="cekEmail()" required type="email" name="email" id="formEmail">
 									</div>	
+									<p style="font-size:10px; color:red" id="cekemailnya"></p>
 								</div>
 							</div>
 
@@ -374,4 +375,32 @@
 				$('#ipk').append(a);
 		});
 		});
+</script>
+<script>
+function cekEmail(){
+	$(document).ready(function(){
+	var email2 = $("#formEmail").val();
+	
+	$.ajax({
+		type:"post",
+		url:"cekemailAjax.php",
+		dataType: "JSON",
+		data: {email:email2},
+		success: function(respond){
+			if(respond==1){
+				$("#berikutnya").hide();
+				$("#cekemailnya").html("*Email sudah terdaftar");
+			}else{
+				$("#berikutnya").show();
+				$("#cekemailnya").empty();
+				document.getElementById('dua').style.pointerEvents = 'none';
+				document.getElementById('tiga').style.pointerEvents = 'none';
+				document.getElementById('empat').style.pointerEvents = 'none';
+			}
+			
+		}
+	});
+});
+}
+
 </script>

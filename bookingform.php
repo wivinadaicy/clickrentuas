@@ -45,9 +45,9 @@
                     <label class="font-weight-bold text-form">Room</label>
                     <div class="field-icon-wrap">
                           <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                          <select name="" id="children" class="form-control">
-                            <option value="">Laboratory</option>
-                            <option value="">Meeting Room</option>
+                          <select name="ruangan" id="ruangan" class="form-control" onchange="cekRuangan()">
+                            <option value="R-1">Laboratory</option>
+                            <option value="R-2">Meeting Room</option>
                           </select>
                         </div>
                   </div>
@@ -56,30 +56,38 @@
                     <button class="btn btn-primary btn-block text-white btn btn-outline-white-primary">Check Availabilty</button>
                   </div>
                     
-                    <section class="rowtab">
+                  <div class="col-12" id="ruang">
+                    <div class="container bg-primary" id="lab">
+                      
+                    </div>
+                    <div class="container bg-primary" id="meet">
+                      
+                    </div>
+                  </div>
+                  <!--<section class="rowtab" id="tabruang">
                     <div class="col-md-12">
-							<div class="tabs">
-								<ul class="nav nav-tabs">
-									<li class="active">
-										<a href="#lab" data-toggle="tab"><strong>Laboratories</strong></a>
-									</li>
-									<li>
-                                        <a href="#meet" data-toggle="tab"><strong>Meeting Rooms</strong></a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div id="lab" class="tab-pane active">
-										<p>Laboratories</p>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-									</div>
-									<div id="meet" class="tab-pane">
-										<p>Meeting Rooms</p>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-      </section>
+							        <div class="tabs">
+                        <ul class="nav nav-tabs">
+                          <li class="active" id="tlab">
+                            <a href="#lab" data-toggle="tab"><strong>Laboratories</strong></a>
+                          </li>
+                          <li id="tmeet">
+                            <a href="#meet" data-toggle="tab"><strong>Meeting Rooms</strong></a>
+                          </li>
+                        </ul>
+                      <div class="tab-content">
+                        <div id="lab" class="tab-pane active">
+                          <p>Laboratories</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                        </div>
+                        <div id="meet" class="tab-pane">
+                          <p>Meeting Rooms</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                        </div>
+                      </div>
+                    </div>
+						      </div>
+                </section>-->
                     
                 </div>
               </form>
@@ -107,3 +115,79 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="template/octopus/assets/javascripts/theme.init.js"></script>
+
+<script>
+function cekRuangan(){
+  $(document).ready(function(){
+      var ruang2 = $('#ruangan').children("option:selected").val();
+
+      if(ruang2 == "R-1"){
+        $("#ruang").show();
+        $("#lab").show();
+        $("#meet").hide();
+      }
+      if(ruang2=="R-2"){
+        $("#ruang").show();
+        $("#lab").hide();
+        $("#meet").show();
+      }
+
+  $.ajax({
+		type:"post",
+		url:"cekRuang.php",
+		dataType: "JSON",
+		data: {ruang:ruang2},
+		success: function(respond){
+			if(respond==1){
+				$("#berikutnya").hide();
+				$("#cekemailnya").html("*Email sudah terdaftar");
+			}else{
+				$("#berikutnya").show();
+				$("#cekemailnya").empty();
+				document.getElementById('dua').style.pointerEvents = 'none';
+				document.getElementById('tiga').style.pointerEvents = 'none';
+				document.getElementById('empat').style.pointerEvents = 'none';
+			}
+			
+		}
+	});
+
+
+    });
+}
+
+$(document).ready(function(){
+  $("#ruang").hide();
+  $("#lab").hide();
+  $("#meet").hide();
+});
+</script>
+
+<script>
+function cekRuangan(){
+	$(document).ready(function(){
+	var ruangan2 = $("#ruangan").val();
+	
+	$.ajax({
+		type:"post",
+		url:"cekemailAjax.php",
+		dataType: "JSON",
+		data: {email:email2},
+		success: function(respond){
+			if(respond==1){
+				$("#berikutnya").hide();
+				$("#cekemailnya").html("*Email sudah terdaftar");
+			}else{
+				$("#berikutnya").show();
+				$("#cekemailnya").empty();
+				document.getElementById('dua').style.pointerEvents = 'none';
+				document.getElementById('tiga').style.pointerEvents = 'none';
+				document.getElementById('empat').style.pointerEvents = 'none';
+			}
+			
+		}
+	});
+});
+}
+
+</script>
