@@ -10,7 +10,7 @@
                     <label class="font-weight-bold text-form">Date</label>
                     <div class="field-icon-wrap">
                       <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control" onchange="cekTanggal()">
+                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control" onchange="cekTanggal()" min="">
                     </div>
                   </div>
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">

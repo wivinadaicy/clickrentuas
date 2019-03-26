@@ -1,5 +1,5 @@
 <?php
 include('koneksi.php');
 
-$cekTanggalnya = mysqli_query($koneksi, "SELECT * FROM ")
+if(min=2014-09-08)
 ?>
