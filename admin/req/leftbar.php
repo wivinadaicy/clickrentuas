@@ -58,11 +58,6 @@
 								</li>
 								<li>
 									<a href="">
-										 Status Pengguna
-									</a>
-								</li>
-								<li>
-									<a href="">
 										 Program Studi &amp; Fakultas
 									</a>
 								</li>
