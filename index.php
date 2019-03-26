@@ -15,7 +15,7 @@ include('koneksi.php');
 <html>
       <?php include('_head.php');?>
       
-    <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200">
+    <body data-spy="scroll" data-target="#templateux-navbar" data-offset="200" onload="tampilRuangan()">
 
         <?php include('_navbar.php');?>
 

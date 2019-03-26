@@ -10,7 +10,7 @@
                     <label class="font-weight-bold text-form">Date</label>
                     <div class="field-icon-wrap">
                       <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control">
+                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control" onchange="cekTanggal()">
                     </div>
                   </div>
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -20,7 +20,7 @@
                         <div class="field-icon-wrap">
                           <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                           
-                        <select name="waktuMulai" id="waktuMulai" class="form-control" onchange="cekselesai()" >
+                        <select name="waktuMulai" id="waktuMulai" class="form-control" onchange="cekwaktuSelesai()" >
                         <option value="x">Pilih</option>
 
                           <?php
@@ -38,7 +38,7 @@
                         <label class="font-weight-bold text-form">Finish</label>
                         <div class="field-icon-wrap">
                           <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                          <select name="selesai" id="selesai" class="form-control" disabled>
+                          <select name="waktuSelesai" id="waktuSelesai" class="form-control" disabled>
 
                           </select>
                         </div>
@@ -57,16 +57,40 @@
                   </div>
                     
                   <div class="col-md-6 col-lg-3 align-self-end">
-                    <button class="btn btn-primary btn-block text-white btn btn-outline-white-primary">Check Availabilty</button>
+                    <input class="btn btn-primary btn-block text-white btn btn-outline-white-primary" id="cekavailability" onclick="cekRuangan()" value="Check Availabilty" type="button">
                   </div>
                     
-                  <div class="col-12" id="ruang">
-                    <div class="container bg-primary" id="lab">
-                      
-                    </div>
-                    <div class="container bg-primary" id="meet">
-                      
-                    </div>
+                  <div class="row" id="ruangannya">
+                    <a>
+                      <div class="col-4" id="R-1">
+                        <p>Lab 1</p>
+                      </div>
+                    </a>
+                    <a>
+                      <div class="col-4" id="R-2">
+                      <p>Lab 2</p> 
+                      </div>
+                    </a>
+                    <a>
+                      <div class="col-4" id="R-3">
+                      <p>Lab 3</p>
+                      </div>
+                    </a>
+                    <a>
+                      <div class="col-4" id="R-4">
+                        <p>Lab 4</p>
+                      </div>
+                    </a>
+                    <a>
+                      <div class="col-4" id="R-5">
+                        <p>Lab 5</p>
+                      </div>
+                    </a>
+                    <a>
+                      <div class="col-4" id="R-6">
+                        <p>Lab 6</p>
+                      </div>
+                    </a>
                   </div>
                   <!--<section class="rowtab" id="tabruang">
                     <div class="col-md-12">
@@ -106,11 +130,12 @@
 
     <script>
 
-function cekselesai(){
+function cekwaktuSelesai(){
 	$(document).ready(function(){
   var mulai2 = $('#waktuMulai').children("option:selected").val();
   if($('#waktuMulai').val()=="x"){
-        $('#selesai').prop('disabled',true);
+        $('#waktuSelesai').prop('disabled',true);
+        $('#cekavailability').prop('disabled',true);
       }
 	$.ajax({
 		type:"post",
@@ -119,14 +144,71 @@ function cekselesai(){
 		data: {mulai:mulai2},
 		success: function(respond){
       if($('#waktuMulai').val()=="x"){
-        $('#selesai').prop('disabled',true);
+        $('#waktuSelesai').prop('disabled',true);
+        $('#cekavailability').prop('disabled',true);
       }else{
-        $('#selesai').empty();
-        $('#selesai').prop("disabled",false);
+        $('#waktuSelesai').empty();
+        $('#waktuSelesai').prop("disabled",false);
+        $('#cekavailability').prop('disabled',false);
       }
         
-      $('#selesai').empty();
-      $('#selesai').append(respond);
+      $('#waktuSelesai').empty();
+      $('#waktuSelesai').append(respond);
+
+      
+		}
+	});
+});
+}
+function tampilRuangan(){
+$(document).ready(function(){
+  $('#R-1').hide();
+  $('#R-2').hide();
+  $('#R-3').hide();
+  $('#R-4').hide();
+  $('#R-5').hide();
+  $('#R-6').hide();
+  $('#cekavailability').prop('disabled',true);
+});
+}
+
+function cekTanggal(){
+	$(document).ready(function(){
+  var tanggal2 = $('#tanggalPinjam').val();
+	$.ajax({
+		type:"post",
+		url:"cekTanggal.php",
+		dataType: "JSON",
+		data: {tanggal:tanggal2},
+		success: function(respond){
+      $('#cekavailability').prop('disabled',true);
+		}
+	});
+});
+}
+
+
+function cekRuangan(){
+	$(document).ready(function(){
+  var mulai2 = $('#waktuMulai').children("option:selected").val();
+  var selesai2 = $('#waktuSelesai').children("option:selected").val();
+  var tanggal2 = $('#tanggalPinjam').val();
+  var ruang2 = $('#waktuMulai').children("option:selected").val();
+	$.ajax({
+		type:"post",
+		url:"cekRuang.php",
+		dataType: "JSON",
+		data: {mulai:mulai2, selesai:selesai2, tanggal:tanggal2, ruang:ruang2},
+		success: function(respond){
+      if($('#waktuMulai').val()=="x"){
+        $('#waktuSelesai').prop('disabled',true);
+      }else{
+        $('#waktuSelesai').empty();
+        $('#waktuSelesai').prop("disabled",false);
+      }
+        
+      $('#waktuSelesai').empty();
+      $('#waktuSelesai').append(respond);
 
       
 		}
