@@ -18,14 +18,14 @@ $statusx= $_SESSION['status'];
 	'use strict';
         
 	$(document).on('click', '.tambah', function (e) {
-		var id = $("input[name=idpengguna]").val();
-    var nama = $("input[name=namalengkap]").val();
+/*ganti*/		var id = $("input[name=idpengguna]").val();
+    var nama = $("input[name=namalengkap]").val(); //text
      var tgllahir = $("input[name=tanggallahir]").val();
 		var email = $("input[name=email]").val();
 		var password = $("input[name=katasandi]").val();
 		var nohp = $("input[name=nomorhp]").val();
-		var status = $("#statuspengguna").children("option:selected").val();
-		var alamat = $.trim($("#alamat").val());
+		var status = $("#statuspengguna").children("option:selected").val(); //select option
+		var alamat = $.trim($("#alamat").val()); //textarea
 		var jk = $("input[name=jeniskelamin]:checked").val();
 		var idx = $("input[name=idx]").val();
 		
@@ -34,7 +34,7 @@ $statusx= $_SESSION['status'];
             e.preventDefault();
 			$("form").valid();
         }else{
-             $.post("pengguna/insert.php", 
+             $.post("pengguna/insert.php", //ganti
              { 
 				 idpengguna:id,
                  namalengkap:nama,

@@ -6,6 +6,7 @@
             <h2 class="panel-title">Tambah Data Pengguna</h2>
         </header>
         <div class="panel-body">
+		<!--GANTI DISINI-->
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">ID Pengguna<span class="required">*</span></label>
 				<div class="col-sm-9">
@@ -62,7 +63,6 @@
 						   $queryx = mysqli_query($koneksi, "SELECT * from status ORDER BY id_status desc");
 						   
 						   while($data=mysqli_fetch_array($queryx)){
-							  
 						   ?>
 							<option value="<?php echo $data['id_status']?>" > <?php echo $data['nama_status'] ?></option>
 						   <?php } ?>
