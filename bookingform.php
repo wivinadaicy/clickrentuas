@@ -50,8 +50,8 @@
                     <div class="field-icon-wrap">
                           <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                           <select name="ruangan" id="ruangan" class="form-control">
-                            <option value="R-1">Laboratory</option>
-                            <option value="R-2">Meeting Room</option>
+                            <option value="lab">Laboratory</option>
+                            <option value="meet">Meeting Room</option>
                           </select>
                         </div>
                   </div>
@@ -172,20 +172,6 @@ $(document).ready(function(){
 });
 }
 
-function cekTanggal(){
-	$(document).ready(function(){
-  var tanggal2 = $('#tanggalPinjam').val();
-	$.ajax({
-		type:"post",
-		url:"cekTanggal.php",
-		dataType: "JSON",
-		data: {tanggal:tanggal2},
-		success: function(respond){
-      $('#cekavailability').prop('disabled',true);
-		}
-	});
-});
-}
 
 
 function cekRuangan(){
@@ -200,17 +186,7 @@ function cekRuangan(){
 		dataType: "JSON",
 		data: {mulai:mulai2, selesai:selesai2, tanggal:tanggal2, ruang:ruang2},
 		success: function(respond){
-      if($('#waktuMulai').val()=="x"){
-        $('#waktuSelesai').prop('disabled',true);
-      }else{
-        $('#waktuSelesai').empty();
-        $('#waktuSelesai').prop("disabled",false);
-      }
-        
-      $('#waktuSelesai').empty();
-      $('#waktuSelesai').append(respond);
-
-      
+     
 		}
 	});
 });
