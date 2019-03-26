@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2019 at 11:29 AM
+-- Generation Time: Mar 26, 2019 at 04:39 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -81,23 +81,14 @@ CREATE TABLE `jenis_barang` (
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `jenis_ruangan`
+-- Dumping data for table `jenis_barang`
 --
 
-CREATE TABLE `jenis_ruangan` (
-  `id_jenisRuangan` varchar(40) NOT NULL,
-  `nama_jenisRuangan` text NOT NULL,
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
-  `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `jenis_barang` (`id_jenisBarang`, `nama_jenisBarang`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+(1, 'Software', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(2, 'Hardware', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(3, 'Lain - Lain', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -116,6 +107,16 @@ CREATE TABLE `kategori_acara` (
   `waktu_delete` datetime NOT NULL,
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori_acara`
+--
+
+INSERT INTO `kategori_acara` (`id_kategoriAcara`, `jenis_acara`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+(1, 'Kelas', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(2, 'Kelas Pengganti', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(3, 'Himpunan Mahasiswa', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(4, 'Acara Dosen', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -230,35 +231,15 @@ CREATE TABLE `log_mahasiswa` (
 
 CREATE TABLE `log_peminjaman` (
   `id_logPeminjaman` int(11) NOT NULL,
-  `id_peminjaman` varchar(40) NOT NULL,
-  `tanggal_peminjaman` int(11) NOT NULL,
-  `id_pengguna` int(11) NOT NULL,
-  `acara` int(11) NOT NULL,
+  `id_peminjaman` varchar(40) NOT NULL COMMENT 'PJ-0',
+  `tanggal_peminjaman` date NOT NULL,
+  `waktu_mulai` time NOT NULL,
+  `waktu_selesai` time NOT NULL,
+  `id_pengguna` varchar(40) NOT NULL,
+  `acara` varchar(70) NOT NULL,
   `jumlah_peserta` int(11) NOT NULL,
-  `waktu_mulai` int(11) NOT NULL,
-  `waktu_selesai` int(11) NOT NULL,
   `id_kategoriAcara` int(11) NOT NULL,
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
-  `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `log_peminjaman_ruangan`
---
-
-CREATE TABLE `log_peminjaman_ruangan` (
-  `id_logPeminjamanRuangan` int(11) NOT NULL,
-  `id_peminjamanRuangan` varchar(40) NOT NULL,
-  `id_peminjaman` varchar(40) NOT NULL,
-  `id_ruangan` varchar(40) NOT NULL,
-  `statusPeminjaman` int(11) NOT NULL COMMENT '0 : TUNGGU APPROVE, 1:APPROVED, 2:SEDANG PINJAM, 3:SELESAI, 4:BATAL/TIDAK APPROVE',
+  `status_peminjaman` int(11) NOT NULL COMMENT '0:TUNGGU APPROVE, 1:APPROVED, 2:SEDANG DIPINJAM, 3:SELESAI, 4:TIDAK APPROVE',
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
@@ -319,7 +300,7 @@ CREATE TABLE `log_ruangan` (
   `id_logRuangan` int(11) NOT NULL,
   `id_ruangan` varchar(40) NOT NULL,
   `nama_ruangan` varchar(60) NOT NULL,
-  `id_jenisRuangan` int(11) NOT NULL,
+  `jenis_ruangan` int(11) NOT NULL,
   `gedung_lantai` int(20) NOT NULL,
   `kapasitas` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -364,10 +345,12 @@ CREATE TABLE `mahasiswa` (
 CREATE TABLE `peminjaman` (
   `id_peminjaman` varchar(40) NOT NULL COMMENT 'PJ-0',
   `tanggal_peminjaman` date NOT NULL,
+  `id_ruangan` varchar(40) NOT NULL,
+  `waktu_mulai` time NOT NULL,
+  `waktu_selesai` time NOT NULL,
   `id_pengguna` varchar(40) NOT NULL,
   `acara` varchar(70) NOT NULL,
   `jumlah_peserta` int(11) NOT NULL,
-  `id_waktuJadwal` int(11) NOT NULL,
   `id_kategoriAcara` int(11) NOT NULL,
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
@@ -382,28 +365,9 @@ CREATE TABLE `peminjaman` (
 -- Dumping data for table `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_waktuJadwal`, `id_kategoriAcara`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('PJ-1', '2019-03-28', '1', 'Charity', 30, 24, 1, 'USER-1', '2019-03-26 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peminjaman_ruangan`
---
-
-CREATE TABLE `peminjaman_ruangan` (
-  `id_peminjamanRuangan` varchar(40) NOT NULL COMMENT 'PJR-0',
-  `id_peminjaman` varchar(40) NOT NULL,
-  `id_ruangan` varchar(40) NOT NULL,
-  `statusPeminjaman` int(11) NOT NULL COMMENT '0 : TUNGGU APPROVE, 1:APPROVED, 2:SEDANG PINJAM, 3:SELESAI, 4:BATAL/TIDAK APPROVE',
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
-  `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+('PJ-1', '2019-03-28', 'R-1', '09:15:00', '11:15:00', '1', 'Charity', 30, 3, 'USER-1', '2019-03-26 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('PJ-2', '2019-03-28', 'R-1', '13:15:00', '15:15:00', '1', 'HMTIF Gathering', 50, 3, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -421,7 +385,7 @@ CREATE TABLE `pengguna` (
   `alamat` text NOT NULL,
   `no_hp` varchar(20) NOT NULL,
   `tanggal_masuk` date NOT NULL,
-  `status_pengguna` int(11) NOT NULL,
+  `status_pengguna` int(11) NOT NULL COMMENT '1: SUPER ADMIN, 2: ADMIN, 3: MEMBER DOSEN, 4:MEMBER MAHASISWA',
   `status_daftar` int(11) NOT NULL COMMENT '0 =TIDAK AKTIF, 1=MENUNGGU APPROVE, 2=AKTIF',
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
@@ -504,8 +468,8 @@ INSERT INTO `program_studi` (`id_programStudi`, `nama_programStudi`, `user_add`,
 CREATE TABLE `ruangan` (
   `id_ruangan` varchar(40) NOT NULL COMMENT 'R-0',
   `nama_ruangan` varchar(60) NOT NULL,
-  `id_jenisRuangan` int(11) NOT NULL,
-  `gedung_lantai` int(20) NOT NULL,
+  `jenis_ruangan` int(11) NOT NULL COMMENT '1:LABORATORIUM, 2: MEETING ROOM',
+  `gedung_lantai` varchar(20) NOT NULL,
   `kapasitas` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
   `user_add` varchar(40) NOT NULL,
@@ -517,26 +481,15 @@ CREATE TABLE `ruangan` (
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `status`
+-- Dumping data for table `ruangan`
 --
 
-CREATE TABLE `status` (
-  `id_status` int(11) NOT NULL,
-  `nama_status` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `status`
---
-
-INSERT INTO `status` (`id_status`, `nama_status`) VALUES
-(1, 'Super Admin'),
-(2, 'Admin'),
-(3, 'Member Dosen'),
-(4, 'Member Mahasiswa');
+INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`, `jenis_ruangan`, `gedung_lantai`, `kapasitas`, `deskripsi`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+('R-1', 'Lab Satu', 1, 'F2', 50, 'asdf', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('R-2', 'Lab Dua', 1, 'F2', 60, 'qwer', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('R-3', 'Lab Tiga', 1, 'F2', 30, 'apoi', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('R-4', 'Meeting Room 1', 2, 'B3', 3, 'zxcv', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -645,12 +598,6 @@ ALTER TABLE `jenis_barang`
   ADD PRIMARY KEY (`id_jenisBarang`);
 
 --
--- Indexes for table `jenis_ruangan`
---
-ALTER TABLE `jenis_ruangan`
-  ADD PRIMARY KEY (`id_jenisRuangan`);
-
---
 -- Indexes for table `kategori_acara`
 --
 ALTER TABLE `kategori_acara`
@@ -693,12 +640,6 @@ ALTER TABLE `log_peminjaman`
   ADD PRIMARY KEY (`id_logPeminjaman`);
 
 --
--- Indexes for table `log_peminjaman_ruangan`
---
-ALTER TABLE `log_peminjaman_ruangan`
-  ADD PRIMARY KEY (`id_logPeminjamanRuangan`);
-
---
 -- Indexes for table `log_pengguna`
 --
 ALTER TABLE `log_pengguna`
@@ -729,12 +670,6 @@ ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id_peminjaman`);
 
 --
--- Indexes for table `peminjaman_ruangan`
---
-ALTER TABLE `peminjaman_ruangan`
-  ADD PRIMARY KEY (`id_peminjamanRuangan`);
-
---
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
@@ -763,12 +698,6 @@ ALTER TABLE `program_studi`
 --
 ALTER TABLE `ruangan`
   ADD PRIMARY KEY (`id_ruangan`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`id_status`);
 
 --
 -- Indexes for table `waktu_jadwal`

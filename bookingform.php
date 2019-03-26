@@ -10,7 +10,7 @@
                     <label class="font-weight-bold text-form">Date</label>
                     <div class="field-icon-wrap">
                       <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control" onchange="cekTanggal()" min="">
+                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -61,36 +61,6 @@
                   </div>
                     
                   <div class="row" id="ruangannya">
-                    <a>
-                      <div class="col-4" id="R-1">
-                        <p>Lab 1</p>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="col-4" id="R-2">
-                      <p>Lab 2</p> 
-                      </div>
-                    </a>
-                    <a>
-                      <div class="col-4" id="R-3">
-                      <p>Lab 3</p>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="col-4" id="R-4">
-                        <p>Lab 4</p>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="col-4" id="R-5">
-                        <p>Lab 5</p>
-                      </div>
-                    </a>
-                    <a>
-                      <div class="col-4" id="R-6">
-                        <p>Lab 6</p>
-                      </div>
-                    </a>
                   </div>
                   <!--<section class="rowtab" id="tabruang">
                     <div class="col-md-12">
@@ -162,12 +132,7 @@ function cekwaktuSelesai(){
 }
 function tampilRuangan(){
 $(document).ready(function(){
-  $('#R-1').hide();
-  $('#R-2').hide();
-  $('#R-3').hide();
-  $('#R-4').hide();
-  $('#R-5').hide();
-  $('#R-6').hide();
+  $('#ruangannya').hide();
   $('#cekavailability').prop('disabled',true);
 });
 }
@@ -183,10 +148,12 @@ function cekRuangan(){
 	$.ajax({
 		type:"post",
 		url:"cekRuang.php",
-		dataType: "JSON",
+    dataType: "json",
 		data: {mulai:mulai2, selesai:selesai2, tanggal:tanggal2, ruang:ruang2},
-		success: function(respond){
-     
+		success: function(response){
+      $('#ruangannya').show();
+      $('#ruangannya').empty();
+      $('#ruangannya').append(response);
 		}
 	});
 });
