@@ -52,7 +52,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="mahasiswa.php">
 										 Mahasiswa
 									</a>
 								</li>
