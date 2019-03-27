@@ -146,10 +146,20 @@
 							<div class="profile-info">
 								<span class="name"><?php echo $nama ?></span>
 								<?php 
-	$query = mysqli_query($koneksi, "SELECT * from pengguna a join status b ON a.status_pengguna = b.id_status WHERE id_pengguna='$id'");
-	$data = mysqli_fetch_array($query);							
+								$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE id_pengguna='$id'");
+								$data = mysqli_fetch_array($query);	
+								
+								if($data['status_pengguna']=="1"){
+									$stat = "Super Admin";
+								}else if($data['status_pengguna']=="2"){
+									$stat = "Admin";
+								}else if($data['status_pengguna']=="3"){
+									$stat = "Member Dosen";
+								}else{
+									$stat = "member Mahasiswa";
+								}
 								?>
-								<span class="role"><?php echo $data['nama_status']  ?></span>
+								<span class="role"><?php echo $stat?></span>
 							</div>
 			
 							<i class="fa custom-caret"></i>
