@@ -18,9 +18,10 @@ $statusx= $_SESSION['status'];
 	'use strict';
         
 	$(document).on('click', '.tambah', function (e) {
-/*ganti*/		var id = $("input[name=idpengguna]").val();
-    var nama = $("input[name=namalengkap]").val(); //text
-     var tgllahir = $("input[name=tanggallahir]").val();
+/*ganti*/		
+        var id = $("input[name=idpengguna]").val();
+        var nama = $("input[name=namalengkap]").val(); //text
+        var tgllahir = $("input[name=tanggallahir]").val();
 		var email = $("input[name=email]").val();
 		var password = $("input[name=katasandi]").val();
 		var nohp = $("input[name=nomorhp]").val();

@@ -146,7 +146,7 @@
 							<div class="profile-info">
 								<span class="name"><?php echo $nama ?></span>
 								<?php 
-	$query = mysqli_query($koneksi, "SELECT * from pengguna a join status b ON a.status_pengguna = b.id_status WHERE id_pengguna='$id'");
+	$query = mysqli_query($koneksi, "SELECT * from pengguna  WHERE id_pengguna='$id' AND status_delete='0' AND status_daftar='2'");
 	$data = mysqli_fetch_array($query);							
 								?>
 								<span class="role"><?php echo $data['nama_status']  ?></span>
