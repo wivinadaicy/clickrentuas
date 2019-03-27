@@ -1,5 +1,17 @@
 <?php
 include('koneksi.php');
+
+session_start();
+$email = $_SESSION['email'];
+$password =$_SESSION['password'];
+$nama = $_SESSION['nama'];
+$jk = $_SESSION['jk'];
+$id = $_SESSION['id'];
+$alamat = $_SESSION['alamat'];
+$nohp = $_SESSION['no_hp'];
+$status= $_SESSION['status'];
+
+
 $tanggalPinjam = $_POST['tanggal'];
 $mulai = $_POST['mulai'];
 $selesai = $_POST['selesai'];
@@ -15,7 +27,13 @@ $query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.id_ruangan 
 
 $kalimat = '';
 while($ruangsedia=mysqli_fetch_array($query)){
-    $kalimat = $kalimat . "<div class='col-4' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> id ruangnya = " . $ruangsedia['id_ruangan'] . "</div>";
+    $ruangannya = $ruangsedia['id_ruangan'];
+    $querym= mysqli_query($koneksi, "SELECT * FROM peminjaman");
+    $baris = mysqli_num_rows($querym);
+    $barisbaru = $baris+1;
+
+    $kalimat = $kalimat . "<a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang><div class='col-4' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> id ruangnya = " . $ruangsedia['id_ruangan'] . "</div></a>";
+    
 }
 
 echo json_encode($kalimat);
