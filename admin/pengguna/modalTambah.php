@@ -2,9 +2,10 @@
 
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
+	<form>
         <header class="panel-heading">
             <h2 class="panel-title">Tambah Data Pengguna</h2>
-        </header>
+		</header>
         <div class="panel-body">
 		<!--GANTI DISINI-->
 			<div class="form-group mt-lg">
@@ -40,7 +41,8 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Email <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="email" name="email" id="email" class="form-control" placeholder="ketik nama pengarang" required >
+					<input type="email" name="email" id="email" class="form-control" placeholder="ketik nama pengarang" required oninput="cekEmail()">
+					<p style="font-size:10px; color:red" id="cekemailnya"></p>
 				</div>
 			</div>
 			<div class="form-group">
@@ -59,12 +61,14 @@
 				<label class="col-sm-3 control-label">Status Pengguna</label>
 				<div class="col-sm-9">
 					 <select name="statuspengguna" id="statuspengguna" class="form-control" required>
-						   <?php
-						   $queryx = mysqli_query($koneksi, "SELECT * from status ORDER BY id_status desc");
-						   
-						   while($data=mysqli_fetch_array($queryx)){
+					 <?php
+							   $statusnya[3] = "Super Admin"; //jangan kebalik
+							   $statusnya[2] = "Admin";
+								$statusnya[1] = "Member Dosen";
+								$statusnya[0] = "Member Mahasiswa";
+							  for($i = 0 ; $i <4 ; $i++){
 						   ?>
-							<option value="<?php echo $data['id_status']?>" > <?php echo $data['nama_status'] ?></option>
+							<option value="<?php echo $data['status_pengguna'] ?>"> <?php echo $statusnya[$i] ?></option>
 						   <?php } ?>
 					</select>
 				</div>
@@ -80,11 +84,13 @@
         <footer class="panel-footer">
             <div class="row">
                 <div class="col-md-12 text-right">
-                    <button type="button" class="btn btn-primary tambah">Submit</button>
+                    <button type="button" class="btn btn-primary tambah" id="tambah">Submit</button>
                     <button type="reset" class="btn btn-default modal-dismiss batal">Cancel</button>
                 </div>
             </div>
-        </footer>
-    </section>
+		</footer>
+		</form>
+	</section>
+	
 </div>
 

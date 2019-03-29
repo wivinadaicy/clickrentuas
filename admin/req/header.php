@@ -169,10 +169,13 @@
 							<ul class="list-unstyled">
 								<li class="divider"></li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
+									<a class="modal-sizes" role="menuitem" tabindex="-1" href="#lihatprofil"><i class="fa fa-user"></i> My Profile</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-user"></i> Edit Profile</a>
+									<a role="menuitem" tabindex="-1" href="editProfile.php"><i class="fa fa-user"></i> Edit Profile</a>
+								</li>
+								<li>
+									<a role="menuitem" tabindex="-1" href="settingProfile.php"><i class="fa fa-power-off"></i>Account Settings</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>

@@ -1,16 +1,7 @@
 <?php
-session_start();
 error_reporting(0);
-$email = $_SESSION['email'];
-$password =$_SESSION['password'];
-$nama = $_SESSION['nama'];
-$jk = $_SESSION['jk'];
-$id = $_SESSION['id'];
-$alamat = $_SESSION['alamat'];
-$nohp = $_SESSION['no_hp'];
-$status= $_SESSION['status'];
-
-include('koneksi.php');
+ include('session.php');
+ include('koneksi.php'); 
 ?>
 <html>
       <?php include('_head.php');?>

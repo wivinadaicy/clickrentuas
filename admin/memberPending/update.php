@@ -20,7 +20,7 @@ $hitung= mysqli_query($koneksi, "SELECT * FROM log_pengguna");
 $baris = mysqli_num_rows($hitung);
 $baristambah = $baris+1;
 
-$query2 = "INSERT INTO log_pengguna VALUES ('$baristambah','$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya', '$idx', now())";
+$query2 = "INSERT INTO log_pengguna VALUES ('$baristambah','$idnya', '$emailnya', '$passwordnya', '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya', '$idx', now())";
 
 $jalanin2 = mysqli_query($koneksi,$query2);
 ?>

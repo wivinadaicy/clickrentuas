@@ -18,6 +18,9 @@
 		<script src="assets/vendor/jquery-validation/jquery.validate.js"></script>
 <!--Modals form-->
 		<script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+<!--Modals form basic-->
+		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 
 
 		<!-- Theme Base, Components and Settings -->
@@ -37,5 +40,8 @@
 		<script src="assets/javascripts/forms/examples.validation.js"></script>
 <!-- Examples modal-->
 		<script src="assets/javascripts/ui-elements/examples.modals.js"></script>
+<!-- Examples notif-->
+		<script src="assets/javascripts/ui-elements/examples.notifications.js"></script>
+		
 	</body>
 </html>

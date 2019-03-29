@@ -32,7 +32,7 @@ while($ruangsedia=mysqli_fetch_array($query)){
     $baris = mysqli_num_rows($querym);
     $barisbaru = $baris+1;
 
-    $kalimat = $kalimat . "<a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang'><div class='col-4' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> id ruangnya = " . $ruangsedia['id_ruangan'] . "</div></a>";
+    $kalimat = $kalimat . "<a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang'><div class='col-12' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> id ruangnya = " . $ruangsedia['id_ruangan'] . "</div></a>";
     
 }
 

@@ -24,7 +24,7 @@ $jenis= $_GET['jenis'];
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
-		<title>Registration Form</title>
+		<title>Booking Form</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
 		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
 		<meta name="author" content="okler.net">
@@ -63,10 +63,10 @@ $jenis= $_GET['jenis'];
 		<section class="body" style="padding-top: 50px; padding-left: 300px; padding-right:100px">
 <div class="row">
 	<div class="col-xs-10">
-	
 		<section class="panel form-wizard" id="w4">
 		<form class="form-horizontal" action="insertRegister.php" method="post" >
-			<header class="panel-heading center">
+			<header class="panel-heading">
+				<input type="button" class="btn btn-secondary" value="Back to home">
 				<label class="panel-title">Booking Form</label>
 			</header>
 			<div class="panel-body">
@@ -82,7 +82,7 @@ $jenis= $_GET['jenis'];
 							<a href="##w4-b" data-toggle="tab" id="dua" ><span>2</span>b</a>
 						</li>
 						<li>
-							<a href="##w4-d" data-toggle="tab"  id="tiga"><span>3</span>c</a>
+							<a href="##w4-c" data-toggle="tab"  id="tiga"><span>3</span>c</a>
 						</li>
 					</ul>
 				</div>
@@ -98,7 +98,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</span>
-								<input type="date" class="form-control"  name="tanggalpinjam" id="tanggalpinjam" reqired value="<?php echo $date?>">
+								<input type="date" class="form-control"  name="tanggalpinjam" id="tanggalpinjam" reqired value="<?php echo $date?>" disabled>
 								</div>
 							</div>	
 						</div>
@@ -121,7 +121,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" placeholder="End" required type="text" name="waktuSelesai" id="waktuSelesai" value="<?php echo $end?>">
+									<input class="form-control" placeholder="End" required type="text" name="waktuSelesai" id="waktuSelesai" value="<?php echo $end?>"  disabled>
 								</div>	
 								<p style="font-size:10px; color:red" id="cekemailnya"></p>
 							</div>
@@ -140,7 +140,7 @@ $jenis= $_GET['jenis'];
 										$jenisruangan = "Meeting Room";
 									}
 									?>
-									<input class="form-control" placeholder="Jenis Ruangan" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $jenisruangan?>">
+									<input class="form-control" placeholder="Jenis Ruangan" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $jenisruangan?>"  disabled>
 								</div>	
 							</div>
 						</div>
@@ -155,7 +155,7 @@ $jenis= $_GET['jenis'];
 									$namar = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
 									$datanamar = mysqli_fetch_array($namar);
 									?>
-									<input class="form-control" placeholder="End" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $datanamar['nama_ruangan']?>">
+									<input class="form-control" placeholder="End" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $datanamar['nama_ruangan']?>"  disabled>
 								</div>	
 							</div>
 						</div>
@@ -169,7 +169,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</span>
-								<input type="text" class="form-control"  name="namaacara" id="namaacara" reqired>
+								<input type="text" class="form-control"  name="namaacara" id="namaacara" required>
 								</div>
 							</div>	
 						</div>
@@ -181,7 +181,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<select>
+									<select id="jenisacara">
 									<?php
 									$kategoria = mysqli_query($koneksi, "SELECT * FROM kategori_acara WHERE status_delete='0'");
 									while($datakate = mysqli_fetch_array($kategoria)){
@@ -204,9 +204,21 @@ $jenis= $_GET['jenis'];
 								</div>	
 							</div>
 						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="w4-username">Deskripsi Acara</label>
+							<div class="col-sm-7">
+								<div class="input-group mb-md">
+									<span class="input-group-addon">
+										<i class="fa fa-envelope"></i>
+									</span>
+									<input class="form-control" required type="number" name="deskripsiacara" id="deskripsiacara">
+								</div>	
+							</div>
+						</div>
 					</div>
 
-						<div id="w4-d" class="tab-pane">
+						<div id="w4-c" class="tab-pane">
 							<div class="col-md-6">
 								<div class="panel-primary">
 									<header class="panel-heading">
@@ -223,7 +235,7 @@ $jenis= $_GET['jenis'];
 										<p id="jenisruangan"><?php echo $jenis?></p>
 										<?php
 										$namaruangan = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
-										$datanamaruangan = mysqli_fetch_array($namar);
+										$datanamaruangan = mysqli_fetch_array($namaruangan);
 										?>
 										<h3>Nama Ruangan:</h3>
 										<p id="namaruangan"><?php echo $datanamaruangan['nama_ruangan']?></p>
@@ -235,21 +247,17 @@ $jenis= $_GET['jenis'];
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Detail Acara</h2>
+										<h2 class="panel-title">Detail Peminjaman</h2>
 									</header>
 									<div class="panel-body">
-										<h3>Tanggal Peminjaman:</h3>
-										<p id="tgl"><?php echo $date?></p>
-										<h3>Waktu</h3>
-										<p id="waktu"><?php echo $start?> sampai <?php echo $end?></p>
-										<h3>Jenis Ruangan:</h3>
-										<p id="jenisruangan"><?php echo $jenis?></p>
-										<?php
-										$namaruangan = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
-										$datanamaruangan = mysqli_fetch_array($namar);
-										?>
-										<h3>Nama Ruangan:</h3>
-										<p id="namaruangan"><?php echo $datanamaruangan['nama_ruangan']?></p>
+										<h3>Nama Acara:</h3>
+										<p id="namaa"></p>
+										<h3>Kategori Acara</h3>
+										<p id="jenisa"></p>
+										<h3>Jumlah Peserta:</h3>
+										<p id="jumlahp"></p>
+										<h3>Deskripsi Acara: </h3>
+										<p id="deskripsia"></p>
 									</div>
 								</div>
 							</div>
@@ -306,3 +314,30 @@ $jenis= $_GET['jenis'];
 	</body>
 	<script src="scriptRegister.js"></script>
 </html>
+
+<script>
+	$(document).ready(function(){
+		$("#kembali, #berikutnya, #w4-a, #w4-b, #w4-c").click(function(){
+				var nacara = $("#namaacara").val();
+				$('#namaa').empty();
+				$('#namaa').append(nacara);
+
+				var jacara= $("#jenisacara").children("option:selected").val();
+				<?php
+				$query = mysqli_query($koneksi, "SELECT * FROM kategori_acara WHERE status_delete='0'");
+				$data = mysqli_fetch_array($query);
+				?>
+				$('#jenisa').empty();
+				$('#jenisa').append(jacara);
+
+				var jpeserta= $("#jumlahpeserta").val();
+				$('#jumlahp').empty();
+				$('#jumlahp').append(jpeserta);
+
+				var dacara= $("#deskripsiacara").val();
+				$('#deskripsia').empty();
+				$('#deskripsia').append(dacara);
+
+		});
+		});
+</script>

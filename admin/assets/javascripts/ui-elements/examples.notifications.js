@@ -24,7 +24,7 @@
 		});
 	});
 
-	$('#default-success').click(function() {
+	$('.sukses').click(function() {
 		new PNotify({
 			title: 'Regular Notice',
 			text: 'Check me out! I\'m a notice.',
@@ -40,10 +40,10 @@
 		});
 	});
 
-	$('#default-error').click(function() {
+	$('.gagal').click(function() {
 		new PNotify({
-			title: 'Regular Notice',
-			text: 'Check me out! I\'m a notice.',
+			title: 'EROR',
+			text: 'Check again all the input!',
 			type: 'error'
 		});
 	});

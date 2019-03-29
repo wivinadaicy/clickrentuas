@@ -1,24 +1,6 @@
 <?php
 session_start();
-$email = $_SESSION['email'];
-$password =$_SESSION['password'];
-$nama = $_SESSION['nama'];
-$jk = $_SESSION['jk'];
-$id = $_SESSION['id'];
-$alamat = $_SESSION['alamat'];
-$nohp = $_SESSION['no_hp'];
-$status= $_SESSION['status'];
-
- if($email==""){
-			   $_SESSION['email'] ="";
-			 $_SESSION['password'] ="";
-			 $_SESSION['nama'] ="";
-			 $_SESSION['jk'] ="";
-				  $_SESSION['id'] ="";
-			  $_SESSION['alamat'] ="";
-			 $_SESSION['no_hp'] ="";
-			$_SESSION['status'] ="";
- }
+include('../session.php');
 include('../koneksi.php');
 ?>
 
@@ -52,6 +34,7 @@ include('../koneksi.php');
 		
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
+<?php include('req/lihatProfil.php');?>
 <!--*****************************-->
 <!--*****************************-->
 <?php include('req/rightbar.php');?>

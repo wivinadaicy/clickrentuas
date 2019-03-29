@@ -11,7 +11,7 @@ $alamatnya = $_POST['alamat'];
 $jknya = $_POST['jk'];
 $idx = $_POST['idx'];
 
-$query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya', '$idx', now(), '0', '0', '0', '0', '0' )";
+$query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','2', '$idx', now(), '0', '0', '0', '0', '0' )";
 
 $jalanin = mysqli_query($koneksi,$query);
 ?>

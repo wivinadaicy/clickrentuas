@@ -79,7 +79,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="">
+							<a href="memberPending.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>New Member Pending</span>
 							</a>
