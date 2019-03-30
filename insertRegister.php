@@ -28,7 +28,7 @@ if($hitung==0){
         $sks=$_POST['totalsks'];
         $ipk=$_POST['ipkterakhir'];
         $programstudi = $_POST['ps'];
-        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','2', '0', now(), '0', '0', '0', '0', '0' )";
+        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','1', '0', now(), '0', '0', '0', '0', '0' )";
         $jalanin = mysqli_query($koneksi,$query);
         $query2 = "INSERT INTO mahasiswa VALUES ('$nim', $idnya, $programstudi, $angkatan, $semester, $sks, $ipk, $idnya, now(), '0', '0', '0', '0', '0'";
         $jalanin2 = mysqli_query($koneksi,$query2);
