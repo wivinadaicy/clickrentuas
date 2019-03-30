@@ -64,7 +64,7 @@ $jenis= $_GET['jenis'];
 <div class="row">
 	<div class="col-xs-10">
 		<section class="panel form-wizard" id="w4">
-		<form class="form-horizontal" action="insertRegister.php" method="post" >
+		<form class="form-horizontal" action="insertPeminjaman.php" method="post" >
 			<header class="panel-heading">
 				<input type="button" class="btn btn-secondary" value="Back to home">
 				<label class="panel-title">Booking Form</label>
@@ -76,13 +76,13 @@ $jenis= $_GET['jenis'];
 					</div>
 					<ul class="wizard-steps">
 						<li class="active">
-							<a href="#w4-a" data-toggle="tab" id="satu"><span>1</span>a</a>
+							<a href="#w4-a" data-toggle="tab" id="satu"><span>1</span>Peminjaman</a>
 						</li>
 						<li>
-							<a href="##w4-b" data-toggle="tab" id="dua" ><span>2</span>b</a>
+							<a href="#w4-b" data-toggle="tab" id="dua" ><span>2</span>Detail Acara</a>
 						</li>
 						<li>
-							<a href="##w4-c" data-toggle="tab"  id="tiga"><span>3</span>c</a>
+							<a href="#w4-c" data-toggle="tab"  id="tiga"><span>3</span>Konfirmasi</a>
 						</li>
 					</ul>
 				</div>
@@ -109,7 +109,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" placeholder="Start" required type="text" name="waktuMulai" id="waktumulai" value="<?php echo $start?>">
+									<input class="form-control" placeholder="Start" disabled type="text" name="waktuMulai" id="waktumulai" value="<?php echo $start?>">
 								</div>	
 								<p style="font-size:10px; color:red" id="cekemailnya"></p>
 							</div>
@@ -181,7 +181,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<select id="jenisacara">
+									<select id="jenisacara" name="jenisacara">
 									<?php
 									$kategoria = mysqli_query($koneksi, "SELECT * FROM kategori_acara WHERE status_delete='0'");
 									while($datakate = mysqli_fetch_array($kategoria)){
@@ -212,7 +212,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" required type="number" name="deskripsiacara" id="deskripsiacara">
+									<textarea name="deskripsiacara" id="deskripsiacara" required class="form-control"></textarea>
 								</div>	
 							</div>
 						</div>
@@ -252,7 +252,7 @@ $jenis= $_GET['jenis'];
 									<div class="panel-body">
 										<h3>Nama Acara:</h3>
 										<p id="namaa"></p>
-										<h3>Kategori Acara</h3>
+										<h3>Kategori Acara:</h3>
 										<p id="jenisa"></p>
 										<h3>Jumlah Peserta:</h3>
 										<p id="jumlahp"></p>
@@ -271,7 +271,7 @@ $jenis= $_GET['jenis'];
 						<a id="kembali"><i class="fa fa-angle-left"></i> Previous</a>
 					</li>
 					<li class="finish hidden pull-right">
-						<a><input type="submit"  name="regis" value="Finish"></a>
+						<input type="submit"  name="book" value="Finish">
 					</li>
 					<li class="next">
 						<a id="berikutnya">Next <i class="fa fa-angle-right"></i></a>
@@ -315,6 +315,11 @@ $jenis= $_GET['jenis'];
 	<script src="scriptRegister.js"></script>
 </html>
 
+
+<select>
+</select>
+
+
 <script>
 	$(document).ready(function(){
 		$("#kembali, #berikutnya, #w4-a, #w4-b, #w4-c").click(function(){
@@ -322,11 +327,8 @@ $jenis= $_GET['jenis'];
 				$('#namaa').empty();
 				$('#namaa').append(nacara);
 
-				var jacara= $("#jenisacara").children("option:selected").val();
-				<?php
-				$query = mysqli_query($koneksi, "SELECT * FROM kategori_acara WHERE status_delete='0'");
-				$data = mysqli_fetch_array($query);
-				?>
+				var jacara= $("#jenisacara").children("option:selected").text();
+				
 				$('#jenisa').empty();
 				$('#jenisa').append(jacara);
 
@@ -334,7 +336,7 @@ $jenis= $_GET['jenis'];
 				$('#jumlahp').empty();
 				$('#jumlahp').append(jpeserta);
 
-				var dacara= $("#deskripsiacara").val();
+				var dacara= $("textarea#deskripsiacara").val();
 				$('#deskripsia').empty();
 				$('#deskripsia').append(dacara);
 

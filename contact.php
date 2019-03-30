@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
             
-            <form method="post" class="bg-white p-md-5 p-4 mb-5 border">
+            <form method="post" class="bg-white p-md-5 p-4 mb-5 border" action="sendContact.php">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="name">Name</label>
@@ -35,7 +35,7 @@
               </div>
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="submit" value="Send Message" class="btn btn-primary text-white font-weight-bold">
+                  <input type="submit" value="Send Message" class="btn btn-primary text-white font-weight-bold" name="submitContact">
                   <div class="submitting"></div>
                 </div>
               </div>

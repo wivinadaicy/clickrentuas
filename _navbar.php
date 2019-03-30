@@ -1,3 +1,4 @@
+
  <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="templateux-navbar">
       <div class="container">
         <a class="navbar-brand" href="index.php">Click<span class="text-danger">&amp;</span>Rent</a>

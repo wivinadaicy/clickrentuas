@@ -50,8 +50,8 @@
                     <div class="field-icon-wrap">
                           <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                           <select name="ruangan" id="ruangan" class="form-control">
-                            <option value="lab">Laboratory</option>
-                            <option value="meet">Meeting Room</option>
+                            <option value="1">Laboratory</option>
+                            <option value="2">Meeting Room</option>
                           </select>
                         </div>
                   </div>
@@ -143,7 +143,7 @@ function cekRuangan(){
   var mulai2 = $('#waktuMulai').children("option:selected").val();
   var selesai2 = $('#waktuSelesai').children("option:selected").val();
   var tanggal2 = $('#tanggalPinjam').val();
-  var ruang2 = $('#waktuMulai').children("option:selected").val();
+  var ruang2 = $('#ruangan').children("option:selected").val();
 	$.ajax({
 		type:"post",
 		url:"cekRuang.php",
@@ -162,7 +162,7 @@ function ceksemua(){
   var mulai2 = $('#waktuMulai').children("option:selected").val();
   var selesai2 = $('#waktuSelesai').children("option:selected").val();
   var tanggal2 = $('#tanggalPinjam').val();
-  var ruang2 = $('#waktuMulai').children("option:selected").val();
+  var ruang2 = $('#ruangan').children("option:selected").val();
 
   if(tanggal2==""){
     $('#cekavailability').prop('disabled',true);
