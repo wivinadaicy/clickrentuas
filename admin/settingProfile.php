@@ -94,7 +94,7 @@
 <br>
 <br>
 <br>
-        <form method="post">
+        <form method="post" action="gantiPassword.php" name="theForm2">
         <section class="panel">
             <header class="panel-heading">
                 <div class="panel-actions">
@@ -104,47 +104,72 @@
             </header>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Password <span class="required">*</span></label>
+                    <label class="col-sm-3 control-label">Current Password <span class="required">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required/>
+                            <input type="password" name="passlama" id="passlama" class="form-control" placeholder="Password" required/>
                         </div>
                     </div>
                 </div>
                 <br>
                 <br>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Password <span class="required">*</span></label>
+                    <label class="col-sm-3 control-label"> New Password <span class="required">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required/>
+                            <input type="password" name="passbaru" id="passbaru" class="form-control" placeholder="Password" required/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Password <span class="required">*</span></label>
+                    <label class="col-sm-3 control-label">Confirm New Password <span class="required">*</span></label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </span>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required/>
+                            <input type="password" name="passkonfir" id="passkonfir" class="form-control" placeholder="Password" required minlength="8" oninput="cekPassword()"/>
                         </div>
+                        <p style="font-size:10px; color:red" id="cekpasnya"></p>
                     </div>
                 </div>
                 <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                    <input class="btn btn-primary gagal" type="submit" name="simpanpassword" value="Simpan">
+                    <a href="#konfirpas" id="simpanpassword" class="btn btn-primary modal-sizes">Simpan</a>
                 </div>
             </div>
             </div>
             
+
+            <div id="konfirpas" class="modal-block modal-block-sm mfp-hide">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Are you sure to change your Passowrd?</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="modal-wrapper">
+                            <div class="modal-text">
+                                <p>Jika penggantian kata sandi Anda berhasil, Anda akan diminta untuk log in kembali. Jika penggantian kata sandi tidak berhasil, maka Anda akan diarahkan menuju halaman dashboard</p>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <input type="submit" name="okepass" id="okepass" class="btn btn-primary" onclick=submitlah()>
+                                <button class="btn btn-default modal-dismiss">Cancel</button>
+                            </div>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+
         </form>
 
 
@@ -186,5 +211,39 @@ window.onload = function() {
 
 function submitdong(){
     document.theForm.submit();
+}
+function submitlah(){
+    document.theForm2.submit();
+}
+
+
+function cekPassword(){
+    var passl2 = $("#passlama").val();
+    var passb2 = $("#passbaru").val();
+    var passk2 = $("#passkonfir").val();
+	
+	$.ajax({
+		type:"post",
+		url:"cekGantiPass.php",
+		dataType: "JSON",
+		data: {passl:passl2, passb:passb2, passk:passk2},
+		success: function(respond){
+			if(respond==1){
+				$("#simpanpassword").hide();
+				$("#cekpasnya").html("*Password konfirmasi harus sama dengan password baru");
+            }
+            
+            if(respond==0){
+				$("#simpanpassword").show();
+                $("#cekpasnya").empty();
+            }
+            
+            if(respond==2){
+				$("#simpanpassword").hide();
+				$("#cekpasnya").html("*Password salah");
+			}
+			
+		}
+	});
 }
 </script>

@@ -31,6 +31,12 @@
 		<link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
 <!--Modals-->        
 		<link rel="stylesheet" href="assets/vendor/pnotify/pnotify.custom.css" />
+<!--calender-->        
+		<link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+		<link rel="stylesheet" href="assets/vendor/fullcalendar/fullcalendar.css" />
+		<link rel="stylesheet" href="assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
+
+		
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />

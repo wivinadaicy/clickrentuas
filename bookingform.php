@@ -10,7 +10,7 @@
                     <label class="font-weight-bold text-form">Date</label>
                     <div class="field-icon-wrap">
                       <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control">
+                      <input type="date" id="tanggalPinjam" name="tanggalPinjam" class="form-control" required min="<?php echo date('Y-m-d', strtotime(date("Y-m-d") . ' +1 day'));?>">
                     </div>
                   </div>
                   <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -59,7 +59,7 @@
                   <div class="col-md-6 col-lg-3 align-self-end">
                     <input class="btn btn-primary btn-block text-white btn btn-outline-white-primary" id="cekavailability" onclick="cekRuangan()" value="Check Availabilty" type="button">
                   </div>
-                    
+                  <p style="font-size:10px; color:red" id="ceksession"></p>
                   <div class="row" id="ruangannya">
                   
                   </div>
@@ -138,8 +138,6 @@ $(document).ready(function(){
 });
 }
 
-
-
 function cekRuangan(){
 	$(document).ready(function(){
   var mulai2 = $('#waktuMulai').children("option:selected").val();
@@ -159,4 +157,42 @@ function cekRuangan(){
 	});
 });
 }
+
+function ceksemua(){
+  var mulai2 = $('#waktuMulai').children("option:selected").val();
+  var selesai2 = $('#waktuSelesai').children("option:selected").val();
+  var tanggal2 = $('#tanggalPinjam').val();
+  var ruang2 = $('#waktuMulai').children("option:selected").val();
+
+  if(tanggal2==""){
+    $('#cekavailability').prop('disabled',true);
+  }else{
+    $('#cekavailability').prop('disabled',false);
+  }
+}
+
+
+window.onload = function() {
+  ceksemua();
+};
+</script>
+
+<input type="hidden" name="ses" id="ses" value ="<?php echo $email?>">
+
+<script>
+function cekSes(){
+  var ses = $("#ses").val();
+
+  if($("#ses").val()!=""){
+    $("#cekavailability").show();
+    $("#ceksession").empty();
+  }else{
+    $("#cekavailability").hide();
+    $("#ceksession").html("*Anda harus log in terlebih dahulu untuk membooking ruangan");
+  }
+}
+
+window.onload = function() {
+  cekSes();
+};
 </script>

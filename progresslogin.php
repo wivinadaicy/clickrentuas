@@ -25,7 +25,7 @@ if(isset($_POST['login'])){
 		
 		header('location:index.php');
 	}else{
-		header('location:loginuser.php');
+		header('location:loginuser1.php');
 	}
 }
 ?>

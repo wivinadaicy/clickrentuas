@@ -21,6 +21,11 @@
 <!--Modals form basic-->
 		<script src="assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 		<script src="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+<!--calender-->
+		<script src="assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+		<script src="assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+		<script src="assets/vendor/fullcalendar/lib/moment.min.js"></script>
+		<script src="assets/vendor/fullcalendar/fullcalendar.js"></script>
 
 
 		<!-- Theme Base, Components and Settings -->
@@ -42,6 +47,8 @@
 		<script src="assets/javascripts/ui-elements/examples.modals.js"></script>
 <!-- Examples notif-->
 		<script src="assets/javascripts/ui-elements/examples.notifications.js"></script>
+<!-- Examples calender -->
+<script src="assets/javascripts/pages/examples.calendar.js"></script>
 		
 	</body>
 </html>

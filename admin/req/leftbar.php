@@ -94,7 +94,7 @@
 							</a>
 							<ul class="nav nav-children">
 								<li>
-									<a href="">
+									<a href="jadwalLab.php">
 										 Laboratorium
 									</a>
 								</li>

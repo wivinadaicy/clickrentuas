@@ -51,7 +51,7 @@
               <div class="col-md-10 ml-auto contact-info">
                 <p><span class="d-block">Address:</span> <span class="text-black"> Jl. MH. Thamrin Boulevard 1100, Klp. Dua, Karawaci, Tangerang, Banten 15811</span></p>
                 <p><span class="d-block">Phone:</span> <span class="text-black"> (021) 5460901</span></p>
-                <p><span class="d-block">Email:</span> <span class="text-black">  undergraduate.admission@uph.edu</span></p>
+                <p><span class="d-block">Email:</span> <span class="text-black">clickrentsistech@gmail.com</span></p>
               </div>
             </div>
           </div>
