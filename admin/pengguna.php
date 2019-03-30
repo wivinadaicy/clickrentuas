@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Data Pengguna</h2>
+			<h2>User Data</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li><span>Master Data</span></li>
-					<li><span>Pengguna</span></li>
+					<li><span>User</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -35,12 +35,12 @@
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
-				<th>Nama Lengkap</th>
-				<th>Tanggal Lahir</th>
+				<th>Full Name</th>
+				<th>Date of Birth</th>
 				<th>Email</th>
-				<th>Nomor Hp</th>
+				<th>Phone Number</th>
 				<th>Status</th>
-				<th>Aksi</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>

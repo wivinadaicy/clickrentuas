@@ -21,7 +21,7 @@ $statusx= $_SESSION['status'];
 /*ganti*/		
         var id = $("input[name=idmahasiswa]").val();
         var idpengguna = $("input[name=idpengguna]").val();
-        var idprodi = $("input[name=idprodi]").val();
+        var namaprodi = $("input[name=namaprodi]").val();
         var angkatan = $("input[name=angkatan]").val(); //text
 		var semester = $("input[name=semester]").val();
 		var sks = $("input[name=totalsks]").val();
@@ -29,7 +29,7 @@ $statusx= $_SESSION['status'];
         var idx = $("input[name=idx]").val();
 		
 		
-        if(id=="" || idpengguna=="" || idprodi=="" || angkatan=="" || semester=="" || sks=="" || ipk==""){
+        if(id=="" || idpengguna=="" || namaprodi=="" || angkatan=="" || semester=="" || sks=="" || ipk==""){
             e.preventDefault();
 			$("form").valid();
         }else{
@@ -37,7 +37,7 @@ $statusx= $_SESSION['status'];
              { 
 				 idmahasiswa:id,
                  idpengguna:idpengguna,
-				 idprodi:idprodi,
+				 namaprodi:namaprodi,
 				 angkatan:angkatan,
 				 semester:semester,
 				 totalsks:sks,
@@ -73,7 +73,7 @@ $statusx= $_SESSION['status'];
 	$(document).on('click', '.edit', function (e) {
 		var id = $("input[name=idmahasiswa]").val();
         var idpengguna = $("input[name=idpengguna]").val();
-        var idprodi = $("input[name=idprodi]").val();
+        var namaprodi = $("input[name=namaprodi]").val();
         var angkatan = $("input[name=angkatan]").val(); //text
 		var semester = $("input[name=semester]").val();
 		var sks = $("input[name=totalsks]").val();
@@ -81,7 +81,7 @@ $statusx= $_SESSION['status'];
         var idx = $("input[name=idx]").val();
 		
         
-        if(id=="" || idpengguna=="" || idprodi=="" || angkatan=="" || semester=="" || sks=="" || ipk==""){
+        if(id=="" || idpengguna=="" || namaprodi=="" || angkatan=="" || semester=="" || sks=="" || ipk==""){
             e.preventDefault();
 			alert('Periksa kembali data yang dimasukkan!');
         }else{
@@ -89,7 +89,7 @@ $statusx= $_SESSION['status'];
              {
 				 idmahasiswa:id,
                  idpengguna:idpengguna,
-				 idprodi:idprodi,
+				 namaprodi:namaprodi,
 				 angkatan:angkatan,
 				 semester:semester,
 				 totalsks:sks,

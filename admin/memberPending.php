@@ -44,11 +44,11 @@ include('../koneksi.php');
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
-				<th>Nama Lengkap</th>
+				<th>Full Name</th>
 				<th>Email</th>
-				<th>Nomor Hp</th>
+				<th>Phone Number</th>
 				<th>Status</th>
-				<th>Aksi</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -73,11 +73,11 @@ include('../koneksi.php');
 						?>
 				<td><?php echo $statusnya?></td>
 				<td class="text-center">
-					<a class="modal-with-form btn btn-default" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
+					<a class="modal-with-form mb-xs mt-xs mr-xs btn btn-default" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
-					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-warning" href="#modalterima<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i> Terima
+					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-success" href="#modalterima<?php echo $data['id_pengguna'];?>"><i class='fa fa-check'></i>
 					</a>
-					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i> Tolak</a>
+					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-danger" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-times'></i></a>
 				</td>
 			</tr>
 			<?php include('memberPending/modaldetail.php');?>

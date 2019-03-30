@@ -10,12 +10,8 @@
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">ID Mahasiswa<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<?php
-						$querym= mysqli_query($koneksi, "SELECT * FROM mahasiswa");
-						$baris = mysqli_num_rows($querym);
-						$barisbaru = $baris+1;
-					?>
-					<input type="text" name="idmahasiswa"  class="form-control" value = "<?php echo $barisbaru ?>"placeholder="ketik id mahasiswa" disabled>
+				
+					<input type="text" name="idmahasiswa"  class="form-control" placeholder="ketik id mahasiswa" required>
 				</div>
 			</div>
             <div class="form-group mt-lg">
@@ -26,18 +22,24 @@
 						$baris = mysqli_num_rows($querym);
 						$barisbaru = $baris+1;
 					?>
-					<input type="text" name="idpengguna"  class="form-control" value = "<?php echo "USER-" . $barisbaru ?>"placeholder="ketik id pengguna" disabled>
+					<input type="text" name="idpengguna"  class="form-control" value = "<?php echo "USER-" . $barisbaru ?>"placeholder="ketik id pengguna" required>
 				</div>
 			</div>
             <div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">ID Program Studi<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Nama Program Studi<span class="required">*</span></label>
 				<div class="col-sm-9">
+                    <select name="namaprodi" class="form-control">
 					<?php
-						$querym= mysqli_query($koneksi, "SELECT * FROM mahasiswa");
-						$baris = mysqli_num_rows($querym);
-						$barisbaru = $baris+1;
-					?>
-					<input type="text" name="idprodi"  class="form-control" value = "<?php echo "PS-" . $barisbaru ?>"placeholder="ketik id prodi" disabled>
+						$querym= mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");
+						 while($baris =mysqli_fetch_array($querym))
+                        {
+                            ?>
+                        <option value="<?php echo $baris['id_programStudi'] ?>">
+                            <?php echo $baris['nama_programStudi']?>
+                            
+                        </option>
+                        <?php    }?>
+                        </select>
 				</div>
 			</div>
 			<div class="form-group mt-lg">

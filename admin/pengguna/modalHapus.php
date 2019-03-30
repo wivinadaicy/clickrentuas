@@ -1,12 +1,12 @@
 <div id="delete<?php echo $data['id_pengguna'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
-			<h2 class="panel-title">Hapus Data</h2>
+			<h2 class="panel-title">Delete Data</h2>
 		</header>
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Apakah anda yakin akan menghapus data pengguna dengan nama <?php echo $data['nama_lengkap']?>?</p>
+					<p>Are you sure you want to delete data from user with the name " <?php echo $data['nama_lengkap']?>" ?</p>
 				</div>
 			</div>
 		</div>

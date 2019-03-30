@@ -18,9 +18,20 @@
 				</div>
 			</div>
             <div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">ID Program Studi<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Nama Program Studi<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="idprodi"  class="form-control" value = "<?php echo $data['id_programStudi']?>" placeholder="ketik judul buku" disabled>
+                    <select name="namaprodi" class="form-control" disabled>
+					<?php
+						$querym= mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");
+						 while($baris =mysqli_fetch_array($querym))
+                        {
+                            ?>
+                        <option value="<?php echo $baris['id_programStudi'] ?>">
+                            <?php echo $baris['nama_programStudi']?>
+                            
+                        </option>
+                        <?php    }?>
+                        </select>
 				</div>
 			</div>
 			<div class="form-group mt-lg">

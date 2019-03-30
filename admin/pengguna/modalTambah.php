@@ -1,15 +1,15 @@
-<a href="#modalForm" class="modal-with-form btn btn-success pull-right"><li class="fa fa-plus"></li> Tambah Data</a>									
+<a href="#modalForm" class="modal-with-form btn btn-success pull-right"><li class="fa fa-plus"></li> Add Data</a>									
 
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
 	<form>
         <header class="panel-heading">
-            <h2 class="panel-title">Tambah Data Pengguna</h2>
+            <h2 class="panel-title">Add User Data</h2>
 		</header>
         <div class="panel-body">
 		<!--GANTI DISINI-->
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">ID Pengguna<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">User ID<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<?php
 						$querym= mysqli_query($koneksi, "SELECT * FROM pengguna");
@@ -20,20 +20,20 @@
 				</div>
 			</div>
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Nama Lengkap <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Full Name <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namalengkap"  id="namalengkap" class="form-control" placeholder="ketik judul buku" required>
+					<input type="text" name="namalengkap"  id="namalengkap" class="form-control" placeholder="insert full name" required>
 				</div>
 			</div>
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Jenis Kelamin <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Gender<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="radio" name="jeniskelamin" value="l" checked>Laki-Laki &nbsp;&nbsp;
-					<input type="radio" name="jeniskelamin" value="p">Perempuan
+					<input type="radio" name="jeniskelamin" value="l" checked>Male &nbsp;&nbsp;
+					<input type="radio" name="jeniskelamin" value="p">Female
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Date of Birth<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<input type="date" name="tanggallahir"  id="jeniskelamin"  class="form-control"  required>
 				</div>
@@ -41,24 +41,24 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Email <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="email" name="email" id="email" class="form-control" placeholder="ketik nama pengarang" required oninput="cekEmail()">
+					<input type="email" name="email" id="email" class="form-control" placeholder="insert email" required oninput="cekEmail()">
 					<p style="font-size:10px; color:red" id="cekemailnya"></p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Kata Sandi <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Password<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="password" name="katasandi"  id="katasandi" class="form-control" placeholder="ketik nama pengarang" required >
+					<input type="password" name="katasandi"  id="katasandi" class="form-control" placeholder="insert password" required >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Nomor Hp <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Phone Number<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="nomorhp"   id="nomorhp" class="form-control" placeholder="ketik nama pengarang" required >
+					<input type="text" name="nomorhp"   id="nomorhp" class="form-control" placeholder="insert phone number" required >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Status Pengguna</label>
+				<label class="col-sm-3 control-label">User Status</label>
 				<div class="col-sm-9">
 					 <select name="statuspengguna" id="statuspengguna" class="form-control" required>
 					 <?php
@@ -74,9 +74,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Alamat <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Address <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<textarea name="alamat" id="alamat"  class="form-control" placeholder="ketik nama pengarang" required></textarea>
+					<textarea name="alamat" id="alamat"  class="form-control" placeholder="insert address" required></textarea>
 				</div>
 			</div>
             
