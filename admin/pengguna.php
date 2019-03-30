@@ -66,11 +66,11 @@
 						?>
 				<td><?php echo $statusnya?></td>
 				<td class="text-center">
-					<a class="modal-with-form btn btn-default" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
+					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
-					<a class="modal-with-form btn btn-warning" href="#modal<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i>
+					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i>
 					</a>
-					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
+					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
 				</td>
 			</tr>
 			<?php include('pengguna/modaldetail.php');?>
@@ -121,4 +121,10 @@ function cekEmail(){
 });
 }
 
+</script>
+        
+<script>      
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>

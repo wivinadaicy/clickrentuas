@@ -73,11 +73,11 @@ include('../koneksi.php');
 						?>
 				<td><?php echo $statusnya?></td>
 				<td class="text-center">
-					<a class="modal-with-form mb-xs mt-xs mr-xs btn btn-default" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
+					<a class="modal-with-form mb-xs mt-xs mr-xs btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
-					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-success" href="#modalterima<?php echo $data['id_pengguna'];?>"><i class='fa fa-check'></i>
+					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-success" data-toggle="tooltip" data-placement="top" title="Accept" href="#modalterima<?php echo $data['id_pengguna'];?>"><i class='fa fa-check'></i>
 					</a>
-					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-danger" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-times'></i></a>
+					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-danger" data-toggle="tooltip" data-placement="top" title="Decline" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-times'></i></a>
 				</td>
 			</tr>
 			<?php include('memberPending/modaldetail.php');?>
@@ -100,4 +100,9 @@ include('../koneksi.php');
 		<?php 
 		include('pengguna/scriptDetail.php');
 		?>
-
+        
+<script>      
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
