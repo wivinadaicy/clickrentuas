@@ -82,13 +82,16 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Ruangan</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-7">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-envelope"></i> <!--ganti-->
                             </span>
-                            <input type="text" name="ruanganpeminjaman"  id="ruanganpeminjaman" class="form-control" value="<?php echo $data['nama_ruangan'] . " SAMPAI " . $data['waktu_selesai']?>" disabled/>
+                            <input type="text" name="ruanganpeminjaman"  id="ruanganpeminjaman" class="form-control" value="<?php echo $data['nama_ruangan'] ?>" disabled/>
                         </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <a href="#detailRuang" class="btn btn-warning  modal-sizes"><i class="fa fa-eye"></i> Detail</a>
                     </div>
                 </div>
                 <div class="form-group">
@@ -99,6 +102,18 @@ $data = mysqli_fetch_array($query);
                                 <i class="fa fa-envelope"></i> <!--ganti-->
                             </span>
                             <input type="text" name="acara"  id="acara" class="form-control" value="<?php echo $data['acara']?>" disabled/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Kategori Acara</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i> <!--ganti-->
+                            </span>
+                            <input type="text" name="peserta"  id="peserta" class="form-control" value="<?php echo $data['jenis_acara']?>" disabled/>
                         </div>
                     </div>
                 </div>
@@ -114,18 +129,7 @@ $data = mysqli_fetch_array($query);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Kategori Acara</label>
-                    <div class="col-sm-9">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
-                            </span>
-                            <input type="text" name="peserta"  id="peserta" class="form-control" value="<?php echo $data['jenis_acara']?>" disabled/>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Kategori Acara</label>
+                    <label class="col-sm-3 control-label">Deskripsi Acara</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -143,60 +147,81 @@ $data = mysqli_fetch_array($query);
                 </div>
             </section>
 
+
+            <div id="detailRuang" class="modal-block modal-block-sm mfp-hide">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Detail Ruangan</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="modal-wrapper">
+                            <div class="modal-text">
+                                <p><!-- edit disini --></p>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button class="btn btn-primary modal-dismiss">OK</button>
+                            </div>
+                        </div>
+                    </footer>
+                </section>
+            </div>
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="row">
     <div class="col-lg-6">
         <section class="panel-body">
             <h4 class="center" style="font-weight:bold; color: green">Waiting List (Time&Room)</h4>
+            <p>Tanggal: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+            <p>Ruangan: <b><?php echo $data['nama_ruangan'] ?></b></p>
 	        <hr>
             <table  class="table table-bordered table-striped mb-none" id="datatable-default">
-            <thead>
-                <tr>
-                    <th>Nama Lengkap</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Email</th>
-                    <th>Nomor Hp</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-                $query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' AND status_daftar='2'");	
-                while($data=mysqli_fetch_array($query)){
-                ?>
-                <tr>
-                    <td><?php echo $data['nama_lengkap']?></td>
-                    <td><?php echo $data['tanggal_lahir']?></td>
-                    <td><?php echo $data['email']?></td>
-                    <td><?php echo $data['no_hp']?></td>
-                    <?php
-                            if($data['status_pengguna']=="1"){
-                                $statusnya = "Super Admin";
-                            }else if($data['status_pengguna']=="2"){
-                                $statusnya = "Admin";
-                            }else if($data['status_pengguna']=="3"){
-                                    $statusnya = "Member Dosen";
-                            }else{
-                                    $statusnya = "Member Mahasiswa";
-                            }
-                            ?>
-                    <td><?php echo $statusnya?></td>
-                    <td class="text-center">
-                        <a class="modal-with-form btn btn-default" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
-                        </a>
-                        <a class="modal-with-form btn btn-warning" href="#modal<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i>
-                        </a>
-                        <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
-                    </td>
-                </tr>
-                <?php include('pengguna/modaldetail.php');?>
-                <?php include('pengguna/modalEdit.php');?>
-                <?php include('pengguna/modalHapus.php');?>
-                <?php } ?>
-            </tbody>
-        </table>
+		<thead>
+			<tr>
+				<th>Nama Peminjam</th>
+                <th>Acara</th>
+				<th>Waktu</th>
+				<th>Aksi</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+            $ruangans = $data['id_ruangan'];
+            $tanggals = $data['tanggal_peminjaman'];
+
+			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_ruangan='$ruangans'  ");	
+			while($data=mysqli_fetch_array($query)){
+			?>
+			<tr>
+				<td><?php echo $data['nama_lengkap']?></td>
+				<td><?php echo $data['acara']?></td>
+				<td><?php echo $data['waktu_mulai'] . " - " . $data['waktu_selesai']?></td>
+				<td class="text-center">
+					<a class="btn btn-default" href="detailPeminjamanTunggu.php?idpeminjaman=<?php echo $data['id_peminjaman'];?>"><i class='fa fa-eye'></i> Detail
+					</a>
+				</td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
             </section>
         </div>
 

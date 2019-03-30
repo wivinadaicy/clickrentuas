@@ -60,6 +60,7 @@
                     <input class="btn btn-primary btn-block text-white btn btn-outline-white-primary" id="cekavailability" onclick="cekRuangan()" value="Check Availabilty" type="button">
                   </div>
                   <p style="font-size:10px; color:red" id="ceksession"></p>
+                  
                   <div class="row" id="ruangannya">
                   
                   </div>
