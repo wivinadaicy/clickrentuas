@@ -34,7 +34,7 @@ if($hitung==0){
         $jalanin2 = mysqli_query($koneksi,$query2);
     }
     if($statusnya==3){
-        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','2', '0', now(), '0', '0', '0', '0', '0' )";
+        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','1', '0', now(), '0', '0', '0', '0', '0' )";
 
         $jalanin = mysqli_query($koneksi,$query);
     }

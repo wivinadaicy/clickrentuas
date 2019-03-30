@@ -106,7 +106,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="">
+							<a href="peminjamanPending.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Peminjaman Tunggu Approve</span>
 							</a>
