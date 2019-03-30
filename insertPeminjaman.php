@@ -2,37 +2,28 @@
 <?php include('koneksi.php'); ?>
 
 <?php
-$tanggal = $_POST['tanggalpinjam'];
-$mulai = $_POST['waktuMulai'];
-$selesai = $_POST['waktuSelesai'];
-$jenisruangan = $_POST['jenisRuangan'];
+    $tanggall = $_POST['tanggalpinjam'];
+    $mulaii = $_POST['waktuMulai'];
+    $selesaii = $_POST['waktuSelesai'];
+    $jenisruangan = $_POST['jenisRuangan'];
 
-if($jenisruangan=="Laboratorium"){
-    $jenisR = "1";
-}else{
-    $jenisR= "2";
-}
+    $ruangan = $_POST['namaruangan'];
+    $cariruang = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0' AND nama_ruangan='$ruangan'");
+    $dataruang = mysqli_fetch_array($cariruang);
+    
+    $idruang = $dataruang['id_ruangan'];
+    
+    $namaacara = $_POST['namaacara'];
+    $jenisAcara = $_POST['jenisacara'];
+    $jumlahpeserta = $_POST['jumlahpeserta'];
+    $deskripsiAcara = $_POST['deskripsiacara'];
+    
+    $pj = mysqli_query($koneksi, "SELECT * FROM peminjaman");
+    $hitungpj = mysqli_num_rows($pj);
+    $jadipj = $hitungpj+1;
 
-$ruangan = $_POST['jenisRuangan'];
-$cariruang = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0' AND nama_ruangan='$ruangan'");
-$dataruang = mysqli_fetch_array($cariruang);
-
-$idruang = $dataruang['id_ruangan'];
-
-$namaacara = $_POST['namaacara'];
-$jenisAcara = $_POST['jenisacara'];
-$jumlahpeserta = $_POST['jumlahpeserta'];
-$deskripsiAcara = $_POST['deskripsiacara'];
-
-$pj = mysqli_query($koneksi, "SELECT * FROM peminjaman");
-$hitungpj = mysqli_fetch_array($pj);
-$jadipj = $hitungpj+1;
-
-if(isset($_POST['book'])){
     $query1 = mysqli_query($koneksi,
-  "INSERT INTO peminjaman VALUES('PJ-$jadipj','$tanggal','$idruang','$mulai','$selesai','$id','$namaacara','$jumlahpeserta','$jenisAcara','$deskripsiAcara','$id',now(),'0','0','0','0','0')");
-
-
-}
-
+  "INSERT INTO peminjaman VALUES('PJ-$jadipj','$tanggall','$idruang','$mulaii','$selesaii','$id','$namaacara','$jumlahpeserta','$jenisAcara','$deskripsiAcara','$id',now(),'0','0','0','0','0')");
+$idpinjam="location:selesaiPinjam.php?idpinjam=PJ-$jadipj";
+header($idpinjam);
 ?>

@@ -64,7 +64,7 @@ $jenis= $_GET['jenis'];
 <div class="row">
 	<div class="col-xs-10">
 		<section class="panel form-wizard" id="w4">
-		<form class="form-horizontal" action="insertPeminjaman.php" method="post" >
+		
 			<header class="panel-heading">
 				<input type="button" class="btn btn-secondary" value="Back to home">
 				<label class="panel-title">Booking Form</label>
@@ -87,7 +87,7 @@ $jenis= $_GET['jenis'];
 					</ul>
 				</div>
 
-				
+				<form name="formbookingnya" action="insertPeminjaman.php" method="post" >
 					<div class="tab-content">
 
 					<div id="w4-a" class="tab-pane active">
@@ -98,7 +98,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</span>
-								<input type="date" class="form-control"  name="tanggalpinjam" id="tanggalpinjam" reqired value="<?php echo $date?>" disabled>
+								<input type="date" class="form-control"  name="tanggalpinjam" id="tanggalpinjam" value="<?php echo $date?>" readonly>
 								</div>
 							</div>	
 						</div>
@@ -109,7 +109,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" placeholder="Start" disabled type="text" name="waktuMulai" id="waktumulai" value="<?php echo $start?>">
+									<input class="form-control" placeholder="Start" readonly type="text" name="waktuMulai" id="waktumulai" value="<?php echo $start?>">
 								</div>	
 								<p style="font-size:10px; color:red" id="cekemailnya"></p>
 							</div>
@@ -121,7 +121,7 @@ $jenis= $_GET['jenis'];
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" placeholder="End" required type="text" name="waktuSelesai" id="waktuSelesai" value="<?php echo $end?>"  disabled>
+									<input class="form-control" placeholder="End"  type="text" name="waktuSelesai" id="waktuSelesai" value="<?php echo $end?>"  readonly>
 								</div>	
 								<p style="font-size:10px; color:red" id="cekemailnya"></p>
 							</div>
@@ -140,7 +140,7 @@ $jenis= $_GET['jenis'];
 										$jenisruangan = "Meeting Room";
 									}
 									?>
-									<input class="form-control" placeholder="Jenis Ruangan" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $jenisruangan?>"  disabled>
+									<input class="form-control" placeholder="Jenis Ruangan"  type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $jenisruangan?>"  readonly>
 								</div>	
 							</div>
 						</div>
@@ -155,7 +155,7 @@ $jenis= $_GET['jenis'];
 									$namar = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
 									$datanamar = mysqli_fetch_array($namar);
 									?>
-									<input class="form-control" placeholder="End" required type="text" name="jenisRuangan" id="jenisRuangan" value="<?php echo $datanamar['nama_ruangan']?>"  disabled>
+									<input class="form-control" placeholder="End"  type="text" name="namaruangan" id="namaruangan" value="<?php echo $datanamar['nama_ruangan']?>"  readonly>
 								</div>	
 							</div>
 						</div>
@@ -227,12 +227,13 @@ $jenis= $_GET['jenis'];
 										<h2 class="panel-title">Detail Peminjaman</h2>
 									</header>
 									<div class="panel-body">
+
 										<h3>Tanggal Peminjaman:</h3>
 										<p id="tgl"><?php echo $date?></p>
 										<h3>Waktu</h3>
 										<p id="waktu"><?php echo $start?> sampai <?php echo $end?></p>
 										<h3>Jenis Ruangan:</h3>
-										<p id="jenisruangan"><?php echo $jenis?></p>
+										<p id="jenisruangan"><?php echo $jenisruangan?></p>
 										<?php
 										$namaruangan = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
 										$datanamaruangan = mysqli_fetch_array($namaruangan);
@@ -263,22 +264,22 @@ $jenis= $_GET['jenis'];
 							</div>
 						</div>
 					</div>
-				
+					</form>
 			</div>
 			<div class="panel-footer">
 				<ul class="pager">
-					<li class="previous disabled">
+					<li class="previous readonly">
 						<a id="kembali"><i class="fa fa-angle-left"></i> Previous</a>
 					</li>
 					<li class="finish hidden pull-right">
-						<input type="submit"  name="book" value="Finish">
+						<a id="finish" name="book" onclick="submitBooking()">Finish</a>
 					</li>
 					<li class="next">
 						<a id="berikutnya">Next <i class="fa fa-angle-right"></i></a>
 					</li>
 				</ul>
 			</div>
-			</form>
+			
 			
 		</section>
 		
@@ -342,4 +343,8 @@ $jenis= $_GET['jenis'];
 
 		});
 		});
+
+		function submitBooking(){
+			document.formbookingnya.submit();
+		}
 </script>
