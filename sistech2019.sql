@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 04:44 PM
+-- Generation Time: Mar 30, 2019 at 06:43 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -43,6 +43,21 @@ CREATE TABLE `barang` (
   `user_delete` varchar(40) NOT NULL,
   `waktu_delete` datetime NOT NULL,
   `status_delete` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_contact` int(11) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `message` text NOT NULL,
+  `waktu_kirim` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -592,6 +607,12 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`);
+
+--
 -- Indexes for table `fakultas`
 --
 ALTER TABLE `fakultas`
@@ -710,6 +731,16 @@ ALTER TABLE `ruangan`
 --
 ALTER TABLE `waktu_jadwal`
   ADD PRIMARY KEY (`id_waktuJadwal`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
