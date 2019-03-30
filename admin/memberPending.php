@@ -53,7 +53,7 @@ include('../koneksi.php');
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' AND status_daftar='0'");	
+			$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' AND status_daftar='1'");	
 			while($data=mysqli_fetch_array($query)){
 			?>
 			<tr>
