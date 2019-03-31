@@ -22,8 +22,10 @@
     $hitungpj = mysqli_num_rows($pj);
     $jadipj = $hitungpj+1;
 
-    $query1 = mysqli_query($koneksi,
-  "INSERT INTO peminjaman VALUES('PJ-$jadipj','$tanggall','$idruang','$mulaii','$selesaii','$id','$namaacara','$jumlahpeserta','$jenisAcara','$deskripsiAcara','$id',now(),'0','0','0','0','0')");
-$idpinjam="location:selesaiPinjam.php?idpinjam=PJ-$jadipj";
+    $idpeminjamannya = "PJ-" . $jadipj;
+
+    $query1 = mysqli_query($koneksi, "INSERT INTO peminjaman VALUES ('$idpeminjamannya','$tanggall','$idruang','$mulaii','$selesaii','$id','$namaacara','$jumlahpeserta','$jenisAcara','$deskripsiAcara','0','$id',now(),'0','0','0','0','0')");
+
+$idpinjam="location:selesaiPinjam.php?idpinjam=$idpeminjamannya";
 header($idpinjam);
 ?>

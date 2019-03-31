@@ -172,10 +172,6 @@ function ceksemua(){
   }
 }
 
-
-window.onload = function() {
-  ceksemua();
-};
 </script>
 
 <input type="hidden" name="ses" id="ses" value ="<?php echo $email?>">
@@ -195,5 +191,6 @@ function cekSes(){
 
 window.onload = function() {
   cekSes();
+  ceksemua();
 };
 </script>

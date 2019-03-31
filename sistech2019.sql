@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 02:18 PM
+-- Generation Time: Mar 31, 2019 at 03:04 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -385,8 +385,8 @@ CREATE TABLE `peminjaman` (
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('PJ-1', '2019-04-01', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 0, 'USER-1', '2019-03-30 19:25:58', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-2', '2019-04-01', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Kelas OS', 40, 1, 'Kelas Sistem Operasi', 0, 'USER-1', '2019-03-30 19:26:56', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-3', '2019-04-01', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 0, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PJ-2', '2019-04-01', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Kelas OS', 40, 1, 'Kelas Sistem Operasi', 1, 'USER-1', '2019-03-30 19:26:56', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-3', '2019-04-01', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 1, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -421,11 +421,7 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Daicy', 'p', '1999-10-23', 'Jalan qwerty ajsdajsd jasdj asd', '12345678', '2018-12-20', 1, 2, '', '0000-00-00 00:00:00', 'USER-1', '2019-03-29 20:33:44', '0', '0000-00-00 00:00:00', 0),
-('USER-2', 'qweqwe@qwe.com', '25d55ad283aa400af464c76d713c07ad', 'qweqwe', 'p', '2019-03-21', 'qweqweqweqweqwe', '123456789', '2019-03-24', 3, 2, '0', '2019-03-24 19:11:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('USER-3', 'dfddgfg@gcfcfg.gg', '202cb962ac59075b964b07152d234b70', '5656a', 'p', '2019-03-07', '65', '565', '2019-03-27', 4, 2, '0', '2019-03-27 14:18:16', 'USER-1', '2019-03-29 07:15:26', '', '0000-00-00 00:00:00', 1),
-('USER-4', 'wivinadaicy@yahoo.comsa', '202cb962ac59075b964b07152d234b70', 'wovo', 'p', '2019-03-01', '123123123', '1231231231', '2019-03-28', 1, 2, 'USER-1', '2019-03-28 22:31:50', '', '2019-03-29 07:55:03', '0', '0000-00-00 00:00:00', 0),
-('USER-5', 'wivinah@gmail.com', 'b26986ceee60f744534aaab928cc12df', 'wivinah', 'p', '2019-03-14', 'qweqwe', '01010101', '2019-03-29', 2, 2, 'USER-1', '2019-03-29 07:09:59', '', '2019-03-29 07:55:01', '0', '0000-00-00 00:00:00', 0),
-('USER-6', '243@w.r', '202cb962ac59075b964b07152d234b70', '234', 'p', '2019-03-22', '123', '123123', '2019-03-29', 1, 2, 'USER-1', '2019-03-29 07:20:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('USER-2', 'verenvalenciaa@yahoo.co.id', '202cb962ac59075b964b07152d234b70', 'Veren Valencia', 'p', '2019-03-30', 'qwertyuiop', '123456789', '2019-03-30', 3, 1, '0', '2019-03-30 21:23:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -744,7 +740,7 @@ ALTER TABLE `waktu_jadwal`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
