@@ -1,3 +1,8 @@
+<head>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+</head>
 <section class="section bg-light pb-0"  >
         <div class="container">
          
@@ -64,30 +69,41 @@
                   <div class="row" id="ruangannya">
                   
                   </div>
-                  <!--<section class="rowtab" id="tabruang">
-                    <div class="col-md-12">
-							        <div class="tabs">
-                        <ul class="nav nav-tabs">
-                          <li class="active" id="tlab">
-                            <a href="#lab" data-toggle="tab"><strong>Laboratories</strong></a>
-                          </li>
-                          <li id="tmeet">
-                            <a href="#meet" data-toggle="tab"><strong>Meeting Rooms</strong></a>
-                          </li>
-                        </ul>
-                      <div class="tab-content">
-                        <div id="lab" class="tab-pane active">
-                          <p>Laboratories</p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+            <div class="container" style="margin-top:30px;">
+            <div class="card shopping-cart">
+            <div class="card-header bg-dark text-light">
+                Rooms Availability
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
                         </div>
-                        <div id="meet" class="tab-pane">
-                          <p>Meeting Rooms</p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                            <h4 class="product-name"><strong>Room Name</strong></h4>
+                            <h4>
+                                <small>Room Description</small>
+                            </h4>
                         </div>
-                      </div>
                     </div>
-						      </div>
-                </section>-->
+                    <hr>
+                    <!-- END PRODUCT -->
+                    <!-- PRODUCT -->
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                        </div>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                            <h4 class="product-name"><strong>Room Name</strong></h4>
+                            <h4>
+                                <small>Room Description</small>
+                            </h4>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>
                     
                 </div>
               </form>
