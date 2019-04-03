@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2019 at 03:04 PM
+-- Generation Time: Apr 03, 2019 at 09:36 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -229,14 +229,16 @@ CREATE TABLE `log_mahasiswa` (
   `semester` int(11) NOT NULL,
   `total_sks` int(11) NOT NULL,
   `ipk_terakhir` float NOT NULL,
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_Delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
+  `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_mahasiswa`
+--
+
+INSERT INTO `log_mahasiswa` (`id_logMahasiswa`, `id_mahasiswa`, `id_pengguna`, `id_programStudi`, `angkatan`, `semester`, `total_sks`, `ipk_terakhir`, `user_edit`, `waktu_edit`) VALUES
+(1, '0108273746474', 'USER-2', 'PS-2', 2017, 3, 12, 3, 'USER-2', '2019-04-03 13:41:31');
 
 -- --------------------------------------------------------
 
@@ -286,6 +288,14 @@ CREATE TABLE `log_pengguna` (
   `user_edit` varchar(40) NOT NULL,
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_pengguna`
+--
+
+INSERT INTO `log_pengguna` (`id_logPengguna`, `id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_edit`, `waktu_edit`) VALUES
+(1, 'USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', ' Jalan 123 ', '0827276474', '2019-04-03', 4, 1, 'USER-2', '2019-04-03 13:35:23'),
+(2, 'USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', '  Jalan 123  ', '0827276474', '2019-04-03', 4, 1, 'USER-2', '2019-04-03 13:41:31');
 
 -- --------------------------------------------------------
 
@@ -352,6 +362,13 @@ CREATE TABLE `mahasiswa` (
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_pengguna`, `id_programStudi`, `angkatan`, `semester`, `total_sks`, `ipk_terakhir`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_Delete`, `status_delete`) VALUES
+('0108273746474', 'USER-2', 'PS-2', 2017, 3, 12, 3, '0', '2019-04-03 09:52:48', 'USER-2', '2019-04-03 13:41:31', '0', '0000-00-00 00:00:00', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -386,7 +403,10 @@ CREATE TABLE `peminjaman` (
 INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('PJ-1', '2019-04-01', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 0, 'USER-1', '2019-03-30 19:25:58', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-2', '2019-04-01', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Kelas OS', 40, 1, 'Kelas Sistem Operasi', 1, 'USER-1', '2019-03-30 19:26:56', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-3', '2019-04-01', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 1, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PJ-3', '2019-04-01', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 0, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-4', '2019-04-01', 'R-1', '07:15:00', '08:15:00', 'USER-1', '123', 123, 1, '123', 0, 'USER-1', '2019-03-31 20:21:12', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-5', '2019-04-17', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 0, 'USER-2', '2019-04-03 14:07:47', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-6', '2019-04-17', 'R-1', '08:15:00', '09:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 0, 'USER-3', '2019-04-03 14:12:29', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -421,7 +441,8 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Daicy', 'p', '1999-10-23', 'Jalan qwerty ajsdajsd jasdj asd', '12345678', '2018-12-20', 1, 2, '', '0000-00-00 00:00:00', 'USER-1', '2019-03-29 20:33:44', '0', '0000-00-00 00:00:00', 0),
-('USER-2', 'verenvalenciaa@yahoo.co.id', '202cb962ac59075b964b07152d234b70', 'Veren Valencia', 'p', '2019-03-30', 'qwertyuiop', '123456789', '2019-03-30', 3, 1, '0', '2019-03-30 21:23:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', '  Jalan 123  ', '0827276474', '2019-04-03', 4, 1, '0', '2019-04-03 09:52:48', 'USER-2', '2019-04-03 13:41:31', '0', '0000-00-00 00:00:00', 0),
+('USER-3', 'dosen@keren.com', '202cb962ac59075b964b07152d234b70', 'Dosen Keren', 'l', '2019-04-10', 'Jalan hellow', '1234567888888', '2019-04-03', 3, 1, '0', '2019-04-03 14:11:12', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
