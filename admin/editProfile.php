@@ -28,6 +28,7 @@
 <!--KODINGAN ISI HALAMAN-->
 		<form method="post" action="queryeditprofil.php">
 <div class="panel-body">
+    <h2>Data Akun</h2>
     <div class="form-group">
         <label class="col-sm-3 control-label">ID User <span class="required">*</span></label>
         <div class="col-sm-9">
@@ -98,9 +99,69 @@
     <div class="form-group">
         <label class="col-sm-3 control-label">Alamat <span class="required">*</span></label>
         <div class="col-sm-9">
-            <textarea name="alamat" rows="5" class="form-control" placeholder="alamat" required><?php echo $alamat ?></textarea>
+            <textarea name="alamat" rows="5" class="form-control" placeholder="alamat" required> <?php echo $alamat;?> </textarea>
         </div>
     </div>
+<br>
+<br>
+
+
+
+<?php if($data['status_pengguna']==4){?>
+    <?php
+    $mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa join program_studi join pengguna on program_studi.id_programStudi = mahasiswa.id_programStudi and pengguna.id_pengguna = mahasiswa.id_pengguna WHERE mahasiswa.status_delete='0' AND pengguna.id_pengguna='$id'");
+    $dmhs = mysqli_fetch_array($mhs);    
+    ?>
+    <hr>
+    <h2>Data Mahasiswa</h2>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">NIM <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <input type="text" name="nim" id="nim" class="form-control" value="<?php echo $dmhs['id_mahasiswa'] ?>" readonly/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Program Studi <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <select class="form-control" id="programstudi" name="programstudi">
+            <?php
+            $ps = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");
+            while($dps=mysqli_fetch_array($ps)){
+            ?>
+                <option value="<?php echo $dps['id_programStudi']?>" <?php if($dps['id_programStudi']==$dmhs['id_programStudi']){echo "selected";}?>> <?php echo $dps['nama_programStudi']?> </option>
+            <?php } ?>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Angkatan <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <input type="number" name="angkatan" class="form-control" value="<?php echo $dmhs['angkatan'] ?>"  required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Semester <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <input type="number" name="semester" class="form-control" value="<?php echo $dmhs['semester'] ?>"  required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Total SKS <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <input type="number" name="sks" class="form-control" value="<?php echo $dmhs['total_sks'] ?>"  required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">IPK Terakhir <span class="required">*</span></label>
+        <div class="col-sm-9">
+            <input type="number" name="ipk" class="form-control" value="<?php echo $dmhs['ipk_terakhir'] ?>"  required/>
+        </div>
+    </div>
+
+                <?php } ?>
     <div class="row">
         <div class="col-sm-9 col-sm-offset-3">
             <input class="btn btn-primary sukses" type="submit" name="simpanprofil" value="Simpan">

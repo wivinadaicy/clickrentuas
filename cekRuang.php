@@ -34,6 +34,8 @@ while($ruangsedia=mysqli_fetch_array($query)){
     $barisbaru = $baris+1;
 
     $kalimat = $kalimat . 
+  
+  
     "<a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang'>
         <div class='col-12' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> 
             id ruangnya = " . $ruangsedia['id_ruangan'] . 

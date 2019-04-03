@@ -30,7 +30,7 @@ if($hitung==0){
         $programstudi = $_POST['ps'];
         $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','1', '0', now(), '0', '0', '0', '0', '0' )";
         $jalanin = mysqli_query($koneksi,$query);
-        $query2 = "INSERT INTO mahasiswa VALUES ('$nim', $idnya, $programstudi, $angkatan, $semester, $sks, $ipk, $idnya, now(), '0', '0', '0', '0', '0'";
+        $query2 = "INSERT INTO mahasiswa VALUES ('$nim', '$idnya', '$programstudi', '$angkatan', '$semester', '$sks', '$ipk', '0', now(), '0', '0', '0', '0', '0')";
         $jalanin2 = mysqli_query($koneksi,$query2);
     }
     if($statusnya==3){

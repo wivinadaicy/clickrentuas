@@ -21,7 +21,10 @@ if(isset($_POST['simpanprofil'])){
     $ambil = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$idnya'");
     $datambil = mysqli_fetch_array($ambil);
 
-    $query2 = "INSERT INTO log_pengguna VALUES ('$baristambah','$idnya', '$datambil[email]', '$datambil[kata_sandi]', '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','$datambil[status_daftar']', '$idnya', now())";
+    $sandi = $datambil['kata_sandi'];
+    $daftar = $datambil['status_daftar'];
+
+    $query2 = "INSERT INTO log_pengguna VALUES ('$baristambah','$idnya', '$email', '$sandi', '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','$daftar', '$idnya', now())";
 
     $jalanin2 = mysqli_query($koneksi,$query2);
 
@@ -40,6 +43,22 @@ if(isset($_POST['simpanprofil'])){
     $alamat = $_SESSION['alamat'];
     $nohp = $_SESSION['no_hp'];
     $status= $_SESSION['status'];
+
+    if($statusnya==4){
+        $nim = $_POST['nim'];
+        $programstudi = $_POST['programstudi'];
+        $angkatan = $_POST['angkatan'];
+        $semester = $_POST['semester'];
+        $sks = $_POST['sks'];
+        $ipk = $_POST['ipk'];
+        $qmhs = mysqli_query($koneksi, "UPDATE mahasiswa SET id_programStudi='$programstudi', angkatan='$angkatan', semester='$semester', total_sks='$sks', ipk_terakhir='$ipk', user_edit='$idnya', waktu_edit=now() WHERE id_mahasiswa='$nim'");
+
+$barismhs = mysqli_query($koneksi, "SELECT * FROM log_mahasiswa");
+$hitungbarismhs = mysqli_num_rows($barismhs);
+$jadilogmhs = $hitungbarismhs +1;
+
+        $insertlogmhs = mysqli_query($koneksi, "INSERT INTO log_mahasiswa VALUES ('$jadilogmhs','$nim','$id','$programstudi','$angkatan','$semester','$sks','$ipk','$id',now())");
+    }
 
     header('location:index.php');
 }
