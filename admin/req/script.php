@@ -49,6 +49,9 @@
 		<script src="assets/javascripts/ui-elements/examples.notifications.js"></script>
 <!-- Examples calender -->
 <script src="assets/javascripts/pages/examples.calendar.js"></script>
+
+		<!-- mail -->
+		<script src="assets/vendor/summernote/summernote.js"></script>
 		
 	</body>
 </html>

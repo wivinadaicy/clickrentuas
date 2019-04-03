@@ -29,13 +29,13 @@
 					?>
 					<ul class="nav nav-main">
 						<li class="nav-active">
-							<a href="index.html">
+							<a href="index.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Dashboard</span>
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="pesan.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Pesan</span>
 							</a>
@@ -106,9 +106,15 @@
 							</ul>
 						</li>
 						<li>
-							<a href="peminjamanPending.php">
+							<a href="pendingLab.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Tunggu Approve</span>
+								<span>LAB - Pending Appr.</span>
+							</a>
+						</li>
+						<li>
+							<a href="pendingMeeting.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>MEET - Pending Appr.</span>
 							</a>
 						</li>
 						<li>

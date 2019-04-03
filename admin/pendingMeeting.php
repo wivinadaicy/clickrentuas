@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman Pending</h2>
+			<h2>Peminjaman Pending: Meeting Room</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -20,7 +20,7 @@
 					</li>
 					<li>
                         <a href="peminjamanPending.php">
-                            <span>Peminjaman Tunggu Approve</span>
+                            <span>Peminjaman Tunggu Approve  - Meeting Room</span>
                         </a>
                     </li>
 				</ol>
@@ -30,9 +30,8 @@
 		</header>
 <!--*****************************-->
 <!--KODINGAN ISI HALAMAN-->
-		
+		<h2 style="text-align:center">Meeting Room</h2>
 <div class="container-fluid">
-	<br>
 	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
@@ -47,7 +46,7 @@
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' ORDER BY tanggal_peminjaman ASC");	
+			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE ruangan.jenis_ruangan='2' AND status_peminjaman='0' ORDER BY tanggal_peminjaman DESC");	
 			while($data=mysqli_fetch_array($query)){
 			?>
 			<tr>

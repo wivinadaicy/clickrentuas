@@ -141,8 +141,8 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
-                    <a href="#" id="tolak" class="btn btn-default  modal-sizes">Tolak</a>
-                    <a href="#" id="approve" class="btn btn-primary modal-sizes">Approve</a>
+                    <a href="#tolak" id="tolak" class="modal-sizes btn btn-default  modal-sizes">Tolak</a>
+                    <a href="#terima" id="approve" class="btn btn-primary modal-sizes">Approve</a>
                     </div>
                 </div>
             </section>
@@ -169,6 +169,7 @@ $data = mysqli_fetch_array($query);
                     </footer>
                 </section>
             </div>
+
 </form>
 
 
@@ -235,15 +236,21 @@ $data = mysqli_fetch_array($query);
 
     <div class="col-lg-6">
         <section class="panel-body">
-        <h4 class="center" style="font-weight:bold; color: green">Other Waiting List (Time&notRoom)</h4>
+        <h4 class="center" style="font-weight:bold; color: green">Other Waiting List (Time& not same Room)</h4>
             <p>Tanggal: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+            <?php
+            if($data['jenis_ruangan']=="1"){
+                $jr = "Laboratorium";
+            }else{
+                $jr = "Meeting Room";
+            }
+            ?>
+            <p>Jenis Ruangan: <b><?php echo $jr ?></b></p>
 	        <hr>
-            <table  class="table table-bordered table-striped mb-none" id="datatable-default">
+            <table  class="table table-bordered table-striped mb-none" id="datatable-default2">
 		<thead>
 			<tr>
-				<th>Nama Peminjam</th>
                 <th>Acara</th>
-                <th>Waktu</th>
                 <th>Tempat</th>
 				<th>Aksi</th>
 			</tr>
@@ -254,24 +261,29 @@ $data = mysqli_fetch_array($query);
             $tanggals = $data['tanggal_peminjaman'];
             $mulainya = $data['waktu_mulai'];
             $selesainya = $data['waktu_selesai'];
+            $jenisr = $data['jenis_ruangan'];
 
-			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_ruangan='$ruangans' AND peminjaman.id_peminjaman IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND ('$mulainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or '$selesainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or peminjaman.waktu_mulai = '$mulainya' or peminjaman.waktu_selesai='$selesainya' or 
+			$quero = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan JOIN kategori_acara ON kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND ruangan.jenis_ruangan='$jenisr' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_peminjaman IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND ('$mulainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or '$selesainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or peminjaman.waktu_mulai = '$mulainya' or peminjaman.waktu_selesai='$selesainya' or 
 
             peminjaman.waktu_mulai BETWEEN '$mulainya'  and '$selesainya' or peminjaman.waktu_selesai BETWEEN '$mulainya'  and '$selesainya'
             
-            )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam')");	
-			while($dats=mysqli_fetch_array($query)){
+            )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam') AND peminjaman.id_ruangan NOT IN (SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.id_ruangan = '$ruangans')");	
+			while($dato=mysqli_fetch_array($quero)){
 			?>
 			<tr>
-				<td><?php echo $dats['nama_lengkap']?></td>
-				<td><?php echo $dats['acara']?></td>
-				<td><?php echo $dats['waktu_mulai'] . " - " . $dats['waktu_selesai']?></td>
+				<td><?php echo $dato['acara']?></td>
+                <td><?php echo $dato['nama_ruangan']?></td>
 				<td class="text-center">
-					<a class="btn btn-default" href="detailPeminjamanTunggu.php?idpeminjaman=<?php echo $dats['id_peminjaman'];?>"><i class='fa fa-eye'></i> Detail
-					</a>
+					<a class="modal-with-form btn btn-default" href="#detailPinjaman<?php echo $dato['id_peminjaman']?>"><i class='fa fa-eye'></i> Detail
+                    </a>
+                    <a class="modal-sizes btn btn-warning" href="#tukarPinjaman<?php echo $dato['id_peminjaman']?>"><i class='fa fa-eye'></i> Tukar
+                    </a>
 				</td>
-			</tr>
-			<?php } ?>
+            </tr>
+            <?php 
+        include('detailPinjaman.php');
+        include('tukarPinjaman.php');
+        } ?>
 		</tbody>
 	</table>
         </section>
