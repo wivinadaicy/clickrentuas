@@ -24,7 +24,18 @@ $akalinSelesai = strtotime("-1 minutes", strtotime($selesai));
 $selesainya = date('h:i:s', $akalinSelesai);
 
 
-$query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruangan='$ruang' AND ruangan.id_ruangan NOT IN (SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.status_peminjaman>0 AND peminjaman.tanggal_peminjaman = '$tanggalPinjam' AND ('$mulainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or '$selesainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or peminjaman.waktu_mulai = '$mulai' or peminjaman.waktu_selesai='$selesai'))");
+$query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruangan='$ruang' AND ruangan.id_ruangan NOT IN 
+(SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.status_peminjaman>0 AND peminjaman.tanggal_peminjaman = '$tanggalPinjam' AND 
+(
+    ((peminjaman.waktu_mulai > '$mulainya') AND (peminjaman.waktu_mulai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai<= '$mulainya') AND (peminjaman.waktu_selesai>='$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai = '$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai < '$mulainya') AND (peminjaman.waktu_selesai>'$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+    
+    ))");
 
 $kalimat = '';
 while($ruangsedia=mysqli_fetch_array($query)){

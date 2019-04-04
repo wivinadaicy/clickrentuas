@@ -141,7 +141,7 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
-                    <a href="#tolak" id="tolak" class="modal-sizes btn btn-default  modal-sizes">Tolak</a>
+                    <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Tolak</a>
                     <a href="#terima" id="approve" class="btn btn-primary modal-sizes">Approve</a>
                     </div>
                 </div>
@@ -169,8 +169,40 @@ $data = mysqli_fetch_array($query);
                     </footer>
                 </section>
             </div>
-
 </form>
+
+<div id="tolak" class="modal-block modal-block-md mfp-hide">
+            <section class="panel">
+                    <form method="get" action = "queryTolakPinjam.php">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Tolak Peminjaman <?php echo $data['id_peminjaman']?></h2>
+                </header>
+                <div class="panel-body">
+                <h4>
+                Acara &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <b><?php echo $data['acara']?></b>
+                <br>
+                Nama Peminjam&nbsp;: <b><?php echo $data['nama_lengkap']?></b>
+                </h4>
+                <hr>
+                <h5>Pesan untuk peminjam</h5>
+                <input type="hidden" name="idpinjam" value="<?php echo $id_pinjam?>">
+                    <div class="form-group mt-lg">
+                        <div class="col-sm-12">
+                            <input type="text" name="alasanTolak"  class="form-control" placeholder="Ketik alasan penolakan">
+                        </div>
+                    </div>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" name="tolak" id="tolakk" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-default modal-dismiss batal">Cancel</button>
+                        </div>
+                    </div>
+                </footer>
+                    </form>
+            </section>
+        </div>
 
 
 
@@ -210,12 +242,33 @@ $data = mysqli_fetch_array($query);
             $mulainya = $data['waktu_mulai'];
             $selesainya = $data['waktu_selesai'];
 
-			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_ruangan='$ruangans' AND peminjaman.id_peminjaman IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND ('$mulainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or '$selesainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or peminjaman.waktu_mulai = '$mulainya' or peminjaman.waktu_selesai='$selesainya' or 
+            $ml = strtotime("+1 minutes", strtotime($mulainya));
+            $mulainya1 = date('h:i', $ml);
 
-            peminjaman.waktu_mulai BETWEEN '$mulainya'  and '$selesainya' or peminjaman.waktu_selesai BETWEEN '$mulainya'  and '$selesainya'
+            $sl = strtotime("-1 minutes", strtotime($selesainya));
+            $selesainya1 = date('h:i', $sl);
+
+$tolakcuy='';
+			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_ruangan='$ruangans' AND 
             
+            peminjaman.id_peminjaman IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND 
+            
+                                         
+                                         
+            (
+                ((peminjaman.waktu_mulai > '$mulainya') AND (peminjaman.waktu_mulai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai<= '$mulainya') AND (peminjaman.waktu_selesai>='$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai = '$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai < '$mulainya') AND (peminjaman.waktu_selesai>'$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+            
+             
+             
             )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam')");	
 			while($dats=mysqli_fetch_array($query)){
+                $tolakcuy = $tolakcuy . "*) Nama Acara: <b> " . $dats['acara']. "</b> dengan Nama Peminjam: <b>". $dats['nama_lengkap'] . "</b> dan pada tanggal <b>". $dats['tanggal_peminjaman'] ."</b>, pukul <b>". $dats['waktu_mulai'] . " - " . $dats['waktu_selesai'] ."</b>.<br>"; 
 			?>
 			<tr>
 				<td><?php echo $dats['nama_lengkap']?></td>
@@ -231,6 +284,51 @@ $data = mysqli_fetch_array($query);
 	</table>
             </section>
         </div>
+
+
+        <div id="terima" class="modal-block modal-block-lg mfp-hide">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Terima Peminjaman <?php echo $data['id_peminjaman'] ?></h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="modal-wrapper">
+                            <div class="modal-text">
+                                Apakah Anda yakin menerima peminjaman <b>'<?php echo $data['id_peminjaman'] ?>'</b> dengan nama acara <b>"<?php echo $data['acara'] ?>"</b>?
+                                <br>
+                                Berikut adalah peminjaman yang akan ditolak:
+                                <br>
+                                <hr>
+                                <?php echo $tolakcuy?>                                
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button type="submit" name="terima" id="terimaa" class="btn btn-primary">Submit</button>
+                                <button class="btn btn-default modal-dismiss">Cancel</button>
+                            </div>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,11 +361,23 @@ $data = mysqli_fetch_array($query);
             $selesainya = $data['waktu_selesai'];
             $jenisr = $data['jenis_ruangan'];
 
-			$quero = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan JOIN kategori_acara ON kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND ruangan.jenis_ruangan='$jenisr' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_peminjaman IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND ('$mulainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or '$selesainya' BETWEEN peminjaman.waktu_mulai and peminjaman.waktu_selesai or peminjaman.waktu_mulai = '$mulainya' or peminjaman.waktu_selesai='$selesainya' or 
-
-            peminjaman.waktu_mulai BETWEEN '$mulainya'  and '$selesainya' or peminjaman.waktu_selesai BETWEEN '$mulainya'  and '$selesainya'
+			$quero = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan JOIN kategori_acara ON kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND ruangan.jenis_ruangan='$jenisr' AND peminjaman.tanggal_peminjaman='$tanggals' AND 
             
-            )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam') AND peminjaman.id_ruangan NOT IN (SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.id_ruangan = '$ruangans')");	
+            peminjaman.id_peminjaman IN (
+                
+                SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND (
+                    
+                    ((peminjaman.waktu_mulai > '$mulainya') AND (peminjaman.waktu_mulai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai<= '$mulainya') AND (peminjaman.waktu_selesai>='$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai = '$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+                OR
+                ((peminjaman.waktu_mulai < '$mulainya') AND (peminjaman.waktu_selesai>'$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
+            
+            )) 
+            
+            AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam') AND peminjaman.id_ruangan NOT IN (SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.id_ruangan = '$ruangans')");	
 			while($dato=mysqli_fetch_array($quero)){
 			?>
 			<tr>
