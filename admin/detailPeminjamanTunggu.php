@@ -183,6 +183,7 @@ $data = mysqli_fetch_array($query);
                 <br>
                 Nama Peminjam&nbsp;: <b><?php echo $data['nama_lengkap']?></b>
                 </h4>
+<?php if($data['id_pengguna']==$id){?>
                 <hr>
                 <h5>Pesan untuk peminjam</h5>
                 <input type="hidden" name="idpinjam" value="<?php echo $id_pinjam?>">
@@ -191,6 +192,8 @@ $data = mysqli_fetch_array($query);
                             <input type="text" name="alasanTolak"  class="form-control" placeholder="Ketik alasan penolakan">
                         </div>
                     </div>
+<?php } ?>
+
                 </div>
                 <footer class="panel-footer">
                     <div class="row">
@@ -267,12 +270,13 @@ $tolakcuy='';
              
              
             )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam')");	
+            if(mysqli_num_rows($query)=="0"){
+                $tolakcuy = "<p style='text-align:center;font-weight:bold'>Tidak ada peminjaman yang akan ditolak!</p>";
+            }
 			while($dats=mysqli_fetch_array($query)){
-                if(mysqli_num_rows($query)=="0"){
-                    $tolakcuy = "<p style='text-align:center;font-weight:bold'>Tidak ada peminjaman yang akan ditolak!</p>";
-                }else{
+                
                     $tolakcuy = $tolakcuy . "*) Nama Acara: <b> " . $dats['acara']. "</b> dengan Nama Peminjam: <b>". $dats['nama_lengkap'] . "</b> dan pada tanggal <b>". $dats['tanggal_peminjaman'] ."</b>, pukul <b>". $dats['waktu_mulai'] . " - " . $dats['waktu_selesai'] ."</b>.<br>"; 
-                }
+                
 			?>
 			<tr>
 				<td><?php echo $dats['nama_lengkap']?></td>
@@ -305,7 +309,9 @@ $tolakcuy='';
                                 <hr>
                                 <?php echo $tolakcuy?>       
                                 <hr>
-                                Dengan mengklik submit, pesan akan otomatis dikirimkan untuk peminjam yang diterima maupun yang ditolak.                         
+                                <?php if($data['id_pengguna']==$id){?>
+                                Dengan mengklik submit, pesan akan otomatis dikirimkan untuk peminjam yang diterima maupun yang ditolak.   
+                                <?php } ?>                      
                             </div>
                         </div>
                     </div>

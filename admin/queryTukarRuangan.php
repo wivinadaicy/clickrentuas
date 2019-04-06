@@ -56,6 +56,129 @@ $setlogdata = mysqli_query($koneksi,
 "INSERT INTO log_peminjaman values ('$jadibarislogpj2','$pinjam2','$pinjam2_tanggal','$ruang1','$pinjam2_mulai','$pinjam2_selesai','$pinjam2_orang','$pinjam2_acara','$pinjam2_peserta','$pinjam2_kategoriacara','$pinjam2_deskripsiacara','0','$id',now())");
 //insert ke logpeminjaman dato
 
-$lokasipergi="location:detailPeminjamanTunggu.php?idpeminjaman=$pinjam1";
-header($lokasipergi);
+
+
+
+$pinjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$pinjam1'");
+$datapinjaman = mysqli_fetch_array($pinjaman);
+
+if($datapinjaman['id_pengguna']==$id){
+
+}else{
+
+                        //insert ke pesan ke orang1
+                        $kirimpesan = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam1'");
+                        $hitungkirimpesan = mysqli_num_rows($kirimpesan);
+
+                        if($hitungkirimpesan==0){
+                            $hitungpsn = mysqli_query($koneksi, "SELECT * FROM pesan");
+                            $htgpsn = mysqli_num_rows($hitungpsn);
+                            $jadihtgpsn = $htgpsn+1;
+                            $hitungpsnnya = "PS-" . $jadihtgpsn;
+
+                            $pinjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$pinjam1'");
+                            $datapinjaman = mysqli_fetch_array($pinjaman);
+
+
+                            $namaacara = $datapinjaman['acara'];
+                            $topikpesan = "Peminjaman: <b>$pinjam1</b> - Acara: <b>$namaacara</b>";
+
+                            
+                            $insertpesan = mysqli_query($koneksi, "INSERT INTO pesan VALUES ('$hitungpsnnya','$id','$topikpesan','$pinjam1')");
+                        }
+                        //disini dihapus datapinjamannya
+                        
+
+                            $hitungpsndtl = mysqli_query($koneksi, "SELECT * from pesan_detail");
+                            $htgpsndtl = mysqli_num_rows($hitungpsndtl);
+                            $jadihtgpsndtl = $htgpsndtl+1;
+                            $jadihtgpsndtlnya = "PD-" . $jadihtgpsndtl;
+
+                            $orangpinjam = $datapinjaman['id_pengguna'];
+                            
+
+                            //cekruangan
+                        $liatruang = mysqli_query($koneksi, "SELECT * FROM ruangan where id_ruangan ='$ruang2'");
+                        $dataliatruangan = mysqli_fetch_array($liatruang);
+                        $namaruanganbaru = $dataliatruangan['nama_ruangan'];
+
+                        $liatruanglama = mysqli_query($koneksi, "SELECT * FROM ruangan where id_ruangan ='$ruang1'");
+                        $dataliatruanganlama = mysqli_fetch_array($liatruanglama);
+                        $namaruanganlama = $dataliatruanganlama['nama_ruangan'];
+                            //cekruang*
+                            $pesannya = "Peminjaman anda ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru";
+
+                            $hehe = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam1'");
+                            $cekpesannya = mysqli_fetch_array($hehe);
+                            $idpesannya = $cekpesannya['id_pesan'];
+                        echo $idpesannya . "ini satu";
+                            $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
+//selesai insert orang1
+}
+
+
+
+
+$pinjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$pinjam2'");
+$datapinjaman = mysqli_fetch_array($pinjaman);
+
+if($datapinjaman['id_pengguna']==$id){
+ echo "ini punya orangnya sendiri";
+}else{
+
+
+
+    //insert ke pesan ke orang2
+$kirimpesan2 = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam2'");
+$hitungkirimpesan = mysqli_num_rows($kirimpesan2);
+
+if($hitungkirimpesan==0){
+    $hitungpsn = mysqli_query($koneksi, "SELECT * FROM pesan");
+    $htgpsn = mysqli_num_rows($hitungpsn);
+    $jadihtgpsn = $htgpsn+1;
+    $hitungpsnnya = "PS-" . $jadihtgpsn;
+
+    $pinjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$pinjam2'");
+    $datapinjaman = mysqli_fetch_array($pinjaman);
+
+
+    $namaacara = $datapinjaman['acara'];
+    $topikpesan = "Peminjaman: <b>$pinjam2</b> - Acara: <b>$namaacara</b>";
+
+    
+    $insertpesan = mysqli_query($koneksi, "INSERT INTO pesan VALUES ('$hitungpsnnya','$id','$topikpesan','$pinjam2')");
+}
+
+//disini dihapus datapinjaman
+
+    $hitungpsndtl = mysqli_query($koneksi, "SELECT * from pesan_detail");
+    $htgpsndtl = mysqli_num_rows($hitungpsndtl);
+    $jadihtgpsndtl = $htgpsndtl+1;
+    $jadihtgpsndtlnya = "PD-" . $jadihtgpsndtl;
+
+    $orangpinjam = $datapinjaman['id_pengguna'];
+    
+
+    //cekruangan
+$liatruang = mysqli_query($koneksi, "SELECT * FROM ruangan where id_ruangan ='$ruang1'");
+$dataliatruangan = mysqli_fetch_array($liatruang);
+$namaruanganbaru = $dataliatruangan['nama_ruangan'];
+
+$liatruanglama = mysqli_query($koneksi, "SELECT * FROM ruangan where id_ruangan ='$ruang2'");
+$dataliatruanganlama = mysqli_fetch_array($liatruanglama);
+$namaruanganlama = $dataliatruanganlama['nama_ruangan'];
+    //cekruang*
+    $pesannya = "Peminjaman anda ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru";
+
+    $hoho = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam2'");
+    $cekpesanny = mysqli_fetch_array($hoho);
+    $idpesannyah = $cekpesanny['id_pesan'];
+
+    $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannyah','$orangpinjam','$id',now(),'$pesannya','0')");
+    
+}
+
+
+
+header('location:hasilTukarRuangan.php');
 ?>

@@ -4,7 +4,7 @@ if(isset($_POST['login'])){
 	$user = $_POST['email'];
 	$pass = md5($_POST['password']);
 
-	$query = mysqli_query($koneksi, "SELECT * from pengguna where email='$user' AND kata_sandi='$pass'");
+	$query = mysqli_query($koneksi, "SELECT * from pengguna where email='$user' AND kata_sandi='$pass' AND status_daftar='2'");
 
 	$baris = mysqli_num_rows($query);
 	

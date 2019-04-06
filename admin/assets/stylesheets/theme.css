@@ -14888,7 +14888,7 @@ html.dark .CodeMirror pre {
 	}
 }
 .mailbox .mailbox-email-list .col-mail .mail-date {
-	padding-left: 80px;
+	padding-left: 0px;
 	right: 0;
 	width: 150px;
 }

@@ -188,7 +188,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="pesan.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Pesan</span>
 							</a>
@@ -267,7 +267,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="pesan.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Pesan</span>
 							</a>
