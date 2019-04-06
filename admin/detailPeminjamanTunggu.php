@@ -242,11 +242,11 @@ $data = mysqli_fetch_array($query);
             $mulainya = $data['waktu_mulai'];
             $selesainya = $data['waktu_selesai'];
 
-            $ml = strtotime("+1 minutes", strtotime($mulainya));
+        /*    $ml = strtotime("+1 minutes", strtotime($mulainya));
             $mulainya1 = date('h:i', $ml);
 
             $sl = strtotime("-1 minutes", strtotime($selesainya));
-            $selesainya1 = date('h:i', $sl);
+            $selesainya1 = date('h:i', $sl);*/
 
 $tolakcuy='';
 			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='0' AND peminjaman.tanggal_peminjaman='$tanggals' AND peminjaman.id_ruangan='$ruangans' AND 
@@ -268,7 +268,11 @@ $tolakcuy='';
              
             )) AND peminjaman.id_peminjaman NOT IN (SELECT peminjaman.id_peminjaman FROM peminjaman WHERE peminjaman.id_peminjaman='$id_pinjam')");	
 			while($dats=mysqli_fetch_array($query)){
-                $tolakcuy = $tolakcuy . "*) Nama Acara: <b> " . $dats['acara']. "</b> dengan Nama Peminjam: <b>". $dats['nama_lengkap'] . "</b> dan pada tanggal <b>". $dats['tanggal_peminjaman'] ."</b>, pukul <b>". $dats['waktu_mulai'] . " - " . $dats['waktu_selesai'] ."</b>.<br>"; 
+                if(mysqli_num_rows($query)=="0"){
+                    $tolakcuy = "<p style='text-align:center;font-weight:bold'>Tidak ada peminjaman yang akan ditolak!</p>";
+                }else{
+                    $tolakcuy = $tolakcuy . "*) Nama Acara: <b> " . $dats['acara']. "</b> dengan Nama Peminjam: <b>". $dats['nama_lengkap'] . "</b> dan pada tanggal <b>". $dats['tanggal_peminjaman'] ."</b>, pukul <b>". $dats['waktu_mulai'] . " - " . $dats['waktu_selesai'] ."</b>.<br>"; 
+                }
 			?>
 			<tr>
 				<td><?php echo $dats['nama_lengkap']?></td>
@@ -299,14 +303,16 @@ $tolakcuy='';
                                 Berikut adalah peminjaman yang akan ditolak:
                                 <br>
                                 <hr>
-                                <?php echo $tolakcuy?>                                
+                                <?php echo $tolakcuy?>       
+                                <hr>
+                                Dengan mengklik submit, pesan akan otomatis dikirimkan untuk peminjam yang diterima maupun yang ditolak.                         
                             </div>
                         </div>
                     </div>
                     <footer class="panel-footer">
                         <div class="row">
                             <div class="col-md-12 text-right">
-                                <button type="submit" name="terima" id="terimaa" class="btn btn-primary">Submit</button>
+                            <a href="queryApprovePinjam.php?idpinjam=<?php echo $data['id_peminjaman']?>" class="btn btn-primary" name="terima" id="terimaa">Submit</a>
                                 <button class="btn btn-default modal-dismiss">Cancel</button>
                             </div>
                         </div>

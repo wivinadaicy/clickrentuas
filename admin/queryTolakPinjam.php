@@ -40,9 +40,22 @@ if($hitungkirimpesan==0){
 
 
     $namaacara = $datapinjaman['acara'];
-    $topikpesan = "Peminjaman Acara: $namaacara ($idpinjam)";
+    $topikpesan = "Peminjaman Acara: $namaacara KODE: $idpinjam)";
+
+    
     $insertpesan = mysqli_query($koneksi, "INSERT INTO pesan VALUES ('$hitungpsnnya','$id','$topikpesan','$idpinjam')");
+
+    echo "TAMBAHIN ROW KE TABEL PESAN:<br>
+$hitungpsnnya<br>
+$id<br>
+$topikpesan<br>
+$idpinjam<br>
+SELESAI TAMBAHIN ROW KE TABEL PESAN
+";
 }
+
+$pinjaman = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$idpinjam'");
+$datapinjaman = mysqli_fetch_array($pinjaman);
 
     $hitungpsndtl = mysqli_query($koneksi, "SELECT * from pesan_detail");
     $htgpsndtl = mysqli_num_rows($hitungpsndtl);
@@ -53,7 +66,8 @@ if($hitungkirimpesan==0){
     $alasan = $_GET['alasanTolak']; 
     $pesannya = "Maaf peminjaman dengan kode $idpinjam ditolak. Dengan alasan: $alasan";
 
-    $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$jadihtgpsn','$orangpinjam','$id',now(),'$pesannya','0')");
+    $idpesannya = $hitungkirimpesan['id_pesan'];
 
+    $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
 
 ?>
