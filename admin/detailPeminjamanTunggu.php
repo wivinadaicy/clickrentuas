@@ -139,6 +139,23 @@ $data = mysqli_fetch_array($query);
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Nama Peminjam</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i> <!--ganti-->
+                            </span>
+                            <?php
+                            $peminjamm = $data['id_pengguna'];
+                            $peminjamnya = mysqli_query($koneksi, "SELECT * FROM pengguna where id_pengguna='$peminjamm'");
+                            $datapeminjam = mysqli_fetch_array($peminjamnya);
+                            $namapeminjam = $data['nama_lengkap'];
+                            ?>
+                            <input type="text" name="peminjam"  id="peminjam" class="form-control" value="<?php echo $namapeminjam?>" disabled/>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
                     <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Tolak</a>

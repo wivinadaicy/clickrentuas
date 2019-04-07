@@ -19,118 +19,164 @@
 						<li>
 							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-envelope"></i>
-								<span class="badge">4</span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(pesan_detail.id_pesanDetail) FROM pesan_detail WHERE pesan_detail.id_penggunaKe ='$id' AND status_pesan='0'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(pesan_detail.id_pesanDetail)'];
+								if($jumlah!=0){
+									?>
+								<span class="badge"><?php echo 
+							$jumlah?></span>
+								<?php } ?>
 							</a>
 			
 							<div class="dropdown-menu notification-menu">
 								<div class="notification-title">
-									<span class="pull-right label label-default">230</span>
+									<?php
+									if($jumlah!=0){
+										?>
+									<span class="pull-right label label-default"><?php echo 
+							$jumlah?></span>
+									<?php } ?>
 									Messages
 								</div>
 			
 								<div class="content">
 									<ul>
+<?php
+
+$querypesan = mysqli_query($koneksi, "select * from pesan_detail join pesan on pesan.id_pesan = pesan_detail.id_pesan where pesan_detail.status_pesan='0' and id_penggunaKe='$id' ORDER BY tanggal_waktu DESC LIMIT 4");
+if(mysqli_num_rows($querypesan)==0){
+ ?>
+ <p style="text-align:center">Tidak ada pesan baru</p>
+ <?php
+}else{
+
+while($datapesan = mysqli_fetch_array($querypesan)){
+	$idpesannya = $datapesan['id_pesan'];
+?>
 										<li>
-											<a href="#" class="clearfix">
+											<a href="bukaPesan.php?idpesan=<?php echo $idpesannya?>" class="clearfix">
 												<figure class="image">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle" />
+<?php
+$org = $datapesan['id_penggunaDari'];
+$orangnya = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$org'");
+
+$dataorang = mysqli_fetch_array($orangnya);
+
+$jk = $dataorang['jenis_kelamin'];
+if($jk=="l"){
+	$foto = "../images/fotoprofil/male.png";
+}else{
+	$foto = "../images/fotoprofil/female.png";
+}
+?>
+
+													<img src="<?php echo $foto?>" width="35px" alt="Joseph Doe Junior" class="img-circle" />
 												</figure>
-												<span class="title">Joseph Doe</span>
-												<span class="message">Lorem ipsum dolor sit.</span>
+												<span class="title"><?php echo $dataorang['nama_lengkap'] ?></span>
+												<span class="message"><?php echo $datapesan['pesan'] ?></span>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<figure class="image">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle" />
-												</figure>
-												<span class="title">Joseph Junior</span>
-												<span class="message truncate">Truncated message. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam, nec venenatis risus. Vestibulum blandit faucibus est et malesuada. Sed interdum cursus dui nec venenatis. Pellentesque non nisi lobortis, rutrum eros ut, convallis nisi. Sed tellus turpis, dignissim sit amet tristique quis, pretium id est. Sed aliquam diam diam, sit amet faucibus tellus ultricies eu. Aliquam lacinia nibh a metus bibendum, eu commodo eros commodo. Sed commodo molestie elit, a molestie lacus porttitor id. Donec facilisis varius sapien, ac fringilla velit porttitor et. Nam tincidunt gravida dui, sed pharetra odio pharetra nec. Duis consectetur venenatis pharetra. Vestibulum egestas nisi quis elementum elementum.</span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<figure class="image">
-													<img src="assets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle" />
-												</figure>
-												<span class="title">Joe Junior</span>
-												<span class="message">Lorem ipsum dolor sit.</span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<figure class="image">
-													<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle" />
-												</figure>
-												<span class="title">Joseph Junior</span>
-												<span class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet lacinia orci. Proin vestibulum eget risus non luctus. Nunc cursus lacinia lacinia. Nulla molestie malesuada est ac tincidunt. Quisque eget convallis diam.</span>
-											</a>
-										</li>
+<?php } } ?>
+
+										
 									</ul>
 			
 									<hr />
 			
 									<div class="text-right">
-										<a href="#" class="view-more">View All</a>
+										<a href="pesan.php" class="view-more">View All</a>
 									</div>
 								</div>
 							</div>
 						</li>
+
+						<!--notif-->
+						<?php
+						if($status==1 || $status==2){
+							?>
 						<li>
 							<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
 								<i class="fa fa-bell"></i>
-								<span class="badge">3</span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+								<span class="badge"><?php echo $jumlah?> </span>
+								<?php } ?>
 							</a>
 			
 							<div class="dropdown-menu notification-menu">
 								<div class="notification-title">
-									<span class="pull-right label label-default">3</span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									<span class="pull-right label label-default"><?php echo $jumlah?></span>
+									<?php } ?>
 									Alerts
 								</div>
 			
 								<div class="content">
 									<ul>
+<?php
+
+
+$notif = mysqli_query($koneksi, "select * from peminjaman where peminjaman.status_peminjaman = '0' or peminjaman.status_peminjaman='5' order by waktu_add desc LIMIT 4");
+$jumlahnotif = mysqli_num_rows($notif);
+if($jumlahnotif=='0'){
+
+?>
+	<p style="text-align:center">Tidak ada notifikasi baru</p>
+<?php
+}else{
+while($datanotif = mysqli_fetch_array($notif)){
+?>
 										<li>
-											<a href="#" class="clearfix">
+											<a href="detailPeminjamanTunggu.php?idpeminjaman=<?php echo $datanotif['id_peminjaman'];?>" class="clearfix">
 												<div class="image">
-													<i class="fa fa-thumbs-down bg-danger"></i>
+													<i class="fa fa-exclamation bg-success"></i>
 												</div>
-												<span class="title">Server is Down!</span>
-												<span class="message">Just now</span>
+												<span class="title"><b>[<?php echo $datanotif['id_peminjaman']?>]</b> <?php echo $datanotif['acara']?></span>
+												<span class="message">
+													<?php
+													if($datanotif['status_peminjaman']=="0"){
+														$stas = "Peminjaman tunggu approve";
+													}
+													if($datanotif['status_peminjaman']=="5"){
+														$stas = "Peminjaman dibatalkan";
+													}
+													echo $stas;
+													?>
+												</span>
 											</a>
 										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-lock bg-warning"></i>
-												</div>
-												<span class="title">User Locked</span>
-												<span class="message">15 minutes ago</span>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="clearfix">
-												<div class="image">
-													<i class="fa fa-signal bg-success"></i>
-												</div>
-												<span class="title">Connection Restaured</span>
-												<span class="message">10/10/2014</span>
-											</a>
-										</li>
+										
+<?php } }?>
 									</ul>
-			
+													
 									<hr />
 			
 									<div class="text-right">
-										<a href="#" class="view-more">View All</a>
+										<a href="pendingLab.php" class="view-more">View All Lab Pending</a><br>
+										<a href="pendingMeeting.php" class="view-more">View All MeetingRoom Pending</a>
 									</div>
 								</div>
 							</div>
 						</li>
+						<?php }?>	
 					</ul>
-			
+							
 					<span class="separator"></span>
-			
+	
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">

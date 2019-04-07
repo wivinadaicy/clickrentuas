@@ -35,10 +35,22 @@
 							</a>
 						</li>
 						<li>
-							<a href="pesan.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Pesan</span>
-							</a>
+						<a href="pesan.php">
+							<?php
+							$ceknotifmail = mysqli_query($koneksi, "SELECT count(pesan_detail.id_pesanDetail) FROM pesan_detail WHERE pesan_detail.id_penggunaKe ='$id' AND status_pesan='0'");
+
+							$datamail = mysqli_fetch_array($ceknotifmail);
+							$jumlah = $datamail['count(pesan_detail.id_pesanDetail)'];
+							if($jumlah!=0){
+?>
+							<span class="pull-right label label-primary"><?php echo 
+							$jumlah?></span>
+
+							<?php } ?>
+
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Pesan</span>
+						</a>
 						</li>
 						<li class="nav-parent">
 							<a>
@@ -78,10 +90,20 @@
 								</li>
 							</ul>
 						</li>
+						
 						<li>
 							<a href="memberPending.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>New Member Pending</span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(pengguna.id_pengguna) FROM pengguna WHERE status_daftar= '1'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(pengguna.id_pengguna)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
 							</a>
 						</li>
 
@@ -90,12 +112,14 @@
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
+								
 								<span>Jadwal</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
 									<a href="jadwalLab.php">
 										 Laboratorium
+										 
 									</a>
 								</li>
 								<li>
@@ -105,23 +129,72 @@
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="pendingLab.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>LAB - Pending Appr.</span>
+						<li class="nav-parent">
+							<a>
+								<i class="fa fa-copy" aria-hidden="true"> </i>
+								<span>Peminjaman Pending </span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+								
+
 							</a>
+							<ul class="nav nav-children">
+								<li>
+									<a href="pendingLab.php">
+										 Laboratorium
+										 <?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+									</a>
+								</li>
+								<li>
+									<a href="pendingMeeting.php">
+										 Ruang Meeting
+										 <?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+									</a>
+								</li>
+							</ul>
 						</li>
-						<li>
-							<a href="pendingMeeting.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>MEET - Pending Appr.</span>
-							</a>
-						</li>
-						<li>
-							<a href="">
-								<i class="fa fa-home" aria-hidden="true"></i>
+						<li class="nav-parent">
+							<a>
+								<i class="fa fa-copy" aria-hidden="true"></i>
+								
 								<span>Peminjaman</span>
 							</a>
+							<ul class="nav nav-children">
+								<li>
+									<a href="peminjamanAdminLab.php">
+										 Laboratorium
+										 
+									</a>
+								</li>
+								<li>
+									<a href="">
+										 Ruang Meeting
+									</a>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<a href="">
@@ -137,47 +210,6 @@
 						</li>
 
 			
-
-						<!--
-						<li class="nav-parent">
-							<a>
-								<i class="fa fa-align-left" aria-hidden="true"></i>
-								<span>Menu Levels</span>
-							</a>
-							<ul class="nav nav-children">
-								<li>
-									<a>First Level</a>
-								</li>
-								<li class="nav-parent">
-									<a>Second Level</a>
-									<ul class="nav nav-children">
-										<li class="nav-parent">
-											<a>Third Level</a>
-											<ul class="nav nav-children">
-												<li>
-													<a>Third Level Link #1</a>
-												</li>
-												<li>
-													<a>Third Level Link #2</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a>Second Level Link #1</a>
-										</li>
-										<li>
-											<a>Second Level Link #2</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="http://themeforest.net/item/JSOFT-responsive-html5-template/4106987?ref=JSOFT" target="_blank">
-								<i class="fa fa-external-link" aria-hidden="true"></i>
-								<span>Front-End <em class="not-included">(Not Included)</em></span>
-							</a>
-						</li>-->
 					</ul>
 					<?php }else if($data['status_pengguna']=="2"){ ?>
 					<ul class="nav nav-main">
@@ -188,10 +220,22 @@
 							</a>
 						</li>
 						<li>
-							<a href="pesan.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Pesan</span>
-							</a>
+						<a href="pesan.php">
+							<?php
+							$ceknotifmail = mysqli_query($koneksi, "SELECT count(pesan_detail.id_pesanDetail) FROM pesan_detail WHERE pesan_detail.id_penggunaKe ='$id' AND status_pesan='0'");
+
+							$datamail = mysqli_fetch_array($ceknotifmail);
+							$jumlah = $datamail['count(pesan_detail.id_pesanDetail)'];
+							if($jumlah!=0){
+?>
+							<span class="pull-right label label-primary"><?php echo 
+							$jumlah?></span>
+
+							<?php } ?>
+
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Pesan</span>
+						</a>
 						</li>
 						<li class="nav-parent">
 							<a>
@@ -237,14 +281,55 @@
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Tunggu Approve</span>
+						<li class="nav-parent">
+							<a>
+								<i class="fa fa-copy" aria-hidden="true"> </i>
+								<span>Peminjaman Pending </span>
+								<?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+								
+
 							</a>
+							<ul class="nav nav-children">
+								<li>
+									<a href="pendingLab.php">
+										 Laboratorium
+										 <?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+									</a>
+								</li>
+								<li>
+									<a href="pendingMeeting.php">
+										 Ruang Meeting
+										 <?php
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+
+								$datamail = mysqli_fetch_array($ceknotifmail);
+								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
+								if($jumlah!=0){
+									?>
+									   &nbsp;&nbsp;&nbsp;<span class="badge"><?php echo $jumlah?></span>
+									<?php } ?>
+									</a>
+								</li>
+							</ul>
 						</li>
 						<li>
-							<a href="">
+							<a href="peminjamanAdmin.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Peminjaman</span>
 							</a>
@@ -267,10 +352,22 @@
 							</a>
 						</li>
 						<li>
-							<a href="pesan.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Pesan</span>
-							</a>
+						<a href="pesan.php">
+							<?php
+							$ceknotifmail = mysqli_query($koneksi, "SELECT count(pesan_detail.id_pesanDetail) FROM pesan_detail WHERE pesan_detail.id_penggunaKe ='$id' AND status_pesan='0'");
+
+							$datamail = mysqli_fetch_array($ceknotifmail);
+							$jumlah = $datamail['count(pesan_detail.id_pesanDetail)'];
+							if($jumlah!=0){
+?>
+							<span class="pull-right label label-primary"><?php echo 
+							$jumlah?></span>
+
+							<?php } ?>
+
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Pesan</span>
+						</a>
 						</li>
 
 						<hr class="separator" />
@@ -294,13 +391,25 @@
 							</ul>
 						</li>
 						<li>
-							<a href="">
+							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman</span>
+								<span>Peminjaman Akan Datang</span>
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="peminjamanMemberDitolak.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Ditolak</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberDibatalkan.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Dibatalkan</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberSelesai.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Peminjaman Selesai</span>
 							</a>

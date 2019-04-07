@@ -68,8 +68,7 @@
         <footer class="panel-footer">
             <div class="row">
                 <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-primary tambah">OK</button>
-                    <button type="reset" class="btn btn-default modal-dismiss batal">Cancel</button>
+                    <button type="reset" class="btn btn-primary modal-dismiss batal">OK</button>
                 </div>
             </div>
         </footer>

@@ -405,18 +405,16 @@ if($darii==$id){
 					<input id="pengke" type="text" style="opacity:0; height:1px" value="<?php echo $ke?>" readonly style="height:1px">
 					<input type="number" id="fokusbawah" autofocus style="opacity:0; height:1px" readonly style="height:1px">
 				</div>
-				<form>
                 <div class="panel-footer">
                     <div class="input-group">
 						
                         <input id="chatting" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
                         <span class="input-group-btn">
-						<button type="reset" class="btn btn-primary btn-sm" id="kirimchat" onclick="kirimPesan()">Send</button>
+						<button type="button" class="btn btn-primary btn-sm" id="kirimchat" onclick="kirimPesan()">Send</button>
 						
                         </span>
                     </div>
 				</div>
-				</form>
 				
     		</div>
     </div>
@@ -477,10 +475,12 @@ function kirimPesan(){
 	});
 }
 
-var wage = document.getElementById("wage");
-wage.addEventListener("keydown", function (e) {
-    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
-        kirimPesan();
-    }
+var input = document.getElementById("chatting");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("kirimchat").click();
+   document.getElementById('chatting').value = '';
+  }
 });
 </script>
