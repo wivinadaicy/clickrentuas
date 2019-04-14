@@ -1,7 +1,7 @@
 <div id="modalterima<?php echo $data['id_pengguna'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
-			<h2 class="panel-title">Hapus Data</h2>
+			<h2 class="panel-title">Terima Member Baru</h2>
 		</header>
 		<div class="panel-body">
 			<div class="modal-wrapper">

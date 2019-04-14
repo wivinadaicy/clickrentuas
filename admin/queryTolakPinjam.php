@@ -2,7 +2,8 @@
 <?php include('../koneksi.php'); ?>
 
 <?php
-$idpinjam = $_GET['idpinjam'];
+$idpinjam = $_POST['idtolak'];
+$alasan = $_POST['alasanTolak'];
 
 $querytolak = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='4' WHERE id_peminjaman='$idpinjam'");
 
@@ -63,13 +64,46 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $jadihtgpsndtlnya = "PD-" . $jadihtgpsndtl;
 
     $orangpinjam = $datapinjaman['id_pengguna'];
-    $alasan = $_GET['alasanTolak']; 
     $pesannya = "Maaf peminjaman dengan kode $idpinjam ditolak. Dengan alasan: $alasan";
 
     $cekpesannya = mysqli_fetch_array($kirimpesan);
     $idpesannya = $cekpesannya['id_pesan'];
 
     $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
+
+    $pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$pinjam2_orang'");
+    echo $pinjam2_orang;
+    $datapengguna = mysqli_fetch_array($pengguna);
+    $emailnya = $datapengguna['email'];
+    
+    require '../smtp/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    
+    $mail->Username = "clickrentsistech@gmail.com";
+    $mail->Password = "sistech123";
+    
+    $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+    $mail->addAddress($emailnya, $emailnya );
+    
+    $mail->Subject = "Peminjaman Kode: $idpinjam Ditolak";
+    $msg="Maaf peminjaman dengan kode $idpinjam dan nama acara $pinjam2_acara ditolak. Dengan alasan: $alasan";  
+    
+    $mail->msgHTML("$msg");
+    
+    if (!$mail->send()) {
+        
+    } 
+    else  {
+        echo"berhasil";
+    }
 }
+
+
     header('location:hasilTolakPinjam.php');
 ?>

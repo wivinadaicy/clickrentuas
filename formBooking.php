@@ -66,7 +66,7 @@ $jenis= $_GET['jenis'];
 		<section class="panel form-wizard" id="w4">
 		
 			<header class="panel-heading">
-				<input type="button" class="btn btn-secondary" value="Back to home">
+				<a href="index.php"><input type="button" class="btn btn-secondary" value="Back to home"></a>
 				<label class="panel-title">Booking Form</label>
 			</header>
 			<div class="panel-body">
@@ -317,8 +317,6 @@ $jenis= $_GET['jenis'];
 </html>
 
 
-<select>
-</select>
 
 
 <script>

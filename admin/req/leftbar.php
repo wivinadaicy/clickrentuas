@@ -79,8 +79,8 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
-										 Barang &amp; Jenis Barang
+									<a href="barang.php">
+										 Barang
 									</a>
 								</li>
 								<li>
@@ -203,12 +203,36 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="logPeminjaman.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Log Peminjaman</span>
 							</a>
 						</li>
-
+<hr class="separator">
+<li>
+							<a href="peminjamanMemberAkanDatang.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Akan Datang</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberDitolak.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Ditolak</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberDibatalkan.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Dibatalkan</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberSelesai.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Selesai</span>
+							</a>
+						</li>
 			
 					</ul>
 					<?php }else if($data['status_pengguna']=="2"){ ?>
@@ -266,12 +290,14 @@
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
+								
 								<span>Jadwal</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
-									<a href="">
+									<a href="jadwalLab.php">
 										 Laboratorium
+										 
 									</a>
 								</li>
 								<li>
@@ -328,11 +354,25 @@
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="peminjamanAdmin.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+						<li class="nav-parent">
+							<a>
+								<i class="fa fa-copy" aria-hidden="true"></i>
+								
 								<span>Peminjaman</span>
 							</a>
+							<ul class="nav nav-children">
+								<li>
+									<a href="peminjamanAdminLab.php">
+										 Laboratorium
+										 
+									</a>
+								</li>
+								<li>
+									<a href="">
+										 Ruang Meeting
+									</a>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<a href="">
@@ -340,7 +380,31 @@
 								<span>Peminjaman Selesai</span>
 							</a>
 						</li>
-
+						<hr class="separator">
+<li>
+							<a href="peminjamanMemberAkanDatang.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Akan Datang</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberDitolak.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Ditolak</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberDibatalkan.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Dibatalkan</span>
+							</a>
+						</li>
+						<li>
+							<a href="peminjamanMemberSelesai.php">
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<span>Peminjaman Selesai</span>
+							</a>
+						</li>
 			
 					</ul>
 					<?php }else{  ?>

@@ -37,7 +37,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruang
     
     ))");
 
-$kalimat = '';
+$kalimat = '<div class="col-lg-12"><h3 style="text-align:center; font-weight:bold; background-color:grey; color:white">Ruangan Tersedia</h3></div>';
 while($ruangsedia=mysqli_fetch_array($query)){
     $ruangannya = $ruangsedia['id_ruangan'];
     $querym= mysqli_query($koneksi, "SELECT * FROM peminjaman");
@@ -45,13 +45,19 @@ while($ruangsedia=mysqli_fetch_array($query)){
     $barisbaru = $baris+1;
 
     $kalimat = $kalimat . 
-  
-  
-    "<a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang'>
-        <div class='col-12' style='background-color:black' id='" . $ruangsedia['id_ruangan'] . "'> 
-            id ruangnya = " . $ruangsedia['id_ruangan'] . 
-        "</div>
-    </a>";
+  "<div class='col-lg-4' id='" . $ruangsedia['id_ruangan'] . "'>
+        <div class='card'>
+            <div class='card-body'>
+                <h5 class='card-title'>". $ruangsedia['nama_ruangan'] ."</h5>
+                <p class='card-text'>
+                Gedung/Lantai : ". $ruangsedia['gedung_lantai']."<br>
+                Kapasitas : ". $ruangsedia['kapasitas'] ." <br>
+                Deskripsi : ". $ruangsedia['deskripsi'] ."<br>
+                </p>
+                <a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang' class='btn btn-dark'>Booking</a>
+            </div>
+        </div>
+    </div>";
     
 }
 

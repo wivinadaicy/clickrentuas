@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Data Mahasiswa</h2>
+			<h2>Student Data</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li><span>Master Data</span></li>
-					<li><span>Mahasiswa</span></li>
+					<li><span>Student</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -29,42 +29,32 @@
 <!--KODINGAN ISI HALAMAN-->
 		
 <div class="container-fluid">
-	<?php include('mahasiswa/modalTambahMahasiswa.php');?>
-	<br>
-	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
 				<th>NIM</th>
-				<th>Nama Pengguna</th>
-				<th>Angkatan</th>
-				<th>Jurusan</th>
-				<th>Semester</th>
-				<th>Aksi</th>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from mahasiswa a JOIN pengguna b JOIN program_studi c ON a.id_pengguna = b.id_pengguna AND c.id_programStudi = a.id_programStudi WHERE b.status_delete = '0' AND b.status_pengguna = '4' AND status_daftar = '2' ");	
+			$query = mysqli_query($koneksi, "SELECT * from pengguna join mahasiswa on mahasiswa.id_pengguna= pengguna.id_pengguna WHERE pengguna.status_delete='0' AND mahasiswa.status_delete='0'AND status_daftar='2' AND status_pengguna='4'");	
 			while($data=mysqli_fetch_array($query)){
 			?>
 			<tr>
 				<td><?php echo $data['id_mahasiswa']?></td>
-				<td><?php echo $data['nama_pengguna']?></td>
-				<td><?php echo $data['angkatan']?></td>
-				<td><?php echo $data['nama_programStudi']?></td>
-				<td><?php echo $data['semester']?></td>
+				<td><?php echo $data['nama_lengkap']?></td>
+				<td><?php echo $data['email']?></td>
+				<td><?php echo $data['no_hp']?></td>
 				<td class="text-center">
-					<a class="modal-with-form btn btn-default" href="#modaldetail<?php echo $data['id_mahasiswa'];?>"><i class='fa fa-eye'></i>
+					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
-					<a class="modal-with-form btn btn-warning" href="#modal<?php echo $data['id_mahasiswa'];?>"><i class='fa fa-edit'></i>
-					</a>
-					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default" href="#delete<?php echo $data['id_mahasiswa'];?>"><i class='fa fa-trash-o'></i></a>
 				</td>
 			</tr>
-			<?php include('mahasiswa/modaldetailMahasiswa.php');?>
-			<?php include('mahasiswa/modalEditMahasiswa.php');?>
-			<?php include('mahasiswa/modalHapusMahasiswa.php');?>
+			<?php include('mahasiswa/modaldetail.php');?>
 			<?php } ?>
 		</tbody>
 	</table>
@@ -79,6 +69,15 @@
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
 
-		<?php 
-		include('mahasiswa/scriptDetail.php');
-		?>
+        
+<script>      
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+<script>
+function reload() {
+  location.reload();
+}
+</script>

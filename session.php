@@ -8,4 +8,6 @@ $id = $_SESSION['id'];
 $alamat = $_SESSION['alamat'];
 $nohp = $_SESSION['no_hp'];
 $status= $_SESSION['status'];
+
+	date_default_timezone_set('Asia/Jakarta');
 ?>

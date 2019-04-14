@@ -29,6 +29,7 @@
 <!--KODINGAN ISI HALAMAN-->
 		
 <div class="container-fluid">
+<h3>Data Pengguna Aktif</h3>
 	<?php include('pengguna/modalTambah.php');?>
 	<br>
 	<hr>
@@ -36,9 +37,7 @@
 		<thead>
 			<tr>
 				<th>Full Name</th>
-				<th>Date of Birth</th>
 				<th>Email</th>
-				<th>Phone Number</th>
 				<th>Status</th>
 				<th>Action</th>
 			</tr>
@@ -50,9 +49,7 @@
 			?>
 			<tr>
 				<td><?php echo $data['nama_lengkap']?></td>
-				<td><?php echo $data['tanggal_lahir']?></td>
 				<td><?php echo $data['email']?></td>
-				<td><?php echo $data['no_hp']?></td>
 				<?php
 						   if($data['status_pengguna']=="1"){
 							   $statusnya = "Super Admin";
@@ -71,6 +68,7 @@
 					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i>
 					</a>
 					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
+					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
 				</td>
 			</tr>
 			<?php include('pengguna/modaldetail.php');?>
@@ -80,8 +78,52 @@
 		</tbody>
 	</table>
 </div>
-		
-		
+<br>
+<br>
+<div class="container-fluid">
+	<br>
+	<h3>Data Pengguna Tidak	 Aktif</h3>
+	<hr>
+	<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
+		<thead>
+			<tr>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+			$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='1'");	
+			while($data=mysqli_fetch_array($query)){
+			?>
+			<tr>
+				<td><?php echo $data['nama_lengkap']?></td>
+				<td><?php echo $data['email']?></td>
+				<?php
+						   if($data['status_pengguna']=="1"){
+							   $statusnya = "Super Admin";
+						   }else if($data['status_pengguna']=="2"){
+							   $statusnya = "Admin";
+						   }else if($data['status_pengguna']=="3"){
+								$statusnya = "Member Dosen";
+						   }else{
+								$statusnya = "Member Mahasiswa";
+						   }
+						?>
+				<td><?php echo $statusnya?></td>
+				<td class="text-center">
+					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
+					</a>
+					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
+				</td>
+			</tr>
+			<?php include('pengguna/modaldetail.php');?>
+			<?php } ?>
+		</tbody>
+	</table>
+</div>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
@@ -90,9 +132,6 @@
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
 
-		<?php 
-		include('pengguna/scriptDetail.php');
-		?>
 
 <script>
 function cekEmail(){
@@ -127,4 +166,62 @@ function cekEmail(){
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+</script>
+
+<script>
+	$(document).ready(function(){
+		$('#statuspenggunas').change(function(){
+			var status2 = $(this).val();
+	$.ajax({
+		type:"post",
+		url:"tambahMhs.php",
+    	dataType: "json",
+		data: {status:status2},
+		success: function(response){
+			if(response=="y"){
+				$('#memberada').show();
+			}else{
+				$('#memberada').hide();
+			}
+		}
+	});
+	})
+});
+</script>
+
+<?php
+$queryh = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' AND status_daftar='2'");	
+while($datad=mysqli_fetch_array($queryh)){
+?>
+<script>
+	$(document).ready(function(){
+		var stat = $('#statuspengguna<?php echo $datad['id_pengguna'] ?>').val();
+		if(stat!="4"){
+			$('#editmhs<?php echo $datad['id_pengguna'] ?>').hide();
+		}
+
+		$('#statuspengguna<?php echo $datad['id_pengguna'] ?>').change(function(){
+			var status2 = $(this).val();
+	$.ajax({
+		type:"post",
+		url:"tambahMhs.php",
+    	dataType: "json",
+		data: {status:status2},
+		success: function(response){
+			if(response=="y"){
+				$('#editmhs<?php echo $datad['id_pengguna'] ?>').show();
+			}else{
+				$('#editmhs<?php echo $datad['id_pengguna'] ?>').hide();
+			}
+		}
+	});
+	})
+});
+</script>
+<?php } ?>
+
+<script>
+function reload() {
+  location.reload();
+}
 </script>

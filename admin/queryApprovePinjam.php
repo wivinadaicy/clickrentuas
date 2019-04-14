@@ -76,6 +76,44 @@ $hitungkirimpesan = mysqli_num_rows($kirimppp);
 
     $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
 
+    $orang = mysqli_query($koneksi,"SELECT * from peminjaman join pesan join pesan_detail on pesan.id_peminjaman = peminjaman.id_peminjaman AND pesan_detail.id_pesan = pesan.id_pesan where peminjaman.id_peminjaman='$idpinjam'");
+    $h = mysqli_fetch_array($orang);
+    if($h['id_penggunaKe']==$h['id_pengguna']){
+        $kepada = $h['id_penggunaKe'];
+    }else{
+        $kepada = $h['id_penggunaDari'];
+    }
+$pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$kepada'");
+$datapengguna = mysqli_fetch_array($pengguna);
+$emailnya = $datapengguna['email'];
+
+require '../smtp/PHPMailerAutoload.php';
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 0;
+$mail->Host = 'ssl://smtp.gmail.com';
+$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+
+$mail->Username = "clickrentsistech@gmail.com";
+$mail->Password = "sistech123";
+
+$mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+$mail->addAddress($emailnya, $emailnya );
+
+$mail->Subject = "Peminjaman Kode: $idpinjam Diterima";
+$msg="Selamat peminjaman dengan kode $idpinjam untuk acara $acaranyah sudah diterima. Gunakan fitur chatting di website http://localhost/uasweb1/admin/pesan_detail.php?idpesan=$idpinjam untuk menghubungi pengurus ruangan!";  
+
+$mail->msgHTML("$msg");
+
+if (!$mail->send()) {
+    
+} 
+else  {
+    echo"berhasil";
+}
+
 }
 
 
@@ -169,10 +207,48 @@ echo "hehe->".$idpesany . "<-hehe";
 
             $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesany','$sss_orang','$id',now(),'$pesannya','0')");
 
+            $orang = mysqli_query($koneksi,"SELECT * from peminjaman join pesan join pesan_detail on pesan.id_peminjaman = peminjaman.id_peminjaman AND pesan_detail.id_pesan = pesan.id_pesan where peminjaman.id_peminjaman='$pinjamtolak'");
+            $h = mysqli_fetch_array($orang);
+            if($h['id_penggunaKe']==$h['id_pengguna']){
+                $kepada = $h['id_penggunaKe'];
+            }else{
+                $kepada = $h['id_penggunaDari'];
+            }
+
+$pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$kepada'");
+$datapengguna = mysqli_fetch_array($pengguna);
+$emailnya = $datapengguna['email'];
+
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 0;
+$mail->Host = 'ssl://smtp.gmail.com';
+$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+
+$mail->Username = "clickrentsistech@gmail.com";
+$mail->Password = "sistech123";
+
+$mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+$mail->addAddress($emailnya, $emailnya );
+
+$mail->Subject = "Peminjaman Kode: $pinjamtolak Ditolak";
+$msg="Maaf peminjaman dengan kode $pinjamtolak ditolak. Dengan alasan: karena waiting list";  
+
+$mail->msgHTML("$msg");
+
+if (!$mail->send()) {
+    
+} 
+else  {
+    echo"berhasil";
+}
+
         }
         
     }
 }
 
-header('location:hasilApprovePinjam.php');
+//header('location:hasilApprovePinjam.php');
 ?>

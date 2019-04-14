@@ -106,7 +106,11 @@ if($datapinjaman['id_pengguna']==$id){
                         $dataliatruanganlama = mysqli_fetch_array($liatruanglama);
                         $namaruanganlama = $dataliatruanganlama['nama_ruangan'];
                             //cekruang*
-                            $pesannya = "Peminjaman anda ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru";
+$acarah = mysqli_query($koneksi, "SELECT * from peminjaman where id_peminjaman='$pinjam1'");
+$dacarah = mysqli_fetch_array($acarah);
+$acaranya = $dacarah['acara'];
+
+                            $pesannya = "Mohon maaf, peminjaman anda dengan kode: $pinjam1 dan nama acara: $acaranya ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.";
 
                             $hehe = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam1'");
                             $cekpesannya = mysqli_fetch_array($hehe);
@@ -114,6 +118,37 @@ if($datapinjaman['id_pengguna']==$id){
                         echo $idpesannya . "ini satu";
                             $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
 //selesai insert orang1
+
+$pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$orangpinjam'");
+    $datapengguna = mysqli_fetch_array($pengguna);
+    $emailnya = $datapengguna['email'];
+    
+    require '../smtp/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    
+    $mail->Username = "clickrentsistech@gmail.com";
+    $mail->Password = "sistech123";
+    
+    $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+    $mail->addAddress($emailnya, $emailnya );
+    
+    $mail->Subject = "Ruangan Peminjaman Kode: $pinjam1 Ditukar";
+    $msg="Mohon maaf, peminjaman anda dengan kode: $pinjam1 dan nama acara: $acaranya ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.";  
+    
+    $mail->msgHTML("$msg");
+    
+    if (!$mail->send()) {
+        
+    } 
+    else  {
+        echo"berhasil";
+    }
 }
 
 
@@ -168,7 +203,10 @@ $liatruanglama = mysqli_query($koneksi, "SELECT * FROM ruangan where id_ruangan 
 $dataliatruanganlama = mysqli_fetch_array($liatruanglama);
 $namaruanganlama = $dataliatruanganlama['nama_ruangan'];
     //cekruang*
-    $pesannya = "Peminjaman anda ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru";
+    $acarah = mysqli_query($koneksi, "SELECT * from peminjaman where id_peminjaman='$pinjam2'");
+$dacarah = mysqli_fetch_array($acarah);
+$acaranya = $dacarah['acara'];
+    $pesannya = "Mohon maaf, peminjaman anda dengan kode: $pinjam2 dan nama acara: $acaranya ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.";
 
     $hoho = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$pinjam2'");
     $cekpesanny = mysqli_fetch_array($hoho);
@@ -176,6 +214,35 @@ $namaruanganlama = $dataliatruanganlama['nama_ruangan'];
 
     $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannyah','$orangpinjam','$id',now(),'$pesannya','0')");
     
+    $pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$orangpinjam'");
+    $datapengguna = mysqli_fetch_array($pengguna);
+    $emailnya = $datapengguna['email'];
+    
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = true;
+    
+    $mail->Username = "clickrentsistech@gmail.com";
+    $mail->Password = "sistech123";
+    
+    $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+    $mail->addAddress($emailnya, $emailnya );
+    
+    $mail->Subject = "Ruangan Peminjaman Kode: $pinjam2 Ditukar";
+    $msg="Mohon maaf, peminjaman anda dengan kode: $pinjam2 dan nama acara: $acaranya ditukar ruangannya dari $namaruanganlama menjadi $namaruanganbaru. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.";  
+    
+    $mail->msgHTML("$msg");
+    
+    if (!$mail->send()) {
+        
+    } 
+    else  {
+        echo"berhasil";
+    }
 }
 
 

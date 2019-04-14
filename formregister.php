@@ -270,7 +270,7 @@
 						<a id="kembali"><i class="fa fa-angle-left"></i> Previous</a>
 					</li>
 					<li class="finish hidden pull-right">
-						<a><input type="submit"  name="regis" value="Finish"></a>
+						<input type="submit"  name="regis" value="Finish">
 					</li>
 					<li class="next">
 						<a id="berikutnya">Next <i class="fa fa-angle-right"></i></a>

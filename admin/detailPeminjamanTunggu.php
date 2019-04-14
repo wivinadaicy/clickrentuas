@@ -190,7 +190,7 @@ $data = mysqli_fetch_array($query);
 
 <div id="tolak" class="modal-block modal-block-md mfp-hide">
             <section class="panel">
-                    <form method="get" action = "queryTolakPinjam.php">
+                    <form method="post" action = "queryTolakPinjam.php">
                 <header class="panel-heading">
                     <h2 class="panel-title">Tolak Peminjaman <?php echo $data['id_peminjaman']?></h2>
                 </header>
@@ -207,6 +207,7 @@ $data = mysqli_fetch_array($query);
                     <div class="form-group mt-lg">
                         <div class="col-sm-12">
                             <input type="text" name="alasanTolak"  class="form-control" placeholder="Ketik alasan penolakan">
+                            <input type="hidden" name="idtolak" value="<?php echo $id_pinjam ?>">
                         </div>
                     </div>
 <?php } ?>

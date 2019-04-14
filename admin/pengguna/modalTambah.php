@@ -2,7 +2,7 @@
 
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
-	<form>
+	<form action="pengguna/insert.php" method="post">
         <header class="panel-heading">
             <h2 class="panel-title">Add User Data</h2>
 		</header>
@@ -16,7 +16,7 @@
 						$baris = mysqli_num_rows($querym);
 						$barisbaru = $baris+1;
 					?>
-					<input type="text" name="idpengguna"  class="form-control" value = "<?php echo "USER-" . $barisbaru ?>"placeholder="ketik judul buku" disabled>
+					<input type="text" name="idpeng"  class="form-control" value = "<?php echo "USER-" . $barisbaru ?>"placeholder="ketik judul buku" readonly>
 				</div>
 			</div>
 			<div class="form-group mt-lg">
@@ -60,15 +60,15 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">User Status</label>
 				<div class="col-sm-9">
-					 <select name="statuspengguna" id="statuspengguna" class="form-control" required>
+					 <select name="statuspenggunas" id="statuspenggunas" class="form-control" required>
 					 <?php
-							   $statusnya[3] = "Super Admin"; //jangan kebalik
-							   $statusnya[2] = "Admin";
-								$statusnya[1] = "Member Dosen";
-								$statusnya[0] = "Member Mahasiswa";
-							  for($i = 0 ; $i <4 ; $i++){
+							   $statusnya[0] = "Super Admin"; //jangan kebalik
+							   $statusnya[1] = "Admin";
+								$statusnya[2] = "Member Dosen";
+								$statusnya[3] = "Member Mahasiswa";
+							  for($i = 4 ; $i >0 ; $i--){
 						   ?>
-							<option value="<?php echo $data['status_pengguna'] ?>"> <?php echo $statusnya[$i] ?></option>
+							<option value="<?php echo $i?>"> <?php echo $statusnya[$i-1] ?></option>
 						   <?php } ?>
 					</select>
 				</div>
@@ -79,12 +79,62 @@
 					<textarea name="alamat" id="alamat"  class="form-control" placeholder="insert address" required></textarea>
 				</div>
 			</div>
-            
+			
+    		<section id="memberada">
+			<hr class="separator">
+			<h3>Data Mahasiswa</h3>
+			<div class="form-group">
+								<label class="col-sm-3 control-label" for="w4-last-name">NIM</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" name="nim" id="formNim" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="w4-last-name">Program Studi</label>
+									<div class="col-sm-7">
+									<select class="form-control input-sm mb-md" name="ps" id="ps">
+										<?php
+										include('koneksi.php');
+										$queryps = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");
+										while($dataps=mysqli_fetch_array($queryps)){
+										?>
+										<option value="<?php echo $dataps['id_programStudi'] ?>"><?php echo $dataps['nama_programStudi']?></option>
+										<?php } ?>
+									</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="w4-last-name">Angkatan</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" name="angkatan" id="formAngkatan" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="w4-last-name">Semester</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" name="semester" id="formSemester" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="w4-last-name">Total SKS</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" name="totalsks" id="formSks" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="w4-last-name">IPK Terakhir</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" name="ipkterakhir" id="formIpk" required>
+									</div>
+								</div>
+			</section>
+			<br>
 		</div>
         <footer class="panel-footer">
             <div class="row">
+			<input type="hidden" name="idx" value="<?php echo $id ?>">
                 <div class="col-md-12 text-right">
-                    <button type="button" class="btn btn-primary tambah" id="tambah">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-default modal-dismiss batal">Cancel</button>
                 </div>
             </div>

@@ -202,6 +202,12 @@ $datadari = mysqli_fetch_array($penggunadari);
 
 $penggunake = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$ke'");
 $datake = mysqli_fetch_array($penggunake);
+
+if($dari==$id){
+	$orang = $datake['nama_lengkap'];
+}else{
+	$orang = $datadari['nama_lengkap'];
+}
 ?>
 	<section role="main" class="content-body">
 		<header class="page-header">
@@ -215,7 +221,7 @@ $datake = mysqli_fetch_array($penggunake);
 						</a>
 					</li>
 					<li><a href="pesan.php">Message</a></li>
-					<li><span>Chat <?php echo $datake['nama_lengkap'];?></span></li>
+					<li><span>Chat <?php echo $orang;?></span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>

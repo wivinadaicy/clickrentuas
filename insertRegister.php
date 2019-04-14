@@ -28,24 +28,44 @@ if($hitung==0){
         $sks=$_POST['totalsks'];
         $ipk=$_POST['ipkterakhir'];
         $programstudi = $_POST['ps'];
-        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','1', '0', now(), '0', '0', '0', '0', '0' )";
+        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','0', '0', now(), '0', '0', '0', '0', '0' )";
         $jalanin = mysqli_query($koneksi,$query);
         $query2 = "INSERT INTO mahasiswa VALUES ('$nim', '$idnya', '$programstudi', '$angkatan', '$semester', '$sks', '$ipk', '0', now(), '0', '0', '0', '0', '0')";
         $jalanin2 = mysqli_query($koneksi,$query2);
     }
     if($statusnya==3){
-        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','1', '0', now(), '0', '0', '0', '0', '0' )";
+        $query = "INSERT INTO pengguna VALUES ('$idnya', '$emailnya', md5('$passwordnya'), '$namanya', '$jknya', '$tgllahirnya', '$alamatnya', '$nohpnya', curdate(), '$statusnya','0', '0', now(), '0', '0', '0', '0', '0' )";
 
         $jalanin = mysqli_query($koneksi,$query);
     }
-/*    
-$msg = "Konfirmasi email anda di http://localhost/uasweb1/konfirmasiEmail.php?id=$idnya"; 
-//awalnya status 0, nanti ini diubah jadi 1 statusnya
 
-$msg = wordwrap($msg,70);
-mail($emailnya,"Click&Rent: Konfirmasi Email Anda",$msg);
-*/
-header("location:index.php");
+require 'smtp/PHPMailerAutoload.php';
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 0;
+$mail->Host = 'ssl://smtp.gmail.com';
+$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+
+$mail->Username = "clickrentsistech@gmail.com";
+$mail->Password = "sistech123";
+
+$mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+$mail->addAddress($emailnya, $emailnya );
+
+$mail->Subject = 'Konfirmasi Email Anda';
+$msg="Konfirmasi email Anda dengan klik link: http://localhost/uasWeb1/konfirmasiEmailDaftar.php?id=$idnya";  
+
+$mail->msgHTML("$msg");
+
+if (!$mail->send()) {
+    
+} 
+else  {
+    echo"berhasil";
+}
+header("location:tolongKonfirEmail.php?email=$emailnya");
 }
 }
 

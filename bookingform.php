@@ -66,10 +66,10 @@
                   </div>
                   <p style="font-size:10px; color:red" id="ceksession"></p>
                   
-                  <div class="row" id="ruangannya">
+                 
+
                   
-                  </div>
-            <div class="container" style="margin-top:30px;">
+           <!-- <div class="container" style="margin-top:30px;">
             <div class="card shopping-cart">
             <div class="card-header bg-dark text-light">
                 Rooms Availability
@@ -88,8 +88,6 @@
                         </div>
                     </div>
                     <hr>
-                    <!-- END PRODUCT -->
-                    <!-- PRODUCT -->
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-2 text-center">
                                 <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
@@ -103,10 +101,14 @@
                     </div>
             </div>
         </div>
-</div>
+</div>-->
                     
                 </div>
               </form>
+              <div class="row" id="ruangannya">
+                  
+            
+                  </div>
             </div>
           </div>
         </div>

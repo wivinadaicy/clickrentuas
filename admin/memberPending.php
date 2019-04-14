@@ -97,9 +97,6 @@ include('../koneksi.php');
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
 
-		<?php 
-		include('pengguna/scriptDetail.php');
-		?>
         
 <script>      
 $(function () {

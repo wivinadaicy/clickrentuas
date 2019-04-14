@@ -1,0 +1,1 @@
+Akun anda berhasil dikonfirmasi. Silahkan menunggu konfirmasi dari admin untuk dapat masuk ke website Click & Rent SIStech. Pesan konfirmasi akan dikirimkan ke email anda! Terima kasih telah mendaftar di Click & Rent SISTech.

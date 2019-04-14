@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Data Pengguna</h2>
+			<h2>Jadwal Laboratorium</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,8 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Master Data</span></li>
-					<li><span>Pengguna</span></li>
+					<li><span>Jadwal Lab</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -32,7 +31,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <div id="calendar"></div>
+                <div id="calendarr"></div>
             </div>
         </div>
     </div>
@@ -46,16 +45,13 @@
 <!--*****************************-->
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
-
-		<?php 
-		include('pengguna/scriptDetail.php');
-		?>
 <script>
-$(document).ready(function(){
-    var calendar = $('#calendar').fullCalendar();
-    header:{
-        left:'prev,next today',
-        center: 'title',
-    },
-});
+$(document).ready(function() {
+   var calendar = $('#calendarr').fullCalendar({
+    editable:true,
+    events: 'load.php',
+    selectable:true,
+	selectHelper:true,
+   });
+  });
 </script>

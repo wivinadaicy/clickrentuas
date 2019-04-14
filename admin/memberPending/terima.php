@@ -29,5 +29,33 @@ $log_daftar = 2;
 
 $queryinsertpengguna = mysqli_query($koneksi, "INSERT INTO log_pengguna VALUES('$ceklog','$idnya','$log_email','$log_pass','$log_nama','$log_jk','$log_tgl','$log_alamat','$log_hp','$log_masuk','$log_status','$log_daftar','$id',now())");
 
+require '../../smtp/PHPMailerAutoload.php';
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 0;
+$mail->Host = 'ssl://smtp.gmail.com';
+$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+
+$mail->Username = "clickrentsistech@gmail.com";
+$mail->Password = "sistech123";
+
+$mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
+$mail->addAddress($log_email,$log_email);
+
+$mail->Subject = 'Selamat Bergabung di Click&Rent SISTech UPH';
+//http://localhost/uasweb1/loginuser.php
+$msg="Selamat! Akun ada '$log_nama' di Click&Rent SISTech telah dikonfirmasi oleh admin. Silahkan klik link: http://tiny.cc/gtn24y untuk masuk ke Click&Rent SISTech! Selamaat meminjam ruangan secara online ^_^" ;  
+
+$mail->msgHTML("$msg");
+
+if (!$mail->send()) {
+    
+} 
+else  {
+    echo"berhasil";
+}
+
 header('location:../memberPending.php');
 ?>

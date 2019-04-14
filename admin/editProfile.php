@@ -80,9 +80,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label">Company</label>
+        <label class="col-sm-3 control-label">Status</label>
         <div class="col-sm-9">
-            <select name="statuspengguna" id="statuspengguna" class="form-control" required>
+            <select name="statuspengguna" id="statuspengguna" class="form-control" disabled>
             <?php  
                 $statusnyah[1]="Super Admin";
                 $statusnyah[2]="Admin";

@@ -77,12 +77,13 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
-                        <td class="actions-hover actions-fade">
+                        <td class=" actions-fade">
                             <!--chat admin, ganti iconnya ver-->
                             <a href="#chatadmin" class="modal-sizes"><i class="fa fa-pencil"></i></a>
                             
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="#cetakberkas" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="cetakPeminjamanAkanDatang.php" target="_blank"><i class="fa fa-trash-o"></i></a>
+
                             <!--iconnya buat liat detail kayak biasa-->
                             <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
 
