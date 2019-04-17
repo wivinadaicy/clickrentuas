@@ -75,7 +75,7 @@
 								</li>
 								<li>
 									<a href="">
-										 Ruangan &amp; Jenis Ruangan
+										 Ruangan
 									</a>
 								</li>
 								<li>
