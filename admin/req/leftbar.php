@@ -190,14 +190,14 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="peminjamanAdminMeeting.php">
 										 Ruang Meeting
 									</a>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<a href="">
+							<a href="peminjamanAdminSelesai.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Peminjaman Selesai</span>
 							</a>
