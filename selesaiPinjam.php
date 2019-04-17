@@ -9,6 +9,7 @@ error_reporting(0);
   <title>Click &amp; Rent &mdash; SISTech UPH </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
 
@@ -35,3 +36,11 @@ error_reporting(0);
     <a href="index.php" class="btn btn-danger">Back to Home</a></center>
     
 </body>
+=======
+Thank you for borrowing our room! 
+<br>Your booking code is <?php echo $_GET['idpinjam'];?>
+<br>
+Please wait for the approval by the admin. 
+Your room can be exchanged with consideration from the admin.
+<a href="index.php" class="btn btn-primary">Back To Home</a>
+>>>>>>> bb9b18ae1a043d56c66e3a137c3ab154149f2e48
