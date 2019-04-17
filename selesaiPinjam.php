@@ -3,10 +3,35 @@ error_reporting(0);
  include('session.php');
  include('koneksi.php'); 
 ?>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Click &amp; Rent &mdash; SISTech UPH </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-Thank you for borrowing our room! 
-<br>Your id is <?php echo $_GET['id_peminjaman'];?>
-<br>
-Please wait for the approval by the admin. 
-Your room can be exchanged with consideration from the admin.
-<a href="index.php" class="btn btn-primary">Back To Home</a>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">    
+     <!-- Theme Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    
+    <h1 style="padding-top:100px; text-align:center">Thankyou for borrowing our room!</h1>
+    
+    <p style="text-align:center;">Your id is <h3 style="text-align:center;"><?php echo $_GET['id_peminjaman'];?></h3>
+    <p style="text-align:center;">
+    Please wait for the approval by the admin. 
+    Your room can be exchanged with consideration from the admin.</p>
+    <center><img src="images/computer.png" alt="Computer icon" height="200" width="200" ><img src="images/uph-sistech.png" alt="Logo Sistech" height="200" width="350" style="padding-left:50px"></center>
+    <br><center>
+    
+ 
+    
+    <a href="index.php" class="btn btn-danger">Back to Home</a></center>
+    
+</body>
