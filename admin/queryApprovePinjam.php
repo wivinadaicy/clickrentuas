@@ -5,7 +5,7 @@
 $idpinjam = $_GET['idpinjam'];
 
 //ubah status jadi 1 (artinya terpinjam)
-$queryterima = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='1' WHERE id_peminjaman='$idpinjam'");
+$queryterima = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='1', user_edit='$id', waktu_edit=now() WHERE id_peminjaman='$idpinjam'");
 
 //ngambil barisanya log_peminjaman ada berapa, untuk primary key
 $cblogpinjam2 = mysqli_query($koneksi, "SELECT * FROM log_peminjaman");
@@ -149,7 +149,7 @@ else  {
         while($doto=mysqli_fetch_array($querycuy)){
             $pinjamtolak = $doto['id_peminjaman'];
             echo $pinjamtolak . "<br><br>";
-            $querytolak = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='4' WHERE id_peminjaman='$pinjamtolak'");
+            $querytolak = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='4', user_edit='$id', waktu_edit=now() WHERE id_peminjaman='$pinjamtolak'");
 
             $heleh = mysqli_query($koneksi, "SELECT * FROM log_peminjaman");
             $heleh2 = mysqli_num_rows($heleh);
@@ -250,5 +250,5 @@ else  {
     }
 }
 
-//header('location:hasilApprovePinjam.php');
+header('location:hasilApprovePinjam.php');
 ?>
