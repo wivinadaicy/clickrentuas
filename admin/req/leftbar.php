@@ -133,7 +133,7 @@
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"> </i>
-								<span>Peminjaman Pending </span>
+								<span>Pending Reservation </span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
 
@@ -181,7 +181,7 @@
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
 								
-								<span>Peminjaman</span>
+								<span>Reservation</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
@@ -199,38 +199,38 @@
 						<li>
 							<a href="peminjamanAdminSelesai.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Selesai</span>
+								<span>Finished Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="logPeminjaman.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Log Peminjaman</span>
+								<span>Reservation Log</span>
 							</a>
 						</li>
-<hr class="separator">
-<li>
+                        <hr class="separator">
+                        <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Akan Datang</span>
+								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Ditolak</span>
+								<span>Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
-								<span>Peminjaman Dibatalkan</span>
+								<span>Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
-								<span>Peminjaman Selesai</span>
+								<span>Finished Reservation</span>
 							</a>
 						</li>
 			
@@ -269,17 +269,17 @@
 							<ul class="nav nav-children">
 								<li>
 									<a href="">
-										 Ruangan &amp; Jenis Ruangan
+										 Rooms &amp; Types of Rooms
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Barang &amp; Jenis Barang
+										 Items &amp; Types of Items
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Kategori Acara
+										 Event Category
 									</a>
 								</li>
 							</ul>
@@ -291,18 +291,18 @@
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
 								
-								<span>Jadwal</span>
+								<span>Schedule</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
 									<a href="jadwalLab.php">
-										 Laboratorium
+										 Laboratory
 										 
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Ruang Meeting
+										 Meeting Room
 									</a>
 								</li>
 							</ul>
@@ -310,7 +310,7 @@
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"> </i>
-								<span>Peminjaman Pending </span>
+								<span>Pending Reservation</span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
 
@@ -326,7 +326,7 @@
 							<ul class="nav nav-children">
 								<li>
 									<a href="pendingLab.php">
-										 Laboratorium
+										 Laboratory
 										 <?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
 
@@ -340,7 +340,7 @@
 								</li>
 								<li>
 									<a href="pendingMeeting.php">
-										 Ruang Meeting
+										 Meeting Room
 										 <?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
 
@@ -358,18 +358,18 @@
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
 								
-								<span>Peminjaman</span>
+								<span>Reservation</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
 									<a href="peminjamanAdminLab.php">
-										 Laboratorium
+										 Laboratory
 										 
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Ruang Meeting
+										 Meeting Room
 									</a>
 								</li>
 							</ul>
@@ -377,32 +377,32 @@
 						<li>
 							<a href="">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Selesai</span>
+								<span>Finished Reservation</span>
 							</a>
 						</li>
 						<hr class="separator">
 <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Akan Datang</span>
+								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Ditolak</span>
+								<span>Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Dibatalkan</span>
+								<span>Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Selesai</span>
+								<span>Finished Reservation</span>
 							</a>
 						</li>
 			
@@ -430,7 +430,7 @@
 							<?php } ?>
 
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<span>Pesan</span>
+							<span>Messages</span>
 						</a>
 						</li>
 
@@ -439,17 +439,17 @@
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
-								<span>Jadwal</span>
+								<span>Schedule</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
 									<a href="">
-										 Laboratorium
+										 Laboratory
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Ruang Meeting
+										 Meeting Room
 									</a>
 								</li>
 							</ul>
@@ -457,25 +457,25 @@
 						<li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Akan Datang</span>
+								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Ditolak</span>
+								<span>Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Dibatalkan</span>
+								<span>Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Peminjaman Selesai</span>
+								<span>Finished Reservation</span>
 							</a>
 						</li>
 
