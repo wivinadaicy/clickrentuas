@@ -115,6 +115,14 @@
                                     <?php } ?>
 									</tbody>
 								</table>
+                                <?php
+                                if($riw['user_delete']!='0'){ ?>
+<h5><b>Tanggal Delete:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_delete'])) ?> WIB</h5>
+
+    <h5><b>User Delete:</b> <?php echo $riw['user_delete'] ?></h4>
+                                 <?php   
+                                }
+                                ?>
 
         </div>
     </div>

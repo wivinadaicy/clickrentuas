@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 07:30 PM
+-- Generation Time: Apr 17, 2019 at 10:08 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -44,6 +44,18 @@ CREATE TABLE `barang` (
   `waktu_delete` datetime NOT NULL,
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+('BR-1', 'R-1', 2, 'Keyboard', 'Asus', 20, '2019-04-23', 'USER-1', '2019-04-14 22:42:40', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-14 22:53:00', 1),
+('BR-2', 'R-2', 2, 'Monitor', 'Acer', 20, '2019-04-17', 'USER-1', '2019-04-16 20:13:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-3', 'R-2', 1, 'Photoshop CC 2017', 'Adobe', 50, '2019-04-16', 'USER-1', '2019-04-16 20:14:51', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-4', 'R-2', 1, 'Premiere CC 2019', 'Adobe', 20, '2019-04-24', 'USER-1', '2019-04-16 20:15:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-5', 'R-2', 1, 'Illustrator CC 2018', 'Adobe', 30, '2019-04-24', 'USER-1', '2019-04-16 20:15:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-6', 'R-1', 1, 'Netbeans', 'Netbeans', 40, '2019-04-16', 'USER-1', '2019-04-16 20:17:10', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -131,7 +143,8 @@ INSERT INTO `kategori_acara` (`id_kategoriAcara`, `jenis_acara`, `user_add`, `wa
 (1, 'Kelas', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 (2, 'Kelas Pengganti', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 (3, 'Himpunan Mahasiswa', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
-(4, 'Acara Dosen', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
+(4, 'Acara Dosen', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(5, 'Lain-lain', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -148,14 +161,16 @@ CREATE TABLE `log_barang` (
   `merek` text NOT NULL,
   `stok_barang` int(11) NOT NULL,
   `tanggal_beli` date NOT NULL,
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
+  `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_barang`
+--
+
+INSERT INTO `log_barang` (`id_logBarang`, `id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_edit`, `waktu_edit`) VALUES
+(1, 'BR-1', 'R-1', 2, 'Keyboard', 'Asus', 20, '2019-04-23', 'USER-1', '2019-04-14 22:53:00');
 
 -- --------------------------------------------------------
 
@@ -167,25 +182,6 @@ CREATE TABLE `log_fakultas` (
   `id_logFakultas` int(11) NOT NULL,
   `id_fakultas` varchar(40) NOT NULL,
   `nama_fakultas` varchar(60) NOT NULL,
-  `user_add` varchar(40) NOT NULL,
-  `waktu_add` datetime NOT NULL,
-  `user_edit` varchar(40) NOT NULL,
-  `waktu_edit` datetime NOT NULL,
-  `user_delete` varchar(40) NOT NULL,
-  `waktu_delete` datetime NOT NULL,
-  `status_delete` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `log_jenis_barang`
---
-
-CREATE TABLE `log_jenis_barang` (
-  `id_logJenisBarang` int(11) NOT NULL,
-  `id_jenisBarang` int(11) NOT NULL,
-  `nama_jenisBarang` varchar(60) NOT NULL,
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
@@ -238,7 +234,8 @@ CREATE TABLE `log_mahasiswa` (
 --
 
 INSERT INTO `log_mahasiswa` (`id_logMahasiswa`, `id_mahasiswa`, `id_pengguna`, `id_programStudi`, `angkatan`, `semester`, `total_sks`, `ipk_terakhir`, `user_edit`, `waktu_edit`) VALUES
-(1, '0108273746474', 'USER-2', 'PS-2', 2017, 3, 12, 3, 'USER-2', '2019-04-03 13:41:31');
+(1, '00000020271', 'USER-4', 'PS-1', 2010, 8, 18, 3.75, 'USER-1', '2019-04-13 22:11:44'),
+(2, '00000020271', 'USER-4', 'PS-1', 2016, 8, 18, 3.75, 'USER-1', '2019-04-13 22:18:29');
 
 -- --------------------------------------------------------
 
@@ -258,64 +255,10 @@ CREATE TABLE `log_peminjaman` (
   `jumlah_peserta` int(11) NOT NULL,
   `id_kategoriAcara` int(11) NOT NULL,
   `deskripsi_acara` text NOT NULL,
-  `status_peminjaman` int(11) NOT NULL COMMENT '0:TUNGGU APPROVE, 1:APPROVED, 2:SEDANG DIPINJAM, 3:SELESAI, 4:TIDAK APPROVE',
+  `status_peminjaman` int(11) NOT NULL COMMENT '0:TUNGGU APPROVE, 1:APPROVED, 2:SEDANG DIPINJAM, 3:SELESAI, 4:TIDAK APPROVE 5:DIBATALKAN 6:TIMEOUT',
   `user_edit` varchar(40) NOT NULL,
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `log_peminjaman`
---
-
-INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_edit`, `waktu_edit`) VALUES
-(1, 'PJ-5', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 0, 'USER-1', '2019-04-06 16:48:53'),
-(2, 'PJ-10', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-06 16:48:53'),
-(3, 'PJ-5', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 1, 'USER-1', '2019-04-06 16:49:56'),
-(4, 'PJ-15', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 4, 'USER-1', '2019-04-06 16:49:56'),
-(5, 'PJ-6', '2019-04-17', 'R-2', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 1, 'USER-1', '2019-04-06 16:55:53'),
-(6, 'PJ-10', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 16:55:53'),
-(7, 'PJ-13', '2019-04-17', 'R-2', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 4, 'USER-1', '2019-04-06 16:55:53'),
-(8, 'PJ-18', '2019-04-17', 'R-2', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 16:55:53'),
-(9, 'PJ-20', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 16:55:53'),
-(10, 'PJ-11', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Hantu', 12, 1, '123123123121231231', 1, 'USER-1', '2019-04-06 16:58:35'),
-(11, 'PJ-21', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 4, 'USER-1', '2019-04-06 16:58:35'),
-(12, 'PJ-16', '2019-04-17', 'R-1', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 1, 'USER-1', '2019-04-06 17:01:19'),
-(13, 'PJ-3', '2019-04-17', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 4, 'USER-1', '2019-04-06 17:01:19'),
-(14, 'PJ-8', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:01:19'),
-(15, 'PJ-17', '2019-04-17', 'R-2', '11:15:00', '13:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 1, 'USER-1', '2019-04-06 17:05:39'),
-(16, 'PJ-14', '2019-04-17', 'R-2', '12:15:00', '13:15:00', 'USER-1', '123', 123, 1, '123', 4, 'USER-1', '2019-04-06 17:05:39'),
-(17, 'PJ-19', '2019-04-17', 'R-2', '11:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:05:39'),
-(18, 'PJ-16', '2019-04-17', 'R-1', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 1, 'USER-1', '2019-04-06 17:08:31'),
-(19, 'PJ-3', '2019-04-17', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 4, 'USER-1', '2019-04-06 17:08:31'),
-(20, 'PJ-8', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:08:31'),
-(21, 'PJ-15', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 1, 'USER-1', '2019-04-06 17:08:58'),
-(22, 'PJ-5', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 4, 'USER-1', '2019-04-06 17:08:58'),
-(23, 'PJ-10', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 1, 'USER-1', '2019-04-06 17:12:35'),
-(24, 'PJ-17', '2019-04-17', 'R-2', '11:15:00', '13:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:12:35'),
-(25, 'PJ-18', '2019-04-17', 'R-2', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:12:35'),
-(26, 'PJ-19', '2019-04-17', 'R-2', '11:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:12:35'),
-(27, 'PJ-20', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:12:35'),
-(28, 'PJ-6', '2019-04-17', 'R-2', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 4, 'USER-1', '2019-04-06 17:12:35'),
-(29, 'PJ-1', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 0, 'USER-1', '2019-04-06 17:16:57'),
-(30, 'PJ-21', '2019-04-17', 'R-2', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 0, 'USER-1', '2019-04-06 17:16:57'),
-(31, 'PJ-10', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 1, 'USER-1', '2019-04-06 17:19:57'),
-(32, 'PJ-17', '2019-04-17', 'R-2', '11:15:00', '13:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:19:57'),
-(33, 'PJ-18', '2019-04-17', 'R-2', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:19:57'),
-(34, 'PJ-19', '2019-04-17', 'R-2', '11:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:19:57'),
-(35, 'PJ-20', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:19:57'),
-(36, 'PJ-6', '2019-04-17', 'R-2', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 4, 'USER-1', '2019-04-06 17:19:57'),
-(37, 'PJ-5', '2019-04-17', 'R-2', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 0, 'USER-1', '2019-04-06 17:21:35'),
-(38, 'PJ-10', '2019-04-17', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-06 17:21:35'),
-(39, 'PJ-5', '2019-04-17', 'R-2', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 1, 'USER-1', '2019-04-06 17:23:05'),
-(40, 'PJ-20', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 17:23:05'),
-(41, 'PJ-22', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Jajan', 12, 3, 'Jalanjalanajalan', 1, 'USER-1', '2019-04-06 21:20:21'),
-(42, 'PJ-10', '2019-04-17', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 21:20:21'),
-(43, 'PJ-8', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 21:20:21'),
-(44, 'PJ-16', '2019-04-17', 'R-1', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 4, 'USER-1', '2019-04-06 21:20:21'),
-(45, 'PJ-6', '2019-04-17', 'R-2', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 1, 'USER-1', '2019-04-06 21:24:43'),
-(46, 'PJ-13', '2019-04-17', 'R-2', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 4, 'USER-1', '2019-04-06 21:24:43'),
-(47, 'PJ-18', '2019-04-17', 'R-2', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-06 21:24:43'),
-(48, 'PJ-1', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 4, 'USER-1', '2019-04-07 00:29:07');
 
 -- --------------------------------------------------------
 
@@ -345,8 +288,17 @@ CREATE TABLE `log_pengguna` (
 --
 
 INSERT INTO `log_pengguna` (`id_logPengguna`, `id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_edit`, `waktu_edit`) VALUES
-(1, 'USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', ' Jalan 123 ', '0827276474', '2019-04-03', 4, 1, 'USER-2', '2019-04-03 13:35:23'),
-(2, 'USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', '  Jalan 123  ', '0827276474', '2019-04-03', 4, 1, 'USER-2', '2019-04-03 13:41:31');
+(1, 'USER-1', 'wivinadaicy@yahoo.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 3, 1, '0', '2019-04-13 17:57:31'),
+(2, 'USER-2', 'wivinadaicy.wd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Gmail Student', 'p', '2019-04-04', 'Jalan Nanana no 17', '08261536475', '2019-04-13', 4, 1, '0', '2019-04-13 18:03:58'),
+(3, 'USER-2', 'wivinadaicy.wd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Gmail Student', 'p', '2019-04-04', 'Jalan Nanana no 17', '08261536475', '2019-04-13', 4, 2, 'USER-1', '2019-04-13 18:05:24'),
+(4, 'USER-3', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 3, 1, '0', '2019-04-13 19:02:46'),
+(5, 'USER-3', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 3, 2, 'USER-1', '2019-04-13 19:03:11'),
+(6, 'USER-4', 'joshuanatan.jn@gmail.com', '74be16979710d4c4e7c6647856088456', 'Joshua Mahasiswaa', 'p', '1998-03-13', 'Jalan Kembang Molek IX...', '082153746575', '2019-04-13', 4, 2, 'USER-1', '2019-04-13 22:18:29'),
+(7, 'USER-3', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, 'USER-1', '2019-04-14 15:59:36'),
+(8, 'USER-3', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, 'USER-1', '2019-04-14 16:03:59'),
+(9, 'USER-3', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, 'USER-1', '2019-04-14 16:06:50'),
+(10, 'USER-3', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, 'USER-1', '2019-04-14 16:07:11'),
+(11, 'USER-3', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 1, 2, 'USER-1', '2019-04-14 16:12:08');
 
 -- --------------------------------------------------------
 
@@ -418,7 +370,9 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_pengguna`, `id_programStudi`, `angkatan`, `semester`, `total_sks`, `ipk_terakhir`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_Delete`, `status_delete`) VALUES
-('0108273746474', 'USER-2', 'PS-2', 2017, 3, 12, 3, '0', '2019-04-03 09:52:48', 'USER-2', '2019-04-03 13:41:31', '0', '0000-00-00 00:00:00', 0);
+('00000020271', 'USER-4', 'PS-1', 2016, 8, 18, 3.75, 'USER-1', '2019-04-13 21:18:18', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('01081170002', 'USER-2', 'PS-1', 2017, 5, 18, 3.74, '0', '2019-04-13 01:00:00', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('01081170007', 'USER-3', 'PS-2', 2017, 5, 16, 3.33, 'USER-1', '2019-04-14 17:06:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -437,7 +391,7 @@ CREATE TABLE `peminjaman` (
   `jumlah_peserta` int(11) NOT NULL,
   `id_kategoriAcara` int(11) NOT NULL,
   `deskripsi_acara` text NOT NULL,
-  `status_peminjaman` int(11) NOT NULL COMMENT '0:TUNGGU APPROVE, 1:APPROVED, 2:SEDANG DIPINJAM, 3:SELESAI, 4:TIDAK APPROVE',
+  `status_peminjaman` int(11) NOT NULL COMMENT '0:TUNGGU APPROVE, 1:APPROVED, 2:SEDANG DIPINJAM, 3:SELESAI, 4:TIDAK APPROVE 5:DIBATALKAN 6:TIMEOUT',
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
@@ -446,34 +400,6 @@ CREATE TABLE `peminjaman` (
   `waktu_delete` datetime NOT NULL,
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `peminjaman`
---
-
-INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('PJ-1', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 4, 'USER-1', '2019-03-30 19:25:58', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-10', '2019-04-17', 'R-1', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-11', '2019-04-17', 'R-1', '07:15:00', '08:15:00', 'USER-1', 'Hantu', 12, 1, '123123123121231231', 0, 'USER-1', '2019-04-04 23:16:17', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-12', '2019-04-17', 'R-2', '13:15:00', '14:15:00', 'USER-1', 'Kelas OS', 40, 1, 'Kelas Sistem Operasi', 0, 'USER-1', '2019-03-30 19:26:56', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-13', '2019-04-17', 'R-2', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 4, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-14', '2019-04-17', 'R-2', '12:15:00', '13:15:00', 'USER-1', '123', 123, 1, '123', 0, 'USER-1', '2019-03-31 20:21:12', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-15', '2019-04-17', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 0, 'USER-2', '2019-04-03 14:07:47', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-16', '2019-04-17', 'R-1', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 4, 'USER-3', '2019-04-03 14:12:29', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-17', '2019-04-17', 'R-2', '11:15:00', '13:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-18', '2019-04-17', 'R-2', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-19', '2019-04-17', 'R-2', '11:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-2', '2019-04-17', 'R-1', '13:15:00', '14:15:00', 'USER-1', 'Kelas OS', 40, 1, 'Kelas Sistem Operasi', 0, 'USER-1', '2019-03-30 19:26:56', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-20', '2019-04-17', 'R-2', '09:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-21', '2019-04-17', 'R-2', '07:15:00', '08:15:00', 'USER-1', 'Charity', 40, 3, 'Acara HM', 0, 'USER-1', '2019-03-30 19:25:58', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-22', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Jajan', 12, 3, 'Jalanjalanajalan', 1, 'USER-2', '2019-04-06 21:19:25', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-3', '2019-04-17', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'Ulang Tahun Fakultas', 15, 4, 'SI', 0, 'USER-1', '2019-03-30 19:41:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-4', '2019-04-17', 'R-1', '12:15:00', '13:15:00', 'USER-1', '123', 123, 1, '123', 0, 'USER-1', '2019-03-31 20:21:12', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-5', '2019-04-17', 'R-2', '10:15:00', '11:15:00', 'USER-2', 'Makan Makan', 12, 3, 'Makan biar gendut', 1, 'USER-2', '2019-04-03 14:07:47', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-6', '2019-04-17', 'R-2', '08:15:00', '10:15:00', 'USER-3', 'Eksis', 2, 4, 'Acara buat eksis', 1, 'USER-3', '2019-04-03 14:12:29', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-7', '2019-04-17', 'R-1', '11:15:00', '13:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-8', '2019-04-17', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 4, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-9', '2019-04-17', 'R-1', '11:15:00', '12:15:00', 'USER-1', 'Suka', 12, 2, 'qsdasd', 0, 'USER-1', '2019-04-03 15:28:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -507,9 +433,10 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Daicy', 'p', '1999-10-23', 'Jalan qwerty ajsdajsd jasdj asd', '12345678', '2018-12-20', 1, 2, '', '0000-00-00 00:00:00', 'USER-1', '2019-03-29 20:33:44', '0', '0000-00-00 00:00:00', 0),
-('USER-2', 'mahasiswa@abadi.com', '202cb962ac59075b964b07152d234b70', 'Mahasiswa Abadi', 'l', '2019-04-03', '  Jalan 123  ', '0827276474', '2019-04-03', 4, 2, '0', '2019-04-03 09:52:48', '', '2019-04-06 19:52:36', '0', '0000-00-00 00:00:00', 0),
-('USER-3', 'dosen@keren.com', '202cb962ac59075b964b07152d234b70', 'Dosen Keren', 'l', '2019-04-10', 'Jalan hellow', '1234567888888', '2019-04-03', 3, 2, '0', '2019-04-03 14:11:12', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 1, 2, '0', '2019-04-13 17:56:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('USER-2', 'wivinadaicy.wd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Gmail Student', 'p', '2019-04-04', 'Jalan Nanana no 17', '08261536475', '2019-04-13', 4, 2, '0', '2019-04-13 18:01:18', 'USER-1', '2019-04-13 18:05:24', '0', '0000-00-00 00:00:00', 0),
+('USER-3', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, '0', '2019-04-13 19:01:44', 'USER-1', '2019-04-14 17:06:52', '0', '0000-00-00 00:00:00', 0),
+('USER-4', 'joshuanatan.jn@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Joshua Mahasiswaa', 'p', '1998-03-13', 'Jalan Kembang Molek IX...', '082153746575', '2019-04-13', 4, 2, 'USER-1', '2019-04-13 21:18:18', 'USER-1', '2019-04-13 22:18:29', 'USER-1', '2019-04-13 22:36:43', 1);
 
 -- --------------------------------------------------------
 
@@ -730,12 +657,6 @@ ALTER TABLE `log_barang`
 --
 ALTER TABLE `log_fakultas`
   ADD PRIMARY KEY (`id_logFakultas`);
-
---
--- Indexes for table `log_jenis_barang`
---
-ALTER TABLE `log_jenis_barang`
-  ADD PRIMARY KEY (`id_logJenisBarang`);
 
 --
 -- Indexes for table `log_kategori_acara`

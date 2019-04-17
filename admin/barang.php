@@ -29,22 +29,47 @@
 <!--KODINGAN ISI HALAMAN-->
 		
 <div class="container-fluid">
-<h4>Jenis Barang: 
-	<select>
+<div class="panel-body">
+<table>
+<tr>
+<td>Jenis Barang&nbsp; &nbsp; &nbsp;</td> 
+		<td>: &nbsp; &nbsp; &nbsp;
+		<input type="radio" value="semua" name="jenisbarang" checked onclick="cekBarang()"> Semua &nbsp; &nbsp; &nbsp; 
 		<?php
 		$jb = mysqli_query($koneksi, "SELECT * FROM jenis_barang");
 		while($djb = mysqli_fetch_array($jb)){
 		?>
-		<option value="<?php echo $djb['id_jenisBarang'] ?>"><?php echo $djb['nama_jenisBarang'] ?></option>
+		<input type="radio" value="<?php echo $djb['id_jenisBarang'] ?>"  onclick="cekBarang()" name="jenisbarang"> <?php echo $djb['nama_jenisBarang'] ?> &nbsp; &nbsp; &nbsp;
 		<?php } ?>
-	</select>
-</h4>
+		</td>
+</tr>
+<tr>
+	<td>
+		Ruangan
+	</td>
+	<td>: &nbsp; &nbsp; &nbsp;
+	<select name="ruangans" id="ruangans" onchange="cekBarang()">
+	<option value="semua">Semua</option>
+			<?php
+			$dr= mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
+			while($ddr = mysqli_fetch_array($dr)){
+			?>
+				<option value="<?php echo $ddr['id_ruangan'] ?>"><?php echo $ddr['nama_ruangan'] ?></option>
+			<?php } ?>
+			</select>
+	</td>
+</tr>
+
+		
+</table>
+</div>
 	<?php include('barang/modalTambah.php');?>
 	<br>
 	<hr>
 	<h3>Data Barang</h3>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
+		
 			<tr>
 				<th>Nama Barang</th>
 				<th>Merek</th>
@@ -52,67 +77,27 @@
 				<th>Ruangan</th>
 				<th>Action</th>
 			</tr>
+
 		</thead>
-		<tbody>
-		<?php
-			$query = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='0'");	
-			while($data=mysqli_fetch_array($query)){
-			?>
-			<tr>
-				<td><?php echo $data['nama_barang'] ?></td>
-				<td><?php echo $data['merek'] ?></td>
-				<td><?php echo $data['stok_barang'] ?></td>
-				<td><?php echo $data['nama_ruangan'] ?></td>
-				<td class="text-center">
-					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_barang'];?>"><i class='fa fa-eye'></i>
-					</a>
-					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_barang'];?>"><i class='fa fa-edit'></i>
-					</a>
-					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_barang'];?>"><i class='fa fa-trash-o'></i></a>
-					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
-				</td>
-			</tr>
-			<?php include('barang/modaldetail.php');?>
-			<?php include('barang/modalEdit.php');?>
-			<?php include('barang/modalHapus.php');?>
-			<?php } ?>
+		<tbody id="barangg">
+
+		
 		</tbody>
+		
 	</table>
+	<?php
+$querys = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='0'");
+while($data=mysqli_fetch_array($querys)){
+
+		 include('barang/modalDetail.php'); 
+		 include('barang/modalEdit.php'); 
+		 include('barang/modalHapus.php'); 
+
+ } ?>
 </div>
 <br>
 <br>
-<div class="container-fluid">
-	<br>
-	<h3>Data Barang (deleted)</h3>
-	<hr>
-	<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
-		<thead>
-			<tr>
-				<th>Full Name</th>
-				<th>Email</th>
-				<th>Status</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-		<?php
-			$query = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='1'");	
-			while($data=mysqli_fetch_array($query)){
-			?>
-			<tr>
-				<td><?php echo $data['nama_barang'] ?></td>
-				<td><?php echo $data['merek'] ?></td>
-				<td><?php echo $data['stok_barang'] ?></td>
-				<td><?php echo $data['nama_ruangan'] ?></td>
-				<td class="text-center">
-					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_barang'];?>"><i class='fa fa-eye'></i>
-				</td>
-			</tr>
-			<?php include('barang/modaldetail.php');?>
-			<?php } ?>
-		</tbody>
-	</table>
-</div>
+
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
@@ -120,3 +105,25 @@
 <!--*****************************-->
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
+
+<script>
+function cekBarang(){
+  var ruangans = $('#ruangans').children("option:selected").val();
+  var jenisbarangs = $("input[name='jenisbarang']:checked").val();
+
+	$.ajax({
+		type:"post",
+		url:"barangAjax.php",
+    dataType: "json",
+		data: {ruangans:ruangans, jenisbarangs:jenisbarangs},
+		success: function(response){
+			$('#barangg').empty();
+			$('#barangg').append(response);
+		}
+	});
+}
+
+window.onload = function() {
+  cekBarang();
+};
+</script>

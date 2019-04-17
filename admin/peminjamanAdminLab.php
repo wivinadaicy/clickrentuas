@@ -72,79 +72,36 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $data['nama_lengkap'] ?></td>
-                        <td class="actions-hover actions-fade">
-                           <!-- nantidulu -->
+                        <td class=" actions-fade">
+                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-eye' ></i>
+                            </a>
+                            <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Selesaikan" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>
 
-
-<div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
-    <section class="panel">
-        <header class="panel-heading">
-            <h2 class="panel-title">Chat dengan pengurus?</h2>
-        </header>
-        <div class="panel-body">
-            <div class="modal-wrapper">
-                <div class="modal-icon">
-                    <i class="fa fa-question-circle"></i>
-                </div>
-                <div class="modal-text">
-                    <p><!-- edit disini -->
-                    Apakah anda ingin melakukan percakapan teks dengan pengurus peminjaman Anda? <br>Data admin:
-                    <br>
-                    <?php
-                    $idpesan=$data['id_pesan'];
-                    $adminny = mysqli_query($koneksi, "SELECT * FROM pesan_detail join pengguna on pengguna.id_pengguna = pesan_detail.id_penggunaDari where id_pesan='$idpesan' AND pesan_detail.id_penggunaDari <> '$id' AND pesan_detail.pesan LIKE 'Selamat%' order by tanggal_waktu asc");
-                    $dataadmin = mysqli_fetch_array($adminny);
-                    $pengurus = $dataadmin['nama_lengkap'];
-                    ?>
-                    Nama : <b><?php echo $pengurus ?> <br></b>
-                        </p>
-                </div>
-            </div>
-        </div>
-        <footer class="panel-footer">
-            <div class="row">
-                <div class="col-md-12 text-right">
-                <div class="col-md-12 text-right">
-                        <a class="btn btn-primary" href="bukaPesan.php?idpesan=<?php echo $idpesan?>">OK</a>
-                        <button class="btn btn-default modal-dismiss">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </section>
+<div id="selesaikan<?php echo $data['id_peminjaman'];?>" class="modal-block modal-block-sm mfp-hide">
+	<section class="panel">
+		<header class="panel-heading">
+			<h2 class="panel-title">Menyelesaikan Pinjaman</h2>
+		</header>
+		<div class="panel-body">
+			<div class="modal-wrapper">
+				<div class="modal-text">
+					<p>Apakah anda yakin akan menyelesaikan peminjaman dengan acara "<?php echo $data['acara']?>" dan kode peminjaman: <?php echo $data['id_peminjaman'] ?> ?</p>
+				</div>
+			</div>
+		</div>
+		<footer class="panel-footer">
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<a class="btn btn-primary hapus" href="querySelesaikan.php?id=<?php echo $data['id_peminjaman'];?>">Selesaikan</a>
+					<button class="btn btn-default modal-dismiss">Cancel</button>
+				</div>
+			</div>
+		</footer>
+	</section>
 </div>
-
-
-                    <div id="batalkanpinjaman" class="modal-block modal-full-color modal-block-warning mfp-hide">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            <h2 class="panel-title">Batalkan Peminjaman</h2>
-                        </header>
-                        <div class="panel-body">
-                            <div class="modal-wrapper">
-                                <div class="modal-icon">
-                                    <i class="fa fa-warning"></i>
-                                </div>
-                                <div class="modal-text">
-                                    <h4>Warning</h4>
-                                    <p>Apakah Anda yakin akan membatalkan peminjaman?</p>
-                                </div>
-                            </div>
-                        </div>
-                        <footer class="panel-footer">
-                            <div class="row">
-                                <div class="col-md-12 text-right">
-                                <a class="btn btn-primary" href="batalPeminjaman.php?idpinjam=<?php echo $data['id_peminjaman']?>">OK</a>
-                                    <button class="btn btn-default modal-dismiss">Cancel</button>
-                                </div>
-                            </div>
-                        </footer>
-                    </section>
-                </div>
-
 
 
                     <?php }} ?>
