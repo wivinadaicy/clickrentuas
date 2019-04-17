@@ -36,10 +36,10 @@
     </header>
     <div class="panel-body">
     <?php
-    $add = mysqli_query($koneksi, "SELECT * FROM peminjaman join pengguna on pengguna.id_pengguna=peminjaman.user_add WHERE id_peminjaman='$idpem'");
+    $add = mysqli_query($koneksi, "SELECT peminjaman.waktu_add, pengguna.nama_lengkap, pengguna.id_pengguna FROM peminjaman join pengguna on pengguna.id_pengguna=peminjaman.user_add WHERE id_peminjaman='$idpem'");
     $riw = mysqli_fetch_array($add);
     ?>
-    <h5><b>Tanggal Input:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_add'])) ?> WIB</h5>
+    <h5><b>Tanggal Input:</b> <?php echo date("d M Y | H:i",strtotime($riw['waktu_add']))?> WIB</h5>
     <h5><b>User Input:</b> <?php echo $riw['nama_lengkap'] . " (" .$riw['id_pengguna'] . ")" ?></h4>
     <?php
     ?>
@@ -55,8 +55,7 @@
 									</thead>
 									<tbody class="log-viewer">
                                     <?php
-                                    $pinjam = $_GET['id'];
-                                    $query = mysqli_query($koneksi, "SELECT * FROM log_peminjaman join pengguna join ruangan on ruangan.id_ruangan = log_peminjaman.id_ruangan AND pengguna.id_pengguna = log_peminjaman.user_edit WHERE id_peminjaman='$pinjam'");
+                                    $query = mysqli_query($koneksi, "SELECT status_peminjaman, log_peminjaman.waktu_edit, ruangan.nama_ruangan, pengguna.nama_lengkap FROM log_peminjaman join pengguna join ruangan on ruangan.id_ruangan = log_peminjaman.id_ruangan AND pengguna.id_pengguna = log_peminjaman.user_edit WHERE id_peminjaman='$idpem' order by log_peminjaman.waktu_edit asc");
                                     if(mysqli_num_rows($query)==0){ ?>
                                         <tr>
                                             <td colspan="4" style="text-align:center">Tidak ada data</td>
@@ -86,8 +85,8 @@
 											</td>
 											<td>
                                                 <?php 
-                                                $tangg = $data['waktu_edit'];
-                                                echo date("d M Y | H:i", strtotime($tangg)) ?>
+                                                
+                                                echo date("d M Y | H:i",strtotime($data['waktu_edit'])) ?>
 											</td>
                                             <td>
                                                 <?php 

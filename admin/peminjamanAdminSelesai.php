@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Log Peminjaman</h2>
+			<h2>Peminjaman</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,8 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-                    <li><span>Peminjaman</span></li>
-                    <li><span>Log Peminjaman</span></li>
+                    <li><span>Peminjaman Selesai</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -28,11 +27,16 @@
 <!--*****************************-->
 <!--KODINGAN ISI HALAMAN-->
 		
+<section class="panel">
+    <header class="panel-heading">
+        <h2 class="panel-title">Peminjaman Selesai</h2>
+    </header>
+    <div class="panel-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped mb-none" id="datatable-default">
+            <table class="table table-hover mb-none">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Nama Acara</th>
                         <th>Tanggal</th>
                         <th>Waktu</th>
@@ -43,7 +47,8 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna on ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna=peminjaman.id_pengguna");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara join pengguna on pengguna.id_pengguna=peminjaman.id_pengguna AND kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pesan.id_peminjaman = peminjaman.id_peminjaman WHERE status_peminjaman='3'");
+                        $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
     <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
@@ -51,6 +56,7 @@ if(mysqli_num_rows($query)==0){
 }else{
 
                         while($data=mysqli_fetch_array($query)){
+                            $no++;
                             $time = $data['tanggal_peminjaman'];
                             $times = date("l, d F Y",strtotime($time));
 
@@ -59,22 +65,28 @@ if(mysqli_num_rows($query)==0){
 
                         ?>
                     <tr>
-                        <td><?php echo $data['id_peminjaman'] ?></td>
+                        <td><?php echo $no ?></td>
                         <td><?php echo $data['acara'] ?></td>
                         <td><?php echo $times ?></td>
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $data['nama_lengkap'] ?></td>
-                        <td>
-                           <a href="lihatLog.php?id=<?php echo $data['id_peminjaman'] ?>" class="btn btn-primary">Lihat Log</a>
+                        <td class=" actions-fade">
+                        <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#detailpinjamnya<?php echo $data['id_peminjaman'];?>"><i class="fa fa-eye"></i>
+                        </a>
+                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-eye' ></i>
+                            </a>
                         </td>
                     </tr>
 
 
+<?php include('modalDetailPinjam.php');?>
                     <?php }} ?>
                 </tbody>
             </table>
         </div>
+    </div>
+</section>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

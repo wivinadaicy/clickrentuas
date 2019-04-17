@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 10:08 AM
+-- Generation Time: Apr 17, 2019 at 02:55 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -260,6 +260,23 @@ CREATE TABLE `log_peminjaman` (
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `log_peminjaman`
+--
+
+INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_edit`, `waktu_edit`) VALUES
+(1, 'PJ-1', '2019-04-30', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Charity', 50, 3, 'Mengundang guru dari SMK Dasana Indah', 0, 'USER-2', '2019-04-17 15:19:05'),
+(2, 'PJ-2', '2019-04-30', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Struktur Data', 30, 1, 'Kelas oleh ci Calandra', 0, 'USER-2', '2019-04-17 15:23:18'),
+(3, 'PJ-3', '2019-04-24', 'R-4', '10:15:00', '11:15:00', 'USER-2', 'Hari Guru', 50, 3, 'Memperingati hari guru SISTech', 0, 'USER-2', '2019-04-17 15:24:42'),
+(4, 'PJ-3', '2019-04-24', 'R-4', '10:15:00', '11:15:00', 'USER-2', 'Hari Guru', 50, 3, 'Memperingati hari guru SISTech', 1, 'USER-1', '2019-04-17 15:34:00'),
+(5, 'PJ-2', '2019-04-30', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Struktur Data', 30, 1, 'Kelas oleh ci Calandra', 1, 'USER-1', '2019-04-17 16:23:30'),
+(6, 'PJ-1', '2019-04-30', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Charity', 50, 3, 'Mengundang guru dari SMK Dasana Indah', 4, 'USER-1', '2019-04-17 16:23:42'),
+(7, 'PJ-2', '2019-04-30', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Struktur Data', 30, 1, 'Kelas oleh ci Calandra', 3, 'USER-1', '2019-04-17 16:32:29'),
+(8, 'PJ-4', '2019-04-30', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Syukuran', 30, 4, 'Syukuran per tahun', 0, 'USER-2', '2019-04-17 16:35:08'),
+(9, 'PJ-4', '2019-04-30', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Syukuran', 30, 4, 'Syukuran per tahun', 1, 'USER-1', '2019-04-17 16:38:32'),
+(10, 'PJ-5', '2019-05-29', 'R-6', '08:15:00', '09:15:00', 'USER-3', 'Skripsi', 40, 4, 'Bimbingan dengan pak hihi', 0, 'USER-3', '2019-04-17 18:09:37'),
+(11, 'PJ-6', '2019-04-30', 'R-3', '09:15:00', '10:15:00', 'USER-3', 'Pelatihan A', 50, 5, 'Pelatihan untuk asdasd', 0, 'USER-3', '2019-04-17 18:16:52');
+
 -- --------------------------------------------------------
 
 --
@@ -401,6 +418,20 @@ CREATE TABLE `peminjaman` (
   `status_delete` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+('PJ-1', '2019-04-30', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Charity', 50, 3, 'Mengundang guru dari SMK Dasana Indah', 4, 'USER-2', '2019-04-17 15:19:05', 'USER-1', '2019-04-17 16:23:42', '0', '0000-00-00 00:00:00', 0),
+('PJ-2', '2019-04-30', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Struktur Data', 30, 1, 'Kelas oleh ci Calandra', 3, 'USER-2', '2019-04-17 15:23:18', 'USER-1', '2019-04-17 16:32:29', '0', '0000-00-00 00:00:00', 0),
+('PJ-3', '2019-04-24', 'R-4', '10:15:00', '11:15:00', 'USER-2', 'Hari Guru', 50, 3, 'Memperingati hari guru SISTech', 1, 'USER-2', '2019-04-17 15:24:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-4', '2019-04-30', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Syukuran', 30, 4, 'Syukuran per tahun', 1, 'USER-2', '2019-04-17 16:35:08', 'USER-1', '2019-04-17 16:38:32', '0', '0000-00-00 00:00:00', 0),
+('PJ-5', '2019-05-29', 'R-6', '08:15:00', '09:15:00', 'USER-3', 'Skripsi', 40, 4, 'Bimbingan dengan pak hihi', 0, 'USER-3', '2019-04-17 18:09:37', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-6', '2019-04-30', 'R-3', '09:15:00', '10:15:00', 'USER-3', 'Pelatihan A', 50, 5, 'Pelatihan untuk asdasd', 1, 'USER-3', '2019-04-17 18:16:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-7', '2019-04-13', 'R-3', '09:15:00', '10:15:00', 'USER-3', 'Pelatihan A', 50, 5, 'Pelatihan untuk asdasd', 1, 'USER-3', '2019-04-17 18:16:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-8', '2019-04-12', 'R-3', '09:15:00', '10:15:00', 'USER-3', 'Pelatihan A', 50, 5, 'Pelatihan untuk asdasd', 1, 'USER-3', '2019-04-17 18:16:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -451,6 +482,16 @@ CREATE TABLE `pesan` (
   `id_peminjaman` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `id_penggunaKirimPesan`, `topik_pesan`, `id_peminjaman`) VALUES
+('PS-1', 'USER-1', 'Peminjaman: <b>PJ-3</b> - Acara: <b>Hari Guru</b>', 'PJ-3'),
+('PS-2', 'USER-1', 'Peminjaman: <b>PJ-2</b> - Acara: <b>Struktur Data</b>', 'PJ-2'),
+('PS-3', 'USER-1', 'Peminjaman: <b>PJ-2</b> - Acara: <b>Struktur Data</b>', 'PJ-1'),
+('PS-4', 'USER-1', 'Peminjaman: <b>PJ-4</b> - Acara: <b>Syukuran</b>', 'PJ-4');
+
 -- --------------------------------------------------------
 
 --
@@ -466,6 +507,17 @@ CREATE TABLE `pesan_detail` (
   `pesan` text NOT NULL,
   `status_pesan` int(11) NOT NULL COMMENT '0: TERKIRIM, 1: READ'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan_detail`
+--
+
+INSERT INTO `pesan_detail` (`id_pesanDetail`, `id_pesan`, `id_penggunaKe`, `id_penggunaDari`, `tanggal_waktu`, `pesan`, `status_pesan`) VALUES
+('PD-1', 'PS-1', 'USER-2', 'USER-1', '2019-04-17 15:34:00', 'Selamat peminjaman dengan kode PJ-3 untuk acara Hari Guru sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 0),
+('PD-2', 'PS-2', 'USER-2', 'USER-1', '2019-04-17 16:23:30', 'Selamat peminjaman dengan kode PJ-2 untuk acara Struktur Data sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 0),
+('PD-3', 'PS-3', 'USER-2', 'USER-1', '2019-04-17 16:23:42', 'Maaf peminjaman dengan kode PJ-1 dan nama acara Charity ditolak. Dengan alasan: karena waiting list', 0),
+('PD-4', 'PS-2', 'USER-2', 'USER-1', '2019-04-17 16:32:29', 'Peminjaman Anda telah selesai. Terima kasih telah menggunakan Click&Rent SISTech untuk memesan ruangan!', 0),
+('PD-5', 'PS-4', 'USER-2', 'USER-1', '2019-04-17 16:38:32', 'Selamat peminjaman dengan kode PJ-4 untuk acara Syukuran sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 0);
 
 -- --------------------------------------------------------
 
