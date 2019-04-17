@@ -34,6 +34,7 @@
 								<span>Dashboard</span>
 							</a>
 						</li>
+                        <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
 						<li>
 						<a href="pesan.php">
 							<?php
