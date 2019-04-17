@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Data Barang</h2>
+			<h2>Data of Items</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li><span>Master Data</span></li>
-					<li><span>Barang</span></li>
+					<li><span>Items</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -32,9 +32,9 @@
 <div class="panel-body">
 <table>
 <tr>
-<td>Jenis Barang&nbsp; &nbsp; &nbsp;</td> 
+<td>Type of Items&nbsp; &nbsp; &nbsp;</td> 
 		<td>: &nbsp; &nbsp; &nbsp;
-		<input type="radio" value="semua" name="jenisbarang" checked onclick="cekBarang()"> Semua &nbsp; &nbsp; &nbsp; 
+		<input type="radio" value="semua" name="jenisbarang" checked onclick="cekBarang()"> All &nbsp; &nbsp; &nbsp; 
 		<?php
 		$jb = mysqli_query($koneksi, "SELECT * FROM jenis_barang");
 		while($djb = mysqli_fetch_array($jb)){
@@ -45,11 +45,11 @@
 </tr>
 <tr>
 	<td>
-		Ruangan
+		Rooms
 	</td>
 	<td>: &nbsp; &nbsp; &nbsp;
 	<select name="ruangans" id="ruangans" onchange="cekBarang()">
-	<option value="semua">Semua</option>
+	<option value="semua">All</option>
 			<?php
 			$dr= mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
 			while($ddr = mysqli_fetch_array($dr)){
@@ -66,15 +66,15 @@
 	<?php include('barang/modalTambah.php');?>
 	<br>
 	<hr>
-	<h3>Data Barang</h3>
+	<h3>Data of Items</h3>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 		
 			<tr>
-				<th>Nama Barang</th>
-				<th>Merek</th>
-				<th>Stok</th>
-				<th>Ruangan</th>
+				<th>Item Name</th>
+				<th>Brand</th>
+				<th>Stock</th>
+				<th>Room</th>
 				<th>Action</th>
 			</tr>
 

@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li><span>Master Data</span></li>
-					<li><span>User</span></li>
+					<li><span>Users</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -29,7 +29,7 @@
 <!--KODINGAN ISI HALAMAN-->
 		
 <div class="container-fluid">
-<h3>Data Pengguna Aktif</h3>
+<h3>Data of Active Users</h3>
 	<?php include('pengguna/modalTambah.php');?>
 	<br>
 	<hr>
@@ -82,7 +82,7 @@
 <br>
 <div class="container-fluid">
 	<br>
-	<h3>Data Pengguna Tidak	 Aktif</h3>
+	<h3>Data of Deactive Users</h3>
 	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
 		<thead>
@@ -116,7 +116,7 @@
 				<td class="text-center">
 					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
-					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
+					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-file'></i></a>
 				</td>
 			</tr>
 			<?php include('pengguna/modaldetail.php');?>

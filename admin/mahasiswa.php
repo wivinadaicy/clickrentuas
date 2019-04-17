@@ -19,7 +19,7 @@
 						</a>
 					</li>
 					<li><span>Master Data</span></li>
-					<li><span>Student</span></li>
+					<li><span>Students</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
