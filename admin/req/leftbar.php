@@ -50,7 +50,7 @@
 							<?php } ?>
 
 							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<span>Pesan</span>
+							<span>Messages</span>
 						</a>
 						</li>
 						<li class="nav-parent">
@@ -61,32 +61,32 @@
 							<ul class="nav nav-children">
 								<li>
 									<a href="pengguna.php">
-										 Pengguna
+										 Users
 									</a>
 								</li>
 								<li>
 									<a href="mahasiswa.php">
-										 Mahasiswa
+										 Students
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Program Studi &amp; Fakultas
+										 Major &amp; Faculty
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Ruangan
+										 Rooms
 									</a>
 								</li>
 								<li>
 									<a href="barang.php">
-										 Barang
+										 Items
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Kategori Acara
+										 Event Category
 									</a>
 								</li>
 							</ul>
@@ -114,18 +114,18 @@
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
 								
-								<span>Jadwal</span>
+								<span>Schedule</span>
 							</a>
 							<ul class="nav nav-children">
 								<li>
 									<a href="jadwalLab.php">
-										 Laboratorium
+										 Laboratory
 										 
 									</a>
 								</li>
 								<li>
 									<a href="">
-										 Ruang Meeting
+										 Meeting Room
 									</a>
 								</li>
 							</ul>
@@ -149,7 +149,7 @@
 							<ul class="nav nav-children">
 								<li>
 									<a href="pendingLab.php">
-										 Laboratorium
+										 Laboratory
 										 <?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
 
@@ -163,7 +163,7 @@
 								</li>
 								<li>
 									<a href="pendingMeeting.php">
-										 Ruang Meeting
+										 Meeting Room
 										 <?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
 
@@ -186,13 +186,12 @@
 							<ul class="nav nav-children">
 								<li>
 									<a href="peminjamanAdminLab.php">
-										 Laboratorium
-										 
+                                        Laboratory
 									</a>
 								</li>
 								<li>
 									<a href="peminjamanAdminMeeting.php">
-										 Ruang Meeting
+										 Meeting Room
 									</a>
 								</li>
 							</ul>
@@ -224,13 +223,13 @@
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
 								<span>Peminjaman Dibatalkan</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
 								<span>Peminjaman Selesai</span>
 							</a>
 						</li>

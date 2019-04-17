@@ -22,7 +22,7 @@ error_reporting(0);
 
 <body  class="site-hero" style="background-image: url(images/thx-bg.jpg);"data-stellar-background-ratio="0.5">
     
-    <h1 style="padding-top:100px; text-align:center; font-size: 50px;">Thankyou for borrowing our room!</h1>
+    <h1 style="padding-top:100px; text-align:center; font-size: 50px;">Thankyou for your reservation!</h1>
     
     <p style="text-align:center; font-size: 20px;">Your id is <h3 style="text-align:center;"><?php echo $_GET['id_peminjaman'];?></h3>
     <p style="text-align:center;font-size: 20px;">
