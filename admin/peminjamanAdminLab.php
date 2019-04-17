@@ -30,7 +30,7 @@
 		
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman Lab</h2>
+        <h2 class="panel-title">Peminjaman Lab - Next Booking</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara join pengguna on pengguna.id_pengguna=peminjaman.id_pengguna AND kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pesan.id_peminjaman = peminjaman.id_peminjaman WHERE ruangan.jenis_ruangan='1' AND status_peminjaman='1' AND peminjaman.tanggal_peminjaman>curdate() AND ");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime())");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -77,7 +77,6 @@ if(mysqli_num_rows($query)==0){
                         </a>
                             <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-eye' ></i>
                             </a>
-                            <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Selesaikan" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
                         </td>
                     </tr>
 
@@ -149,7 +148,7 @@ if(mysqli_num_rows($query)==0){
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara join pengguna on pengguna.id_pengguna=peminjaman.id_pengguna AND kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pesan.id_peminjaman = peminjaman.id_peminjaman WHERE ruangan.jenis_ruangan='1' AND status_peminjaman='1' AND peminjaman.tanggal_peminjaman<=curdate()");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman<=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai>= curtime())");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>

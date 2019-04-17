@@ -5,7 +5,7 @@ error_reporting(0);
 ?>
 
 Thank you for borrowing our room! 
-<br>Your id is <?php echo $_GET['id_peminjaman'];?>
+<br>Your booking code is <?php echo $_GET['idpinjam'];?>
 <br>
 Please wait for the approval by the admin. 
 Your room can be exchanged with consideration from the admin.
