@@ -9,7 +9,7 @@ error_reporting(0);
   <title>Click &amp; Rent &mdash; SISTech UPH </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<<<<<<< HEAD
+
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
 
@@ -20,27 +20,17 @@ error_reporting(0);
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body  class="site-hero" style="background-image: url(images/thx-bg.jpg);"data-stellar-background-ratio="0.5">
     
-    <h1 style="padding-top:100px; text-align:center">Thankyou for borrowing our room!</h1>
+    <h1 style="padding-top:100px; text-align:center; font-size: 50px;">Thankyou for borrowing our room!</h1>
     
-    <p style="text-align:center;">Your id is <h3 style="text-align:center;"><?php echo $_GET['id_peminjaman'];?></h3>
-    <p style="text-align:center;">
+    <p style="text-align:center; font-size: 20px;">Your id is <h3 style="text-align:center;"><?php echo $_GET['id_peminjaman'];?></h3>
+    <p style="text-align:center;font-size: 20px;">
     Please wait for the approval by the admin. 
     Your room can be exchanged with consideration from the admin.</p>
     <center><img src="images/computer.png" alt="Computer icon" height="200" width="200" ><img src="images/uph-sistech.png" alt="Logo Sistech" height="200" width="350" style="padding-left:50px"></center>
-    <br><center>
-    
- 
-    
+    <br><center>    
     <a href="index.php" class="btn btn-danger">Back to Home</a></center>
     
 </body>
-=======
-Thank you for borrowing our room! 
-<br>Your booking code is <?php echo $_GET['idpinjam'];?>
-<br>
-Please wait for the approval by the admin. 
-Your room can be exchanged with consideration from the admin.
-<a href="index.php" class="btn btn-primary">Back To Home</a>
->>>>>>> bb9b18ae1a043d56c66e3a137c3ab154149f2e48
+
