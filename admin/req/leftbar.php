@@ -75,7 +75,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="ruangan.php">
 										 Rooms
 									</a>
 								</li>

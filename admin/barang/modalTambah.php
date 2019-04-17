@@ -4,12 +4,12 @@
     <section class="panel">
 	<form action="barang/insert.php" method="post">
         <header class="panel-heading">
-            <h2 class="panel-title">Tambah Data Barang</h2>
+            <h2 class="panel-title">Add Item Data</h2>
 		</header>
         <div class="panel-body">
 		<!--GANTI DISINI-->
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">ID Barang<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Item ID<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<?php
 						$querym= mysqli_query($koneksi, "SELECT * FROM barang");
@@ -20,21 +20,21 @@
 				</div>
 			</div>
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Nama Barang<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Item Name<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namabarang"  id="namabarang" class="form-control" placeholder="ketik nama barang" required>
+					<input type="text" name="namabarang"  id="namabarang" class="form-control" placeholder="Insert Item Name" required>
 				</div>
 			</div>
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Jenis Barang<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Types of Item<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<input type="radio" name="jenisbarang" value="1" checked>Software &nbsp;&nbsp;
 					<input type="radio" name="jenisbarang" value="2">Hardware &nbsp;&nbsp;
-					<input type="radio" name="jenisbarang" value="3">Lain-Lain
+					<input type="radio" name="jenisbarang" value="3">Etc
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Ruangan<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Room<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<select name="ruangan">
 					<?php
@@ -47,19 +47,19 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Merek <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Brand <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" id="merek" name="merek" class="form-control" placeholder="ketik merek barang">
+					<input type="text" id="merek" name="merek" class="form-control" placeholder="Insert Item Brand">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Stok<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Stock<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="number" name="stok"  id="stok" class="form-control" placeholder="masukkan stok barang" required >
+					<input type="number" name="stok"  id="stok" class="form-control" placeholder="Insert Stock of the Item" required >
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Tanggal Pembelian<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Purchase Date<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<input type="date" name="tanggalbeli"  id="tanggalbeli" class="form-control" required >
 				</div>
