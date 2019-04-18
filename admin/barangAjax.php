@@ -27,7 +27,7 @@ if($jenisbarangs=="semua" && $ruangans=="semua"){
 					</a>
 					<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 					</a>
-					<a class='btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default' data-toggle='tooltip' data-placement='top' title='Delete' href='#delete" . $data['id_barang'] . "'><i class='fa fa-trash-o'></i></a>
+					<a class='btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default' data-toggle='tooltip' data-placement='top' title='Delete' href='deleteBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-trash-o'></i></a>
 				</td>
             </tr>
         ";

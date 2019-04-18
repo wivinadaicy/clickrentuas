@@ -1,7 +1,7 @@
 <?php
 include("../../koneksi.php");
 include("../../session.php");
-$idnya = $_GET['id'];
+$idnya = $_GET['idbrgnya'];
 
 $queryv = "UPDATE barang SET waktu_delete=now(),status_delete='1', user_delete='$id' WHERE id_barang='$idnya'";
 
