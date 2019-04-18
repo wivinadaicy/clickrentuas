@@ -47,7 +47,7 @@
 	<br>
 	<hr>
 	<h3>Data of Items</h3>
-	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
+	<table class="table table-bordered table-striped mb-none">
 		<thead>
 		
 			<tr>
@@ -59,7 +59,7 @@
 			</tr>
 
 		</thead>
-		<tbody id="barangg">
+		<tbody id="ruangann">
 
 		
 		</tbody>
@@ -87,23 +87,22 @@ while($data=mysqli_fetch_array($querys)){
 <?php include('req/script.php');?>
 
 <script>
-function cekBarang(){
-  var ruangans = $('#ruangans').children("option:selected").val();
-  var jenisbarangs = $("input[name='jenisbarang']:checked").val();
+function cekRuangan(){
+  var jenisruangans = $("input[name='jenisruangan']:checked").val();
 
 	$.ajax({
 		type:"post",
-		url:"barangAjax.php",
+		url:"ruanganAjax.php",
     dataType: "json",
-		data: {ruangans:ruangans, jenisbarangs:jenisbarangs},
+		data: {jenisruangan:jenisruangans},
 		success: function(response){
-			$('#barangg').empty();
-			$('#barangg').append(response);
+			$('#ruangann').empty();
+			$('#ruangann').append(response);
 		}
 	});
 }
 
 window.onload = function() {
-  cekBarang();
+  cekRuangan();
 };
 </script>
