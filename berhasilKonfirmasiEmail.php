@@ -22,7 +22,7 @@
                 <td align="center">
                     <h1>Congratulations!</h1>
                     <p><img src="images/account.png" width="250"/></p>
-                    <p>Your account has been confirmed<br>
+                    <p>Your email has been confirmed<br>
                         Please wait another confirmation from the admin, so that you can enter to Click &amp; Rent SIStech.<br>A Confirmation message will be send to your email!</p>
                     <p>Thank you for signing up </p>
                     <p><a href="index.php" class="btn btn-danger">Go to Home</a></p></tr>
