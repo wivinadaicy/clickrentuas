@@ -1,8 +1,8 @@
-<div id="modaldetail<?php echo $data['id_barang'];?>" class="modal-block modal-block-primary mfp-hide">
+<div id='modaldetail<?php echo $data['id_barang'];?>' class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <form class="form-horizontal mb-lg" method="post">
         <header class="panel-heading">
-            <h2 class="panel-title">Details of User Data</h2>
+            <h2 class="panel-title">Details of Items Data</h2>
         </header>
         <div class="panel-body">
 		<div class="form-group mt-lg">

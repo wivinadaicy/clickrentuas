@@ -63,17 +63,17 @@
 		
 </table>
 </div>
+<br>
 	<?php include('barang/modalTambah.php');?>
 	<br>
 	<hr>
 	<div class="row">
 		<div class="col-sm-9"><h3 style="">Data of Items</h3></div>
-		<div class="col-sm-3"><input type="text" placeholder="Search" id="cari" class="form-control"></div>
+		<div class="col-sm-3"><input type="text" placeholder="Search" id="cari" class="form-control" oninput="cekBarang()"></div>
 	</div>
-	
-	<table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
+	<div class="table-responsive">
+	<table class="table table-striped mb-none">
 		<thead>
-		
 			<tr>
 				<th>Item Name</th>
 				<th>Brand</th>
@@ -81,14 +81,13 @@
 				<th>Room</th>
 				<th>Action</th>
 			</tr>
-
 		</thead>
 		<tbody id="barangg">
 
-		
 		</tbody>
-		
 	</table>
+	</div>
+
 	<?php
 $querys = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='0'");
 while($data=mysqli_fetch_array($querys)){
@@ -114,12 +113,13 @@ while($data=mysqli_fetch_array($querys)){
 function cekBarang(){
   var ruangans = $('#ruangans').children("option:selected").val();
   var jenisbarangs = $("input[name='jenisbarang']:checked").val();
+  var caris = $('#cari').val();
 
 	$.ajax({
 		type:"post",
 		url:"barangAjax.php",
     dataType: "json",
-		data: {ruangans:ruangans, jenisbarangs:jenisbarangs},
+		data: {ruangans:ruangans, jenisbarangs:jenisbarangs, cari:caris},
 		success: function(response){
 			$('#barangg').empty();
 			$('#barangg').append(response);

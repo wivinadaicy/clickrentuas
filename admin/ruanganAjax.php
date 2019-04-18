@@ -3,10 +3,16 @@ include("../koneksi.php");
 include("../session.php");
 
 $jenisruangan = $_POST['jenisruangan'];
+$cari = $_POST['cari'];
 
 $kalimat = '';
 if($jenisruangan=="semua"){
-    $query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0'");
+	if($cari==""){
+		$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0'");
+	}else{
+		$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0' AND (nama_ruangan LIKE '%$cari%' or gedung_lantai LIKE '%$cari%' or kapasitas LIKE '%$cari%')");
+	}
+   
     while($dato=mysqli_fetch_array($query)){
 		if($dato['jenis_ruangan']=="1"){
 			$jr = "Laboratory";
@@ -32,7 +38,12 @@ if($jenisruangan=="semua"){
     }
     echo json_encode($kalimat);
 }else{
-	$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0' AND ruangan.jenis_ruangan='$jenisruangan'");
+	if($cari==""){
+		$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0' AND ruangan.jenis_ruangan='$jenisruangan'");
+	}else{
+		$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='0' AND ruangan.jenis_ruangan='$jenisruangan' AND (nama_ruangan LIKE '%$cari%' or gedung_lantai LIKE '%$cari%' or kapasitas LIKE '%$cari%')");
+	}
+	
     while($dato=mysqli_fetch_array($query)){
 		if($dato['jenis_ruangan']=="1"){
 			$jr = "Laboratory";

@@ -46,7 +46,10 @@
 	<?php include('ruangan/modalTambah.php');?>
 	<br>
 	<hr>
-	<h3>Data of Items</h3>
+	<div class="row">
+		<div class="col-sm-9"><h3 style="">Data of Rooms</h3></div>
+		<div class="col-sm-3"><input type="text" placeholder="Search" id="cari" class="form-control" oninput="cekRuangan()"></div>
+	</div>
 	<table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
 		<thead>
 		
@@ -89,12 +92,13 @@ while($data=mysqli_fetch_array($querys)){
 <script>
 function cekRuangan(){
   var jenisruangans = $("input[name='jenisruangan']:checked").val();
+  var caris = $('#cari').val();
 
 	$.ajax({
 		type:"post",
 		url:"ruanganAjax.php",
     dataType: "json",
-		data: {jenisruangan:jenisruangans},
+		data: {jenisruangan:jenisruangans,cari:caris},
 		success: function(response){
 			$('#ruangann').empty();
 			$('#ruangann').append(response);
