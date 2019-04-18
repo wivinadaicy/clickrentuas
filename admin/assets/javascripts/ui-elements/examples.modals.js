@@ -84,7 +84,7 @@
 	/*
 	Form
 	*/
-	$('.modal-with-form').magnificPopup({
+	$('.modal-with-form',).magnificPopup({
 		type: 'inline',
 		preloader: false,
 		focus: '#name',

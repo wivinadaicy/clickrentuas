@@ -21,9 +21,9 @@ $merek = $ds['merek'];
 $stok = $ds['stok_barang'];
 $tanggal = $ds['tanggal_beli'];
 
-$query2 = "INSERT INTO log_barang VALUES ('$baristambah', '$idnya','$ruangan','$jenisbarang','$namabarang','$merek','$stok','$tanggal','$id',now())";
+/*$query2 = "INSERT INTO log_barang VALUES ('$baristambah', '$idnya','$ruangan','$jenisbarang','$namabarang','$merek','$stok','$tanggal','$id',now())";
 
 $jalanin2 = mysqli_query($koneksi,$query2);
-
+*/
 //header('location:../pengguna.php');
 ?>

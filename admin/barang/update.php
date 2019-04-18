@@ -9,7 +9,7 @@ $merek = $_POST['merek'];
 $stok = $_POST['stok'];
 $tanggal = $_POST['tanggalbeli'];
 
-$query = "UPDATE barang SET id_ruangan='$ruangan', id_jenisBarang='$jenisbarang', nama_barang='$namabarang', merek='$merek', stok_barang='$stok', tanggal_beli='$tanggal', user_edit='$id', waktu_edit=now()";
+$query = "UPDATE barang SET id_ruangan='$ruangan', id_jenisBarang='$jenisbarang', nama_barang='$namabarang', merek='$merek', stok_barang='$stok', tanggal_beli='$tanggal', user_edit='$id', waktu_edit=now() WHERE id_barang='$idnya'";
 
 $jalanin = mysqli_query($koneksi,$query);
 

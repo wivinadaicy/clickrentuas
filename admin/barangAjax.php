@@ -23,9 +23,9 @@ if($jenisbarangs=="semua" && $ruangans=="semua"){
 				<td> " . $data['stok_barang'] . "</td>
 				<td> " . $data['nama_ruangan'] . "</td>
 				<td class='text-center'>
-					<a class='modal-with-form btn btn-default' data-toggle='tooltip' data-placement='top' title='Detail' href='#modaldetail" . $data['id_barang'] . "'><i class='fa fa-eye'></i>
+					<a class='modal-with-form btn btn-default' data-toggle='tooltip' data-placement='top' title='Detail' href='detailBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-eye'></i>
 					</a>
-					<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='#modal" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
+					<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 					</a>
 					<a class='btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default' data-toggle='tooltip' data-placement='top' title='Delete' href='#delete" . $data['id_barang'] . "'><i class='fa fa-trash-o'></i></a>
 				</td>
@@ -106,7 +106,7 @@ if($jenisbarangs!="semua" && $ruangans!="semua"){
 				<td> " . $data['stok_barang'] . "</td>
 				<td> " . $data['nama_ruangan'] . "</td>
 				<td class='text-center'>
-					<a class='modal-with-form btn btn-default' data-toggle='tooltip' data-placement='top' title='Detail' href='#modaldetail" . $data['id_barang'] . "'><i class='fa fa-eye'></i>
+					<a class='modal-with-form btn btn-default' data-toggle='tooltip' data-placement='top' title='Detail' href='barang/detailBarang.php?id=" . $data['id_barang'] . "' onclick='klik()'><i class='fa fa-eye'></i>
 					</a>
 					<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='#modal" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 					</a>

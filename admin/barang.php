@@ -88,7 +88,7 @@
 	</table>
 	</div>
 
-	<?php
+	<?php/*
 $querys = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='0'");
 while($data=mysqli_fetch_array($querys)){
 
@@ -96,7 +96,7 @@ while($data=mysqli_fetch_array($querys)){
 		 include('barang/modalEdit.php'); 
 		 include('barang/modalHapus.php'); 
 
- } ?>
+ } */?>
 </div>
 <br>
 <br>
