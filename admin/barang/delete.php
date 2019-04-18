@@ -25,5 +25,5 @@ $tanggal = $ds['tanggal_beli'];
 
 $jalanin2 = mysqli_query($koneksi,$query2);
 */
-//header('location:../pengguna.php');
+header('location:../barang.php');
 ?>

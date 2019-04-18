@@ -30,11 +30,10 @@
 	
 </head>
 <body style="background-color: #666666;">
-
+	
 	<div class="limiter">
-    
 		<div class="container-login100">
-        <div class="alert alert-danger">
+		<div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <strong>Error Login!</strong> Email atau Password anda salah! Coba log in lagi
     </div>
@@ -47,16 +46,14 @@
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
 					</div>
 
 					<div class="flex-sb-m w-full p-t-3 p-b-32">

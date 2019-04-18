@@ -1,30 +1,20 @@
 <?php
 include("../../koneksi.php");
 include("../../session.php");
-$idnya = $_GET['id'];
-
-$queryv = "UPDATE ruangan SET waktu_delete=now(),status_delete='1', user_delete='$id' WHERE id_ruangan='$idnya'";
-
-$jalanin = mysqli_query($koneksi,$queryv);
-
-$hitung= mysqli_query($koneksi, "SELECT * FROM log_ruangan");
-$baris = mysqli_num_rows($hitung);
-$baristambah = $baris+1;
-
-$s = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$idnya'");
-$ds = mysqli_fetch_array($s);
-
-$namaruangan = $ds['nama_ruangan'];
-$jenisruangan = $ds['jenis_ruangan'];
-$lantai = $ds['gedung_lantai'];
-$kapasitas = $ds['kapasitas'];
-$deskripsi = $ds['deskripsi'];
+$idnya = $_GET['idruang'];
 
 
 
-$query2 = "INSERT INTO log_ruangan VALUES ('$baristambah', '$idnya','$namaruangan','$jenisruangan','$lantai','$kapasitas','$deskripsi','$id',now())";
+$query = "UPDATE ruangan SET user_delete='$id', waktu_delete=now(), status_delete='1' WHERE id_ruangan='$idnya'";
 
-$jalanin2 = mysqli_query($koneksi,$query2);
 
-//header('location:../pengguna.php');
+$jalanin = mysqli_query($koneksi,$query);
+
+/*$hitungbaris =mysqli_query($koneksi, "SELECT * FROM log_ruangan");
+$berapa= mysqli_num_rows($hitungbaris);
+$jadi = $berapa+1;
+
+$log = mysqli_query ($koneksi, "INSERT INTO log_ruangan VALUES ('$jadi','$idnya','$namaruangan','$jenisruangan','$lantai','$kapasitas','$deskripsi','$id',now()) ");*/
+
+header('location:../ruangan.php');
 ?>

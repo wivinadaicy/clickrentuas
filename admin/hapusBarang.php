@@ -26,7 +26,19 @@
 		</header>
 <!--*****************************-->
 <!--KODINGAN ISI HALAMAN-->
-        
+<?php
+$idbarangg=$_GET['idbrgnya'];
+
+$query = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='0' AND id_barang='$idbarangg'");
+$data=mysqli_fetch_array($query);
+?>
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                </div>
+
+                <h2 class="panel-title">Change email</h2>
+            </header>
             <div class="panel-body">
             <div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">ID Barang<span class="required">*</span></label>
@@ -79,7 +91,15 @@
 					<input type="date" name="tanggalbeli"  id="tanggalbeli" class="form-control" readonly value = "<?php echo $data['tanggal_beli'] ?>" >
 				</div>
 			</div>
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                    <a href="barang.php" id="simpanemail" class="btn btn-default">Kembali</a>
+                    <a href="barang/delete.php?idbrgnya=<?php echo $idbarangg?>" class="btn btn-primary">Hapus</a>
+                    </div>
+                </div>
             </div>
+
+                </section>
 
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
