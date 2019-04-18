@@ -3,8 +3,8 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="../" class="logo">
-						<img src="assets/images/logo.png" height="35" alt="JSOFT Admin" />
+					<a href="../index.php" class="logo">
+						<img src="../images/logo-sistech.png" height="40" alt="JSOFT Admin" />
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
 						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>

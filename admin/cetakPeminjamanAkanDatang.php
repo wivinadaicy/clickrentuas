@@ -23,7 +23,28 @@ $idpinjam = $_GET['idpinjam'];
       //query
       
       //konten
-      $content = '...';
+      $content = '
+      <html>
+      <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>Click &amp; Rent &mdash; SISTech UPH </title>
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+          <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+          <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+          <link rel="stylesheet" href="css/style.css">
+      </head>
+        <body>
+            <h1>hello</h1>
+        </body>
+        </html>
+      
+      
+      
+      ';
 //font
 //writehtml
       //$obj_pdf->SetFont(Courier','', 8); //untuk font, liat dokumentasui
