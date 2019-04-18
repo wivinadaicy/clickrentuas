@@ -15,7 +15,7 @@
      <!-- Theme Style -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-    <body  class="site-hero" style="background-image: url(images/bg-mail.jpg); overflow-x:hidden; overflow-y:hidden; " data-stellar-background-ratio="0.5"><center>
+    <body class="site-hero" style="background-image: url(images/bg-mail.jpg); overflow-x:hidden; overflow-y:hidden; " data-stellar-background-ratio="0.5"><center>
 <table style= "margin-top:100px;">
     <tr align="center">
         <td><h1>Email Confirmation</h1></td>
@@ -27,6 +27,9 @@
         <td style="font-size:16px">
         Please confirm your email! Check your inbox at <?php echo $_GET['email'] ?></td>
     </tr>
+    <tr>
+        <td align="center" style="padding-top:20px; ">
+            <a href="index.php" class="btn btn-danger">Back to Home</a></td></tr>
 </table>
     </center>
     </body>
