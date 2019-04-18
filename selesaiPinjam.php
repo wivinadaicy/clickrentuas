@@ -20,7 +20,7 @@ error_reporting(0);
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body  class="site-hero" style="background-image: url(images/thx-bg.jpg);"data-stellar-background-ratio="0.5">
+<body  class="site-hero" style="background-image: url(images/thx-bg.jpg);overflow-x:hidden; overflow-y:hidden; "data-stellar-background-ratio="0.5">
     
     <h1 style="padding-top:100px; text-align:center; font-size: 50px;">Thankyou for your reservation!</h1>
     
