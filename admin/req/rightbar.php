@@ -8,8 +8,8 @@
 						<div class="sidebar-right-wrapper">
 			
 							<div class="sidebar-widget widget-calendar">
-								<h6>Upcoming Tasks</h6>
-								<div data-plugin-datepicker data-plugin-skin="dark" ></div>
+								<h6><b><?php echo date("l, d F Y")?></b></h6>
+								<div data-plugin-datepicker data-plugin-skin="dark" Default: true></div>
 								<ul>
 									<li>
                                         <table align="center">
