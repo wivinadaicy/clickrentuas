@@ -26,7 +26,7 @@ $idpinjam = $_GET['idpinjam'];
       $content = '...';
 //font
 //writehtml
-      //$obj_pdf->SetFont('Courier','', 8); //untuk font, liat dokumentasui
+      //$obj_pdf->SetFont(Courier','', 8); //untuk font, liat dokumentasui
       $obj_pdf->writeHTML($content); //yang keluarin html nya. Setfont nya harus diatas kontennya
 
 

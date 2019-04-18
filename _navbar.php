@@ -1,7 +1,7 @@
 
  <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="templateux-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="images/uph-sistech.png" alt="Logo sistech" height="40" width="40"></a>
+        <a class="navbar-brand" href="index.php"><img src="images/LOGO.png" alt="Logo sistech" height="120" width="300"></a>
         <div class="site-menu-toggle js-site-menu-toggle  ml-auto"  data-aos="fade" data-toggle="collapse" data-target="#templateux-navbar-nav" aria-controls="templateux-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
               <span></span>
               <span></span>
