@@ -24,7 +24,7 @@ error_reporting(0);
     
     <h1 style="padding-top:100px; text-align:center; font-size: 50px;">Thankyou for your reservation!</h1>
     
-    <p style="text-align:center; font-size: 20px;">Your id is <h3 style="text-align:center;"><?php echo $_GET['id_peminjaman'];?></h3>
+    <p style="text-align:center; font-size: 20px;">Your booking id is <h3 style="text-align:center;"><?php echo $_GET['idpinjam'];?></h3>
     <p style="text-align:center;font-size: 20px;">
     Please wait for the approval by the admin. 
     Your room can be exchanged with consideration from the admin.</p>
