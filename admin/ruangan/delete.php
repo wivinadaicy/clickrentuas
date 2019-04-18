@@ -18,10 +18,11 @@ $namaruangan = $ds['nama_ruangan'];
 $jenisruangan = $ds['jenis_ruangan'];
 $lantai = $ds['gedung_lantai'];
 $kapasitas = $ds['kapasitas'];
+$deskripsi = $ds['deskripsi'];
 
 
 
-$query2 = "INSERT INTO log_ruangan VALUES ('$baristambah', '$idnya','$namaruangan','$jenisruangan','$lantai','$kapasitas')";
+$query2 = "INSERT INTO log_ruangan VALUES ('$baristambah', '$idnya','$namaruangan','$jenisruangan','$lantai','$kapasitas','$deskripsi','$id',now())";
 
 $jalanin2 = mysqli_query($koneksi,$query2);
 

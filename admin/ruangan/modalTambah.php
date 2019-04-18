@@ -2,7 +2,7 @@
 
 <div id="modalForm" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
-	<form action="barang/insert.php" method="post">
+	<form action="ruangan/insert.php" method="post">
         <header class="panel-heading">
             <h2 class="panel-title">Add Room Data</h2>
 		</header>
@@ -41,7 +41,13 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Capacity<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="number" name="stok"  id="stok" class="form-control" placeholder="Insert Capacity of the Room" required >
+					<input type="number" name="kapasitas"  id="stok" class="form-control" placeholder="Insert Capacity of the Room" required >
+				</div>
+			</div>
+            <div class="form-group">
+				<label class="col-sm-3 control-label">Description<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="deskripsi"  id="stok" class="form-control" placeholder="Insert Description of the Room" required >
 				</div>
 			</div>
 		</div>
