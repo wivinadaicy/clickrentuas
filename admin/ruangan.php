@@ -47,7 +47,7 @@
 	<br>
 	<hr>
 	<h3>Data of Items</h3>
-	<table class="table table-bordered table-striped mb-none">
+	<table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
 		<thead>
 		
 			<tr>

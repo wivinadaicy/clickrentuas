@@ -66,8 +66,12 @@
 	<?php include('barang/modalTambah.php');?>
 	<br>
 	<hr>
-	<h3>Data of Items</h3>
-	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
+	<div class="row">
+		<div class="col-sm-9"><h3 style="">Data of Items</h3></div>
+		<div class="col-sm-3"><input type="text" placeholder="Search" id="cari" class="form-control"></div>
+	</div>
+	
+	<table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
 		<thead>
 		
 			<tr>
