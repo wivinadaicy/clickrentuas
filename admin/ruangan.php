@@ -32,37 +32,17 @@
 <div class="panel-body">
 <table>
 <tr>
-<td>Type of Rooms&nbsp; &nbsp; &nbsp;</td> 
+<td>Type of Rooms</td> 
 		<td>: &nbsp; &nbsp; &nbsp;
 		<input type="radio" value="semua" name="jenisruangan" checked onclick="cekRuangan()"> All &nbsp; &nbsp; 
-		<?php
-		$jb = mysqli_query($koneksi, "SELECT * FROM jenis_ruangan");
-		while($djb = mysqli_fetch_array($jb)){
-		?>
-		<input type="radio" value="<?php echo $djb['id_ruangan'] ?>"  onclick="cekRuangan()" name="jenisruangan"> <?php echo $djb['nama_ruangan'] ?> &nbsp; &nbsp; &nbsp;
-		<?php } ?>
+		<input type="radio" value="1"  onclick="cekRuangan()" name="jenisruangan">Laboratory &nbsp; &nbsp; &nbsp;
+		<input type="radio" value="2"  onclick="cekRuangan()" name="jenisruangan">Meeting Room &nbsp; &nbsp; &nbsp;
 		</td>
 </tr>
-<tr>
-	<td>
-		Rooms
-	</td>
-	<td>: &nbsp; &nbsp; &nbsp;
-	<select name="ruangans" id="ruangans" onchange="cekRuangan()">
-	<option value="semua">All</option>
-			<?php
-			$dr= mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
-			while($ddr = mysqli_fetch_array($dr)){
-			?>
-				<option value="<?php echo $ddr['id_ruangan'] ?>"><?php echo $ddr['nama_ruangan'] ?></option>
-			<?php } ?>
-			</select>
-	</td>
-</tr>
-
 		
 </table>
 </div>
+<br>
 	<?php include('ruangan/modalTambah.php');?>
 	<br>
 	<hr>
