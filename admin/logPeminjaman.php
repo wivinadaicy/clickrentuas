@@ -18,7 +18,6 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-                    <li><span>Peminjaman</span></li>
                     <li><span>Log Peminjaman</span></li>
 				</ol>
 

@@ -66,8 +66,9 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $orangpinjam = $datapinjaman['id_pengguna'];
     $pesannya = "Maaf peminjaman dengan kode $idpinjam ditolak. Dengan alasan: $alasan";
 
-    $cekpesannya = mysqli_fetch_array($kirimpesan);
-    $idpesannya = $cekpesannya['id_pesan'];
+    $kirimpesan2 = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$idpinjam'");
+    $cekpesannya2 = mysqli_fetch_array($kirimpesan2);
+    $idpesannya = $cekpesannya2['id_pesan'];
 
     $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");
 

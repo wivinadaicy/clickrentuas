@@ -200,7 +200,7 @@ $data = mysqli_fetch_array($query);
                 <br>
                 Nama Peminjam&nbsp;: <b><?php echo $data['nama_lengkap']?></b>
                 </h4>
-<?php if($data['id_pengguna']==$id){?>
+<?php if($data['id_pengguna']!=$id){?>
                 <hr>
                 <h5>Pesan untuk peminjam</h5>
                 <input type="hidden" name="idpinjam" value="<?php echo $id_pinjam?>">
@@ -210,7 +210,10 @@ $data = mysqli_fetch_array($query);
                             <input type="hidden" name="idtolak" value="<?php echo $id_pinjam ?>">
                         </div>
                     </div>
-<?php } ?>
+<?php }else{ ?>
+    <input type="hidden" name="alasanTolak"  class="form-control" value="">
+                            <input type="hidden" name="idtolak" value="<?php echo $id_pinjam ?>">
+<?php }?>
 
                 </div>
                 <footer class="panel-footer">

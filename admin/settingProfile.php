@@ -108,7 +108,7 @@
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                                <i class="fa fa-key"></i>
                             </span>
                             <input type="password" name="passlama" id="passlama" class="form-control" placeholder="Password" required/>
                         </div>
@@ -132,7 +132,7 @@
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                                <i class="fa fa-key"></i>
                             </span>
                             <input type="password" name="passkonfir" id="passkonfir" class="form-control" placeholder="Password" required minlength="8" oninput="cekPassword()"/>
                         </div>
