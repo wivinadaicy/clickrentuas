@@ -45,7 +45,7 @@
     $admin = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$idadmin'");
     $naad = mysqli_fetch_array($admin);
 
-    if($idadmin!="0"){
+    if($idadmin!="0" || $idadmin==""){
     ?>
     <h5><b>User Input:</b> <?php echo $naad['nama_lengkap'] . " (" . $idadmin . ")" ?></h4>
     <?php
@@ -110,7 +110,7 @@
 									</tbody>
 								</table>
                                 <?php
-                                if($riw['user_delete']!='0'){ ?>
+                                if($riw['user_delete']!='0'||$riw['user_delete']==''){ ?>
 <h5><b>Tanggal Delete:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_delete'])) ?> WIB</h5>
 
     <h5><b>User Delete:</b> <?php echo $riw['user_delete'] ?></h4>

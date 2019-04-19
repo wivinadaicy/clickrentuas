@@ -196,11 +196,24 @@
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="peminjamanAdminSelesai.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+						<li class="nav-parent">
+							<a>
+								<i class="fa fa-copy" aria-hidden="true"></i>
+								
 								<span>Finished Reservation</span>
 							</a>
+							<ul class="nav nav-children">
+								<li>
+									<a href="peminjamanAdminSelesaiLab.php">
+                                        Laboratory
+									</a>
+								</li>
+								<li>
+									<a href="peminjamanAdminSelesaiMeet.php">
+										 Meeting Room
+									</a>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<a href="logPeminjaman.php">

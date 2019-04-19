@@ -119,11 +119,11 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label"> New Password <span class="required">*</span></label>
                     <div class="col-sm-9">
-                        <div class="input-group">
+                        <div class="input-group mb-md">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i>
+                                <i class="fa fa-key"></i>
                             </span>
-                            <input type="password" name="passbaru" id="passbaru" class="form-control" placeholder="Password" required/>
+                            <input type="password" name="passbaru" id="passbaru" class="form-control" placeholder="Password" required minlength="8"/>
                         </div>
                     </div>
                 </div>
