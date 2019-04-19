@@ -1,5 +1,5 @@
 <html>
-    <head>
+  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Click &amp; Rent &mdash; SISTech UPH </title>
@@ -15,34 +15,23 @@
      <!-- Theme Style -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
-    <center>
+    
          <body  class="site-hero" style="background-image: url(../images/thx-bg.jpg);overflow-x:hidden; overflow-y:hidden; "data-stellar-background-ratio="0.5">
-        <table style= "margin-top:70px;">
-           <tr>
-               <td align="center" colspan="2">
-                   <h1>Your reservation has been confirmed!</h1>
-               </td>
-            </tr>
-            <tr>
-               <td align="center" colspan="2">
-                   <img src="../images/approve.png" width="200">
-               </td>
-            </tr>
-            <br>
-            <tr align="center">
-                <td>
-                    <a href="pendingLab.php" class="btn btn-danger">Lihat peminjaman lab yang pending lainnya</a>
-                </td>
-                 <td>
-                    <a href="pendingLab.php" class="btn btn-danger">Lihat peminjaman meeting room yang pending lainnya</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td colspan="2">
-                    <a href="index.php" class="btn btn-danger">Kembali ke halaman utama</a>
-                </td>
-            </tr>
-        </table>
+             
+    <h1 style="padding-top:100px; text-align:center; font-size: 50px;">The reservation has been confirmed!</h1>
+    
+    <p style="padding-bottom: 10px;" align="center"><img src="../images/approve.png" width="200"></p>
+    
+    
+    <p style="text-align:center;padding-bottom: 10px;font-size: 20px;">
+    <a href="pendingLab.php" class="btn btn-danger">Pending Lab Reservation</a>
+    
+    
+    <a href="pendingMeeting.php" class="btn btn-danger">Pending Lab Reservation</a></p>
+    
+    <p style="text-align:center; font-size: 20px;"><a href="index.php" ><i class="fa fa-dashboard"></i> Dashboard</a></p>
+    
+        
         </body>
-        </center>
+        
 </html>
