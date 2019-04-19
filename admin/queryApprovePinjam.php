@@ -234,7 +234,13 @@ $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
 $mail->addAddress($emailnya, $emailnya );
 
 $mail->Subject = "Peminjaman Kode: $pinjamtolak Ditolak";
-$msg="Maaf peminjaman dengan kode $pinjamtolak ditolak. Dengan alasan: karena waiting list";  
+$msg='
+
+
+
+
+
+Maaf peminjaman dengan kode $pinjamtolak ditolak. Dengan alasan: karena waiting list';  
 
 $mail->msgHTML("$msg");
 

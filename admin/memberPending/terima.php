@@ -195,7 +195,7 @@ $msg='
                                             </td>
                                         </tr>
                                         <tr>
-                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="http://tiny.cc/gtn24y " target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Confirm</a></td>
+                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="http://tiny.cc/gtn24y " target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Go to Website</a></td>
                                         </tr>
                                         <tr align="center" style="font-size:18px;">
                                          Enjoy the online reservation !
