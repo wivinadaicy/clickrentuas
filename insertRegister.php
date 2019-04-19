@@ -216,6 +216,32 @@ $msg='
     </tr>
     
     </table>
+     <td bgcolor="#ffffff" style="padding: 25px 15px 70px 15px;" class="section-padding">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table" style="padding-left: 20px;">
+               
+                                <td>
+                                    <!-- BULLETPROOF BUTTON -->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="50px">
+                                        <tr>
+                                            <td align="left" style="padding-top: 25px; font-size: 12 px; " class="padding">
+                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                                    <tr>
+                                                        <td><img src="images/cr.png" width="200"></td>
+                                                        <td>Best regards,<br>
+                                                        Click <span style="color:red;">&amp;</span>Rent<br>Address:<br>
+                                                        Jl. MH. Thamrin Boulevard 1100,<br>
+                                                            Klp. Dua, Karawaci, Tangerang,<br> Banten 15811</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            
+                        </table>
+                    </td>
+    
+      
        
          
 </body>
