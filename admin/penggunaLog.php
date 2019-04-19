@@ -39,11 +39,21 @@
     $riw = mysqli_fetch_array($add);
     ?>
     <h5><b>Tanggal Input:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_add'])) ?> WIB</h5>
-    <?php
-    if($riw['user_add']==0){$h = "Mendaftar Sendiri";}else{ $h = "Admin: ". $riw['user_add'];}
+
+    <?php 
+    $idadmin = $riw['user_add'];
+    $admin = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$idadmin'");
+    $naad = mysqli_fetch_array($admin);
+
+    if($idadmin!="0"){
     ?>
-    <h5><b>User Input:</b> <?php echo $riw['nama_lengkap'] . " (" . $h . ")" ?></h4>
+    <h5><b>User Input:</b> <?php echo $naad['nama_lengkap'] . " (" . $idadmin . ")" ?></h4>
     <?php
+    }else{
+    ?>
+        <h5><b>User Input:</b> "Mendaftar sendiri"</h4>
+    <?php
+    }
     ?>
         <div class="table-responsive">
         <table class="table table-striped table-no-more table-bordered  mb-none">
@@ -62,7 +72,7 @@
                                     $query = mysqli_query($koneksi, "SELECT * FROM log_pengguna WHERE id_pengguna='$idpem'");
                                     if(mysqli_num_rows($query)==0){ ?>
                                         <tr>
-                                            <td colspan="4" style="text-align:center">Tidak ada data</td>
+                                            <td colspan="5" style="text-align:center">Tidak ada data</td>
                                         </tr>
                                     <?php
                                     }

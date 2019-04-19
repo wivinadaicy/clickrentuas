@@ -131,7 +131,7 @@
             </tr>
             <br>
             <tr>
-            <td colspan="2" align="right"><img src="../images/booked.png" width="180"></td>
+            <td colspan="2" align="right"><img src="../images/booked.png" width="150"></td>
             </tr>
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2019 at 01:34 PM
+-- Generation Time: Apr 19, 2019 at 10:27 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -51,7 +51,7 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('BR-1', 'R-1', 2, 'Keyboard', 'Asus', 20, '2019-04-23', 'USER-1', '2019-04-14 22:42:40', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-14 22:53:00', 1),
-('BR-2', 'R-2', 2, 'Monitor', 'Acer', 20, '2019-04-17', 'USER-1', '2019-04-16 20:13:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-2', 'R-2', 2, 'Monitor', 'Acer', 20, '2019-04-17', 'USER-1', '2019-04-16 20:13:33', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-18 20:48:53', 1),
 ('BR-3', 'R-2', 1, 'Photoshop CC 2017', 'Adobe', 50, '2019-04-16', 'USER-1', '2019-04-16 20:14:51', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-4', 'R-2', 1, 'Premiere CC 2019', 'Adobe', 20, '2019-04-24', 'USER-1', '2019-04-16 20:15:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-5', 'R-2', 1, 'Illustrator CC 2018', 'Adobe', 30, '2019-04-24', 'USER-1', '2019-04-16 20:15:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
@@ -351,12 +351,19 @@ CREATE TABLE `log_ruangan` (
   `id_ruangan` varchar(40) NOT NULL,
   `nama_ruangan` varchar(60) NOT NULL,
   `jenis_ruangan` int(11) NOT NULL,
-  `gedung_lantai` int(20) NOT NULL,
+  `gedung_lantai` varchar(20) NOT NULL,
   `kapasitas` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
   `user_edit` varchar(40) NOT NULL,
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_ruangan`
+--
+
+INSERT INTO `log_ruangan` (`id_logRuangan`, `id_ruangan`, `nama_ruangan`, `jenis_ruangan`, `gedung_lantai`, `kapasitas`, `deskripsi`, `user_edit`, `waktu_edit`) VALUES
+(1, 'R-1', 'Lab F 208aaaaa', 1, '0', 50000000, 'asdfaaaaaaa', 'USER-1', '2019-04-18 21:25:23');
 
 -- --------------------------------------------------------
 
@@ -423,12 +430,18 @@ CREATE TABLE `peminjaman` (
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('PJ-1', '2019-04-30', 'R-1', '09:15:00', '10:15:00', 'USER-2', 'Charity', 50, 3, 'Mengundang guru dari SMK Dasana Indah', 4, 'USER-2', '2019-04-17 15:19:05', 'USER-1', '2019-04-17 16:23:42', '0', '0000-00-00 00:00:00', 0),
+('PJ-10', '2019-04-20', '', '09:15:00', '10:15:00', 'USER-1', 'asdasd', 123, 1, 'asdasd', 1, 'USER-1', '2019-04-19 14:28:41', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-11', '2019-04-20', 'R-1', '08:15:00', '09:15:00', 'USER-1', '123123', 11, 2, 'ertertert', 1, 'USER-1', '2019-04-19 14:30:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-12', '2019-04-27', 'R-3', '08:15:00', '09:15:00', 'USER-1', 'qwerty', 55, 1, 'qweqwerqwr', 1, 'USER-1', '2019-04-19 14:31:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-13', '2019-04-25', 'R-5', '09:15:00', '10:15:00', 'USER-1', 'hehehehe', 23, 1, '23', 1, 'USER-1', '2019-04-19 14:32:14', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-2', '2019-04-30', 'R-1', '07:15:00', '10:15:00', 'USER-2', 'Struktur Data', 30, 1, 'Kelas oleh ci Calandra', 3, 'USER-2', '2019-04-17 15:23:18', 'USER-1', '2019-04-17 16:32:29', '0', '0000-00-00 00:00:00', 0),
 ('PJ-3', '2019-04-24', 'R-4', '10:15:00', '11:15:00', 'USER-2', 'Hari Guru', 50, 3, 'Memperingati hari guru SISTech', 1, 'USER-2', '2019-04-17 15:24:42', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-4', '2019-04-30', 'R-1', '10:15:00', '11:15:00', 'USER-2', 'Syukuran', 30, 4, 'Syukuran per tahun', 1, 'USER-2', '2019-04-17 16:35:08', 'USER-1', '2019-04-17 16:38:32', '0', '0000-00-00 00:00:00', 0),
-('PJ-5', '2019-05-29', 'R-6', '08:15:00', '09:15:00', 'USER-3', 'Skripsi', 40, 4, 'Bimbingan dengan pak hihi', 0, 'USER-3', '2019-04-17 18:09:37', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-5', '2019-05-29', 'R-6', '08:15:00', '09:15:00', 'USER-3', 'Skripsi', 40, 4, 'Bimbingan dengan pak hihi', 1, 'USER-3', '2019-04-17 18:09:37', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-6', '2019-04-30', 'R-3', '09:15:00', '10:15:00', 'USER-3', 'Pelatihan A', 50, 5, 'Pelatihan untuk asdasd', 1, 'USER-3', '2019-04-17 18:16:52', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-7', '2019-04-18', 'R-2', '07:15:00', '08:15:00', 'USER-3', 'ERP KP', 30, 2, 'Kelas pengganti pak Riswan', 6, 'USER-3', '2019-04-17 21:00:31', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PJ-7', '2019-04-18', 'R-2', '07:15:00', '08:15:00', 'USER-3', 'ERP KP', 30, 2, 'Kelas pengganti pak Riswan', 6, 'USER-3', '2019-04-17 21:00:31', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-8', '2019-04-20', '', '07:15:00', '08:15:00', 'USER-1', '123', 123, 2, '123', 1, 'USER-1', '2019-04-19 14:23:06', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-9', '2019-05-01', '', '07:15:00', '08:15:00', 'USER-1', 'lab 1111', 11111, 1, '111111', 1, 'USER-1', '2019-04-19 14:27:34', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -465,7 +478,8 @@ INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `j
 ('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 1, 2, '0', '2019-04-13 17:56:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('USER-2', 'wivinadaicy.wd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Gmail Student', 'p', '2019-04-04', 'Jalan Nanana no 17', '08261536475', '2019-04-13', 4, 2, '0', '2019-04-13 18:01:18', 'USER-1', '2019-04-13 18:05:24', '0', '0000-00-00 00:00:00', 0),
 ('USER-3', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin2', 'p', '1999-06-17', 'Jalan M.H Thamrin', '082153746585', '2019-04-13', 2, 2, '0', '2019-04-13 19:01:44', 'USER-1', '2019-04-14 17:06:52', '0', '0000-00-00 00:00:00', 0),
-('USER-4', 'joshuanatan.jn@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Joshua Mahasiswaa', 'p', '1998-03-13', 'Jalan Kembang Molek IX...', '082153746575', '2019-04-13', 4, 2, 'USER-1', '2019-04-13 21:18:18', 'USER-1', '2019-04-13 22:18:29', 'USER-1', '2019-04-13 22:36:43', 1);
+('USER-4', 'joshuanatan.jn@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Joshua Mahasiswaa', 'p', '1998-03-13', 'Jalan Kembang Molek IX...', '082153746575', '2019-04-13', 4, 2, 'USER-1', '2019-04-13 21:18:18', 'USER-1', '2019-04-13 22:18:29', 'USER-1', '2019-04-13 22:36:43', 1),
+('USER-5', 'verenv999999@gmail.com', '202cb962ac59075b964b07152d234b70', 'Veren Mahasiswa', 'p', '1999-06-17', 'jalan ahshdhashdahsdh', '082153746575', '2019-04-19', 4, 2, 'USER-1', '2019-04-19 14:47:50', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -571,7 +585,7 @@ CREATE TABLE `ruangan` (
 --
 
 INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`, `jenis_ruangan`, `gedung_lantai`, `kapasitas`, `deskripsi`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('R-1', 'Lab F 208', 1, 'F2', 50, 'asdf', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('R-1', 'Lab F 208aaaaa', 1, 'F2aaaa', 50000000, 'asdfaaaaaaa', '', '0000-00-00 00:00:00', 'USER-1', '2019-04-18 21:25:23', 'USER-1', '2019-04-18 21:34:39', 1),
 ('R-2', 'Lab F 210', 1, 'F2', 60, 'qwer', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 ('R-3', 'Lab F 211', 1, 'F2', 30, 'apoi', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 ('R-4', 'Meeting Room 1', 2, 'B3', 3, 'zxcv', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),

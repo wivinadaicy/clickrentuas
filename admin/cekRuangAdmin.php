@@ -15,7 +15,9 @@ $status= $_SESSION['status'];
 $tanggalPinjam = $_POST['tanggal'];
 $mulai = $_POST['mulai'];
 $selesai = $_POST['selesai'];
+
 $ruang = $_POST['ruang'];
+
 
 $akalinMulai = strtotime("+1 minutes", strtotime($mulai));
 $mulainya = date('h:i:s', $akalinMulai);

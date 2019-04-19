@@ -56,5 +56,5 @@ if (!$mail->send()) {
 else  {
     echo"berhasil";
 }
-header('location:pengguna.php');
+header('location:../pengguna.php');
 ?>

@@ -101,6 +101,53 @@ while($data=mysqli_fetch_array($querys)){
 <br>
 <br>
 
+
+
+
+<section class="panel">
+	<header class="panel-heading">
+		<div class="panel-actions">
+		</div>
+
+		<h2 class="panel-title">Deleted Items</h2>
+	</header>
+	<div class="panel-body">
+		<table class="table table-striped mb-none">
+			<thead>
+				<tr>
+					<th>Item Name</th>
+					<th>Brand</th>
+					<th>Stock</th>
+					<th>Room</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			$query = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='1'");
+			while($data=mysqli_fetch_array($query)){
+			?>
+				<tr>
+				<td> <?php echo $data['nama_barang'] ?></td>
+				<td> <?php echo $data['merek'] ?></td>
+				<td> <?php echo $data['stok_barang'] ?></td>
+				<td> <?php echo $data['nama_ruangan'] ?></td>
+				<td class="text-center">
+					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="detailBarang.php?idbrgnya=<?php echo $data['id_barang'] ?>"><i class="fa fa-eye"></i>
+					</a>
+					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="editBarang.php?idbrgnya=<?php echo $data["id_barang"]?>"><i class="fa fa-edit"></i>
+					</a>
+					<a class="btn btn-danger mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Delete" href="hapusBarang.php?idbrgnya=<?php echo $data["id_barang"]?>"><i class="fa fa-trash-o"></i></a>
+				</td>
+            </tr>
+			<?php } ?>
+			</tbody>
+		</table>
+
+
+	</div>
+</section>
+
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
