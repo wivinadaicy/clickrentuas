@@ -93,7 +93,7 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $mail->addAddress($emailnya, $emailnya );
     
     $mail->Subject = "Peminjaman Kode: $idpinjam Ditolak";
-    $msg="Maaf peminjaman dengan kode $idpinjam dan nama acara $pinjam2_acara ditolak. Dengan alasan: $alasan";  
+    $msg="Maaf peminjaman dengan kode $idpinjam dan nama acara $pinjam2_acara ditolak. Dengan pesan: $alasan";  
     
     $mail->msgHTML("$msg");
     
