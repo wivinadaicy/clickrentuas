@@ -33,6 +33,9 @@
             <div class="col-md-12">
                 <div id="calendarr"></div>
             </div>
+            <div class="panel" id="warna">
+            
+            </div>
         </div>
     </div>
 </section>
@@ -82,4 +85,22 @@ $(document).ready(function() {
         
    });
   });
+
+
+function cekWarna(){
+  
+  $.ajax({
+      url:"cekWarna.php",
+      dataType: "JSON",
+      success: function(respond){
+          $('#warna').empty();
+          $('#warna').append(respond);
+      }
+  });
+}
+
+window.onload = function() {
+  cekWarna();
+};
 </script>
+
