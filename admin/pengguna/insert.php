@@ -152,11 +152,6 @@ $msg='
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
 
-<!-- HIDDEN PREHEADER TEXT -->
-<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-    Entice the open with some amazing preheader text. Use a little mystery and get those subscribers to read through...
-</div>
-
 <!-- HEADER -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
@@ -165,7 +160,7 @@ $msg='
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">
                         <a href="http://litmus.com" target="_blank">
-                            <img alt="Logo" src="images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="../../images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -183,7 +178,7 @@ $msg='
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               	<td align="center" class="padding">
-                                  <a href="http://litmus.com" target="_blank"><img src="images/account.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
+                                  <a href="http://litmus.com" target="_blank"><img src="../../images/account.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
                               </td>
                             </tr>
                             <tr>
@@ -191,12 +186,12 @@ $msg='
 
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Congratulations! Your account, '$namanya' on Click&Rent SISTech has been created by the admin. Please click the button:</td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Congratulations! Your account, '.$namanya.' on Click&Rent SISTech has been created by the admin. Please click the button:</td>
                                         </tr>
                                         <tr>
                                         <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="http://tiny.cc/gtn24y " target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Confirm</a></td>
                                         </tr>
-                                        <tr align="center">
+                                        <tr align="center" style="font-size:14px;">
                                          Enjoy the online reservation !
                                         </tr>
                                     </table>
@@ -220,7 +215,7 @@ $msg='
                                             <td align="left" style="padding-top: 25px; font-size: 12 px; " class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td><img src="images/cr.png" width="200"></td>
+                                                        <td><img src="../../images/cr.png" width="200"></td>
                                                         <td>Best regards,<br>
                                                         Click <span style="color:red;">&amp;</span>Rent<br>Address:<br>
                                                         Jl. MH. Thamrin Boulevard 1100,<br>
