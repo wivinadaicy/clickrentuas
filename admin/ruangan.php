@@ -81,6 +81,50 @@ while($data=mysqli_fetch_array($querys)){
 <br>
 <br>
 
+<section class="panel">
+	<header class="panel-heading">
+		<div class="panel-actions">
+		</div>
+
+		<h2 class="panel-title">Deleted Rooms</h2>
+	</header>
+	<div class="panel-body">
+		<table class="table table-striped mb-none">
+			<thead>
+				<tr>
+				<th>Room Name</th>
+				<th>Type of Room</th>
+				<th>Location</th>
+				<th>Capacity</th>
+				<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+			$query = mysqli_query($koneksi, "SELECT * from ruangan WHERE ruangan.status_delete='1'");
+			while($data=mysqli_fetch_array($query)){
+			?>
+				<tr>
+				<td> <?php echo $data['nama_ruangan'] ?></td>
+				<td> <?php if($data['jenis_ruangan']=="1"){echo "Laboratory";}else{echo "Meeting Room";}?></td>
+				<td> <?php echo $data['gedung_lantai'] ?></td>
+				<td> <?php echo $data['kapasitas'] ?></td>
+				<td class="text-center">
+					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="detailBarang.php?idbrgnya=<?php echo $data['id_barang'] ?>"><i class="fa fa-eye"></i>
+					</a>
+					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="editBarang.php?idbrgnya=<?php echo $data["id_barang"]?>"><i class="fa fa-edit"></i>
+					</a>
+					<a class="btn btn-danger mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Delete" href="hapusBarang.php?idbrgnya=<?php echo $data["id_barang"]?>"><i class="fa fa-trash-o"></i></a>
+					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="ruanganLog.php?id=<?php echo $data['id_barang'];?>"><i class='fa fa-file'></i></a>
+				</td>
+            </tr>
+			<?php } ?>
+			</tbody>
+		</table>
+
+
+	</div>
+</section>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

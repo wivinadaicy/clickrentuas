@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Reserve Room</h2>
+			<h2>Reserve Laboratory</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,8 +18,8 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><a href="jadwalMeeting.php"><span>Meeting Room Schedule</span></a></li>
-					<li><span>Reserve Meeting Room</span></li>
+                    <li><a href="jadwalLab.php"><span>Laboratory Schedule</span></a></li>
+					<li><span>Reserve Laboratory</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -61,7 +61,7 @@ $idp = "PJ-" . $hq;
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input class="form-control" placeholder="Jenis Ruangan"  type="text" name="jenisRuangan" id="jenisRuangan" value="Meeting Room"  readonly>
+									<input class="form-control" placeholder="Jenis Ruangan"  type="text" name="jenisRuangan" id="jenisRuangan" value="Laboratory"  readonly>
 								</div>	
 							</div>
 						</div>
@@ -249,7 +249,7 @@ function cekRuangan1(){
   var mulai2 = $('#waktuMulai').children("option:selected").val();
   var selesai2 = $('#waktuSelesai').children("option:selected").val();
   var tanggal2 = $('#tanggalpinjam').val();
-  var ruang2 = "2";
+  var ruang2 = "1";
 	$.ajax({
 		type:"post",
 		url:"cekRuangAdmin.php",

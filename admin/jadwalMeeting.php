@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Jadwal Laboratorium</h2>
+			<h2>Meeting Room Schedule</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Jadwal Lab</span></li>
+					<li><span>Meeting Room Schedule</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -53,9 +53,33 @@ $(document).ready(function() {
     selectable:true,
 	selectHelper:true,
     dayClick: function(date, jsEvent, view) { 
+        var today = new Date();
+        var end = new Date();                
+        end.setDate(today.getDate()-1);  
+
+        if(date > today) {
         window.location.href = "insertMeetingAdmin.php?tanggal=" + date.format();
-        },
-        //eventColor: '#378006',
+        }
+    
+    },
+    dayRender: function (date, cell) {
+
+                    var today = new Date();
+                    var end = new Date();                
+                    end.setDate(today.getDate()-1);                 
+
+
+                    if( date < end) {
+                    cell.css("background-color", "lightgray");
+                    } // this is for previous date 
+
+                    if(date > today) {
+                        cell.css("background-color", "white");
+                    }
+
+
+                }
+        
    });
   });
 </script>

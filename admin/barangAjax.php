@@ -27,6 +27,7 @@ if($jenisbarangs=="semua" && $ruangans=="semua"){
 					<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 					</a>
 					<a class='btn btn-danger mb-xs mt-xs mr-xs btn' data-toggle='tooltip' data-placement='top' title='Delete' href='hapusBarang.php?idbrgnya=".$data['id_barang']."'><i class='fa fa-trash-o'></i></a>
+					<a class='btn mb-xs mt-xs mr-xs btn btn-success'data-toggle='tooltip' data-placement='top' title='Log' href='barangLog.php?id=" . $data['id_barang']. "'><i class='fa fa-file'></i></a>
 				</td>
             </tr>
         ";
@@ -55,6 +56,7 @@ if($jenisbarangs=="semua" && $ruangans!="semua"){
 			<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 			</a>
 			<a class='btn btn-danger mb-xs mt-xs mr-xs btn' data-toggle='tooltip' data-placement='top' title='Delete' href='hapusBarang.php?idbrgnya=".$data['id_barang']."'><i class='fa fa-trash-o'></i></a>
+			<a class='btn mb-xs mt-xs mr-xs btn btn-success'data-toggle='tooltip' data-placement='top' title='Log' href='barangLog.php?id=" . $data['id_barang']. "'><i class='fa fa-file'></i></a>
 		</td>
 	</tr>
         ";
@@ -83,6 +85,7 @@ if($ruangans=="semua" && $jenisbarangs!="semua"){
 			<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 			</a>
 			<a class='btn btn-danger mb-xs mt-xs mr-xs btn' data-toggle='tooltip' data-placement='top' title='Delete' href='hapusBarang.php?idbrgnya=".$data['id_barang']."'><i class='fa fa-trash-o'></i></a>
+			<a class='btn mb-xs mt-xs mr-xs btn btn-success'data-toggle='tooltip' data-placement='top' title='Log' href='barangLog.php?id=" . $data['id_barang']. "'><i class='fa fa-file'></i></a>
 		</td>
 	</tr>
         ";
@@ -110,6 +113,7 @@ if($jenisbarangs!="semua" && $ruangans!="semua"){
 			<a class='modal-with-form btn btn-warning' data-toggle='tooltip' data-placement='top' title='Edit' href='editBarang.php?idbrgnya=" . $data['id_barang'] . "'><i class='fa fa-edit'></i>
 			</a>
 			<a class='btn btn-danger mb-xs mt-xs mr-xs btn' data-toggle='tooltip' data-placement='top' title='Delete' href='hapusBarang.php?idbrgnya=".$data['id_barang']."'><i class='fa fa-trash-o'></i></a>
+			<a class='btn mb-xs mt-xs mr-xs btn btn-success'data-toggle='tooltip' data-placement='top' title='Log' href='barangLog.php?id=" . $data['id_barang']. "'><i class='fa fa-file'></i></a>
 		</td>
 	</tr>
         ";

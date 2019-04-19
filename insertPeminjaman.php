@@ -26,7 +26,7 @@
 
     $query1 = mysqli_query($koneksi, "INSERT INTO peminjaman VALUES ('$idpeminjamannya','$tanggall','$idruang','$mulaii','$selesaii','$id','$namaacara','$jumlahpeserta','$jenisAcara','$deskripsiAcara','0','$id',now(),'0','0','0','0','0')");
 
-$cblogpinjam2 = mysqli_query($koneksi, "SELECT * FROM log_peminjaman");
+/*$cblogpinjam2 = mysqli_query($koneksi, "SELECT * FROM log_peminjaman");
 $bariscbpinjam2 = mysqli_num_rows($cblogpinjam2);
 $jadibarislogpj2 = $bariscbpinjam2+1;
 
@@ -46,7 +46,7 @@ $pinjam2_ruang= $simpandatapinjam2['id_ruangan'];
 $setlogdata = mysqli_query($koneksi,
 "INSERT INTO log_peminjaman values ('$jadibarislogpj2','$idpeminjamannya','$pinjam2_tanggal','$pinjam2_ruang','$pinjam2_mulai','$pinjam2_selesai','$pinjam2_orang','$pinjam2_acara','$pinjam2_peserta','$pinjam2_kategoriacara','$pinjam2_deskripsiacara','0','$id',now())");
 
-
+*/
 $pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$pinjam2_orang'");
 $datapengguna = mysqli_fetch_array($pengguna);
 $emailnya = $datapengguna['email'];
