@@ -124,7 +124,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="jadwalMeeting.php">
 										 Meeting Room
 									</a>
 								</li>
