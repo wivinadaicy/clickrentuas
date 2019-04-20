@@ -37,7 +37,7 @@ if($sebelum == "4" && $statusnya=="4"){
     $sks =$_POST['sks'];
     $ipk =$_POST['ipk'];
 
-    $updatemhs = mysqli_query($koneksi, "UPDATE mahasiswa SET id_programStudi='$id_prgst', angkatan='$ang', semester='$sem', total_sks='$sks', ipk_terakhir='$ipk', user_edit='$id', waktu_Edit=now()");
+    $updatemhs = mysqli_query($koneksi, "UPDATE mahasiswa SET id_programStudi='$id_prgst', angkatan='$ang', semester='$sem', total_sks='$sks', ipk_terakhir='$ipk', user_edit='$id', waktu_Edit=now() WHERE id_mahasiswa='$idmhs'");
 
 $hitunglg = mysqli_query($koneksi, "SELECT * FROM log_mahasiswa");
 $jadi = mysqli_num_rows($hitunglg) + 1;
@@ -45,6 +45,14 @@ $jadi = mysqli_num_rows($hitunglg) + 1;
     $queryyyy = "INSERT INTO log_mahasiswa VALUES ('$jadi','$idmhs','$idnya','$id_prgst','$ang','$sem','$sks','$ipk','$id',now(),'0','0','0','0','0')";
 
 $jalanin2 = mysqli_query($koneksi,$queryyyy);
+}
+
+if($sebelum == "4" && $statusnya!="4"){
+    $delmhs = mysqli_query($koneksi, "UPDATE mahasiswa SET user_delete='$id', waktu_delete=now(), status_delete='1' WHERE id_mahasiswa='$idmhs'");
+}
+
+if($sebelum != "4" && $statusnya=="4"){
+    $delmhs = mysqli_query($koneksi, "UPDATE mahasiswa SET user_delete='0', waktu_delete='0', status_delete='0' WHERE id_mahasiswa='$idmhs'");
 }
 
 $hitung= mysqli_query($koneksi, "SELECT * FROM log_pengguna");
@@ -62,5 +70,5 @@ $query2 = "INSERT INTO log_pengguna VALUES ('$baristambah','$idnya', '$emailnya'
 $jalanin2 = mysqli_query($koneksi,$query2);
 
 
-//header('location:../pengguna.php');
+header('location:../pengguna.php');
 ?>
