@@ -41,7 +41,6 @@
                 <blockquote>
                   <p>&ldquo;Our meeting room is located on building B which is near our main classrooms. For the student, you can use the meeting room for final semester consultation and for the lecturer, meeting room can be used for lecturers daily meeting.&rdquo;</p>
                 </blockquote>
-                  
               </div>
             </div>
           </div> <!-- .flip-container -->

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2019 at 08:29 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Apr 20, 2019 at 09:16 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,7 +70,8 @@ CREATE TABLE `contact` (
   `phone` varchar(20) NOT NULL,
   `email` varchar(40) NOT NULL,
   `message` text NOT NULL,
-  `waktu_kirim` datetime NOT NULL
+  `waktu_kirim` datetime NOT NULL,
+  `status_pesan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -339,6 +340,7 @@ CREATE TABLE `log_program_studi` (
   `log_programStudi` int(11) NOT NULL,
   `id_programStudi` varchar(40) NOT NULL,
   `nama_programStudi` varchar(60) NOT NULL,
+  `id_fakultas` varchar(40) NOT NULL,
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
@@ -557,6 +559,7 @@ INSERT INTO `pesan_detail` (`id_pesanDetail`, `id_pesan`, `id_penggunaKe`, `id_p
 CREATE TABLE `program_studi` (
   `id_programStudi` varchar(40) NOT NULL COMMENT 'PS-',
   `nama_programStudi` varchar(60) NOT NULL,
+  `id_fakultas` varchar(40) NOT NULL,
   `user_add` varchar(40) NOT NULL,
   `waktu_add` datetime NOT NULL,
   `user_edit` varchar(40) NOT NULL,
@@ -570,10 +573,10 @@ CREATE TABLE `program_studi` (
 -- Dumping data for table `program_studi`
 --
 
-INSERT INTO `program_studi` (`id_programStudi`, `nama_programStudi`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('PS-1', 'Sistem Informasi', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
-('PS-2', 'Teknik Informatika', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
-('PS-3', 'Sistem Komputer', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
+INSERT INTO `program_studi` (`id_programStudi`, `nama_programStudi`, `id_fakultas`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
+('PS-1', 'Sistem Informasi', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('PS-2', 'Teknik Informatika', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+('PS-3', 'Sistem Komputer', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
