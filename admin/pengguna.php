@@ -30,7 +30,9 @@
 		
 <div class="container-fluid">
 <h3>Data of Active Users</h3>
+<?php if($status=="1"){?>
 	<?php include('pengguna/modalTambah.php');?>
+<?php }?>
 	<br>
 	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
@@ -65,10 +67,12 @@
 				<td class="text-center">
 					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i>
 					</a>
+					<?php if($status=="1"){?>
 					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_pengguna'];?>"><i class='fa fa-edit'></i>
 					</a>
 					<a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-trash-o'></i></a>
 					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_pengguna'];?>"><i class='fa fa-file'></i></a>
+					<?php }?>
 				</td>
 			</tr>
 			<?php include('pengguna/modaldetail.php');?>
@@ -80,6 +84,7 @@
 </div>
 <br>
 <br>
+<?php if($status=="1"){?>
 <div class="container-fluid">
 	<br>
 	<h3>Data of Deactive Users</h3>
@@ -124,6 +129,7 @@
 		</tbody>
 	</table>
 </div>
+<?php }?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

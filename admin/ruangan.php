@@ -80,7 +80,7 @@ while($data=mysqli_fetch_array($querys)){
 </div>
 <br>
 <br>
-
+<?php if($status=="1"){?>
 <section class="panel">
 	<header class="panel-heading">
 		<div class="panel-actions">
@@ -158,6 +158,7 @@ while($data=mysqli_fetch_array($querys)){
 
 	</div>
 </section>
+	<?php } ?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

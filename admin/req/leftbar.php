@@ -487,12 +487,6 @@
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="logPeminjaman.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Reservation Log</span>
-							</a>
-						</li>
                         <hr class="separator">
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
@@ -521,13 +515,14 @@
 			
 					</ul>
 					<?php }else{  ?>
-					<ul class="nav nav-main">
-						<li class="nav-active">
-							<a href="index.html">
+						<ul class="nav nav-main">
+						<li>
+							<a href="index.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Dashboard</span>
 							</a>
 						</li>
+                        <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
 						<li>
 						<a href="pesan.php">
 							<?php
@@ -546,28 +541,8 @@
 							<span>Messages</span>
 						</a>
 						</li>
-
-						<hr class="separator" />
-
-						<li class="nav-parent">
-							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
-								<span>Schedule</span>
-							</a>
-							<ul class="nav nav-children">
-								<li>
-									<a href="">
-										 Laboratory
-									</a>
-								</li>
-								<li>
-									<a href="">
-										 Meeting Room
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li>
+                        <hr class="separator">
+                        <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Upcoming Reservation</span>
@@ -581,17 +556,16 @@
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
 								<span>Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
 								<span>Finished Reservation</span>
 							</a>
 						</li>
-
 			
 					</ul>
 					<?php } ?>
