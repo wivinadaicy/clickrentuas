@@ -76,13 +76,13 @@ $jenis= $_GET['jenis'];
 					</div>
 					<ul class="wizard-steps">
 						<li class="active">
-							<a href="#w4-a" data-toggle="tab" id="satu"><span>1</span>Peminjaman</a>
+							<a href="#w4-a" data-toggle="tab" id="satu"><span>1</span>Reservation</a>
 						</li>
 						<li>
-							<a href="#w4-b" data-toggle="tab" id="dua" ><span>2</span>Detail Acara</a>
+							<a href="#w4-b" data-toggle="tab" id="dua" ><span>2</span>Event Detail</a>
 						</li>
 						<li>
-							<a href="#w4-c" data-toggle="tab"  id="tiga"><span>3</span>Konfirmasi</a>
+							<a href="#w4-c" data-toggle="tab"  id="tiga"><span>3</span>Confirmation</a>
 						</li>
 					</ul>
 				</div>
@@ -92,7 +92,7 @@ $jenis= $_GET['jenis'];
 
 					<div id="w4-a" class="tab-pane active">
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-last-name">Tanggal Pinjam</label>
+							<label class="col-sm-3 control-label" for="w4-last-name">Reservation Date</label>
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -127,7 +127,7 @@ $jenis= $_GET['jenis'];
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Jenis Ruangan</label>
+							<label class="col-sm-3 control-label" for="w4-username">Type of Room</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -145,7 +145,7 @@ $jenis= $_GET['jenis'];
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Nama Ruangan</label>
+							<label class="col-sm-3 control-label" for="w4-username">Room Name</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -163,7 +163,7 @@ $jenis= $_GET['jenis'];
 
 					<div id="w4-b" class="tab-pane">
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-last-name">Nama Acara</label>
+							<label class="col-sm-3 control-label" for="w4-last-name">Event Name</label>
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -175,7 +175,7 @@ $jenis= $_GET['jenis'];
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Kategori Acara</label>
+							<label class="col-sm-3 control-label" for="w4-username">Category of Event</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -194,7 +194,7 @@ $jenis= $_GET['jenis'];
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Jumlah Peserta</label>
+							<label class="col-sm-3 control-label" for="w4-username">Total participants</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -206,7 +206,7 @@ $jenis= $_GET['jenis'];
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Deskripsi Acara</label>
+							<label class="col-sm-3 control-label" for="w4-username">Event Description</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -224,21 +224,21 @@ $jenis= $_GET['jenis'];
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Detail Peminjaman</h2>
+										<h2 class="panel-title">Reservation Detail</h2>
 									</header>
 									<div class="panel-body">
 
-										<h3>Tanggal Peminjaman:</h3>
+										<h3>Reservation Date:</h3>
 										<p id="tgl"><?php echo $date?></p>
-										<h3>Waktu</h3>
-										<p id="waktu"><?php echo $start?> sampai <?php echo $end?></p>
-										<h3>Jenis Ruangan:</h3>
+										<h3>Time</h3>
+										<p id="waktu"><?php echo $start?> until <?php echo $end?></p>
+										<h3>Type of Room:</h3>
 										<p id="jenisruangan"><?php echo $jenisruangan?></p>
 										<?php
 										$namaruangan = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
 										$datanamaruangan = mysqli_fetch_array($namaruangan);
 										?>
-										<h3>Nama Ruangan:</h3>
+										<h3>Room Name:</h3>
 										<p id="namaruangan"><?php echo $datanamaruangan['nama_ruangan']?></p>
 									</div>
 								</div>
@@ -248,16 +248,16 @@ $jenis= $_GET['jenis'];
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Detail Peminjaman</h2>
+										<h2 class="panel-title">Reservation Detail</h2>
 									</header>
 									<div class="panel-body">
-										<h3>Nama Acara:</h3>
+										<h3>Event Name:</h3>
 										<p id="namaa"></p>
-										<h3>Kategori Acara:</h3>
+										<h3>Category of Event:</h3>
 										<p id="jenisa"></p>
-										<h3>Jumlah Peserta:</h3>
+										<h3>Total participants:</h3>
 										<p id="jumlahp"></p>
-										<h3>Deskripsi Acara: </h3>
+										<h3>Event Description: </h3>
 										<p id="deskripsia"></p>
 									</div>
 								</div>

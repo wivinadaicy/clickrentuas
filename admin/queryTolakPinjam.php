@@ -231,7 +231,7 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
 
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy"> Sorry your reservation with code '.$idpinjam.' and event name '.$pinjam2_acara.' is dennied.<br> Message: '.$alasan.'
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy"> Sorry your reservation with code '.$idpinjam.' and event name '.$pinjam2_acara.' is dennied.<br> Because of '.$alasan.'
                                             </td>
                                         </tr>
                                     </table>

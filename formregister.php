@@ -123,8 +123,8 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label" for="w4-last-name">Gender</label>
 								<div class="col-sm-7">
-									<input type="radio" name="jeniskelamin" value="l" checked id="cowo">Laki-Laki &nbsp;&nbsp;
-									<input type="radio" name="jeniskelamin" value="p" id="cewe">Perempuan
+									<input type="radio" name="jeniskelamin" value="l" checked id="cowo">Male &nbsp;&nbsp;
+									<input type="radio" name="jeniskelamin" value="p" id="cewe">Female
 								</div>
 							</div>
 							<div class="form-group">
@@ -152,7 +152,7 @@
 						</div>
 
 						<div id="w4-info" class="tab-pane">
-							<h1 style="text-align:center" id="nextnya">Silahkan lewati langkah ini</h1>
+							<h1 style="text-align:center" id="nextnya">Skip this step</h1>
 							<div id="hm">
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="w4-last-name">NIM</label>
@@ -161,7 +161,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="w4-last-name">Program Studi</label>
+									<label class="col-sm-3 control-label" for="w4-last-name">Major</label>
 									<div class="col-sm-7">
 									<select class="form-control input-sm mb-md" name="ps" id="ps">
 										<?php
@@ -175,7 +175,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="w4-last-name">Angkatan</label>
+									<label class="col-sm-3 control-label" for="w4-last-name">Batch</label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control" name="angkatan" id="formAngkatan" required>
 									</div>
@@ -187,13 +187,13 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="w4-last-name">Total SKS</label>
+									<label class="col-sm-3 control-label" for="w4-last-name">Total Credits</label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control" name="totalsks" id="formSks" required>
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="w4-last-name">IPK Terakhir</label>
+									<label class="col-sm-3 control-label" for="w4-last-name">GPA</label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control" name="ipkterakhir" id="formIpk" required>
 									</div>
@@ -208,12 +208,12 @@
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Data Akun</h2>
+										<h2 class="panel-title">Account Data</h2>
 									</header>
 									<div class="panel-body">
 										<h3>Email:</h3>
 										<p id="mail"></p>
-										<h4 style="color: red">*Email akan digunakan untuk login pada website</h4>
+										<h4 style="color: red">*Email will be used for login on this website</h4>
 									</div>
 								</div>
 							</div>
@@ -222,21 +222,21 @@
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Data Profil</h2>
+										<h2 class="panel-title">Profile Data</h2>
 									</header>
 									<div class="panel-body">
-									<h3>Nama: </h3>
+									<h3>Name: </h3>
 										<p id="nama"></p>
-										<h3>Jenis Kelamin: </h3>
+										<h3>Gender: </h3>
 										<p id="jkk"></p>
-										<h3>Tanggal Lahir: </h3>
+										<h3>Birth of Date: </h3>
 										<p id="ttll"></p>
-										<h3>Alamat: </h3>
+										<h3>Address: </h3>
 										<p id="almt"></p>
-										<h3>No Hp: </h3>
+										<h3>Phone Number: </h3>
 										<p id="nohp"></p>
-										<h3>Profesi: </h3>
-										<p id="profnya">Member Dosen</p>
+										<h3>Profession: </h3>
+										<p id="profnya">Lecturer Member</p>
 									</div>
 								</div>
 							</div>
@@ -245,17 +245,17 @@
 									<header class="panel-heading">
 										<div class="panel-actions">
 										</div>
-										<h2 class="panel-title">Detail Profil</h2>
+										<h2 class="panel-title">Profile Detail</h2>
 									</header>
 									<div class="panel-body">
 
-										<h3>Angkatan: </h3>
+										<h3>Batch: </h3>
 										<p id="angkatan"></p>
 										<h3>Semester: </h3>
 										<p id="semester"></p>
-										<h3>Total SKS: </h3>
+										<h3>Total Credits: </h3>
 										<p id="sks"></p>
-										<h3>IPK Terakhir </h3>
+										<h3>GPA: </h3>
 										<p id="ipk"></p>
 									</div>
 								</div>
