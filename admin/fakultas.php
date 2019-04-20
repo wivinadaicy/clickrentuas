@@ -95,10 +95,12 @@
 				</tr>
 			</thead>
 			<tbody>
-                <?php
+                
+            <?php
 			$query = mysqli_query($koneksi, "SELECT * from fakultas  WHERE fakultas.status_delete='1'");
 			while($data=mysqli_fetch_array($query)){
 			?>
+                
                 <tr>
                     <?php
                         $query = mysqli_query($koneksi, "SELECT * FROM fakultas where status_delete='0'");

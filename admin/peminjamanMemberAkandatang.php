@@ -79,16 +79,16 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $kategori ?></td>
                         <td class=" actions-fade">
                             <!--chat admin, ganti iconnya ver-->
-                            <a href="#chatadmin" class="modal-sizes"><i class="fa fa-pencil"></i></a>
+                            <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
                             
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="cetakPeminjamanAkanDatang.php" target="_blank"><i class="fa fa-trash-o"></i></a>
+                            <a href="cetakPeminjamanAkanDatang.php" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
 
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
 
                             <!--batalkan peminjaman, ganti iconnya ver-->
-                            <a href="#batalkanpinjaman" class="delete-row modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#batalkanpinjaman" class="delete-row modal-sizes" data-toggle="tooltip" data-placement="top" title="Cancel" ><i class="fa fa-remove"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>

@@ -99,6 +99,7 @@
 				</tr>
 			</thead>
 			<tbody>
+                
 			<?php
 			$query = mysqli_query($koneksi, "SELECT * from fakultas JOIN program_studi on fakultas.id_fakultas = program_studi.id_fakultas WHERE program_studi.status_delete='1'");
 			while($data=mysqli_fetch_array($query)){

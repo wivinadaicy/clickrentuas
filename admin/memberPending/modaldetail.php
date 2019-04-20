@@ -20,8 +20,8 @@
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Gender <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="radio" name="jeniskelamin" value="l" <?php if($data['jenis_kelamin']=="l"){echo "checked";} ?> disabled>Laki-Laki &nbsp;&nbsp;
-					<input type="radio" name="jeniskelamin" value="p"  <?php if($data['jenis_kelamin']=="p"){echo "checked";} ?> disabled>Perempuan
+					<input type="radio" name="jeniskelamin" value="l" <?php if($data['jenis_kelamin']=="l"){echo "checked";} ?> disabled>Male &nbsp;&nbsp;
+					<input type="radio" name="jeniskelamin" value="p"  <?php if($data['jenis_kelamin']=="p"){echo "checked";} ?> disabled>Female
 				</div>
 			</div>
 			<div class="form-group">

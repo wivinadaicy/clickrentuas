@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman</h2>
+			<h2>Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Peminjaman</span></li>
+					<li><span>Reservation</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -28,7 +28,7 @@
 <!--KODINGAN ISI HALAMAN-->
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman yang ditolak</h2>
+        <h2 class="panel-title">Dennied Reservation</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -36,11 +36,11 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Jenis Ruangan</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Type of Room</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -50,7 +50,7 @@
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No Data</b></td>
 <?php
 }else{
 
@@ -77,16 +77,16 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
                         <td class="actions-hover actions-fade">
-                            <a href="#chatadmin" class="modal-sizes"><i class="fa fa-pencil"></i></a>
+                            <a href="#chatadmin" class="modal-sizes"><i class="fa fa-comment"></i></a>
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     <?php include('detailPeminjamanMember.php')?>
 <div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
-            <h2 class="panel-title">Chat dengan pengurus?</h2>
+            <h2 class="panel-title">Chat with staff</h2>
         </header>
         <div class="panel-body">
             <div class="modal-wrapper">
@@ -95,7 +95,8 @@ if(mysqli_num_rows($query)==0){
                 </div>
                 <div class="modal-text">
                     <p><!-- edit disini -->
-                    Apakah anda ingin melakukan percakapan teks dengan pengurus peminjaman Anda? <br>Data admin:
+                    Do you want to make a conversation with the staff?
+                    <br>Admin Data:
                     <br>
                     <?php
                     $idpesan=$data['id_pesan'];
