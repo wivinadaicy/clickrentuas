@@ -218,10 +218,10 @@ while($datanotif = mysqli_fetch_array($notif)){
 									<a class="modal-sizes" role="menuitem" tabindex="-1" href="#lihatprofil"><i class="fa fa-user"></i> My Profile</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="editProfile.php"><i class="fa fa-user"></i> Edit Profile</a>
+									<a role="menuitem" tabindex="-1" href="editProfile.php"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="settingProfile.php"><i class="fa fa-power-off"></i>Account Settings</a>
+									<a role="menuitem" tabindex="-1" href="settingProfile.php"><i class="fa fa-gear"></i>Account Settings</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>

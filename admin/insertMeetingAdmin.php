@@ -40,11 +40,11 @@ $idp = "PJ-" . $hq;
                 <div class="panel-actions">
                 </div>
 
-                <h2 class="panel-title">Insert Peminjaman</h2>
+                <h2 class="panel-title">Insert Reservation</h2>
             </header>
             <div class="panel-body">
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-last-name">ID Peminjaman</label>
+							<label class="col-sm-3 control-label" for="w4-last-name">Reservation ID</label>
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -55,7 +55,7 @@ $idp = "PJ-" . $hq;
 							</div>	
 						</div>
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Jenis Ruangan</label>
+							<label class="col-sm-3 control-label" for="w4-username">Type of Room</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -66,7 +66,7 @@ $idp = "PJ-" . $hq;
 							</div>
 						</div>
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-last-name">Tanggal Pinjam</label>
+							<label class="col-sm-3 control-label" for="w4-last-name">Reservation date</label>
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -84,7 +84,7 @@ $idp = "PJ-" . $hq;
 										<i class="fa fa-envelope"></i>
 									</span>
 									<select name="waktuMulai" id="waktuMulai" class="form-control" onchange="cekwaktuSelesai()" >
-                                        <option value="x">Pilih</option>
+                                        <option value="x">Options</option>
 
                                         <?php
                                         $cekAkhir = mysqli_query($koneksi, "SELECT DISTINCT waktu_mulai FROM waktu_jadwal");
@@ -112,7 +112,7 @@ $idp = "PJ-" . $hq;
 							</div>
 						</div>
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Nama Ruangan</label>
+							<label class="col-sm-3 control-label" for="w4-username">Room Name</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -135,7 +135,7 @@ $idp = "PJ-" . $hq;
 
 
                         <div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-last-name">Nama Acara</label>
+							<label class="col-sm-3 control-label" for="w4-last-name">Event Name</label>
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -147,7 +147,7 @@ $idp = "PJ-" . $hq;
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Kategori Acara</label>
+							<label class="col-sm-3 control-label" for="w4-username">Category of Event</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -166,7 +166,7 @@ $idp = "PJ-" . $hq;
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Jumlah Peserta</label>
+							<label class="col-sm-3 control-label" for="w4-username">Total participants</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
@@ -178,7 +178,7 @@ $idp = "PJ-" . $hq;
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label" for="w4-username">Deskripsi Acara</label>
+							<label class="col-sm-3 control-label" for="w4-username">Event Descriptions</label>
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">

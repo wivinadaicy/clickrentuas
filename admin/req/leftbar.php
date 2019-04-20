@@ -137,7 +137,7 @@
 
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
+								<i class="fa fa-calendar" aria-hidden="true"></i>
 								
 								<span>Schedule</span>
 							</a>
