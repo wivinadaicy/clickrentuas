@@ -53,6 +53,26 @@
 							<span>Messages</span>
 						</a>
 						</li>
+
+						<li>
+						<a href="contactMessage.php">
+							<?php
+							$ceknotifmail = mysqli_query($koneksi, "SELECT count(id_contact) FROM contact WHERE status_pesan='0'");
+
+							$datamail = mysqli_fetch_array($ceknotifmail);
+							$jumlah = $datamail['count(id_contact)'];
+							if($jumlah!=0){
+?>
+							<span class="pull-right label label-primary"><?php echo 
+							$jumlah?></span>
+
+							<?php } ?>
+
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span>Contact Messages</span>
+						</a>
+						</li>
+
 						<li class="nav-parent">
 							<a>
 								<i class="fa fa-copy" aria-hidden="true"></i>
