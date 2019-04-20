@@ -90,7 +90,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="prodiFakultas.php">
 										 Major &amp; Faculty
 									</a>
 								</li>
