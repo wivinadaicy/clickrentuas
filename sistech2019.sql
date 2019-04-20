@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2019 at 01:51 PM
+-- Generation Time: Apr 20, 2019 at 06:02 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -50,8 +50,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('BR-1', 'R-1', 2, 'Keyboard', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('BR-2', 'R-1', 2, 'Monitor', 'Acer', 20, '2019-04-18', 'USER-1', '2019-04-20 17:49:13', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-1', 'R-1', 2, 'Keyboard', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', '0', '0000-00-00 00:00:00', 'USER-1', '0000-00-00 00:00:00', 0),
+('BR-2', 'R-1', 2, 'Monitor', 'Acer', 20, '2019-04-18', 'USER-1', '2019-04-20 17:49:13', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-20 21:57:19', 1),
 ('BR-3', 'R-1', 1, 'Photoshop CC 2017', 'Adobe', 20, '2019-04-20', 'USER-1', '2019-04-20 17:51:15', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-4', 'R-2', 3, 'Kipas', 'Panasonic', 5, '2019-04-20', 'USER-1', '2019-04-20 17:53:07', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
@@ -241,8 +241,9 @@ CREATE TABLE `log_peminjaman` (
 --
 
 INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_edit`, `waktu_edit`) VALUES
+(0, 'PJ-1', '2019-04-23', 'R-1', '07:15:00', '08:15:00', 'USER-2', 'Kelas Struktur Data', 30, 1, 'Kelas biasa untuk angkatan 2018', 4, 'USER-1', '2019-04-20 20:40:45'),
 (1, 'PJ-1', '2019-04-23', 'R-1', '07:15:00', '08:15:00', 'USER-2', 'Kelas Struktur Data', 30, 1, 'Kelas biasa untuk angkatan 2018', 1, 'USER-1', '2019-04-20 18:00:25'),
-(2, '', '0000-00-00', '', '00:00:00', '00:00:00', '', '', 0, 0, '', 5, 'USER-2', '2019-04-20 18:10:16');
+(3, 'PJ-1', '2019-04-23', 'R-1', '07:15:00', '08:15:00', 'USER-2', 'Kelas Struktur Data', 30, 1, 'Kelas biasa untuk angkatan 2018', 5, 'USER-2', '2019-04-20 20:37:10');
 
 -- --------------------------------------------------------
 
@@ -370,7 +371,7 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('PJ-1', '2019-04-23', 'R-1', '07:15:00', '08:15:00', 'USER-2', 'Kelas Struktur Data', 30, 1, 'Kelas biasa untuk angkatan 2018', 5, 'USER-2', '2019-04-20 17:59:28', 'USER-1', '2019-04-20 18:00:25', '0', '0000-00-00 00:00:00', 0),
+('PJ-1', '2019-04-23', 'R-1', '07:15:00', '08:15:00', 'USER-2', 'Kelas Struktur Data', 30, 1, 'Kelas biasa untuk angkatan 2018', 4, 'USER-2', '2019-04-20 17:59:28', 'USER-1', '2019-04-20 18:00:25', '0', '0000-00-00 00:00:00', 0),
 ('PJ-2', '2019-04-24', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'KP SBD', 50, 1, 'Kelas pengganti dari hari Senin minggu kemarin', 1, 'USER-1', '2019-04-20 18:18:29', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
@@ -450,7 +451,10 @@ CREATE TABLE `pesan_detail` (
 
 INSERT INTO `pesan_detail` (`id_pesanDetail`, `id_pesan`, `id_penggunaKe`, `id_penggunaDari`, `tanggal_waktu`, `pesan`, `status_pesan`) VALUES
 ('PD-1', 'PS-1', 'USER-2', 'USER-1', '2019-04-20 18:00:25', 'Selamat peminjaman dengan kode PJ-1 untuk acara Kelas Struktur Data sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
-('PD-2', 'PS-1', 'USER-1', 'USER-2', '2019-04-20 18:05:54', 'Oke makasih ya. Ntar saya ambil kunci sama ibu', 1);
+('PD-2', 'PS-1', 'USER-1', 'USER-2', '2019-04-20 18:05:54', 'Oke makasih ya. Ntar saya ambil kunci sama ibu', 1),
+('PD-3', 'PS-1', 'USER-2', 'USER-1', '2019-04-20 20:42:10', 'Kenapa kamu batalin pinjaman?', 1),
+('PD-4', 'PS-1', 'USER-2', 'USER-1', '2019-04-20 20:43:16', 'Saya sudah siapkan loh', 1),
+('PD-5', 'PS-1', 'USER-1', 'USER-2', '2019-04-20 20:47:20', 'Maaf bu, tiba-tiba kelasnya gak jadi. Salahin dosennya dong!', 1);
 
 -- --------------------------------------------------------
 
@@ -508,7 +512,7 @@ CREATE TABLE `ruangan` (
 --
 
 INSERT INTO `ruangan` (`id_ruangan`, `nama_ruangan`, `jenis_ruangan`, `gedung_lantai`, `kapasitas`, `deskripsi`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('R-1', 'Lab F208', 1, 'F2', 50, 'Lab untuk angkatan 2018', 'USER-1', '2019-04-20 17:33:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('R-1', 'Lab F208', 1, 'F2', 50, 'Lab untuk angkatan 2018', 'USER-1', '2019-04-20 17:33:27', '0', '0000-00-00 00:00:00', 'USER-1', '0000-00-00 00:00:00', 0),
 ('R-2', 'Lab F210', 1, 'F2', 60, 'Lab untuk angkatan 2017', 'USER-1', '2019-04-20 17:34:00', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('R-3', 'Lab F211', 1, 'F2', 30, 'Lab untuk angkatan 2016', 'USER-1', '2019-04-20 17:34:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('R-4', 'Meeting Room 1', 2, 'B3', 5, 'Meeting room untuk bimbingan skripsi', 'USER-1', '2019-04-20 17:35:22', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
@@ -737,7 +741,7 @@ ALTER TABLE `waktu_jadwal`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
