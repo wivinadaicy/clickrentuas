@@ -218,7 +218,7 @@ $msg='
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">
                         <a href="http://litmus.com" target="_blank">
-                            <img alt="Logo" src="images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="../images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -236,7 +236,7 @@ $msg='
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               	<td align="center" class="padding">
-                                  <a href="http://litmus.com" target="_blank"><img src="images/computer.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
+                                  <a href="http://litmus.com" target="_blank"><img src="../images/computer.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
                               </td>
                             </tr>
                             <tr>
@@ -245,7 +245,8 @@ $msg='
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">
-                                                Congratulations your reservation with code'.$idpinjam.' for '.$acaranyah.' has been confirmed. Use your chatting feature on http://localhost/uasweb1/admin/pesan_detail.php?idpesan=$idpinjam to contact the staff!
+                                                Congratulations!
+                                                <br>Your reservation with code '.$idpinjam.' for '.$acaranyah.' has been confirmed. Use your chatting feature on http://localhost/uasweb1/admin/pesan_detail.php?idpesan=$idpinjam to contact the staff!
                                             </td>
                                         </tr>
                                     </table>
@@ -269,7 +270,7 @@ $msg='
                                             <td align="left" style="padding-top: 25px; font-size: 12 px; " class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td><img src="images/cr.png" width="200"></td>
+                                                        <td><img src="../images/cr.png" width="200"></td>
                                                         <td>Best regards,<br>
                                                         Click <span style="color:red;">&amp;</span>Rent<br>Address:<br>
                                                         Jl. MH. Thamrin Boulevard 1100,<br>
@@ -530,7 +531,7 @@ $msg='
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">
                         <a href="http://litmus.com" target="_blank">
-                            <img alt="Logo" src="images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="../images/logo-sistech.png" width="220" height="80" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -548,7 +549,7 @@ $msg='
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               	<td align="center" class="padding">
-                                  <a href="http://litmus.com" target="_blank"><img src="images/tolak.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
+                                  <a href="http://litmus.com" target="_blank"><img src="../images/tolak.png" width="300" height="100" border="0" alt="Insert alt text here" style="display: block; padding: 0; color: #266e9c; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"></a>
                               </td>
                             </tr>
                             <tr>
@@ -556,7 +557,7 @@ $msg='
 
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Sorry, your reservation with code '.$pinjamtolak.' is dennied. Because of the waiting list
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Sorry, your reservation with code  '.$pinjamtolak.' is dennied. Because of the waiting list
                                             </td>
                                         </tr>
                                     </table>
@@ -580,7 +581,7 @@ $msg='
                                             <td align="left" style="padding-top: 25px; font-size: 12 px; " class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td><img src="images/cr.png" width="200"></td>
+                                                        <td><img src="../images/cr.png" width="200"></td>
                                                         <td>Best regards,<br>
                                                         Click <span style="color:red;">&amp;</span>Rent<br>Address:<br>
                                                         Jl. MH. Thamrin Boulevard 1100,<br>
