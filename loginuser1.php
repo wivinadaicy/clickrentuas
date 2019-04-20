@@ -39,10 +39,10 @@
     </div>
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" id="demoForm" method="post" action="progresslogin.php">
-					<h3 class="heading 
+				<a href="index.php"><h3 class="heading 
                                text-center" style="padding-bottom:10px">
 						Click <span class="text-danger">&amp;</span> Rent
-					</h3>
+					</h3></a>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
