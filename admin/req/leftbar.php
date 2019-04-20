@@ -28,7 +28,7 @@
 					if($data['status_pengguna']==1){
 					?>
 					<ul class="nav nav-main">
-						<li class="nav-active">
+						<li>
 							<a href="index.php">
 								<i class="fa fa-home" aria-hidden="true"></i>
 								<span>Dashboard</span>
