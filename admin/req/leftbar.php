@@ -70,8 +70,13 @@
 									</a>
 								</li>
 								<li>
-									<a href="prodiFakultas.php">
-										 Major &amp; Faculty
+									<a href="prodi.php">
+										 Major
+									</a>
+								</li>
+                                <li>
+									<a href="fakultas.php">
+										 Faculty
 									</a>
 								</li>
 								<li>
