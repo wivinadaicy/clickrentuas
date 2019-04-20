@@ -101,11 +101,11 @@
                                                 ?>
 											</td>
 											<td>
-                                            <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_barang'];?>"><i class='fa fa-eye'></i> Details
+                                            <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_ruangan'];?>"><i class='fa fa-eye'></i> Details
 					                        </a>
 											</td>
 										</tr>
-                                        <?php include('barang/logDetail.php');?>
+                                        <?php include('ruangan/logDetail.php');?>
                                     <?php } ?>
 									</tbody>
 								</table>
@@ -114,7 +114,7 @@
 <h5><b>Tanggal Delete:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_delete'])) ?> WIB</h5>
 
     <h5><b>User Delete:</b> <?php echo $riw['user_delete'] ?></h4>
-                                 <?php   
+                                 <?php
                                 }
                                 ?>
 

@@ -91,6 +91,21 @@ $data=mysqli_fetch_array($query);
 					<input type="date" name="tanggalbeli"  id="tanggalbeli" class="form-control" readonly value = "<?php echo $data['tanggal_beli'] ?>" >
 				</div>
 			</div>
+
+			<?php 
+			$asli = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang ='$idbarangg'");
+			$dasli = mysqli_fetch_array($asli);
+			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!=""){
+				?>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Restored By<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="restoreuser"  id="restoreuser" class="form-control" readonly value = "<?php echo $dasli['user_delete'] ?>" >
+				</div>
+			</div>
+			<?php
+			}
+			?>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
                     <a href="barang.php" id="simpanemail" class="btn btn-primary">Kembali</a>

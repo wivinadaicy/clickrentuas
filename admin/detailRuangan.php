@@ -77,6 +77,20 @@ $data=mysqli_fetch_array($query);
 					<input type="text" name="deskripsi"  id="stok" class="form-control" placeholder="Insert Description of the Room" required value="<?php echo $data['deskripsi'] ?>" readonly>
 				</div>
 			</div>
+			<?php 
+			$asli = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan ='$idruang'");
+			$dasli = mysqli_fetch_array($asli);
+			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!=""){
+				?>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Restored By<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="restoreuser"  id="restoreuser" class="form-control" readonly value = "<?php echo $dasli['user_delete'] ?>" >
+				</div>
+			</div>
+			<?php
+			}
+			?>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
                     <a href="ruangan.php" id="simpanemail" class="btn btn-primary">Back</a>

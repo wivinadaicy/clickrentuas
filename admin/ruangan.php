@@ -110,16 +110,43 @@ while($data=mysqli_fetch_array($querys)){
 				<td> <?php echo $data['gedung_lantai'] ?></td>
 				<td> <?php echo $data['kapasitas'] ?></td>
 				<td class="text-center">
-					<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="detailBarang.php?idruang=<?php echo $data['id_ruangan'] ?>"><i class="fa fa-eye"></i>
-					</a>
-					<a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="editBarang.php?idruang=<?php echo $data["id_ruangan"]?>"><i class="fa fa-edit"></i>
-					</a>
-					<a class="btn btn-danger mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Delete" href="hapusBarang.php?idruang=<?php echo $data["id_ruangan"]?>"><i class="fa fa-trash-o"></i></a>
+					<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_ruangan"]?>"><i class="fa fa-trash-o"></i></a>
 					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="ruanganLog.php?id=<?php echo $data['id_ruangan'];?>"><i class='fa fa-file'></i></a>
 				</td>
             </tr>
 						
+
+<div id="restore<?php echo $data['id_ruangan'];?>" class="modal-block modal-block-sm mfp-hide">
+	<section class="panel">
+		<header class="panel-heading">
+			<h2 class="panel-title">Restore Data</h2>
+		</header>
+		<div class="panel-body">
+			<div class="modal-wrapper">
+				<div class="modal-text">
+					<p>Are you sure you want to restore data from rooms with id <?php echo $data['id_ruangan'] ?>the name " <?php echo $data['nama_ruangan']?>" ?</p>
+				</div>
+			</div>
+		</div>
+		<footer class="panel-footer">
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<a class="btn btn-primary hapus" href="ruangan/restore.php?id=<?php echo $data['id_ruangan'];?>">Restore</a>
+					<button class="btn btn-default modal-dismiss">Cancel</button>
+				</div>
+			</div>
+		</footer>
+	</section>
+</div>
+
+
+
+
+
+
 			<?php 
+
+			
 		} ?>
 			</tbody>
 		</table>

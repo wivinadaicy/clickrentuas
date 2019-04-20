@@ -70,6 +70,21 @@
 					<input type="text" name="waktuedit"  id="waktuedit" class="form-control" readonly value = "<?php echo date('l, d M Y | H:i',strtotime($data['waktu_edit'])) ?>" >
 				</div>
 			</div>
+			
+			<?php 
+			$asli = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang ='$idruang'");
+			$dasli = mysqli_fetch_array($asli);
+			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!=""){
+				?>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Restored By<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="restoreuser"  id="restoreuser" class="form-control" readonly value = "<?php echo $dasli['user_delete'] ?>" >
+				</div>
+			</div>
+			<?php
+			}
+			?>
         </div>
         <footer class="panel-footer">
             <div class="row">
