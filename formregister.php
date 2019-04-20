@@ -41,6 +41,7 @@
 
 	</head>
 	<body class="bg-image" style="background-image: url('images/uph6.jpg');">
+	<a href="index.php" class="btn btn-default" style="margin: 50px 0 0 100px; position: absolute">Back to home</a>
 		<section class="body" style="padding-top: 50px; padding-left: 300px; padding-right:100px">
 <div class="row">
 	<div class="col-xs-10">
@@ -270,7 +271,7 @@
 						<a id="kembali"><i class="fa fa-angle-left"></i> Previous</a>
 					</li>
 					<li class="finish hidden pull-right">
-						<input type="submit"  name="regis" value="Finish">
+						<input type="submit" class="btn btn-primary" name="regis" value="Finish">
 					</li>
 					<li class="next">
 						<a id="berikutnya">Next <i class="fa fa-angle-right"></i></a>

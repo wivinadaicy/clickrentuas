@@ -48,7 +48,7 @@
                             Message
                         </h1>
                     </div>
-                    <div class="col-sm-6">
+                    <!--<div class="col-sm-6">
                         <div class="search">
                             <div class="input-group input-search">
                                 <input type="text" class="form-control" name="sercing" id="sercing" placeholder="Search...">
@@ -57,7 +57,7 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </header>
             <!-- END: .mailbox-header -->

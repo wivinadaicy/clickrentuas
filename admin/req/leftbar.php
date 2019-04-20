@@ -68,14 +68,14 @@
 
 							<?php } ?>
 
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
 							<span>Contact Messages</span>
 						</a>
 						</li>
 
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
+								<i class="fa fa-database" aria-hidden="true"></i>
 								<span>Master Data</span>
 							</a>
 							<ul class="nav nav-children">
@@ -119,7 +119,7 @@
 						
 						<li>
 							<a href="memberPending.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-user" aria-hidden="true"></i>
 								<span>New Member Pending</span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(pengguna.id_pengguna) FROM pengguna WHERE status_daftar= '1'");
@@ -157,7 +157,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"> </i>
+								<i class="fa fa-clock-o" aria-hidden="true"> </i>
 								<span>Pending Reservation </span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0'");
@@ -223,7 +223,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
+								<i class="fa fa-check-square" aria-hidden="true"></i>
 								
 								<span>Finished Reservation</span>
 							</a>
@@ -242,20 +242,20 @@
 						</li>
 						<li>
 							<a href="logPeminjaman.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-archive" aria-hidden="true"></i>
 								<span>Reservation Log</span>
 							</a>
 						</li>
                         <hr class="separator">
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-minus-circle" aria-hidden="true"></i>
 								<span>Denied Reservation</span>
 							</a>
 						</li>
@@ -315,14 +315,14 @@
 
 							<?php } ?>
 
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
 							<span>Contact Messages</span>
 						</a>
 						</li>
 
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
+								<i class="fa fa-database" aria-hidden="true"></i>
 								<span>Master Data</span>
 							</a>
 							<ul class="nav nav-children">
@@ -366,7 +366,7 @@
 						
 						<li>
 							<a href="memberPending.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-user" aria-hidden="true"></i>
 								<span>New Member Pending</span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(pengguna.id_pengguna) FROM pengguna WHERE status_daftar= '1'");
@@ -404,7 +404,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"> </i>
+								<i class="fa fa-clock-o" aria-hidden="true"> </i>
 								<span>Pending Reservation </span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0'");
@@ -470,7 +470,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-copy" aria-hidden="true"></i>
+								<i class="fa fa-check-square" aria-hidden="true"></i>
 								
 								<span>Finished Reservation</span>
 							</a>
@@ -490,13 +490,13 @@
                         <hr class="separator">
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-minus-circle" aria-hidden="true"></i>
 								<span>Denied Reservation</span>
 							</a>
 						</li>
@@ -544,13 +544,13 @@
                         <hr class="separator">
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-plus-circle" aria-hidden="true"></i>
 								<span>Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
-								<i class="fa fa-home" aria-hidden="true"></i>
+								<i class="fa fa-minus-circle" aria-hidden="true"></i>
 								<span>Denied Reservation</span>
 							</a>
 						</li>
