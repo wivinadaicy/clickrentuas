@@ -203,7 +203,7 @@ function cekSes(){
     $("#ceksession").empty();
   }else{
     $("#cekavailability").hide();
-    $("#ceksession").html("*Anda harus log in terlebih dahulu untuk membooking ruangan");
+    $("#ceksession").html("* You must log in before reserve the rooms");
   }
 }
 
