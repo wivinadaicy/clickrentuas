@@ -64,31 +64,20 @@
         
             <!-- START: .mailbox-actions -->
             <div class="mailbox-actions">
-                <ul class="list-unstyled m-none pt-lg pb-lg">
-                    <li class="ib mr-sm">
-                        <div class="btn-group">
-                            <a href="#" class="item-action fa fa-chevron-down dropdown-toggle" data-toggle="dropdown"></a>
-        
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">All</a></li>
-                                <li><a href="#">None</a></li>
-                                <li><a href="#">Read</a></li>
-                                <li><a href="#">Unread</a></li>
-                                <li><a href="#">Starred</a></li>
-                                <li><a href="#">Unstarred</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="ib mr-sm">
-                        <a class="item-action fa fa-refresh" href="#"></a>
-                    </li>
-                    <li class="ib mr-sm">
-                        <a class="item-action fa fa-tag" href="#"></a>
-                    </li>
-                    <li class="ib">
-                        <a class="item-action fa fa-times text-danger" href="#"></a>
-                    </li>
-                </ul>
+            <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="" style="font-size:16pt;text-align:left;font-weight:bold; color:black">FROM</p>
+                    </div>
+                    <div class="col-sm-5">
+                    <p class="" style="font-size:16pt;text-align:center; font-weight:bold; color: black !important">
+                        <span>PESAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </p>
+                    </div>
+                    <div class="col-sm-3">
+                    <p class="" style="font-size:16pt;text-align:right;font-weight:bold; color: black !important">TIME IN</p>
+                    </div>
+                </div>
             </div>
             <!-- END: .mailbox-actions -->
         
@@ -96,18 +85,6 @@
                 <div class="nano">
                     <div class="nano-content">
                         <ul id="" class="list-unstyled">
-                        <li>
-                        <div class="col-sender">
-                        <p class="m-none ib" style="font-weight:bold; color:black">FROM</p>
-                        </div>
-                                    <div class="col-mail" style="; color:black">
-                                        <p class="m-none mail-content" style="text-align:center; font-weight:bold">
-                                            <span class="subject">TOPIK PESAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        </p>
-                                        <p class="m-none mail-date" style="text-align:right;font-weight:bold">TIME IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    </div>
-                            </li>
-                            <br>
         <?php
         $pesan = mysqli_query($koneksi, "SELECT DISTINCT pesan.id_pesan, min(pesan_detail.status_pesan) FROM pesan join pesan_detail on pesan_detail.id_pesan = pesan.id_pesan WHERE pesan_detail.status_pesan IN (SELECT min(pesan_detail.status_pesan) FROM pesan_detail GROUP BY pesan_detail.id_pesan) AND pesan.id_penggunaKirimPesan='$id' or pesan_detail.id_penggunaKe='$id' or pesan_detail.id_penggunaDari='$id' GROUP BY pesan_detail.id_pesan ORDER BY tanggal_waktu DESC");
         while($datap = mysqli_fetch_array($pesan)){
