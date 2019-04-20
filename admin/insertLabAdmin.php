@@ -48,7 +48,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
-										<i class="fa fa-id-card-o"></i>
+										<i class="glyphicon glyphicon-user"></i>
 									</span>
 								<input type="text" class="form-control"  name="idpeminjaman" id="idpeminjaman" value="<?php echo $idp?>" readonly>
 								</div>
@@ -59,7 +59,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="glyphicon glyphicon-home"></i>
 									</span>
 									<input class="form-control" placeholder="Jenis Ruangan"  type="text" name="jenisRuangan" id="jenisRuangan" value="Laboratory"  readonly>
 								</div>	
@@ -81,7 +81,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-clock-o"></i>
 									</span>
 									<select name="waktuMulai" id="waktuMulai" class="form-control" onchange="cekwaktuSelesai()" >
                                         <option value="x">Options</option>
@@ -103,7 +103,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-clock-o"></i>
 									</span>
 									<select name="waktuSelesai" id="waktuSelesai" class="form-control" disabled>
 
@@ -116,9 +116,9 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-desktop"></i>
 									</span>
-									<select name="namaruangan" id="namaruangan">
+									<select name="namaruangan" id="namaruangan" class="form-control">
                                     
                                     </select>
 								</div>	
@@ -132,7 +132,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
-										<i class="fa fa-calendar"></i>
+										<i class="glyphicon glyphicon-gift"></i>
 									</span>
 								<input type="text" class="form-control"  name="namaacara" id="namaacara" required>
 								</div>
@@ -144,9 +144,9 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-book"></i>
 									</span>
-									<select id="jenisacara" name="jenisacara">
+									<select id="jenisacara" name="jenisacara" class="form-control">
 									<?php
 									$kategoria = mysqli_query($koneksi, "SELECT * FROM kategori_acara WHERE status_delete='0'");
 									while($datakate = mysqli_fetch_array($kategoria)){
@@ -163,7 +163,7 @@ $idp = "PJ-" . $hq;
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class=" fa fa-group"></i>
 									</span>
 									<input class="form-control" required type="number" name="jumlahpeserta" id="jumlahpeserta">
 								</div>	
