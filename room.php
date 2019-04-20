@@ -20,7 +20,7 @@
                 <blockquote>
                   <p>&ldquo;Our computer laboratories usually use for teaching and learning activities everyday. But we also provide the laboratories for those who want to do other activities such as tutorial, charity event, student council's activities, or just want to finish their assignment using some of the computers from the laboratories.&rdquo;</p>
                 </blockquote>
-                  <p><data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1" style="margin-top:200px">See More Laboratories</data-fancybox></p>
+                  
               </div>
             </div>
           </div> <!-- .flip-container -->
@@ -41,7 +41,7 @@
                 <blockquote>
                   <p>&ldquo;Our meeting room is located on building B which is near our main classrooms. For the student, you can use the meeting room for final semester consultation and for the lecturer, meeting room can be used for lecturers daily meeting.&rdquo;</p>
                 </blockquote>
-                  <p><data-fancybox class="btn btn-primary text-white py-2 mr-3 text-uppercase letter-spacing-1" style="margin-top:200px">See More Meeting Rooms</data-fancybox></p>
+                  
               </div>
             </div>
           </div> <!-- .flip-container -->
