@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Brand <span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Brand<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<input type="text" id="merek" name="merek" class="form-control" placeholder="Insert Item Brand">
 				</div>

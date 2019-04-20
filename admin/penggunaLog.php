@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Log Pengguna</h2>
+			<h2>User Log</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,8 +18,8 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-                    <<li><a href="pengguna.php"><span>Pengguna</span></a></li>
-                    <li><span>Log Pengguna</span></li>
+                    <li><a href="pengguna.php"><span>User</span></a></li>
+                    <li><span>User Log</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -31,7 +31,7 @@
 <section class="panel">
     <header class="panel-heading">
     <?php $idpem = $_GET['id']?>
-        <h2 class="panel-title">Log Pengguna <?php echo $_GET['id'] ?></h2>
+        <h2 class="panel-title">User Log <?php echo $_GET['id'] ?></h2>
     </header>
     <div class="panel-body">
     <?php
@@ -47,11 +47,11 @@
 
     if($idadmin!="0"){
     ?>
-    <h5><b>User Input:</b> <?php echo $naad['nama_lengkap'] . " (" . $idadmin . ")" ?></h4>
+    <h5><b>User Input:</b> <?php echo $naad['nama_lengkap'] . " (" . $idadmin . ")" ?></h5>
     <?php
     }else{
     ?>
-        <h5><b>User Input:</b> "Mendaftar sendiri"</h4>
+        <h5><b>User Input:</b> "Reserved by the owner"</h5>
     <?php
     }
     ?>
@@ -59,11 +59,11 @@
         <table class="table table-striped table-no-more table-bordered  mb-none">
 									<thead>
 										<tr>
-											<th style="width: 10%"><span class="text-normal text-sm">Status Daftar</span></th>
+											<th style="width: 10%"><span class="text-normal text-sm">Register Status</span></th>
 											<th style="width: 15%"><span class="text-normal text-sm">Date</span></th>
-                                            <th style="width: 15%"><span class="text-normal text-sm">Status Pengguna</span></th>
+                                            <th style="width: 15%"><span class="text-normal text-sm">User Status </span></th>
 											<th><span class="text-normal text-sm">Admin</span></th>
-                                            <th><span class="text-normal text-sm">Acttion</span></th>
+                                            <th><span class="text-normal text-sm">Action</span></th>
 										</tr>
 									</thead>
 									<tbody class="log-viewer">
@@ -72,7 +72,7 @@
                                     $query = mysqli_query($koneksi, "SELECT * FROM log_pengguna WHERE id_pengguna='$idpem'");
                                     if(mysqli_num_rows($query)==0){ ?>
                                         <tr>
-                                            <td colspan="5" style="text-align:center">Tidak ada data</td>
+                                            <td colspan="5" style="text-align:center">No Data</td>
                                         </tr>
                                     <?php
                                     }
@@ -115,7 +115,7 @@
                                                  if($data['user_edit']=="0"){echo $data['nama_lengkap'];  }else{ echo $data['user_edit'];}
                                                 ?>
 											</td>
-                                            </td>
+                                            
 											<td>
                                             <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_pengguna'];?>"><i class='fa fa-eye'></i> Details
 					                        </a>
@@ -127,9 +127,9 @@
 								</table>
                                 <?php
                                 if($riw['user_delete']!='0'){ ?>
-<h5><b>Tanggal Delete:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_delete'])) ?> WIB</h5>
+<h5><b>Deleted Date:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_delete'])) ?> WIB</h5>
 
-    <h5><b>User Delete:</b> <?php echo $riw['user_delete'] ?></h4>
+    <h5><b>User Delete:</b> <?php echo $riw['user_delete'] ?></h5>
                                  <?php   
                                 }
                                 ?>
