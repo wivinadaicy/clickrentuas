@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman</h2>
+			<h2>Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Peminjaman</span></li>
+					<li><span>Rervation</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -29,7 +29,7 @@
 		
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman yang akan datang</h2>
+        <h2 class="panel-title">Upcoming Reservation</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -37,11 +37,11 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Jenis Ruangan</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Type of Room</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -51,7 +51,7 @@
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No data</b></td>
 <?php
 }else{
 
@@ -85,7 +85,7 @@ if(mysqli_num_rows($query)==0){
                             <a href="cetakPeminjamanAkanDatang.php" target="_blank"><i class="fa fa-trash-o"></i></a>
 
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-eye"></i></a>
 
                             <!--batalkan peminjaman, ganti iconnya ver-->
                             <a href="#batalkanpinjaman" class="delete-row modal-sizes"><i class="fa fa-trash-o"></i></a>
@@ -97,7 +97,7 @@ if(mysqli_num_rows($query)==0){
 <div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
-            <h2 class="panel-title">Chat dengan pengurus?</h2>
+            <h2 class="panel-title">Chat with Staff</h2>
         </header>
         <div class="panel-body">
             <div class="modal-wrapper">
@@ -106,7 +106,7 @@ if(mysqli_num_rows($query)==0){
                 </div>
                 <div class="modal-text">
                     <p><!-- edit disini -->
-                    Apakah anda ingin melakukan percakapan teks dengan pengurus peminjaman Anda? <br>Data admin:
+                    Do you want to make a conversation with staff? <br>Admin Data:
                     <br>
                     <?php
                     $idpesan=$data['id_pesan'];
@@ -114,7 +114,7 @@ if(mysqli_num_rows($query)==0){
                     $dataadmin = mysqli_fetch_array($adminny);
                     $pengurus = $dataadmin['nama_lengkap'];
                     ?>
-                    Nama : <b><?php echo $pengurus ?> <br></b>
+                    Name : <b><?php echo $pengurus ?> <br></b>
                         </p>
                 </div>
             </div>
@@ -136,7 +136,7 @@ if(mysqli_num_rows($query)==0){
                     <div id="batalkanpinjaman" class="modal-block modal-full-color modal-block-warning mfp-hide">
                     <section class="panel">
                         <header class="panel-heading">
-                            <h2 class="panel-title">Batalkan Peminjaman</h2>
+                            <h2 class="panel-title">Cancel Reservation</h2>
                         </header>
                         <div class="panel-body">
                             <div class="modal-wrapper">
@@ -145,7 +145,7 @@ if(mysqli_num_rows($query)==0){
                                 </div>
                                 <div class="modal-text">
                                     <h4>Warning</h4>
-                                    <p>Apakah Anda yakin akan membatalkan peminjaman?</p>
+                                    <p>Are you sure to cancel the reservation?</p>
                                 </div>
                             </div>
                         </div>
