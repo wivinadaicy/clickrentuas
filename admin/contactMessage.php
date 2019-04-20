@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Message</h2>
+			<h2>Contact Message</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Message</span></li>
+					<li><span>Contact Message</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -45,7 +45,7 @@
                                 <span class="line line-angle2"></span>
                             </a>
         
-                            Message
+                            Contact Message
                         </h1>
                     </div>
                     <div class="col-sm-6">
@@ -64,31 +64,20 @@
         
             <!-- START: .mailbox-actions -->
             <div class="mailbox-actions">
-                <ul class="list-unstyled m-none pt-lg pb-lg">
-                    <li class="ib mr-sm">
-                        <div class="btn-group">
-                            <a href="#" class="item-action fa fa-chevron-down dropdown-toggle" data-toggle="dropdown"></a>
-        
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">All</a></li>
-                                <li><a href="#">None</a></li>
-                                <li><a href="#">Read</a></li>
-                                <li><a href="#">Unread</a></li>
-                                <li><a href="#">Starred</a></li>
-                                <li><a href="#">Unstarred</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="ib mr-sm">
-                        <a class="item-action fa fa-refresh" href="#"></a>
-                    </li>
-                    <li class="ib mr-sm">
-                        <a class="item-action fa fa-tag" href="#"></a>
-                    </li>
-                    <li class="ib">
-                        <a class="item-action fa fa-times text-danger" href="#"></a>
-                    </li>
-                </ul>
+            <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="" style="font-size:16pt;text-align:left;font-weight:bold; color:black">FROM</p>
+                    </div>
+                    <div class="col-sm-5">
+                    <p class="" style="font-size:16pt;text-align:center; font-weight:bold; color: black !important">
+                        <span>PESAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </p>
+                    </div>
+                    <div class="col-sm-3">
+                    <p class="" style="font-size:16pt;text-align:right;font-weight:bold; color: black !important">TIME IN</p>
+                    </div>
+                </div>
             </div>
             <!-- END: .mailbox-actions -->
         
@@ -96,75 +85,41 @@
                 <div class="nano">
                     <div class="nano-content">
                         <ul id="" class="list-unstyled">
-                        <li>
-                        <div class="col-sender">
-                        <p class="m-none ib" style="font-weight:bold; color:black">FROM</p>
-                        </div>
-                                    <div class="col-mail" style="; color:black">
-                                        <p class="m-none mail-content" style="text-align:center; font-weight:bold">
-                                            <span class="subject">TOPIK PESAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        </p>
-                                        <p class="m-none mail-date" style="text-align:right;font-weight:bold">TIME IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                    </div>
-                            </li>
-                            <br>
         <?php
-        $pesan = mysqli_query($koneksi, "SELECT DISTINCT pesan.id_pesan, min(pesan_detail.status_pesan) FROM pesan join pesan_detail on pesan_detail.id_pesan = pesan.id_pesan WHERE pesan_detail.status_pesan IN (SELECT min(pesan_detail.status_pesan) FROM pesan_detail GROUP BY pesan_detail.id_pesan) AND pesan.id_penggunaKirimPesan='$id' or pesan_detail.id_penggunaKe='$id' or pesan_detail.id_penggunaDari='$id' GROUP BY pesan_detail.id_pesan ORDER BY tanggal_waktu DESC");
+        $pesan = mysqli_query($koneksi, "SELECT * FROM contact ORDER BY waktu_kirim DESC");
         while($datap = mysqli_fetch_array($pesan)){
 
         ?>
         <?php
-        $idpesannya = $datap['id_pesan'];
-        $cekstatus = $datap['min(pesan_detail.status_pesan)'];
+        $idpesannya = $datap['id_contact'];
+        $cekstatus = $datap['status_pesan'];
         ?>
                             <li
                             <?php
-                            $querycek = mysqli_query($koneksi, "select * from pesan_detail WHERE id_pesan='$idpesannya' ORDER BY tanggal_waktu DESC LIMIT 1");
+                            $querycek = mysqli_query($koneksi, "select * from contact WHERE id_contact='$idpesannya' ORDER BY waktu_kirim");
                             $dataquerycek=mysqli_fetch_array($querycek);
 
-                          /*  if($dataquerycek['id_penggunaDari']==$id){
-                                $hehe = $dataquerycek['id_penggunaKe'];
-                            }
-
-                            if($dataquerycek['id_penggunaKe']==$id){
-                                $hehe = $dataquerycek['id_penggunaDari'];
-                            }*/
-                            if($cekstatus=='0' && $dataquerycek['id_penggunaKe']==$id){
+                            if($cekstatus=='0'){
                                 echo "class='unread'";
                             }
                             ?>
                             >
-                                <a href="bukaPesan.php?idpesan=<?php echo $idpesannya?>">
+                                <a href="bukaContact.php?idcontact=<?php echo $idpesannya?>">
                                     <?php
-                                    if($cekstatus=='0' && $dataquerycek['id_penggunaKe']==$id){
+                                    if($cekstatus=='0'){
                                         echo "<i class='mail-label' style='border-color: #EA4C89'></i> <!--belumread-->";
                                     }
                                     ?>
                                     <div class="col-sender">
-
-                                        <?php
-$query = mysqli_query($koneksi, "SELECT * FROM pesan join pesan_detail ON pesan.id_pesan = pesan_detail.id_pesan WHERE pesan.id_pesan='$idpesannya'");
-$dataquery= mysqli_fetch_array($query);
-
-if($dataquery['id_penggunaKe']==$id){
-    $dengan = $dataquery['id_penggunaDari'];
-}
-if($dataquery['id_penggunaDari']==$id){
-    $dengan = $dataquery['id_penggunaKe'];
-}
-                                        
-                                        
-                                        $tarikpengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna = '$dengan'");
-                                        $tarikpenggunah = mysqli_fetch_array($tarikpengguna);
-                                        ?>
-                                        <p class="m-none ib"><?php echo $tarikpenggunah['nama_lengkap']?></p>
+                                        <p class="m-none ib"><?php echo $datap['name']?></p>
                                     </div>
+
                                     <div class="col-mail">
                                         <p class="m-none mail-content">
-                                            <span class="subject"><?php echo $dataquery['topik_pesan']?></span>
+                                            <span class="subject"><?php echo $datap['message']?></span>
                                         </p>
                                         <?php
-                                        $time = $dataquery['tanggal_waktu'];
+                                        $time = $datap['waktu_kirim'];
 
                                         $times = date("d-M-Y H:i",strtotime($time));
                                         ?>
