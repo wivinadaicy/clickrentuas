@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Edit Profile</h2>
+			<h2>Rooms</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,8 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Edit Profile</span></li>
+					<li><a href="ruangan.php"><span>Rooms</span></a></li>
+					<li><span>Edit Room</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -38,7 +39,7 @@ $data=mysqli_fetch_array($query);
                 <div class="panel-actions">
                 </div>
 
-                <h2 class="panel-title">Change email</h2>
+                <h2 class="panel-title">Edit Room</h2>
             </header>
             <div class="panel-body">
             <div class="form-group mt-lg">

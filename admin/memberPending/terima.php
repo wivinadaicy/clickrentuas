@@ -44,7 +44,7 @@ $mail->Password = "sistech123";
 $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
 $mail->addAddress($log_email,$log_email);
 
-$mail->Subject = 'Selamat Bergabung di Click&Rent SISTech UPH';
+$mail->Subject = 'Welcome To Click & Rent by SISTech';
 //http://localhost/uasweb1/loginuser.php
 $msg='
 <!DOCTYPE html>

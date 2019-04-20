@@ -1,0 +1,25 @@
+master data ruangan, ada 2 tabel yg belum dikasitanda kalo gak ada data
+
+restored by di ruangan sama barang ga di hide
+
+gak ada data kalo dicoba radiobutton dan comboboxnya ( rooms dan items)
+
+barang di all + roomsnya yg gajalan ------------------
+
+email query approve, suru login jangan langsung liat chat ! -------------------------------
+
+clear chhat kalo udh kirim --------------------------------------
+
+PEMINJAMAN DIBATALKAN kacau semua
+- log nya gak keluar
+- member pending ada yg salah dengan notifnya
+- kalendernya masih muncul, padahal udh batal
+- leftbar kacau
+
+
+
+
+
+Veren:
+- icon di insertLabAdmin.php
+

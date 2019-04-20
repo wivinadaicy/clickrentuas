@@ -2,7 +2,7 @@
 include('../koneksi.php');
 include('../session.php');
 
-$query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan on ruangan.id_ruangan=peminjaman.id_ruangan WHERE jenis_ruangan='2' group by peminjaman.id_ruangan");
+$query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan on ruangan.id_ruangan=peminjaman.id_ruangan WHERE jenis_ruangan='2' AND (status_peminjaman = '1' or status_peminjaman='3') group by peminjaman.id_ruangan");
 
 $color = array('red','blue','green','orange','brown','maroon','navy','orange','crimson','coral','purple','darkviolet','indigo','deeppink','black','sienna');
 $x=0;

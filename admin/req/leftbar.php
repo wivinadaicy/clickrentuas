@@ -160,7 +160,7 @@
 								<i class="fa fa-copy" aria-hidden="true"> </i>
 								<span>Pending Reservation </span>
 								<?php
-								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5'");
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0'");
 
 								$datamail = mysqli_fetch_array($ceknotifmail);
 								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];

@@ -27,7 +27,7 @@
     <a href="pendingLab.php" class="btn btn-danger">Pending Lab Reservation</a>
     
     
-    <a href="pendingMeeting.php" class="btn btn-danger">Pending Lab Reservation</a></p>
+    <a href="pendingMeeting.php" class="btn btn-danger">Pending Meeting Room Reservation</a></p>
     
     <p style="text-align:center; font-size: 20px;"><a href="index.php" ><i class="fa fa-dashboard"></i> Dashboard</a></p>
     

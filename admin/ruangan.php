@@ -124,7 +124,7 @@ while($data=mysqli_fetch_array($querys)){
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Are you sure you want to restore data from rooms with id <?php echo $data['id_ruangan'] ?>the name " <?php echo $data['nama_ruangan']?>" ?</p>
+					<p>Are you sure you want to restore data from rooms with id <?php echo $data['id_ruangan'] ?> and name " <?php echo $data['nama_ruangan']?>" ?</p>
 				</div>
 			</div>
 		</div>

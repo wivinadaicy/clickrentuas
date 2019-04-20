@@ -57,11 +57,6 @@
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						</div>
 
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
 					</div>
 			
 
