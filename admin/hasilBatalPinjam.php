@@ -23,11 +23,7 @@
     <p style="padding-bottom: 10px;" align="center"><img src="../images/cancel.png" width="400"></p>
     
     <p style="text-align:center;padding-bottom: 10px;font-size: 20px;">
-    <a href="pendingLab.php" class="btn btn-danger">Pending Lab Reservation</a>
-    
-    
-    <a href="pendingMeeting.php" class="btn btn-danger">Pending Lab Reservation</a></p>
-    
-    <p style="text-align:center; font-size: 20px;"><a href="index.php" ><i class="fa fa-dashboard"></i> Dashboard</a></p>
+
+    <p style="text-align:center; font-size: 20px;"><a href="index.php" ><i class="fa fa-dashboard"></i> Back To Home</a></p>
 
 </body>

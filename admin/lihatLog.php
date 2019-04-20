@@ -50,7 +50,7 @@
 											<th style="width: 10%"><span class="text-normal text-sm">Status</span></th>
 											<th style="width: 15%"><span class="text-normal text-sm">Date</span></th>
                                             <th style="width: 15%"><span class="text-normal text-sm">Ruangan</span></th>
-											<th><span class="text-normal text-sm">Admin</span></th>
+											<th><span class="text-normal text-sm">User</span></th>
 										</tr>
 									</thead>
 									<tbody class="log-viewer">

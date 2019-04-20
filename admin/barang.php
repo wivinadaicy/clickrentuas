@@ -125,6 +125,12 @@ while($data=mysqli_fetch_array($querys)){
 			<tbody>
 			<?php
 			$query = mysqli_query($koneksi, "SELECT * from barang join ruangan on ruangan.id_ruangan = barang.id_ruangan WHERE barang.status_delete='1'");
+
+			if(mysqli_num_rows($query)==0){ ?>
+				<td colspan="4" style="font-weight:bold; text-align:center">Tidak ada data</td>
+			<?php
+			}
+
 			while($data=mysqli_fetch_array($query)){
 			?>
 				<tr>

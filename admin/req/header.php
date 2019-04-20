@@ -130,7 +130,7 @@ if($jk=="l"){
 <?php
 
 
-$notif = mysqli_query($koneksi, "select * from peminjaman where peminjaman.status_peminjaman = '0' or peminjaman.status_peminjaman='5' order by waktu_add desc LIMIT 4");
+$notif = mysqli_query($koneksi, "select * from peminjaman where peminjaman.status_peminjaman = '0' or peminjaman.status_peminjaman = '5' order by waktu_add desc LIMIT 4");
 $jumlahnotif = mysqli_num_rows($notif);
 if($jumlahnotif=='0'){
 
@@ -139,6 +139,7 @@ if($jumlahnotif=='0'){
 <?php
 }else{
 while($datanotif = mysqli_fetch_array($notif)){
+	if($datanotif['status_peminjaman']=="0"){
 ?>
 										<li>
 											<a href="detailPeminjamanTunggu.php?idpeminjaman=<?php echo $datanotif['id_peminjaman'];?>" class="clearfix">
@@ -160,7 +161,28 @@ while($datanotif = mysqli_fetch_array($notif)){
 											</a>
 										</li>
 										
-<?php } }?>
+<?php }else{ ?>
+										<li>
+											<a href="checkBatalPinjam.php?idpeminjaman=<?php echo $datanotif['id_peminjaman'];?>" class="clearfix">
+												<div class="image">
+													<i class="fa fa-ban bg-danger"></i>
+												</div>
+												<span class="title"><b>[<?php echo $datanotif['id_peminjaman']?>]</b> <?php echo $datanotif['acara']?></span>
+												<span class="message">
+													<?php
+													if($datanotif['status_peminjaman']=="0"){
+														$stas = "Peminjaman tunggu approve";
+													}
+													if($datanotif['status_peminjaman']=="5"){
+														$stas = "Peminjaman dibatalkan";
+													}
+													echo $stas;
+													?>
+												</span>
+											</a>
+										</li>
+
+<?php } } }?>
 									</ul>
 													
 									<hr />

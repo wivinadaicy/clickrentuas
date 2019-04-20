@@ -51,7 +51,7 @@
                     <div class="col-sm-6">
                         <div class="search">
                             <div class="input-group input-search">
-                                <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+                                <input type="text" class="form-control" name="sercing" id="sercing" placeholder="Search...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                                 </span>
@@ -150,27 +150,6 @@ if($dataquery['id_penggunaDari']==$id){
                                 </a>
                             </li>
         <?php } ?>
-                        <!--    <li>
-                                <a href="mailbox-email.html">
-                                    
-        
-                                    <div class="col-sender">
-                                        <div class="checkbox-custom checkbox-text-primary ib">
-                                            <input type="checkbox" id="mail2">
-                                            <label for="mail2"></label>
-                                        </div>
-                                        <p class="m-none ib">Okler Themes</p>
-                                    </div>
-                                    <div class="col-mail">
-                                        <p class="m-none mail-content">
-                                            <span class="subject">Porto Admin theme! &nbsp;–&nbsp;</span>
-                                            <span class="mail-partial">Check it out.</span>
-                                        </p>
-                                        <i class="mail-attachment fa fa-paperclip"></i>
-                                        <p class="m-none mail-date">3:35 pm</p>
-                                    </div>
-                                </a>
-                            </li>!-->
         
                                     
                         </ul>
@@ -189,3 +168,29 @@ if($dataquery['id_penggunaDari']==$id){
 <!--*****************************-->
 <?php include('req/rightbar.php');?>
 <?php include('req/script.php');?>
+
+<script>
+function sercingPesan(){
+    var pesanchat2 = $("#chatting").val();
+	var idPesan2 = $("#pesanid").val();
+
+	$.ajax({
+		type:"post",
+		url:"kirimChat.php",
+		dataType: "JSON",
+		data: {pesanchat:pesanchat2, idPesan:idPesan2},
+		success: function(respond){
+			if(respond=="0"){
+
+			}else{
+				$("#chatting").empty();
+				document.getElementById('chatting').value = '';
+				$("#isi").append(respond);
+				focusScrollMethod();
+			}
+			
+			
+		}
+	});
+}
+</script>

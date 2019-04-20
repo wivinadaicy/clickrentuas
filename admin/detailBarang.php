@@ -96,7 +96,7 @@ $data=mysqli_fetch_array($query);
 			<?php 
 			$asli = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang ='$idbarangg'");
 			$dasli = mysqli_fetch_array($asli);
-			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!=""){
+			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!="0"){
 				?>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Restored By<span class="required">*</span></label>

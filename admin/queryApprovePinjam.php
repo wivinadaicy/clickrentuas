@@ -246,7 +246,7 @@ $msg='
                                         <tr>
                                             <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">
                                                 Congratulations!
-                                                <br>Your reservation with code '.$idpinjam.' for '.$acaranyah.' has been confirmed. Use your chatting feature on http://localhost/uasweb1/admin/pesan_detail.php?idpesan=$idpinjam to contact the staff!
+                                                <br>Your reservation with code '.$idpinjam.' for '.$acaranyah.' has been confirmed. Use your chatting feature on our website to contact our staff! Log in Here: http://tiny.cc/gtn24y
                                             </td>
                                         </tr>
                                     </table>
