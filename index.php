@@ -12,7 +12,6 @@ error_reporting(0);
 
 <?php include('_header.php');?>
       <!-- END section -->
-
 <?php include('bookingform.php');?>
 
 <?php include('about.php');?>
@@ -21,7 +20,7 @@ error_reporting(0);
       
 <?php include('contact.php');?>
 
-<?php include('reservenow.php');?>
+<?php //include('reservenow.php');?>
 <?php include('_footer.php');?>
       
       <?php include('_script.php')?>

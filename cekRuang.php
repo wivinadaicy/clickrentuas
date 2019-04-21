@@ -38,6 +38,10 @@ $query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruang
     ))");
 
 $kalimat = '<div class="col-lg-12"><h3 style="text-align:center; font-weight:bold; background-color:grey; color:white">Ruangan Tersedia</h3></div>';
+
+if(mysqli_num_rows($query)==0){
+    $kalimat = $kalimat . "<h3 style='text-align:center; font-weight:bold; padding-left:310px;'>No room available! Please check another date/time.</h3>";
+}else{
 while($ruangsedia=mysqli_fetch_array($query)){
     $ruangannya = $ruangsedia['id_ruangan'];
     $querym= mysqli_query($koneksi, "SELECT * FROM peminjaman");
@@ -61,6 +65,9 @@ while($ruangsedia=mysqli_fetch_array($query)){
     
 }
 
+
+
+}
 echo json_encode($kalimat);
 ?>
 

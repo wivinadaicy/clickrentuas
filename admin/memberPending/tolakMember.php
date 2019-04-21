@@ -4,7 +4,7 @@ include("../../session.php");
 $idnya = $_GET['id'];
 $idx = $_SESSION['id'];
 
-$queryv = "UPDATE pengguna SET status_daftar='4', user_edit = '$idx', waktu_edit=now() WHERE id_pengguna='$idnya'";
+$queryv = "UPDATE pengguna SET status_daftar='3', user_delete='$idx', waktu_delete=now(), user_edit = '$idx', waktu_edit=now() WHERE id_pengguna='$idnya'";
 
 $jalanin = mysqli_query($koneksi,$queryv);
 
@@ -25,9 +25,15 @@ $log_alamat= $log['alamat'];
 $log_hp= $log['no_hp'];
 $log_masuk= $log['tanggal_masuk'];
 $log_status= $log['status_pengguna'];
-$log_daftar = 4;
+$log_daftar = 3;
 
 $queryinsertpengguna = mysqli_query($koneksi, "INSERT INTO log_pengguna VALUES('$ceklog','$idnya','$log_email','$log_pass','$log_nama','$log_jk','$log_tgl','$log_alamat','$log_hp','$log_masuk','$log_status','$log_daftar','$id',now())");
+
+if($log_status=="4"){
+$querym = "UPDATE mahasiswa SET status_delete='1', user_delete='$idx' WHERE id_pengguna='$idnya'";
+
+$jalanins = mysqli_query($koneksi,$querym);
+}
 
 require '../../smtp/PHPMailerAutoload.php';
 $mail = new PHPMailer;

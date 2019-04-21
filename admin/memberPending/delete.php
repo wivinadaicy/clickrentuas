@@ -28,5 +28,10 @@ $log_daftar = 2;
 
 $queryinsertpengguna = mysqli_query($koneksi, "INSERT INTO log_pengguna VALUES('$ceklog','$idnya','$log_email','$log_pass','$log_nama','$log_jk','$log_tgl','$log_alamat','$log_hp','$log_masuk','$log_status','$log_daftar','$id',now())");
 
+if($log_status=="4"){
+$querym = "UPDATE mahasiswa SET status_delete='1', user_delete='$idx' WHERE id_pengguna='$idnya'";
+
+$jalanins = mysqli_query($koneksi,$querym);
+}
 header('location:../pengguna.php');
 ?>

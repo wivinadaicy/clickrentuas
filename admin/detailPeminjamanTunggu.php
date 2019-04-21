@@ -172,9 +172,43 @@ $data = mysqli_fetch_array($query);
                     </header>
                     <div class="panel-body">
                         <div class="modal-wrapper">
-                            <div class="modal-text">
-                                <p><!-- edit disini --></p>
-                            </div>
+                        <div class="form-group mt-lg">
+				<label class="col-sm-3 control-label">Room ID<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="idruangan"  class="form-control" value = "<?php echo $data['id_ruangan']?>" readonly>
+				</div>
+			</div>
+			<div class="form-group mt-lg">
+				<label class="col-sm-3 control-label">Room Name<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="namaruangan"  id="namaruangan" class="form-control" placeholder="Insert Room Name" value="<?php echo $data['nama_ruangan'] ?>" readonly>
+				</div>
+			</div>
+			<div class="form-group mt-lg">
+				<label class="col-sm-3 control-label">Type of Room<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="radio" name="jenisruangan" value="1" <?php if($data['jenis_ruangan']=="1"){echo "checked";} ?> disabled>Laboratory &nbsp;&nbsp;
+					<input type="radio" name="jenisruangan" value="2" disabled <?php if($data['jenis_ruangan']=="2"){echo "checked";} ?> >Meeting Room
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Floor<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" id="lantai" name="lantai" class="form-control" placeholder="Insert Location" value="<?php echo $data['gedung_lantai'] ?>" readonly>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Capacity<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="number" name="kapasitas"  id="stok" class="form-control" placeholder="Insert Capacity of the Room" required value="<?php echo $data['kapasitas'] ?>" readonly>
+				</div>
+			</div>
+            <div class="form-group">
+				<label class="col-sm-3 control-label">Description<span class="required">*</span></label>
+				<div class="col-sm-9">
+					<input type="text" name="deskripsi"  id="stok" class="form-control" placeholder="Insert Description of the Room" required value="<?php echo $data['deskripsi'] ?>" readonly>
+				</div>
+			</div>
                         </div>
                     </div>
                     <footer class="panel-footer">

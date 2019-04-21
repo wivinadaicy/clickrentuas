@@ -92,7 +92,7 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="w4-last-name">Program Studi</label>
 									<div class="col-sm-7">
-									<select class="form-control input-sm mb-md" name="ps" id="ps">
+									<select class="form-control input-sm mb-md" name="ps" id="ps" required>
 										<?php
 										include('koneksi.php');
 										$queryps = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE status_delete='0'");

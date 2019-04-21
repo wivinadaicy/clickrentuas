@@ -176,7 +176,7 @@
 									<a href="pendingLab.php">
 										 Laboratory
 										 <?php
-								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0')");
 
 								$datamail = mysqli_fetch_array($ceknotifmail);
 								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
@@ -190,7 +190,7 @@
 									<a href="pendingMeeting.php">
 										 Meeting Room
 										 <?php
-								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0')");
 
 								$datamail = mysqli_fetch_array($ceknotifmail);
 								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
@@ -429,7 +429,7 @@
 									<a href="pendingLab.php">
 										 Laboratory
 										 <?php
-								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '1' AND (peminjaman.status_peminjaman ='0')");
 
 								$datamail = mysqli_fetch_array($ceknotifmail);
 								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];
@@ -443,7 +443,7 @@
 									<a href="pendingMeeting.php">
 										 Meeting Room
 										 <?php
-								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0' or peminjaman.status_peminjaman='5')");
+								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan= '2' AND (peminjaman.status_peminjaman ='0')");
 
 								$datamail = mysqli_fetch_array($ceknotifmail);
 								$jumlah = $datamail['count(peminjaman.id_peminjaman)'];

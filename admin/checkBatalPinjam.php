@@ -24,6 +24,12 @@ $pinjam2_ruang= $datakamu['id_ruangan'];
 //insert ke dalam log peminjaman
 $setlogdata = mysqli_query($koneksi,
 "INSERT INTO log_peminjaman values ('$jadibarislogpj2','$idpeminjaman','$pinjam2_tanggal','$pinjam2_ruang','$pinjam2_mulai','$pinjam2_selesai','$pinjam2_orang','$pinjam2_acara','$pinjam2_peserta','$pinjam2_kategoriacara','$pinjam2_deskripsiacara','4','$id',now())");
-
+if($status=='1'){
 header('location:logPeminjaman.php');
+}else{
+    $link = "location:hasilLihatIgnore.php?idpeminjaman=$idpeminjaman";
+    header($link);
+}
+
+
 ?>

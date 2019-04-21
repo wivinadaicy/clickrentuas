@@ -35,6 +35,7 @@ $today = date('Y-m-d');
 $todays = date('Y-m-d H:i');
 $now = date('H:i');
 ?>
+<?php if($status=='1' || $status=='2'){ ?>
 <div class="row">
 	<div class="alert alert-success col-lg-3"  style="height:240px">
 		<h4 style="text-align: center"><b>ROOMS</b></h4>
@@ -80,28 +81,26 @@ $now = date('H:i');
 		<h4 style="text-align: center"><b>RESERVATION</b></h4>
 		<hr>
 		<?php
-		$queryi = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='1' AND  (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$today', INTERVAL -1 MONTH)) AND '$today'");
+		$queryi = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='1' AND  (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
 		$dqi = mysqli_fetch_array($queryi);?>
-		<p style="font-weight:bold; text-align:center">Reservation This Month</p>
+		<p style="font-weight:bold; text-align:center">New Reservation This Month</p>
 		<?php
-		$queryk = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='2' AND   (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$today', INTERVAL -1 MONTH)) AND '$today'");
+		$queryk = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='2' AND   (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
 		$dqk = mysqli_fetch_array($queryk);?>
 	<table>
 			<tr>
 				<td><p>Laboratory</p></td>
-				<td><p><b><?php echo $dqi['count(id_peminjaman)'] ?></p></td>
+				<td><p><b><?php echo $dqi['count(peminjaman.id_peminjaman)'] ?></p></td>
 			</tr>
 			<tr>
 				<td><p>Meeting Room &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
-				<td><p><b><?php echo $dqk['count(id_peminjaman)'] ?></b></p></td>
+				<td><p><b><?php echo $dqk['count(peminjaman.id_peminjaman)'] ?></b></p></td>
 			</tr>
 		</table>
 <?php
 		$queryj = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3')");
 		$dqj = mysqli_fetch_array($queryj);
 		?>
-		<hr>
-		<a href="pengguna.php"><h6 style="text-align:right">View All (<?php echo $dqj['count(id_peminjaman)']?>)</h6></a>
 	</div>
 
 	<div class="alert alert-danger col-lg-3"  style="height:240px">
@@ -224,6 +223,7 @@ $now = date('H:i');
 		</div>
 	</div>
 </div>
+
 <div class="row">
 	<div class="alert alert-info col-md-6">
 	<h4 style="text-align:center; color: black; font-weight:bold; background">Today's Reservation</h4>
@@ -241,6 +241,9 @@ $now = date('H:i');
 				<?php 
 				$querya=mysqli_query($koneksi, "SELECT * FROM peminjaman join pengguna on pengguna.id_pengguna = peminjaman.id_pengguna WHERE tanggal_peminjaman='$today' AND (status_peminjaman='1' or status_peminjaman='3')");
 				$no=0;
+				if(mysqli_num_rows($querya)==0){
+					echo "<td colspan='4' style='text-align:center'>No data!</td>";
+				}
 				while($dqa = mysqli_fetch_array($querya)){
 					$no++;
 				?>
@@ -307,7 +310,7 @@ $now = date('H:i');
 		<div id="barchart" class="alert alert-warning" style="height:175px"></div>
 	</div>
 </div>
-		
+<?php } ?>	
 
 <div class="row">
 	<div class="alert alert-danger col-lg-3"  style="height:200px">
@@ -319,7 +322,7 @@ $now = date('H:i');
 		?>
 		<h3 style="text-align:center"><?php echo $dql['count(id_peminjaman)'] ?></h3>
 		<hr>
-		<a href=""><h6 style="text-align:right">View Data</h6></a>
+		<a href="peminjamanMemberPending.php"><h6 style="text-align:right">View Data</h6></a>
 	</div>
 
 
@@ -369,6 +372,17 @@ $now = date('H:i');
 		<a href="peminjamanMemberDitolak.php"><h6 style="text-align:right">View Not Approved (<?php echo $dnotprov['count(peminjaman.id_peminjaman)'] ?>)</h6></a>
 	</div>
 </div>	
+<div class="row">
+	<div class="panel col-md-12">
+		<div class="panel-body">
+		<h4 style="text-align:center; color: black; font-weight:bold; background">My Reservation</h4>
+					<div id="calendars"></div>
+				<div class="panel" id="warnas">
+				
+				</div>
+		</div>
+	</div>
+</div>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
@@ -430,3 +444,57 @@ window.onload = function() {
 };
 </script>
 
+
+
+<script>
+$(document).ready(function() {
+   var calendar = $('#calendars').fullCalendar({
+    editable:true,
+    events: 'load4.php',
+    selectable:true,
+	selectHelper:true,
+    dayClick: function(date, jsEvent, view) { 
+        var today = new Date();
+        var end = new Date();                
+        end.setDate(today.getDate()-1);  
+
+        if(date > today) {
+        //window.location.href = "insertLabAdmin.php?tanggal=" + date.format();
+        }
+    
+    },
+    dayRender: function (date, cell) {
+
+	var today = new Date();
+	var end = new Date();                
+	end.setDate(today.getDate()-1);                 
+
+
+	if( date < end) {
+	cell.css("background-color", "lightgray");
+	} // this is for previous date 
+
+	if(date > today) {
+		cell.css("background-color", "white");
+	}
+	},
+   });
+  });
+
+
+function cekWarna(){
+  
+  $.ajax({
+      url:"cekWarna3.php",
+      dataType: "JSON",
+      success: function(respond){
+          $('#warnas').empty();
+          $('#warnas').append(respond);
+      }
+  });
+}
+
+window.onload = function() {
+  cekWarna();
+};
+</script>

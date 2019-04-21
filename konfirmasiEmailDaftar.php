@@ -22,7 +22,7 @@ $log_masuk= $log['tanggal_masuk'];
 $log_status= $log['status_pengguna'];
 $log_daftar = 1;
 
-$queryinsertpengguna = mysqli_query($koneksi, "INSERT INTO log_pengguna VALUES('$ceklog','$idpengguna','$log_email','$log_pass','$log_nama','$log_jk','$log_tgl','$log_alamat','$log_hp','$log_masuk','$log_status','$log_daftar','0',now())");
+$queryinsertpengguna = mysqli_query($koneksi, "INSERT INTO log_pengguna VALUES('$ceklog','$idpengguna','$log_email','$log_pass','$log_nama','$log_jk','$log_tgl','$log_alamat','$log_hp','$log_masuk','$log_status','$log_daftar','$idpengguna',now())");
 
 
 header('location:berhasilKonfirmasiEmail.php');

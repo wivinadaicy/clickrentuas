@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Reservation</h2>
+			<h2>My Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Reservation</span></li>
+					<li><span>Denied Reservation</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -91,6 +91,9 @@ if(mysqli_num_rows($query)==0){
                         </td>
                     </tr>
                     <?php include('detailPeminjamanMember.php')?>
+<?php
+$pesann = mysqli_query($koneksi, "SELECT * FROM pesan join pengguna on pengguna.id_pengguna=pesan.id_penggunaKirimPesan WHERE id_peminjaman='$idp'");
+?>
 <div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
@@ -105,14 +108,11 @@ if(mysqli_num_rows($query)==0){
                     <p><!-- edit disini -->
                     Do you want to make a conversation with the staff?
                     <br>Admin Data:
-                    <br>
                     <?php
-                    $idpesan=$data['id_pesan'];
-                    $adminny = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
-                    $dataadmin = mysqli_fetch_array($adminny);
+                    $dataadmin = mysqli_fetch_array($pesann);
                     $pengurus = $dataadmin['nama_lengkap'];
                     ?>
-                    Nama : <b><?php echo $pengurus ?> <br></b>
+                    Name : <b><?php echo $pengurus ?> <br></b>
                         </p>
                 </div>
             </div>

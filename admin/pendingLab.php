@@ -36,7 +36,7 @@
 		$jamini = date("H:i");
 		echo $harini;
 		echo $jamini;
-		$queryh = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE tanggal_peminjaman <= '$harini' AND status_peminjaman<>'6' AND status_peminjaman='0' AND waktu_mulai <= '$jamini'");
+		$queryh = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE tanggal_peminjaman <= '$harini' AND status_peminjaman<>'6' AND status_peminjaman='0' AND waktu_mulai <= '$jamini' order by peminjaman.waktu_add desc");
 
 		while($datas = mysqli_fetch_array($queryh)){
 			$idpinjam = $datas['id_peminjaman'];
@@ -78,8 +78,10 @@ $setlogdata = mysqli_query($koneksi,
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from peminjaman join pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE ruangan.jenis_ruangan='1' AND status_peminjaman='0' ORDER BY tanggal_peminjaman DESC");	
+			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE ruangan.jenis_ruangan='1' AND status_peminjaman='0' ORDER BY peminjaman.waktu_add DESC");	
+			$no=0;
 			while($data=mysqli_fetch_array($query)){
+				$no++;
 			?>
 			<tr>
 				<td><?php echo $data['nama_lengkap']?></td>

@@ -3,8 +3,8 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 </head>
-<section class="section bg-light pb-0"  >
-        <div class="container">
+<section class="section bg-light pb-0">
+        <div class="container" >
          
           <div class="row check-availabilty" id="next">
             <div class="block-32" data-aos="fade-up" data-aos-offset="-200">

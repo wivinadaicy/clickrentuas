@@ -18,7 +18,7 @@ $jalanin = mysqli_query($koneksi,$query);
 
 if($statusnya=="4"){
     $idmhs = $_POST['nim'];
-    $id_prgst =$_POST['programstudi'];
+    $id_prgst =$_POST['ps'];
     $ang =$_POST['angkatan'];
     $sem =$_POST['semester'];
     $sks =$_POST['totalsks'];

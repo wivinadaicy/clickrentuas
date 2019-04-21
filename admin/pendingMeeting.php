@@ -31,11 +31,46 @@
 <!--*****************************-->
 <!--KODINGAN ISI HALAMAN-->
 		<h2 style="text-align:center">Meeting Room</h2>
+
+<?php
+		$harini = date("Y-m-d H:i");
+		$jamini = date("H:i");
+		echo $harini;
+		echo $jamini;
+		$queryh = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE tanggal_peminjaman <= '$harini' AND status_peminjaman<>'6' AND status_peminjaman='0' AND waktu_mulai <= '$jamini' order by peminjaman.waktu_add desc");
+
+		while($datas = mysqli_fetch_array($queryh)){
+			$idpinjam = $datas['id_peminjaman'];
+			$queryt = mysqli_query($koneksi, "UPDATE peminjaman SET status_peminjaman='6' WHERE id_peminjaman='$idpinjam'");
+			
+$cblogpinjam2 = mysqli_query($koneksi, "SELECT * FROM log_peminjaman");
+$bariscbpinjam2 = mysqli_num_rows($cblogpinjam2);
+$jadibarislogpj2 = $bariscbpinjam2+1;
+
+$datapinjam2 = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$idpinjam'");
+$simpandatapinjam2 = mysqli_fetch_array($datapinjam2);
+
+$pinjam2_tanggal= $simpandatapinjam2['tanggal_peminjaman'];
+$pinjam2_mulai= $simpandatapinjam2['waktu_mulai'];
+$pinjam2_selesai= $simpandatapinjam2['waktu_selesai'];
+$pinjam2_orang= $simpandatapinjam2['id_pengguna'];
+$pinjam2_acara= $simpandatapinjam2['acara'];
+$pinjam2_peserta= $simpandatapinjam2['jumlah_peserta'];
+$pinjam2_kategoriacara= $simpandatapinjam2['id_kategoriAcara'];
+$pinjam2_deskripsiacara= $simpandatapinjam2['deskripsi_acara'];
+$pinjam2_ruang= $simpandatapinjam2['id_ruangan'];
+
+$setlogdata = mysqli_query($koneksi,
+"INSERT INTO log_peminjaman values ('$jadibarislogpj2','$idpinjam','$pinjam2_tanggal','$pinjam2_ruang','$pinjam2_mulai','$pinjam2_selesai','$pinjam2_orang','$pinjam2_acara','$pinjam2_peserta','$pinjam2_kategoriacara','$pinjam2_deskripsiacara','6','$id',now())");
+		}
+		?>
+
 <div class="container-fluid">
 	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
+			<th>#</th>
 				<th>Reservation Name</th>
                 <th>Event </th>
 				<th>Reservation Date</th>
@@ -46,10 +81,13 @@
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE ruangan.jenis_ruangan='2' AND status_peminjaman='0' ORDER BY tanggal_peminjaman DESC");	
+			$query = mysqli_query($koneksi, "SELECT * from peminjaman JOIN pengguna JOIN ruangan ON pengguna.id_pengguna = peminjaman.id_pengguna AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE ruangan.jenis_ruangan='2' AND status_peminjaman='0' ORDER BY peminjaman.waktu_add DESC");	
+			$no=0;
 			while($data=mysqli_fetch_array($query)){
+				$no++;
 			?>
 			<tr>
+				<td><?php echo $no ?></td>
 				<td><?php echo $data['nama_lengkap']?></td>
 				<td><?php echo $data['acara']?></td>
 				<td><?php echo $data['tanggal_peminjaman']?></td>

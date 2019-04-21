@@ -53,7 +53,7 @@ include('../koneksi.php');
 		</thead>
 		<tbody>
 		<?php
-			$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' AND status_daftar='1'");	
+			$query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_daftar='1'");	
 			while($data=mysqli_fetch_array($query)){
 			?>
 			<tr>
@@ -80,7 +80,7 @@ include('../koneksi.php');
 					<a class="mb-xs mt-xs mr-xs modal-sizes btn btn-danger" data-toggle="tooltip" data-placement="top" title="Decline" href="#delete<?php echo $data['id_pengguna'];?>"><i class='fa fa-times'></i></a>
 				</td>
 			</tr>
-			<?php include('memberPending/modaldetail.php');?>
+			<?php include('pengguna/modaldetail.php');?>
 			<?php include('memberPending/modalTerima.php');?>
 			<?php include('memberPending/modalHapus.php');?>
 			<?php } ?>
