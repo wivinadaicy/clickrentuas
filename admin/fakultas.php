@@ -63,18 +63,20 @@
                          <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_fakultas'];?>"><i class='fa fa-trash-o'></i></a>
                          <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
                         </td>
+            </tr>
+            <?php $no++; } ?>
+        </tbody>
+        </table>
             <?php 
+        $querys = mysqli_query($koneksi, "SELECT * from fakultas  WHERE status_delete='0'");
+        while($data=mysqli_fetch_array($querys)){
                  include('fakultas/modalDetail.php'); 
                  include('fakultas/modalEdit.php'); 
                  include('fakultas/modalHapus.php'); 
-                 ?>
-            </tr>
-		<?php } ?>
-		</tbody>
+        } ?>
+            
 		
-	</table>
-	
-
+		
         <br>
         <br>
 
@@ -138,7 +140,7 @@
 		<footer class="panel-footer">
 			<div class="row">
 				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="fakultas/restore.php?id=<?php echo $data['id_ruangan'];?>">Restore</a>
+					<a class="btn btn-primary hapus" href="fakultas/restore.php?id=<?php echo $data['id_fakultas'];?>">Restore</a>
 					<button class="btn btn-default modal-dismiss">Cancel</button>
 				</div>
 			</div>

@@ -2,9 +2,9 @@
 <?php include('../../koneksi.php'); ?>
 
 <?php
-$idbarang= $_GET['id'];
+$idprogramstudi= $_GET['id'];
 
-$query = mysqli_query($koneksi, "UPDATE barang SET user_delete='$id', waktu_delete='0', status_delete='0' WHERE id_barang='$idbarang'");
+$query = mysqli_query($koneksi, "UPDATE program_studi SET user_delete='$id', waktu_delete='0', status_delete='0' WHERE id_barang='$idprogramstudi'");
 
-header('location:../barang.php');
+header('location:../prodi.php');
 ?>
