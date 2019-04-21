@@ -78,54 +78,30 @@ $now = date('H:i');
 
 	<div class="alert alert-warning col-lg-3"  style="height:240px">
 		<h4 style="text-align: center"><b>RESERVATION</b></h4>
-		<?php 
-		$query = "SELECT status_peminjaman, count(*) as number FROM peminjaman GROUP BY status_peminjaman";  
-		$result = mysqli_query($koneksi, $query);  
+		<hr>
+		<?php
+		$queryi = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='1' AND  (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$today', INTERVAL -1 MONTH)) AND '$today'");
+		$dqi = mysqli_fetch_array($queryi);?>
+		<p style="font-weight:bold; text-align:center">Reservation This Month</p>
+		<?php
+		$queryk = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='2' AND   (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$today', INTERVAL -1 MONTH)) AND '$today'");
+		$dqk = mysqli_fetch_array($queryk);?>
+	<table>
+			<tr>
+				<td><p>Laboratory</p></td>
+				<td><p><b><?php echo $dqi['count(id_peminjaman)'] ?></p></td>
+			</tr>
+			<tr>
+				<td><p>Meeting Room &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+				<td><p><b><?php echo $dqk['count(id_peminjaman)'] ?></b></p></td>
+			</tr>
+		</table>
+<?php
+		$queryj = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3')");
+		$dqj = mysqli_fetch_array($queryj);
 		?>
-		<script type="text/javascript">  
-			google.charts.load('current', {packages: ['corechart', 'bar']});
-			google.charts.setOnLoadCallback(drawBasic);
-
-			function drawBasic() {
-
-				var data = google.visualization.arrayToDataTable([  
-				['State', 'Total'],  
-				<?php  
-				while($row = mysqli_fetch_array($result))  
-				{  
-					if($row['status_peminjaman']=="0"){
-						$statusnya = "Wait for approval";
-					}else if($row['status_peminjaman']=="1"){
-						$statusnya = "Approved";
-					}else if($row['status_peminjaman']=="3"){
-						$statusnya = "Finished";
-					}else{
-						$statusnya = "Not Approved/Canceled";
-					}
-					echo "['".$statusnya."', ".$row["number"]."],";  
-				}  
-				?>  
-						]);  
-
-				var options = {
-					title: 'Current Reservation State',
-					hAxis: {
-					title: 'Reservation State',
-					},
-					vAxis: {
-					title: 'Total Reservation'
-					},
-					legend: {position: 'none'},
-					backgroundColor: { fill:'transparent' }
-				};
-
-				var chart = new google.visualization.ColumnChart(
-					document.getElementById('barchart'));
-
-				chart.draw(data, options);
-				}
-		</script>  
-		<div id="barchart" class="alert alert-warning" style="height:175px"></div>
+		<hr>
+		<a href="pengguna.php"><h6 style="text-align:right">View All (<?php echo $dqj['count(id_peminjaman)']?>)</h6></a>
 	</div>
 
 	<div class="alert alert-danger col-lg-3"  style="height:240px">
@@ -263,7 +239,7 @@ $now = date('H:i');
 				</thead>
 				<tbody>
 				<?php 
-				$querya=mysqli_query($koneksi, "SELECT * FROM peminjaman join pengguna on pengguna.id_pengguna = peminjaman.id_pengguna WHERE tanggal_peminjaman='$today' AND '$now' >= waktu_mulai AND '$now '<= waktu_selesai");
+				$querya=mysqli_query($koneksi, "SELECT * FROM peminjaman join pengguna on pengguna.id_pengguna = peminjaman.id_pengguna WHERE tanggal_peminjaman='$today' AND (status_peminjaman='1' or status_peminjaman='3')");
 				$no=0;
 				while($dqa = mysqli_fetch_array($querya)){
 					$no++;
@@ -279,10 +255,95 @@ $now = date('H:i');
 			</table>
 		</div>
 
+	</div>	<div class="alert alert-warning col-lg-6"  style="height:240px">
+		<h4 style="text-align: center"><b>Reservation State</b></h4>
+		<?php 
+		$query = "SELECT status_peminjaman, count(*) as number FROM peminjaman GROUP BY status_peminjaman";  
+		$result = mysqli_query($koneksi, $query);  
+		?>
+		<script type="text/javascript">  
+			google.charts.load('current', {packages: ['corechart', 'bar']});
+			google.charts.setOnLoadCallback(drawBasic);
+
+			function drawBasic() {
+
+				var data = google.visualization.arrayToDataTable([  
+				['State', 'Total'],  
+				<?php  
+				while($row = mysqli_fetch_array($result))  
+				{  
+					if($row['status_peminjaman']=="0"){
+						$statusnya = "Wait for approval";
+					}else if($row['status_peminjaman']=="1"){
+						$statusnya = "Approved";
+					}else if($row['status_peminjaman']=="3"){
+						$statusnya = "Finished";
+					}else{
+						$statusnya = "Not Approved/Canceled";
+					}
+					echo "['".$statusnya."', ".$row["number"]."],";  
+				}  
+				?>  
+						]);  
+
+				var options = {
+					title: 'Current Reservation State',
+					hAxis: {
+					title: 'Reservation State',
+					},
+					vAxis: {
+					title: 'Total Reservation'
+					},
+					legend: {position: 'none'},
+					backgroundColor: { fill:'transparent' }
+				};
+
+				var chart = new google.visualization.ColumnChart(
+					document.getElementById('barchart'));
+
+				chart.draw(data, options);
+				}
+		</script>  
+		<div id="barchart" class="alert alert-warning" style="height:175px"></div>
 	</div>
 </div>
 		
-		
+
+<div class="row">
+	<div class="alert alert-danger col-lg-3"  style="height:200px">
+		<h4 style="text-align: center"><b>My Pending Reservation</b></h4>
+		<hr>
+		<?php
+		$queryl = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman WHERE status_peminjaman='0' AND id_pengguna='$id'");
+		$dql = mysqli_fetch_array($queryl);
+		?>
+		<h3 style="text-align:center"><?php echo $dql['count(id_peminjaman)'] ?></h3>
+		<hr>
+		<a href=""><h6 style="text-align:right">View Data</h6></a>
+	</div>
+	<div class="alert alert-warning col-lg-3"  style="height:200px">
+		<h4 style="text-align: center"><b>My Upcoming Reservation</b></h4>
+		<hr>
+		<?php
+		$queryl = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman WHERE status_peminjaman='1' AND id_pengguna='$id'");
+		$dqm = mysqli_fetch_array($querym);
+		?>
+		<h3 style="text-align:center"><?php echo $dqm['count(id_peminjaman)'] ?></h3>
+		<hr>
+		<a href="peminjamanMemberAkanDatang.php"><h6 style="text-align:right">View Data</h6></a>
+	</div>
+	<div class="alert alert-warning col-lg-3"  style="height:200px">
+		<h4 style="text-align: center"><b>My Finished Reservation</b></h4>
+		<hr>
+		<?php
+		$queryl = mysqli_query($koneksi, "SELECT count(id_peminjaman) FROM peminjaman WHERE status_peminjaman='3' AND id_pengguna='$id'");
+		$dqm = mysqli_fetch_array($querym);
+		?>
+		<h3 style="text-align:center"><?php echo $dqm['count(id_peminjaman)'] ?></h3>
+		<hr>
+		<a href="peminjamanMemberSelesai.php"><h6 style="text-align:right">View Data</h6></a>
+	</div>
+</div>	
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

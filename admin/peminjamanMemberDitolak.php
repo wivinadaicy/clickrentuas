@@ -46,7 +46,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pesan.id_peminjaman = peminjaman.id_peminjaman WHERE id_pengguna='$id' AND status_peminjaman='4' order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='USER-2' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE log_peminjaman.status_peminjaman='5') order by peminjaman.waktu_edit desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -77,9 +77,17 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
                         <td class="actions-hover actions-fade">
-                            <a href="#chatadmin" class="modal-sizes"><i class="fa fa-comment"></i></a>
-                            <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-eye"></i></a>
+                        <?php 
+                        $idp = $data['id_peminjaman'];
+                        $qq = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$idp'");
+                        $dqq = mysqli_fetch_array($qq);
+                        if($dqq['user_edit']!=$id){
+                        ?>
+                            <!--chat admin, ganti iconnya ver-->
+                            <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                        <?php
+                        }
+                        ?>
                         </td>
                     </tr>
                     <?php include('detailPeminjamanMember.php')?>

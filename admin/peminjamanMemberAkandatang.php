@@ -47,7 +47,8 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pesan.id_peminjaman = peminjaman.id_peminjaman WHERE id_pengguna='$id' AND status_peminjaman='1'");
+                $hariini = date('Y-m-d');
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='1' AND tanggal_peminjaman>='$hariini'");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -78,8 +79,18 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
                         <td class=" actions-fade">
+                        <?php 
+                        $idp = $data['id_peminjaman'];
+                        $qq = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$idp'");
+                        $dqq = mysqli_fetch_array($qq);
+                        if($dqq['user_edit']!=$id){
+                        ?>
                             <!--chat admin, ganti iconnya ver-->
                             <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                        <?php
+                        }
+                        ?>
+                            
                             
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
                             <a href="cetakPeminjamanAkanDatang.php" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
