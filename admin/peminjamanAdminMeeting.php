@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman</h2>
+			<h2>Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,8 +18,8 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-                    <li><span>Peminjaman</span></li>
-                    <li><span>Peminjaman Meeting Room</span></li>
+                    <li><span>Reservation</span></li>
+                    <li><span>Meeting Room Reservation</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -30,7 +30,7 @@
 		
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman Meeting Room - Next Booking</h2>
+        <h2 class="panel-title">Meeting Room Reservation - Next Booking</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -38,11 +38,11 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Nama Peminjam</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Reservator</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -52,7 +52,7 @@
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No Data</b></td>
 <?php
 }else{
 
@@ -73,9 +73,10 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $data['nama_lengkap'] ?></td>
                         <td class=" actions-fade">
+                            
                         <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#detailpinjamnya<?php echo $data['id_peminjaman'];?>"><i class="fa fa-eye"></i>
                         </a>
-                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" target="_blank" ><i class='fa fa-eye' ></i>
+                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" target="_blank" ><i class='fa fa-download' ></i>
                             </a>
                         </td>
                     </tr>
@@ -83,19 +84,19 @@ if(mysqli_num_rows($query)==0){
 <div id="selesaikan<?php echo $data['id_peminjaman'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
-			<h2 class="panel-title">Menyelesaikan Pinjaman</h2>
+			<h2 class="panel-title">Finish Reservation</h2>
 		</header>
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Apakah anda yakin akan menyelesaikan peminjaman dengan acara "<?php echo $data['acara']?>" dan kode peminjaman: <?php echo $data['id_peminjaman'] ?> ?</p>
+					<p>Are you sure that you will finish the reservation with name "<?php echo $data['acara']?>" and reservation code: <?php echo $data['id_peminjaman'] ?> ?</p>
 				</div>
 			</div>
 		</div>
 		<footer class="panel-footer">
 			<div class="row">
 				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="querySelesaikan.php?id=<?php echo $data['id_peminjaman'];?>">Selesaikan</a>
+					<a class="btn btn-primary hapus" href="querySelesaikan.php?id=<?php echo $data['id_peminjaman'];?>">Finish</a>
 					<button class="btn btn-default modal-dismiss">Cancel</button>
 				</div>
 			</div>
@@ -130,7 +131,7 @@ if(mysqli_num_rows($query)==0){
 
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman Lab - Passed</h2>
+        <h2 class="panel-title">Meeting Room Reservation - Passed</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -138,11 +139,11 @@ if(mysqli_num_rows($query)==0){
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Nama Peminjam</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Reservator</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -152,7 +153,7 @@ if(mysqli_num_rows($query)==0){
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No Data</b></td>
 <?php
 }else{
 
@@ -175,28 +176,28 @@ if(mysqli_num_rows($query)==0){
                         <td class=" actions-fade">
                         <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#detailpinjamnya<?php echo $data['id_peminjaman'];?>"><i class="fa fa-eye"></i>
                         </a>
-                            <a class="btn btn-default" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-eye' ></i>
+                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-download' ></i>
                             </a>
-                            <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Selesaikan" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
+                            <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-danger"data-toggle="tooltip" data-placement="top" title="Finish" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
                         </td>
                     </tr>
 
 <div id="selesaikan<?php echo $data['id_peminjaman'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
-			<h2 class="panel-title">Menyelesaikan Pinjaman</h2>
+			<h2 class="panel-title">Finish Reservation</h2>
 		</header>
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Apakah anda yakin akan menyelesaikan peminjaman dengan acara "<?php echo $data['acara']?>" dan kode peminjaman: <?php echo $data['id_peminjaman'] ?> ?</p>
+					<p>Are you sure that you will finish the reservation with name "<?php echo $data['acara']?>" and reservation code: <?php echo $data['id_peminjaman'] ?> ?</p>
 				</div>
 			</div>
 		</div>
 		<footer class="panel-footer">
 			<div class="row">
 				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="querySelesaikan.php?id=<?php echo $data['id_peminjaman'];?>">Selesaikan</a>
+					<a class="btn btn-primary hapus" href="querySelesaikan.php?id=<?php echo $data['id_peminjaman'];?>">Finish</a>
 					<button class="btn btn-default modal-dismiss">Cancel</button>
 				</div>
 			</div>

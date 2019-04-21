@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Log Peminjaman</h2>
+			<h2>Reservation Log</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-                    <li><span>Log Peminjaman</span></li>
+                    <li><span>Reservation Log</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -32,11 +32,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Nama Peminjam</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Reservator</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -45,7 +45,7 @@
                         $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna on ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna=peminjaman.id_pengguna");
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No Data</b></td>
 <?php
 }else{
 
@@ -65,7 +65,7 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $data['nama_lengkap'] ?></td>
                         <td>
-                           <a href="lihatLog.php?id=<?php echo $data['id_peminjaman'] ?>" class="btn btn-primary">Lihat Log</a>
+                           <a href="lihatLog.php?id=<?php echo $data['id_peminjaman'] ?>" class="btn btn-success"><i class='fa fa-file'></i> Log</a>
                         </td>
                     </tr>
 
