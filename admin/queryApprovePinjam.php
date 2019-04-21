@@ -365,8 +365,9 @@ else  {
                 $pesanqq = mysqli_num_rows($pesanq);
                 $hitungq = $pesanqq+1;
                 $qpesan = "PS-" . $hitungq;
+                $namaacaranya = $datapinjamaja['acara'];
 
-                $topikpesan = "Peminjaman: <b>$idpinjam</b> - Acara: <b>$namaacara</b>";
+                $topikpesan = "Peminjaman: <b>$pinjamtolak</b> - Acara: <b>$namaacaranya</b>";
 
                 $queryinsertpesan = mysqli_query($koneksi, "INSERT INTO pesan VALUES('$qpesan','$id','$topikpesan','$pinjamtolak')");
             }
@@ -382,8 +383,6 @@ echo "hehe->".$idpesany . "<-hehe";
             $jadihtgpsndtl = $htgpsndtl+1;
             $jadihtgpsndtlnya = "PD-" . $jadihtgpsndtl;
 
-
-            $namaacaranya = $datapinjamaja['acara'];
 
             $pesannya = "Maaf peminjaman dengan kode $pinjamtolak dan nama acara $namaacaranya ditolak. Dengan alasan: karena waiting list";
 

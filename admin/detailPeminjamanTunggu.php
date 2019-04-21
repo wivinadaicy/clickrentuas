@@ -16,7 +16,7 @@ $data = mysqli_fetch_array($query);
 
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Detail Peminjaman</h2>
+			<h2>Reservation Detail</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -27,10 +27,10 @@ $data = mysqli_fetch_array($query);
 					</li>
 					<li>
                         <a href="peminjamanPending.php">
-                            <span>Peminjaman Tunggu Approve</span>
+                            <span>Waiting to Approve</span>
                         </a>
                     </li>
-                    <li><span>Detail Peminjaman</span></li>
+                    <li><span>Reservation Detail</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -44,48 +44,48 @@ $data = mysqli_fetch_array($query);
                 <div class="panel-actions">
                 </div>
 
-                <h2 class="panel-title">Detail Peminjaman</h2>
+                <h2 class="panel-title">Reservation Detail</h2>
             </header>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">ID Peminjaman</label>
+                    <label class="col-sm-3 control-label">Reservation ID</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-user"></i> <!--ganti-->
                             </span>
                             <input type="text" name="idpeminjaman"  id="idpeminjaman" class="form-control" value="<?php echo $id_pinjam ?>" disabled/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Tanggal Peminjaman</label>
+                    <label class="col-sm-3 control-label">Reservation Date</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-calendar"></i> <!--ganti-->
                             </span>
                             <input type="text" name="tanggalpeminjaman"  id="tanggalpeminjaman" class="form-control" value="<?php echo $data['tanggal_peminjaman'] ?>" disabled/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Waktu Peminjaman</label>
+                    <label class="col-sm-3 control-label">Reservation Time</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-clock-o"></i> <!--ganti-->
                             </span>
                             <input type="text" name="waktupeminjaman"  id="waktupeminjaman" class="form-control" value="<?php echo $data['waktu_mulai'] . " SAMPAI " . $data['waktu_selesai']?>" disabled/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Ruangan</label>
+                    <label class="col-sm-3 control-label">Room</label>
                     <div class="col-sm-7">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-desktop"></i> <!--ganti-->
                             </span>
                             <input type="text" name="ruanganpeminjaman"  id="ruanganpeminjaman" class="form-control" value="<?php echo $data['nama_ruangan'] ?>" disabled/>
                         </div>
@@ -95,11 +95,11 @@ $data = mysqli_fetch_array($query);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Acara</label>
+                    <label class="col-sm-3 control-label">Event Name</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-gift"></i> <!--ganti-->
                             </span>
                             <input type="text" name="acara"  id="acara" class="form-control" value="<?php echo $data['acara']?>" disabled/>
                         </div>
@@ -107,7 +107,7 @@ $data = mysqli_fetch_array($query);
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Kategori Acara</label>
+                    <label class="col-sm-3 control-label">Category of Event</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -118,33 +118,33 @@ $data = mysqli_fetch_array($query);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Jumlah peserta</label>
+                    <label class="col-sm-3 control-label">Total Participants</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-group"></i> <!--ganti-->
                             </span>
                             <input type="text" name="peserta"  id="peserta" class="form-control" value="<?php echo $data['jumlah_peserta']?>" disabled/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Deskripsi Acara</label>
+                    <label class="col-sm-3 control-label">Event Description</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-comment"></i> <!--ganti-->
                             </span>
                             <textarea id="deskripsiacara" name="deskripsiacara" class="form-control" disabled><?php echo $data['deskripsi_acara']?></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Nama Peminjam</label>
+                    <label class="col-sm-3 control-label">Reservator</label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-envelope"></i> <!--ganti-->
+                                <i class="fa fa-user"></i> <!--ganti-->
                             </span>
                             <?php
                             $peminjamm = $data['id_pengguna'];
@@ -158,7 +158,7 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
-                    <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Tolak</a>
+                    <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Deny</a>
                     <a href="#terima" id="approve" class="btn btn-primary modal-sizes">Approve</a>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ $data = mysqli_fetch_array($query);
             <div id="detailRuang" class="modal-block modal-block-sm mfp-hide">
                 <section class="panel">
                     <header class="panel-heading">
-                        <h2 class="panel-title">Detail Ruangan</h2>
+                        <h2 class="panel-title">Room Details</h2>
                     </header>
                     <div class="panel-body">
                         <div class="modal-wrapper">
@@ -192,7 +192,7 @@ $data = mysqli_fetch_array($query);
             <section class="panel">
                     <form method="post" action = "queryTolakPinjam.php">
                 <header class="panel-heading">
-                    <h2 class="panel-title">Tolak Peminjaman <?php echo $data['id_peminjaman']?></h2>
+                    <h2 class="panel-title">Deny Reservation <?php echo $data['id_peminjaman']?></h2>
                 </header>
                 <div class="panel-body">
                 <h4>
@@ -202,7 +202,7 @@ $data = mysqli_fetch_array($query);
                 </h4>
 <?php if($data['id_pengguna']!=$id){?>
                 <hr>
-                <h5>Pesan untuk peminjam</h5>
+                <h5>Messages for Reservator</h5>
                 <input type="hidden" name="idpinjam" value="<?php echo $id_pinjam?>">
                     <div class="form-group mt-lg">
                         <div class="col-sm-12">
@@ -246,17 +246,17 @@ $data = mysqli_fetch_array($query);
 <div class="row">
     <div class="col-lg-6">
         <section class="panel-body">
-            <h4 class="center" style="font-weight:bold; color: green">Waiting List (Time&Room)</h4>
-            <p>Tanggal: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
-            <p>Ruangan: <b><?php echo $data['nama_ruangan'] ?></b></p>
+            <h4 class="center" style="font-weight:bold; color: green">Waiting List (Time &amp;Room)</h4>
+            <p>Date: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+            <p>Room: <b><?php echo $data['nama_ruangan'] ?></b></p>
 	        <hr>
             <table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
-				<th>Nama Peminjam</th>
-                <th>Acara</th>
-				<th>Waktu</th>
-				<th>Aksi</th>
+				<th>Reservator</th>
+                <th>Event</th>
+				<th>Time</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -318,20 +318,21 @@ $tolakcuy='';
         <div id="terima" class="modal-block modal-block-lg mfp-hide">
                 <section class="panel">
                     <header class="panel-heading">
-                        <h2 class="panel-title">Terima Peminjaman <?php echo $data['id_peminjaman'] ?></h2>
+                        <h2 class="panel-title">Accept Reservation <?php echo $data['id_peminjaman'] ?></h2>
                     </header>
                     <div class="panel-body">
                         <div class="modal-wrapper">
                             <div class="modal-text">
-                                Apakah Anda yakin menerima peminjaman <b>'<?php echo $data['id_peminjaman'] ?>'</b> dengan nama acara <b>"<?php echo $data['acara'] ?>"</b>?
+                                Are you sure to accept the reservation<b>'<?php echo $data['id_peminjaman'] ?>'</b> with the name <b>"<?php echo $data['acara'] ?>"</b>?
                                 <br>
-                                Berikut adalah peminjaman yang akan ditolak:
+                                
+                                The following is the dennied reservation:
                                 <br>
                                 <hr>
                                 <?php echo $tolakcuy?>       
                                 <hr>
                                 <?php if($data['id_pengguna']==$id){?>
-                                Dengan mengklik submit, pesan akan otomatis dikirimkan untuk peminjam yang diterima maupun yang ditolak.   
+                                By click the submit button, messages will automaticly send to either the accepted reservation or the dennied reservation.
                                 <?php } ?>                      
                             </div>
                         </div>
@@ -367,8 +368,8 @@ $tolakcuy='';
 
     <div class="col-lg-6">
         <section class="panel-body">
-        <h4 class="center" style="font-weight:bold; color: green">Other Waiting List (Time& not same Room)</h4>
-            <p>Tanggal: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+        <h4 class="center" style="font-weight:bold; color: green">Other Waiting List (Time&amp; not same Room)</h4>
+            <p>Date: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
             <?php
             if($data['jenis_ruangan']=="1"){
                 $jr = "Laboratorium";
@@ -376,14 +377,14 @@ $tolakcuy='';
                 $jr = "Meeting Room";
             }
             ?>
-            <p>Jenis Ruangan: <b><?php echo $jr ?></b></p>
+            <p>Type of Room: <b><?php echo $jr ?></b></p>
 	        <hr>
             <table  class="table table-bordered table-striped mb-none" id="datatable-default2">
 		<thead>
 			<tr>
-                <th>Acara</th>
-                <th>Tempat</th>
-				<th>Aksi</th>
+                <th>Event</th>
+                <th>Location</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>

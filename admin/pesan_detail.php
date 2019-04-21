@@ -279,7 +279,7 @@ if($darii==$id){
 									<?php echo $pesannya?>
 
 								</p>
-                                <time> <p style="text-align:right"><b>Saya</b> • <?php echo $times?></p></time>
+                                <time> <p style="text-align:right"><b>Me</b> • <?php echo $times?></p></time>
                             </div>
                         </div>
                         <div class="col-md-1 col-xs-2 avatar">

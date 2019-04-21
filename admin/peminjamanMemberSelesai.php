@@ -79,9 +79,9 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $kategori ?></td>
                         <td class="actions-hover actions-fade">
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="#cetakberkas" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#cetakberkas" class="modal-sizes btn btn-primary" data-toggle="tooltip" data-placement="top" title="PDF"><i class="fa fa-print"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>

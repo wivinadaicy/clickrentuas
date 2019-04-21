@@ -6,8 +6,9 @@
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-                    <p>Apakah Anda yakin untuk mengganti ruangan acara "<?php echo $data['acara']?>" pada ruangan '<?php echo $data['nama_ruangan']?>'' dengan ruangan '<?php echo $dato['nama_ruangan']?>'? <br>
-                    Jika Anda menggantinya, maka acara "<?php echo $dato['acara']?>" akan diadakan di ruang '<?php echo $data['nama_ruangan']?>'.
+                    <p>Are you sure to change the room for "<?php echo $data['acara']?>" pada ruangan '<?php echo $data['nama_ruangan']?>'' with room '<?php echo $dato['nama_ruangan']?>'? <br>
+                        If you want to make a change, so 
+                     "<?php echo $dato['acara']?>" will be held at '<?php echo $data['nama_ruangan']?>'.
                 </p>
 				</div>
 			</div>
