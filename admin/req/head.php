@@ -42,7 +42,8 @@
 		<link rel="stylesheet" href="assets/vendor/summernote/summernote.css" />
 		<link rel="stylesheet" href="assets/vendor/summernote/summernote-bs3.css" />
 
-		
+		<link rel="stylesheet" href="assets/vendor/morris/morris.css" />
+
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme.css" />

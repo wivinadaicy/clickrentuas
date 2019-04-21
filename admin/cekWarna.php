@@ -10,7 +10,7 @@ while($row = mysqli_fetch_array($query))
 {
     $idruangan=$row['id_ruangan'];
     $namaruangan=$row['nama_ruangan'];
-    $pasangan[$x]= "<span style='background-color:" . $color[$x]. "'>EVENT</span> - Ruangan: <b>" . $namaruangan ." (". $idruangan . ")</b><br>";
+    $pasangan[$x]= "<span style='background-color:" . $color[$x]. "; color: ". $color[$x] ."'>EVENT</span> - Ruangan: <b>" . $namaruangan ." (". $idruangan . ")</b><br>";
     $x++;
 }
 

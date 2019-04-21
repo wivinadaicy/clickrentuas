@@ -44,5 +44,5 @@ else  {
     echo"Sucess";
 }
 
-header('location:hasilBalasKontak.php');
+header('location:contactMessage.php');
 ?>
