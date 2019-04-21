@@ -75,7 +75,7 @@
                     <div class="panel-body">
                         <div class="modal-wrapper">
                             <div class="modal-text">
-                                <p>Jika penggantian email Anda berhasil, Anda akan diminta untuk log in kembali. Jika penggantian email tidak berhasil, maka Anda akan diarahkan menuju halaman dashboard (yakinkan password Anda sudah benar)</p>
+                                <p>If you can change your email successfully, you will be asked to re-login. If you fail to change your email, you will be directed to dashboard page. (make sure your email is already correct)</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                    <a href="#konfirpas" id="simpanpassword" class="btn btn-primary modal-sizes">Simpan</a>
+                    <a href="#konfirpas" id="simpanpassword" class="btn btn-primary modal-sizes">Save</a>
                 </div>
             </div>
             </div>
@@ -155,7 +155,7 @@
                     <div class="panel-body">
                         <div class="modal-wrapper">
                             <div class="modal-text">
-                                <p>Jika penggantian kata sandi Anda berhasil, Anda akan diminta untuk log in kembali. Jika penggantian kata sandi tidak berhasil, maka Anda akan diarahkan menuju halaman dashboard</p>
+                                <p>If you can change your password successfully, you will be asked to re-login. If you fail to change your password, you will be directed to dashboard page.</p>
                             </div>
                         </div>
                     </div>

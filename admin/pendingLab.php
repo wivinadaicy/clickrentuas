@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman Pending: Laboratorium</h2>
+			<h2>Pending Reservation: Laboratory</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -20,7 +20,7 @@
 					</li>
 					<li>
                         <a href="peminjamanPending.php">
-                            <span>Peminjaman Tunggu Approve  - Laboratorium</span>
+                            <span>Waiting to approved  - Laboratory</span>
                         </a>
                     </li>
 				</ol>
@@ -30,7 +30,7 @@
 		</header>
 <!--*****************************-->
 <!--KODINGAN ISI HALAMAN-->
-		<h2 style="text-align:center">Laboratorium</h2>
+		<h2 style="text-align:center">Laboratory</h2>
 		<?php
 		$harini = date("Y-m-d H:i");
 		$jamini = date("H:i");
@@ -68,12 +68,12 @@ $setlogdata = mysqli_query($koneksi,
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
-				<th>Nama Peminjam</th>
-                <th>Acara</th>
-				<th>Tanggal Peminjaman</th>
-				<th>Waktu</th>
-				<th>Nama Ruangan</th>
-				<th>Aksi</th>
+				<th>Reservation Name</th>
+                <th>Event</th>
+				<th>Reservation Date</th>
+				<th>Time</th>
+				<th>Room Name</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>

@@ -3,18 +3,12 @@
           <div class="row mb-4">
             <div class="col-md-3 mb-5">
               <ul class="list-unstyled link">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-               <li><a href="#">Rooms</a></li>
+                <li><img src="images/cr1.png" width="400"></li>
               </ul>
             </div>
             <div class="col-md-3 mb-5">
               <ul class="list-unstyled link">
-                <li><a href="#">The Rooms &amp; Suites</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Restaurant</a></li>
+                
               </ul>
             </div>
             <div class="col-md-3 mb-5 pr-md-5 contact-info">
@@ -32,15 +26,6 @@
                 </div>
               </form>
             </div>
-          </div>
-          <div class="row">
-            <p class="col-md-4 text-right social">
-              <a href="#"><span class="fa fa-tripadvisor"></span></a>
-              <a href="#"><span class="fa fa-facebook"></span></a>
-              <a href="#"><span class="fa fa-twitter"></span></a>
-              <a href="#"><span class="fa fa-linkedin"></span></a>
-              <a href="#"><span class="fa fa-vimeo"></span></a>
-            </p>
           </div>
         </div>
       </footer>

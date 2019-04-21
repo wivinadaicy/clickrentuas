@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman</h2>
+			<h2>Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -18,7 +18,7 @@
 							<i class="fa fa-home"></i>
 						</a>
 					</li>
-					<li><span>Peminjaman</span></li>
+					<li><span>Reservation</span></li>
 				</ol>
 
 				<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -29,7 +29,7 @@
 
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Peminjaman yang dibatalkan</h2>
+        <h2 class="panel-title">Cancelled Reservation</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -37,11 +37,11 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nama Acara</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Ruangan</th>
-                        <th>Jenis Ruangan</th>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Type of Room</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -51,7 +51,7 @@
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
-    <td colspan="7" style="text-align:center"><br><b>Tidak ada data</b></td>
+    <td colspan="7" style="text-align:center"><br><b>No Data</b></td>
 <?php
 }else{
 

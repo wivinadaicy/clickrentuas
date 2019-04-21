@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Peminjaman Pending: Meeting Room</h2>
+			<h2>Pending Reservation: Meeting Room</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -20,7 +20,7 @@
 					</li>
 					<li>
                         <a href="peminjamanPending.php">
-                            <span>Peminjaman Tunggu Approve  - Meeting Room</span>
+                            <span>Waiting to approved  - Meeting Room</span>
                         </a>
                     </li>
 				</ol>
@@ -36,12 +36,12 @@
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>
-				<th>Nama Peminjam</th>
-                <th>Acara</th>
-				<th>Tanggal Peminjaman</th>
-				<th>Waktu</th>
-				<th>Nama Ruangan</th>
-				<th>Aksi</th>
+				<th>Reservation Name</th>
+                <th>Event </th>
+				<th>Reservation Date</th>
+				<th>Time</th>
+				<th>Room Name</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
