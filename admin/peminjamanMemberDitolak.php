@@ -76,10 +76,10 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
-                        <td class="actions-hover actions-fade">
-                            <a href="#chatadmin" class="modal-sizes"><i class="fa fa-comment"></i></a>
+                        <td>
+                            <a href="#chatadmin" class="modal-sizes btn btn-warning" data-toggle="tooltip" data-placement="top" title="Chat"><i class="fa fa-comment"></i></a>
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     <?php include('detailPeminjamanMember.php')?>
@@ -100,7 +100,7 @@ if(mysqli_num_rows($query)==0){
                     <br>
                     <?php
                     $idpesan=$data['id_pesan'];
-                    $adminny = mysqli_query($koneksi, "SELECT * FROM pesan_detail join pengguna on pengguna.id_pengguna = pesan_detail.id_penggunaDari where id_pesan='$idpesan' AND pesan_detail.id_penggunaDari <> '$id' AND pesan_detail.pesan LIKE 'Selamat%' order by tanggal_waktu asc");
+                    $adminny = mysqli_query($koneksi, "SELECT * FROM pesan_detail join pengguna on pengguna.id_pengguna = pesan_detail.id_penggunaDari where id_pesan='$idpesan' AND pesan_detail.id_penggunaDari <> '$id' AND pesan_detail.pesan LIKE 'Maaf%' order by tanggal_waktu asc");
                     $dataadmin = mysqli_fetch_array($adminny);
                     $pengurus = $dataadmin['nama_lengkap'];
                     ?>

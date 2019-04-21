@@ -77,9 +77,9 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
-                        <td class="actions-hover actions-fade">
+                        <td align="center">
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes"><i class="fa fa-trash-o"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>

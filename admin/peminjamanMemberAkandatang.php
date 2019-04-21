@@ -41,7 +41,7 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Room</th>
-                        <th>Type of Room</th>
+                        
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -76,19 +76,20 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $times ?></td>
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
-                        <td><?php echo $kategori ?></td>
+                        
                         <td class=" actions-fade">
                             <!--chat admin, ganti iconnya ver-->
-                            <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                            <a href="#chatadmin" class="modal-sizes btn btn-warning" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-comment"></i></a>
                             
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="cetakPeminjamanAkanDatang.php" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
+                            <a href="cetakPeminjamanAkanDatang.php" class="btn btn-primary" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
 
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
+                        
 
                             <!--batalkan peminjaman, ganti iconnya ver-->
-                            <a href="#batalkanpinjaman" class="delete-row modal-sizes" data-toggle="tooltip" data-placement="top" title="Cancel" ><i class="fa fa-remove"></i></a>
+                            <a href="#batalkanpinjaman" class="delete-row modal-sizes btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel" ><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>
