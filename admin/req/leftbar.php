@@ -157,7 +157,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-clock-o" aria-hidden="true"> </i>
+								<i class="fa fa-spinner" aria-hidden="true"> </i>
 								<span>Pending Reservation </span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0'");
@@ -247,28 +247,34 @@
 							</a>
 						</li>
                         <hr class="separator">
+						<li>
+							<a href="peminjamanMemberPending.php">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								<span>My Pending Reservation</span>
+							</a>
+						</li>
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<span>Upcoming Reservation</span>
+								<span>My Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-minus-circle" aria-hidden="true"></i>
-								<span>Denied Reservation</span>
+								<span>My Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
-								<span>Cancelled Reservation</span>
+								<span>My Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
-								<span>Finished Reservation</span>
+								<span>My Finished Reservation</span>
 							</a>
 						</li>
 			
@@ -404,7 +410,7 @@
 						</li>
 						<li class="nav-parent">
 							<a>
-								<i class="fa fa-clock-o" aria-hidden="true"> </i>
+								<i class="fa fa-spinner" aria-hidden="true"> </i>
 								<span>Pending Reservation </span>
 								<?php
 								$ceknotifmail = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman WHERE peminjaman.status_peminjaman ='0'");
@@ -488,28 +494,34 @@
 							</ul>
 						</li>
                         <hr class="separator">
+						<li>
+							<a href="peminjamanMemberPending.php">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								<span>My Pending Reservation</span>
+							</a>
+						</li>
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<span>Upcoming Reservation</span>
+								<span>My Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-minus-circle" aria-hidden="true"></i>
-								<span>Denied Reservation</span>
+								<span>My Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
-								<span>Cancelled Reservation</span>
+								<span>My Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
-								<span>Finished Reservation</span>
+								<span>My Finished Reservation</span>
 							</a>
 						</li>
 			
@@ -542,28 +554,34 @@
 						</a>
 						</li>
                         <hr class="separator">
+						<li>
+							<a href="peminjamanMemberPending.php">
+								<i class="fa fa-clock-o" aria-hidden="true"></i>
+								<span>My Pending Reservation</span>
+							</a>
+						</li>
                         <li>
 							<a href="peminjamanMemberAkanDatang.php">
 								<i class="fa fa-plus-circle" aria-hidden="true"></i>
-								<span>Upcoming Reservation</span>
+								<span>My Upcoming Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDitolak.php">
 								<i class="fa fa-minus-circle" aria-hidden="true"></i>
-								<span>Denied Reservation</span>
+								<span>My Denied Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberDibatalkan.php">
 								<i class=" fa fa-times-circle-o" aria-hidden="true"></i>
-								<span>Cancelled Reservation</span>
+								<span>My Cancelled Reservation</span>
 							</a>
 						</li>
 						<li>
 							<a href="peminjamanMemberSelesai.php">
 								<i class=" fa fa-check-circle-o" aria-hidden="true"></i>
-								<span>Finished Reservation</span>
+								<span>My Finished Reservation</span>
 							</a>
 						</li>
 			

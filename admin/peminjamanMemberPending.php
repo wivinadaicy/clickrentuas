@@ -29,7 +29,7 @@
 		
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Upcoming Reservation</h2>
+        <h2 class="panel-title">Pending Reservation</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -48,7 +48,7 @@
                 <tbody>
                 <?php
                 $hariini = date('Y-m-d');
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='1' AND tanggal_peminjaman>='$hariini'  order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE status_peminjaman='0' AND id_pengguna='$id' order by peminjaman.waktu_add desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -91,16 +91,9 @@ if(mysqli_num_rows($query)==0){
                         }
                         ?>
                             
-                            
-                            <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="cetakPeminjamanAkanDatang.php" class="btn btn-primary" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
-
                             <!--iconnya buat liat detail kayak biasa-->
                             <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
                         
-
-                            <!--batalkan peminjaman, ganti iconnya ver-->
-                            <a href="#batalkanpinjaman" class="delete-row modal-sizes btn btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel" ><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>

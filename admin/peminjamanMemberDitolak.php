@@ -108,7 +108,7 @@ if(mysqli_num_rows($query)==0){
                     <br>
                     <?php
                     $idpesan=$data['id_pesan'];
-                    $adminny = mysqli_query($koneksi, "SELECT * FROM pesan_detail join pengguna on pengguna.id_pengguna = pesan_detail.id_penggunaDari where id_pesan='$idpesan' AND pesan_detail.id_penggunaDari <> '$id' AND pesan_detail.pesan LIKE 'Maaf%' order by tanggal_waktu asc");
+                    $adminny = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
                     $dataadmin = mysqli_fetch_array($adminny);
                     $pengurus = $dataadmin['nama_lengkap'];
                     ?>
