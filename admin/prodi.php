@@ -73,9 +73,9 @@
         $querys = mysqli_query($koneksi, "SELECT * from fakultas JOIN program_studi on fakultas.id_fakultas = program_studi.id_fakultas WHERE program_studi.status_delete='0'");
         while($data=mysqli_fetch_array($querys)){
 
-		 include('prodiFakultas/modalDetail.php'); 
-		 include('prodiFakultas/modalEdit.php'); 
-		 include('prodiFakultas/modalHapus.php'); 
+		 include('prodi/modalDetail.php'); 
+		 include('prodi/modalEdit.php'); 
+		 include('prodi/modalHapus.php'); 
         } ?>
 
         <br>
@@ -141,7 +141,7 @@
 		<footer class="panel-footer">
 			<div class="row">
 				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="prodiFakultas/restore.php?id=<?php echo $data['id_ruangan'];?>">Restore</a>
+					<a class="btn btn-primary hapus" href="prodi/restore.php?id=<?php echo $data['id_ruangan'];?>">Restore</a>
 					<button class="btn btn-default modal-dismiss">Cancel</button>
 				</div>
 			</div>
