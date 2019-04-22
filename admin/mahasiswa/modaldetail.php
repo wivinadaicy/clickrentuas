@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label">Program Studi <span class="required">*</span></label>
+        <label class="col-sm-3 control-label">Major <span class="required">*</span></label>
         <div class="col-sm-9">
             <select class="form-control" id="programstudi" name="programstudi" readonly>
             <?php
@@ -94,7 +94,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label">Angkatan <span class="required">*</span></label>
+        <label class="col-sm-3 control-label">Batch <span class="required">*</span></label>
         <div class="col-sm-9">
             <input type="number" name="angkatan" class="form-control" value="<?php echo $datamhs['angkatan'] ?>"  readonly/>
         </div>
@@ -108,14 +108,14 @@
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Total SKS <span class="required">*</span></label>
+        <label class="col-sm-3 control-label">Total credits <span class="required">*</span></label>
         <div class="col-sm-9">
             <input type="number" name="sks" class="form-control" value="<?php echo $datamhs['total_sks'] ?>"  readonly/>
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">IPK Terakhir <span class="required">*</span></label>
+        <label class="col-sm-3 control-label">GPA<span class="required">*</span></label>
         <div class="col-sm-9">
             <input type="number" name="ipk" class="form-control" value="<?php echo $datamhs['ipk_terakhir'] ?>"  readonly/>
         </div>

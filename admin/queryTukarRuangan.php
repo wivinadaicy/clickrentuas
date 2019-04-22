@@ -138,7 +138,7 @@ $pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$o
     $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
     $mail->addAddress($emailnya, $emailnya );
     
-    $mail->Subject = "Ruangan Peminjaman Kode: $pinjam1 Ditukar";
+    $mail->Subject = "Room Reservation Code: $pinjam1 Changed";
     $msg='
     <!DOCTYPE html>
 <html>
@@ -413,7 +413,7 @@ $acaranya = $dacarah['acara'];
     $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
     $mail->addAddress($emailnya, $emailnya );
     
-    $mail->Subject = "Ruangan Peminjaman Kode: $pinjam2 Ditukar";
+    $mail->Subject = "Room Reservation Code: $pinjam2 Changed";
     $msg='
     <!DOCTYPE html>
 <html>
