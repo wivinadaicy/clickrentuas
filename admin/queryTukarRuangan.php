@@ -595,7 +595,7 @@ $acaranya = $dacarah['acara'];
                     </td>         
 </body>
 </html>
-    ' 
+    '; 
     
     $mail->msgHTML("$msg");
     

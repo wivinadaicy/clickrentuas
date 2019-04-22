@@ -81,11 +81,11 @@ $now = date('H:i');
 		<h4 style="text-align: center"><b>RESERVATION</b></h4>
 		<hr>
 		<?php
-		$queryi = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='1' AND  (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
+		$queryi = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='1' AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
 		$dqi = mysqli_fetch_array($queryi);?>
-		<p style="font-weight:bold; text-align:center">New Reservation This Month</p>
+		<p style="font-weight:bold; text-align:center">Reservation This Month</p>
 		<?php
-		$queryk = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='2' AND   (status_peminjaman='1' or status_peminjaman='0' or status_peminjaman='3') AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
+		$queryk = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan on ruangan.id_ruangan = peminjaman.id_ruangan WHERE jenis_ruangan='2' AND peminjaman.waktu_add BETWEEN (DATE_ADD('$todays', INTERVAL -1 MONTH)) AND '$todays'");
 		$dqk = mysqli_fetch_array($queryk);?>
 	<table>
 			<tr>

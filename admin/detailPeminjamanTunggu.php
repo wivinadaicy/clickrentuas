@@ -158,8 +158,8 @@ $data = mysqli_fetch_array($query);
                 </div>
                 <div class="row">
                     <div class="col-sm-9 col-sm-offset-3">
-                    <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Deny</a>
-                    <a href="#terima" id="approve" class="btn btn-primary modal-sizes">Approve</a>
+                        <a href="#tolak" id="tolakan" class="modal-with-form  btn btn-default">Deny</a>
+                        <a href="#terima" id="approve" class="btn btn-primary modal-sizes">Approve</a>
                     </div>
                 </div>
             </section>
