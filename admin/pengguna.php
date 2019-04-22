@@ -30,9 +30,7 @@
 		
 <div class="container-fluid">
 <h3>Data of Active Users</h3>
-<?php if($status=="1"){?>
 	<?php include('pengguna/modalTambah.php');?>
-<?php }?>
 	<br>
 	<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">

@@ -261,6 +261,8 @@ $times = date("d-M-Y H:i",strtotime($time));
 $darinya = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$darii'");
 $datadarinya = mysqli_fetch_array($darinya);
 
+$kenya = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$kee'");
+$datakenya = mysqli_fetch_array($kenya);
 $jk = $datadarinya['jenis_kelamin'];
 if($jk=="l"){
 	$foto = "../images/fotoprofil/male.png";
@@ -289,7 +291,7 @@ if($darii==$id){
 <?php }else{?>					
 
                     <div class="row msg_container base_receive">
-						<a class="modal-sizes" role="menuitem" tabindex="-1" href="#lihatprofil">
+						<a class="modal-sizes" role="menuitem" tabindex="-1" href="#lihatprofill">
 							<div class="col-md-1 col-xs-2 avatar">
 								<img class="imgnya" src="<?php echo $foto?>" class=" img-responsive ">
 							</div>
@@ -305,11 +307,128 @@ if($darii==$id){
 
 
 <?php 
+
 }
 } ?>
 <section id="isi"></section>
 
-					
+
+
+
+
+
+<div id="lihatprofill" class="modal-block modal-block-sm mfp-hide">
+	<section class="panel">
+		<header class="panel-heading">
+			<h2 class="panel-title" style="text-align: center">Profile Data</h2>
+		</header>
+		<div class="panel-body">
+			<div class="modal-wrapper">
+				<div class="modal-text">
+    <div class="container">
+    <div class="row">
+        
+        <div class="col-xs-9 col-sm-4 col-md-4">
+            <div class=" well-sm" style="text-align:center">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <?php
+						$idorang = $datakenya['id_pengguna'];
+						$querr = mysqli_query($koneksi, "SELECT * FROM pengguna where id_pengguna='$idorang'");
+						$dataorang = mysqli_fetch_array($querr);
+                        if($dataorang['jenis_kelamin']=="l"){
+                            $foto = "../images/fotoprofil/male.png";
+                        }else{
+                            $foto = "../images/fotoprofil/female.png";
+                        }
+                        ?>
+                        <img class="rounded mx-auto d-block" width="50px" src="<?php echo $foto ?>"/>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                    <br>
+                            <h4 style="color: black"><b><?php echo $dataorang['nama_lengkap'] ?></b></h4>
+                            <?php
+                            $ttl = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$idorang'");
+                            $profile = mysqli_fetch_array($ttl);
+								
+								if($profile['status_pengguna']=="1"){
+									$stat = "Super Admin";
+								}else if($profile['status_pengguna']=="2"){
+									$stat = "Admin";
+								}else if($profile['status_pengguna']=="3"){
+									$stat = "Member Dosen";
+								}else{
+									$stat = "member Mahasiswa";
+								}
+								?>
+                            <h5>
+                            <?php echo $stat ?></h5>
+<br>
+                            
+                            
+                    </div>
+                </div>
+            </div>
+            <p>
+                            <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:<?php echo $dataorang['email'] ?>"><?php echo $dataorang['email'] ?></a> </p>
+                           
+
+                           <p> <i class="glyphicon glyphicon-map-marker"></i>
+                            <?php echo $dataorang['alamat'] ?></p>
+                            <p> <i class="glyphicon glyphicon-map-marker"></i>
+                            <?php echo $profile['tanggal_lahir'] ?></p>
+                            <p><i class="glyphicon glyphicon-earphone"></i> <a href="tel:<?php echo $dataorang['no_hp'] ?>"><?php echo $dataorang['no_hp'] ?></a></p>
+                            
+
+                            <?php if($profile['status_pengguna']=="4"){
+                                $mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa join program_studi join pengguna on program_studi.id_programStudi = mahasiswa.id_programStudi and pengguna.id_pengguna = mahasiswa.id_pengguna WHERE mahasiswa.status_delete='0' AND pengguna.id_pengguna='$idorang'");
+                                $dmhs = mysqli_fetch_array($mhs);
+                            ?>
+                           
+                            <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Program Studi: <span style="color:black"><?php echo $dmhs['nama_programStudi']?></span>  
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angkatan: <span style="color:black"><?php echo $dmhs['angkatan']?></span>  
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semester: <span style="color:black"><?php echo $dmhs['semester']?></span>  
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total SKS: <span style="color:black"><?php echo $dmhs['total_sks']?></span>  
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IPK Terakhir: <span style="color:black"><?php echo $dmhs['ipk_terakhir']?></span>  
+                            </p>
+
+
+                            <?php  } ?>
+
+        </div>
+    </div>
+</div>
+					 
+				</div>
+			</div>
+		</div>
+		<footer class="panel-footer">
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<button class="btn btn-primary modal-dismiss">Ok</button>
+				</div>
+			</div>
+		</footer>
+	</section>
+</div>
+
+
+
+
+
+
+
+
+
 					<input id="pesanid" type="text" style="opacity:0; height:1px" value="<?php echo $idpesan?>" readonly style="height:1px">
 					<input id="pengke" type="text" style="opacity:0; height:1px" value="<?php echo $ke?>" readonly style="height:1px">
 					<input type="number" id="fokusbawah" autofocus style="opacity:0; height:1px" readonly style="height:1px">
