@@ -69,7 +69,7 @@
 									</thead>
 									<tbody class="log-viewer">
                                     <?php
-                                    $query = mysqli_query($koneksi, "SELECT * FROM log_ruangan WHERE id_ruangan='$idruangans'");
+                                    $query = mysqli_query($koneksi, "SELECT * FROM log_ruangan WHERE id_ruangan='$idruangans' order by log_ruangan.waktu_edit desc");
                                     if(mysqli_num_rows($query)==0){ ?>
                                         <tr>
                                             <td colspan="5" style="text-align:center">No Data</td>
