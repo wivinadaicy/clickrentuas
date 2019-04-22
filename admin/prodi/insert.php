@@ -3,7 +3,7 @@ include("../../koneksi.php");
 include("../../session.php");
 $idnya = $_POST['idprogramstudi'];
 $namaprogramstudi = $_POST['namaprogramstudi'];
-$idfakultas = $_POST['idfakultas'];
+$idfakultas = $_POST['fakultas'];
 
 $query = "INSERT INTO program_studi VALUES ('$idnya','$namaprogramstudi','$idfakultas','$id',now(),'0','0','0','0','0')";
 

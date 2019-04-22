@@ -14,20 +14,31 @@
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Major<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namaprogramstudi"  id="namabarang" class="form-control" placeholder="insert major" required value = "<?php echo $data['nama_programStudi'] ?>">
+					<input type="text" name="namaprogramstudi"  id="namabarang" class="form-control" placeholder="Insert Major Name" required value = "<?php echo $data['nama_programStudi'] ?>">
 				</div>
 			</div>
-            <div class="form-group mt-lg">
+			<div class="form-group">
 				<label class="col-sm-3 control-label">Faculty<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namafakultas"  id="namabarang" class="form-control" placeholder="insert faculty" required value = "<?php echo $data['nama_fakultas'] ?>">
+				<select name="fakultas">
+					<?php
+					$quer = mysqli_query($koneksi, "SELECT * FROM fakultas WHERE status_delete='0'");
+					
+					while($dquer = mysqli_fetch_array($quer)){
+						?>
+						<option value="<?php echo $dquer['id_fakultas'] ?>" <?php if($dquer['id_fakultas']==$data['id_fakultas']){echo "selected";} ?>><?php echo $dquer['nama_fakultas'] ?></option>
+					<?php
+					}
+					?>
+					</select>
 				</div>
+			</div>
 			
 			
             </div>
 			
 			
-        </div>
+       
         <footer class="panel-footer">
             <div class="row">
                 <div class="col-md-12 text-right">

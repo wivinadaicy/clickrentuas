@@ -57,108 +57,95 @@
                         <td><?php echo $data['nama_programStudi']; ?></td>
                         <td><?php echo $data['nama_fakultas']; ?></td>
                         <td>
-                          <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_fakultas'];?>"><i class='fa fa-eye'></i>
+						<a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_programStudi'];?>"><i class='fa fa-eye'></i>
                           </a>
-                          <a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_fakultas'];?>"><i class='fa fa-edit'></i>
+                          <a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_programStudi'];?>"><i class='fa fa-edit'></i>
                          </a>
-                         <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_fakultas'];?>"><i class='fa fa-trash-o'></i></a>
-                         <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
+                         <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_programStudi'];?>"><i class='fa fa-trash-o'></i></a>
+
+						 <?php if($status=="1"){?>
+						 
+                         <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="prodiLog.php?id=<?php echo $data['id_programStudi'];?>"><i class='fa fa-file'></i></a>
+						 <?php } ?>
                         </td>
              </tr>
-		<?php $no++; } ?>
+		<?php $no++; 
+	include('prodi/modalDetail.php'); 
+	include('prodi/modalEdit.php'); 
+	include('prodi/modalHapus.php'); 
+	
+	} ?>
 		</tbody>
 		
 	</table>
-	<?php
-        $querys = mysqli_query($koneksi, "SELECT * from fakultas JOIN program_studi on fakultas.id_fakultas = program_studi.id_fakultas WHERE program_studi.status_delete='0'");
-        while($data=mysqli_fetch_array($querys)){
-
-		 include('prodi/modalDetail.php'); 
-		 include('prodi/modalEdit.php'); 
-		 include('prodi/modalHapus.php'); 
-        } ?>
 
         <br>
         <br>
 
-<section class="panel">
-	<header class="panel-heading">
-		<div class="panel-actions">
-		</div>
-
-		<h2 class="panel-title">Deleted Major</h2>
-	</header>
-	<div class="panel-body">
+<?php if($status=="1"){ ?>
 		<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
-			<thead>
-				<tr>
+		<thead>
+		
+			<tr>
 				<th>No.</th>
                 <th>Major</th>
                 <th>Faculty</th>
 				<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-                
-			<?php
-			$query = mysqli_query($koneksi, "SELECT * from fakultas JOIN program_studi on fakultas.id_fakultas = program_studi.id_fakultas WHERE program_studi.status_delete='1'");
-			while($data=mysqli_fetch_array($query)){
-			?>
-                
-				<tr>
-                    <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM program_studi JOIN fakultas");
+			</tr>
+
+		</thead>
+		<tbody>
+             <?php
+                        $query = mysqli_query($koneksi, "SELECT * FROM program_studi JOIN fakultas on program_studi.id_fakultas = fakultas.id_fakultas WHERE program_studi.status_delete ='1'");
                         $baris = mysqli_num_rows($query);
                         $no = 1;
                         while($data = mysqli_fetch_array($query))
                         {
                 ?>
-                    
-				<td> <?php echo $data['no'] ?></td>
-                <td> <?php echo $data['nama_programStudi']?></td>
-				<td> <?php echo $data['nama_fakultas'] ?></td>
-				<td class="text-center">
-					<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_fakultas"]?>"><i class="fa fa-trash-o"></i></a>
-					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="prodiLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
-				</td>
-            </tr>
-                <?php } ?>
-            
-						
+             <tr>
+                        <td><?php echo $no; ?></td>
+                        <td><?php echo $data['nama_programStudi']; ?></td>
+                        <td><?php echo $data['nama_fakultas']; ?></td>
+                        <td>
+						<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_programStudi"]?>"><i class="fa fa-trash-o"></i></a>
+						 
+                         <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="prodiLog.php?id=<?php echo $data['id_programStudi'];?>"><i class='fa fa-file'></i></a>
+                        </td>
+             </tr>
 
-<div id="restore<?php echo $data['id_fakultas'];?>" class="modal-block modal-block-sm mfp-hide">
-	<section class="panel">
-		<header class="panel-heading">
-			<h2 class="panel-title">Restore Data</h2>
-		</header>
-		<div class="panel-body">
-			<div class="modal-wrapper">
-				<div class="modal-text">
-					<p>Are you sure you want to restore data from major &amp; faculty with id <?php echo $data['id_fakultas'] ?>the name " <?php echo $data['nama_programStudi']?>" ?</p>
-				</div>
+			 <div id="restore<?php echo $data['id_programStudi'];?>" class="modal-block modal-block-sm mfp-hide">
+				<section class="panel">
+					<header class="panel-heading">
+						<h2 class="panel-title">Restore Data</h2>
+					</header>
+					<div class="panel-body">
+						<div class="modal-wrapper">
+							<div class="modal-text">
+								<p>Are you sure you want to restore data from program studi with id <?php echo $data['id_programStudi'] ?> and name " <?php echo $data['nama_programStudi']?>" ?</p>
+							</div>
+						</div>
+					</div>
+					<footer class="panel-footer">
+						<div class="row">
+							<div class="col-md-12 text-right">
+								<a class="btn btn-primary hapus" href="prodi/restore.php?id=<?php echo $data['id_programStudi'];?>">Restore</a>
+								<button class="btn btn-default modal-dismiss">Cancel</button>
+							</div>
+						</div>
+					</footer>
+				</section>
 			</div>
-		</div>
-		<footer class="panel-footer">
-			<div class="row">
-				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="prodi/restore.php?id=<?php echo $data['id_ruangan'];?>">Restore</a>
-					<button class="btn btn-default modal-dismiss">Cancel</button>
-				</div>
-			</div>
-		</footer>
-	</section>
-</div>
-
-			<?php 
-
-			
-		} ?>
-			</tbody>
-		</table>
+		<?php $no++; 
+	
 
 
-	</div>
-</section>
+
+	
+	} ?>
+		</tbody>
+		
+	</table>
+<?php } ?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>

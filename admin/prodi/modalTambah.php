@@ -28,7 +28,17 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Faculty<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" id="merek" name="namafakultas" class="form-control" placeholder="Insert Faculty Name">
+				<select name="fakultas">
+					<?php
+					$quer = mysqli_query($koneksi, "SELECT * FROM fakultas WHERE status_delete='0'");
+					
+					while($dquer = mysqli_fetch_array($quer)){
+						?>
+						<option value="<?php echo $dquer['id_fakultas'] ?>"><?php echo $dquer['nama_fakultas'] ?></option>
+					<?php
+					}
+					?>
+					</select>
 				</div>
 			</div>
 		</div>

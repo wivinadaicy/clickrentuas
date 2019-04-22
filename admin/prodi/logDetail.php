@@ -1,4 +1,4 @@
-<div id='modaldetail<?php echo $data['id_barang'];?>' class="modal-block modal-block-primary mfp-hide">
+<div id='mods<?php echo $data['id_logProgramStudi'];?>' class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <form class="form-horizontal mb-lg" method="post">
         <header class="panel-heading">
@@ -6,57 +6,33 @@
         </header>
         <div class="panel-body">
 		<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">ID Barang<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Major ID<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="idbarang"  class="form-control" value = "<?php echo $data['id_barang'] ?>" readonly>
+					<input type="text" name="idprogramstudi"  class="form-control" value = "<?php echo $data['id_programStudi'] ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Nama Barang<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Major<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namabarang"  id="namabarang" class="form-control" placeholder="ketik nama barang" readonly value = "<?php echo $data['nama_barang'] ?>">
-				</div>
-			</div>
-			<div class="form-group mt-lg">
-				<label class="col-sm-3 control-label">Jenis Barang<span class="required">*</span></label>
-				<div class="col-sm-9">
-					<input type="radio" name="jenisbarang" value="1"  <?php if($data['id_jenisBarang']=="1"){echo "checked";} ?>  disabled>Software &nbsp;&nbsp;
-					<input type="radio" name="jenisbarang" value="2"<?php if($data['id_jenisBarang']=="2"){echo "checked";} ?>  disabled>Hardware &nbsp;&nbsp;
-					<input type="radio" name="jenisbarang" value="3"<?php if($data['id_jenisBarang']=="3"){echo "checked";} ?>  disabled>Lain-Lain
+					<input type="text" name="namaprogramstudi"  id="namabarang" class="form-control" placeholder="Insert Major Name" required value = "<?php echo $data['nama_programStudi'] ?>">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Ruangan<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Faculty<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<select name="ruangan" disabled>
+				<select name="fakultas">
 					<?php
-					$r = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
-					while($dr = mysqli_fetch_array($r)){
+					$quer = mysqli_query($koneksi, "SELECT * FROM fakultas WHERE status_delete='0'");
+					
+					while($dquer = mysqli_fetch_array($quer)){
+						?>
+						<option value="<?php echo $dquer['id_fakultas'] ?>" <?php if($dquer['id_fakultas']==$data['id_fakultas']){echo "selected";} ?>><?php echo $dquer['nama_fakultas'] ?></option>
+					<?php
+					}
 					?>
-						<option value="<?php echo $dr['id_ruangan'] ?>" <?php if($dr['id_ruangan']==$data['id_ruangan']){echo "selected";} ?>><?php echo $dr['nama_ruangan'] ?></option>
-					<?php }?>
 					</select>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Merek <span class="required">*</span></label>
-				<div class="col-sm-9">
-					<input type="text" id="merek" name="merek" class="form-control" placeholder="ketik merek barang" value = "<?php echo $data['merek'] ?>" readonly>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Stok<span class="required">*</span></label>
-				<div class="col-sm-9">
-					<input type="number" name="stok"  id="stok" class="form-control" placeholder="masukkan stok barang" readonly value = "<?php echo $data['stok_barang'] ?>" >
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">Tanggal Pembelian<span class="required">*</span></label>
-				<div class="col-sm-9">
-					<input type="date" name="tanggalbeli"  id="tanggalbeli" class="form-control" readonly value = "<?php echo $data['tanggal_beli'] ?>" >
-				</div>
-			</div>
-
 			<div class="form-group">
 				<label class="col-sm-3 control-label">User Edit<span class="required">*</span></label>
 				<div class="col-sm-9">
@@ -65,16 +41,16 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-3 control-label">Waktu Edit<span class="required">*</span></label>
+				<label class="col-sm-3 control-label">Time Edit<span class="required">*</span></label>
 				<div class="col-sm-9">
 					<input type="text" name="waktuedit"  id="waktuedit" class="form-control" readonly value = "<?php echo date('l, d M Y | H:i',strtotime($data['waktu_edit'])) ?>" >
 				</div>
 			</div>
 			
 			<?php 
-			$asli = mysqli_query($koneksi, "SELECT * FROM barang WHERE id_barang ='$idruang'");
+			$asli = mysqli_query($koneksi, "SELECT * FROM program_studi WHERE id_programStudi ='$idprodi'");
 			$dasli = mysqli_fetch_array($asli);
-			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!=""){
+			if($dasli['waktu_delete']=="0000-00-00 00:00:00" && $dasli['user_delete']!="0"){
 				?>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Restored By<span class="required">*</span></label>
