@@ -80,6 +80,8 @@
         <br>
         <br>
 
+        
+<?php if($status=="1"){?>
 <section class="panel">
 	<header class="panel-heading">
 		<div class="panel-actions">
@@ -91,52 +93,28 @@
 		<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
 			<thead>
 				<tr>
-				<th>No.</th>
-                <th>Event Category</th>
-				<th>Action</th>
+					<th>No.</th>
+					<th>Event Category</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
                 
             <?php
 			$query = mysqli_query($koneksi, "SELECT * FROM kategori_acara  WHERE kategori_acara.status_delete='1'");
+			$no = 1;
 			while($data=mysqli_fetch_array($query)){
 			?>
                 
                 <tr>
-                    <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM kategori_acara where status_delete='1'");
-                        $baris = mysqli_num_rows($query);
-                
-                if($baris==0){
-                    ?>
-                        <td colspan="4" style="font-weight:bold; text-align:center">No Data</td>
-                    <?php
-                       }
-                
-                 $no = 1;
-                        while($data = mysqli_fetch_array($query))
-                        {
-                ?>
-                    
-				<td> <?php echo $no;?></td>
-				<td> <?php echo $data['jenis_acara'] ?></td>
-				<td class="text-center">
-					<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_kategoriAcara"]?>"><i class="fa fa-trash-o"></i></a>
-					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="kategoriAcaraLog.php?id=<?php echo $data['id_kategoriAcara'];?>"><i class="fa fa-file"></i></a>
-				</td>
+					<td> <?php echo $no;?></td>
+					<td> <?php echo $data['jenis_acara'] ?></td>
+					<td class="text-center">
+						<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_kategoriAcara"]?>"><i class="fa fa-trash-o"></i></a>
+						<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="kategoriAcaraLog.php?id=<?php echo $data['id_kategoriAcara'];?>"><i class="fa fa-file"></i></a>
+					</td>
                 </tr>
-                
-                <?php  
-                            $no++;} ?>
-                </tbody>
-		</table>
-     
-        
-            
-						
-
-<div id="restore<?php echo $data['id_kategoriAcara'];?>" class="modal-block modal-block-sm mfp-hide">
+				<div id="restore<?php echo $data['id_kategoriAcara'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
 			<h2 class="panel-title">Restore Data</h2>
@@ -144,7 +122,7 @@
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Are you sure you want to restore data from Event Category with id <?php echo $data['id_kategoriAcara'] ?>the name " <?php echo $data['jenis_acara']?>" ?</p>
+					<p>Are you sure you want to restore data from faculty with id <?php echo $data['id_kategoriAcara'] ?>the name " <?php echo $data['jenis_acara']?>" ?</p>
 				</div>
 			</div>
 		</div>
@@ -158,17 +136,27 @@
 		</footer>
 	</section>
 </div>
-
-	
-			<?php 
+<?php 
 
 			
-		} ?>
+		 }?>
+                </tbody>
+		</table>
+     
+        
+            
+						
+
+
+
+	
+			
 			
 
 
 	</div>
 </section>
+<?php } ?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
