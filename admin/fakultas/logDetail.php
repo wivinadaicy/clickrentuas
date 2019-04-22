@@ -14,7 +14,7 @@
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Faculty Name<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namafakultas"  id="namabarang" class="form-control" placeholder="ketik nama barang" readonly value = "<?php echo $data['nama_fakultas'] ?>">
+					<input type="text" name="namafakultas"  id="namafakultas" class="form-control" placeholder="Insert Faculty Name" readonly value = "<?php echo $data['nama_fakultas'] ?>">
 				</div>
 			</div>
 			

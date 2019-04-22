@@ -69,7 +69,7 @@
 									<tbody class="log-viewer">
                                     <?php
                                     $pinjam = $_GET['id'];
-                                    $query = mysqli_query($koneksi, "SELECT * FROM log_pengguna WHERE id_pengguna='$idpem'");
+                                    $query = mysqli_query($koneksi, "SELECT * FROM log_pengguna WHERE id_pengguna='$idpem' order by log_pengguna.waktu_edit desc");
                                     if(mysqli_num_rows($query)==0){ ?>
                                         <tr>
                                             <td colspan="5" style="text-align:center">No Data</td>
