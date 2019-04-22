@@ -2,7 +2,7 @@
     <section class="panel">
         <form class="form-horizontal mb-lg" method="post">
         <header class="panel-heading">
-            <h2 class="panel-title">Details of Items Data</h2>
+            <h2 class="panel-title">Details of Rooms Data</h2>
         </header>
         <div class="panel-body">
 		<div class="form-group mt-lg">

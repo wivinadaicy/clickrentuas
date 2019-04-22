@@ -2,7 +2,7 @@
     <section class="panel">
 			<form action="barang/update.php" method="post">
         <header class="panel-heading">
-            <h2 class="panel-title">Edit User Data</h2>
+            <h2 class="panel-title">Edit Item Data</h2>
         </header>
         <div class="panel-body">
 		<div class="form-group mt-lg">
