@@ -64,7 +64,7 @@
                                             <th><span class="text-normal text-sm">Room Name</span></th>
                                             <th><span class="text-normal text-sm">Type of Room</span></th>
 											<th><span class="text-normal text-sm">Admin</span></th>
-                                            <th><span class="text-normal text-sm">Acttion</span></th>
+                                            <th><span class="text-normal text-sm">Action</span></th>
 										</tr>
 									</thead>
 									<tbody class="log-viewer">
