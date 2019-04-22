@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna on ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna=peminjaman.id_pengguna");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna on ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna=peminjaman.id_pengguna ORDER BY peminjaman.waktu_edit DESC");
 if(mysqli_num_rows($query)==0){
     ?>
     <td colspan="7" style="text-align:center"><br><b>No Data</b></td>

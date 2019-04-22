@@ -8,7 +8,7 @@
 				<div class="modal-text">
                     <p>Are you sure to change the room for "<?php echo $data['acara']?>" pada ruangan '<?php echo $data['nama_ruangan']?>'' with room '<?php echo $dato['nama_ruangan']?>'? <br>
                         If you want to make a change, so 
-                     "<?php echo $dato['acara']?>" will be held at '<?php echo $data['nama_ruangan']?>'.
+                     "<?php echo $dato['acara']?>" will be held at '<?php echo $dato['nama_ruangan']?>'.
                 </p>
 				</div>
 			</div>
