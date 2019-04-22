@@ -38,7 +38,7 @@
     $add = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$idpem'");
     $riw = mysqli_fetch_array($add);
     ?>
-    <h5><b>Tanggal Input:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_add'])) ?> WIB</h5>
+    <h5><b>Input Date:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_add'])) ?> WIB</h5>
 
     <?php 
     $idadmin = $riw['user_add'];

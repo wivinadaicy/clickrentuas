@@ -13,7 +13,7 @@
 		<footer class="panel-footer">
 			<div class="row">
 				<div class="col-md-12 text-right">
-					<a class="btn btn-primary hapus" href="fakultas/delete.php?id=<?php echo $data['id_barang'];?>">Delete</a>
+					<a class="btn btn-primary hapus" href="fakultas/delete.php?id=<?php echo $data['id_fakultas'];?>">Delete</a>
 					<button class="btn btn-default modal-dismiss">Cancel</button>
 				</div>
 			</div>

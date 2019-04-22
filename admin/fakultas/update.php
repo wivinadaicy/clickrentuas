@@ -5,7 +5,7 @@ $idnya = $_POST['idfakultas'];
 $namafakultas = $_POST['namafakultas'];
 
 
-$query = "UPDATE fakultas SET id_fakultas='$idnya', , nama_fakultas='$namafakultas', user_edit='$id', waktu_edit=now() WHERE id_fakultas='$idnya'";
+$query = "UPDATE fakultas SET nama_fakultas='$namafakultas', user_edit='$id', waktu_edit=now() WHERE id_fakultas='$idnya'";
 
 $jalanin = mysqli_query($koneksi,$query);
 

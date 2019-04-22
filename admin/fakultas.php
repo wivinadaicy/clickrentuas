@@ -61,7 +61,7 @@
                           <a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_fakultas'];?>"><i class='fa fa-edit'></i>
                          </a>
                          <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_fakultas'];?>"><i class='fa fa-trash-o'></i></a>
-                         <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="penggunaLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
+                         <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
                         </td>
             </tr>
             <?php $no++; } ?>
