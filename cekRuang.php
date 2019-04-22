@@ -56,12 +56,38 @@ while($ruangsedia=mysqli_fetch_array($query)){
                 <p class='card-text'>
                 Location : ". $ruangsedia['gedung_lantai']."<br>
                 Capacity : ". $ruangsedia['kapasitas'] ." <br>
-                Description : ". $ruangsedia['deskripsi'] ."<br>
-                </p>
+                Description : ". $ruangsedia['deskripsi'] ."<br><br>
+                Items Included:<br>
+                ";
+    
+    $query2=mysqli_query($koneksi, "SELECT * FROM barang JOIN ruangan on barang.id_ruangan = ruangan.id_ruangan WHERE ruangan.id_ruangan='$ruangannya'");
+    while($dataquery2=mysqli_fetch_array($query2)){
+        
+    
+        $kalimat = $kalimat ."
+        ". $dataquery2['nama_barang'] . " ( " . $dataquery2['kapasitas'].") - ".$dataquery2['merek']."<br>";
+    }
+    
+    
+        $kalimat = $kalimat . "   </p>
                 <a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang' class='btn btn-dark'>Booking</a>
             </div>
         </div>
     </div>";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 
