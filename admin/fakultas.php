@@ -100,35 +100,21 @@
                 
             <?php
 			$query = mysqli_query($koneksi, "SELECT * FROM fakultas  WHERE fakultas.status_delete='1'");
+			$no = 1;
 			while($data=mysqli_fetch_array($query)){
 			?>
                 
                 <tr>
-                    <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM fakultas where status_delete='1'");
-                        $baris = mysqli_num_rows($query);
-                
-                if($baris==0){
-                    ?>
-                        <td colspan="4" style="font-weight:bold; text-align:center">No Data</td>
-                    <?php
-                       }
-                
-                 $no = 1;
-                        while($data = mysqli_fetch_array($query))
-                        {
-                ?>
-                    
-				<td> <?php echo $no;?></td>
-				<td> <?php echo $data['nama_fakultas'] ?></td>
-				<td class="text-center">
-					<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_fakultas"]?>"><i class="fa fa-trash-o"></i></a>
-					<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class="fa fa-file"></i></a>
-				</td>
+					<td> <?php echo $no;?></td>
+					<td> <?php echo $data['nama_fakultas'] ?></td>
+					<td class="text-center">
+						<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_fakultas"]?>"><i class="fa fa-trash-o"></i></a>
+						<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class="fa fa-file"></i></a>
+					</td>
                 </tr>
                 
                 <?php  
-                            $no++;} ?>
+                            $no++; ?>
                 </tbody>
 		</table>
      

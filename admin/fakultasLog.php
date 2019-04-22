@@ -92,7 +92,7 @@
                                                 ?>
 											</td>
 											<td>
-                                            <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_fakultas'];?>"><i class='fa fa-eye'></i> Details
+                                            <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#modaldetail<?php echo $data['id_logFakultas'];?>"><i class='fa fa-eye'></i> Details
 					                        </a>
 											</td>
 										</tr>
