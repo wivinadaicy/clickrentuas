@@ -289,9 +289,11 @@ if($darii==$id){
 <?php }else{?>					
 
                     <div class="row msg_container base_receive">
-                        <div class="col-md-1 col-xs-2 avatar">
-                            <img class="imgnya" src="<?php echo $foto?>" class=" img-responsive ">
-                        </div>
+						<a class="modal-sizes" role="menuitem" tabindex="-1" href="#lihatprofil">
+							<div class="col-md-1 col-xs-2 avatar">
+								<img class="imgnya" src="<?php echo $foto?>" class=" img-responsive ">
+							</div>
+						</a>
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
                                 <p><?php echo $pesannya?></p>
