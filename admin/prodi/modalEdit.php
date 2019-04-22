@@ -8,7 +8,7 @@
 		<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Major ID<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="idbarang"  class="form-control" value = "<?php echo $data['id_programStudi'] ?>" readonly>
+					<input type="text" name="idprogramstudi"  class="form-control" value = "<?php echo $data['id_programStudi'] ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mt-lg">

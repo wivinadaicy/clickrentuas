@@ -92,7 +92,7 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
     $mail->addAddress($emailnya, $emailnya );
     
-    $mail->Subject = "Peminjaman Kode: $idpinjam Ditolak";
+    $mail->Subject = "Reservation Code: $idpinjam Dennied";
     $msg='
     
 <!DOCTYPE html>

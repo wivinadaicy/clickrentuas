@@ -1,1 +1,0 @@
-pesan nya udah dibales

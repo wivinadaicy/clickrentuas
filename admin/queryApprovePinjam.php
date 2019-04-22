@@ -102,7 +102,7 @@ $mail->Password = "sistech123";
 $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
 $mail->addAddress($emailnya, $emailnya );
 
-$mail->Subject = "Peminjaman Kode: $idpinjam Diterima";
+$mail->Subject = "Reservation Code: $idpinjam Accepted";
 $msg='
 
 
@@ -414,7 +414,7 @@ $mail->Password = "sistech123";
 $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
 $mail->addAddress($emailnya, $emailnya );
 
-$mail->Subject = "Peminjaman Kode: $pinjamtolak Ditolak";
+$mail->Subject = "Reservation Code: $pinjamtolak Dennied";
 $msg='
 
 

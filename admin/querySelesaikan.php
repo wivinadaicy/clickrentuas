@@ -91,10 +91,10 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $mail->setFrom('clickrentsistech@gmail.com', 'clickrentsistech@gmail.com');
     $mail->addAddress($emailnya, $emailnya );
     
-    $mail->Subject = "Peminjaman Kode: $idpinjam Selesai";
+    $mail->Subject = "Reservation Code: $idpinjam Finished";
     $msg='
     
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">

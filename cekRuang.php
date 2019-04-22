@@ -37,7 +37,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruang
     
     ))");
 
-$kalimat = '<div class="col-lg-12"><h3 style="text-align:center; font-weight:bold; background-color:grey; color:white">Ruangan Tersedia</h3></div>';
+$kalimat = '<div class="col-lg-12"><h3 style="text-align:center; font-weight:bold; background-color:grey; color:white">Available Rooms</h3></div>';
 
 if(mysqli_num_rows($query)==0){
     $kalimat = $kalimat . "<h3 style='text-align:center; font-weight:bold; padding-left:310px;'>No room available! Please check another date/time.</h3>";
@@ -54,14 +54,40 @@ while($ruangsedia=mysqli_fetch_array($query)){
             <div class='card-body'>
                 <h5 class='card-title'>". $ruangsedia['nama_ruangan'] ."</h5>
                 <p class='card-text'>
-                Gedung/Lantai : ". $ruangsedia['gedung_lantai']."<br>
-                Kapasitas : ". $ruangsedia['kapasitas'] ." <br>
-                Deskripsi : ". $ruangsedia['deskripsi'] ."<br>
-                </p>
+                Location : ". $ruangsedia['gedung_lantai']."<br>
+                Capacity : ". $ruangsedia['kapasitas'] ." <br>
+                Description : ". $ruangsedia['deskripsi'] ."<br><br>
+                Items Included:<br>
+                ";
+    
+    $query2=mysqli_query($koneksi, "SELECT * FROM barang JOIN ruangan on barang.id_ruangan = ruangan.id_ruangan WHERE ruangan.id_ruangan='$ruangannya'");
+    while($dataquery2=mysqli_fetch_array($query2)){
+        
+    
+        $kalimat = $kalimat ."
+        ". $dataquery2['nama_barang'] . " ( " . $dataquery2['kapasitas'].") - ".$dataquery2['merek']."<br>";
+    }
+    
+    
+        $kalimat = $kalimat . "   </p>
                 <a href='formBooking.php?tgl=$tanggalPinjam&start=$mulai&end=$selesai&room=$ruangannya&jenis=$ruang' class='btn btn-dark'>Booking</a>
             </div>
         </div>
     </div>";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 
