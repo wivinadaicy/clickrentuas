@@ -48,7 +48,10 @@
              <?php
                         $query = mysqli_query($koneksi, "SELECT * FROM fakultas where status_delete='0'");
                         $baris = mysqli_num_rows($query);
-                        $no = 1;
+						$no = 1;
+						if(mysqli_num_rows($query)==0){
+
+						}else{
                         while($data = mysqli_fetch_array($query))
                         {
                 ?>
@@ -61,7 +64,9 @@
                           <a class="modal-with-form btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit" href="#modal<?php echo $data['id_fakultas'];?>"><i class='fa fa-edit'></i>
                          </a>
                          <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-default"data-toggle="tooltip" data-placement="top" title="Delete" href="#delete<?php echo $data['id_fakultas'];?>"><i class='fa fa-trash-o'></i></a>
+						 <?php if($status=="1"){?>
                          <a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class='fa fa-file'></i></a>
+						 <?php } ?>
                         </td>
             </tr>
             <?php $no++; } ?>
@@ -79,7 +84,7 @@
 		
         <br>
         <br>
-
+		<?php if($status=="1"){?>
 <section class="panel">
 	<header class="panel-heading">
 		<div class="panel-actions">
@@ -91,9 +96,9 @@
 		<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
 			<thead>
 				<tr>
-				<th>No.</th>
-                <th>Faculty</th>
-				<th>Action</th>
+					<th>No.</th>
+					<th>Faculty</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -112,17 +117,7 @@
 						<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class="fa fa-file"></i></a>
 					</td>
                 </tr>
-                
-                <?php  
-                            $no++; ?>
-                </tbody>
-		</table>
-     
-        
-            
-						
-
-<div id="restore<?php echo $data['id_fakultas'];?>" class="modal-block modal-block-sm mfp-hide">
+				<div id="restore<?php echo $data['id_fakultas'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
 			<h2 class="panel-title">Restore Data</h2>
@@ -144,17 +139,27 @@
 		</footer>
 	</section>
 </div>
-
-	
-			<?php 
+<?php 
 
 			
-		} ?>
+		} }?>
+                </tbody>
+		</table>
+     
+        
+            
+						
+
+
+
+	
+			
 			
 
 
 	</div>
 </section>
+<?php } ?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
