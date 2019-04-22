@@ -29,6 +29,9 @@
 <!--KODINGAN ISI HALAMAN-->
 		
 <div class="container-fluid">
+<a class="btn btn-info" href="exportMahasiswa.php?export=true">Export to .csv</a>
+<br>
+<hr>
 	<table  class="table table-bordered table-striped mb-none" id="datatable-default">
 		<thead>
 			<tr>

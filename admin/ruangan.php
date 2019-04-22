@@ -43,6 +43,7 @@
 </table>
 </div>
 <br>
+<a class="btn btn-info" href="exportRuangan.php?export=true">Export to .csv</a>
 	<?php include('ruangan/modalTambah.php');?>
 	<br>
 	<hr>

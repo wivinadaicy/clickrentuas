@@ -64,6 +64,7 @@
 </table>
 </div>
 <br>
+<a class="btn btn-info" href="exportBarang.php?export=true">Export to .csv</a>
 	<?php include('barang/modalTambah.php');?>
 	<br>
 	<hr>

@@ -29,7 +29,6 @@ error_reporting(0);
       
 <?php include('contact.php');?>
 
-<?php include('reservenow.php');?>
 <?php include('_footer.php');?>
       
       <?php include('_script.php')?>

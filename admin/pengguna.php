@@ -30,6 +30,7 @@
 		
 <div class="container-fluid">
 <h3>Data of Active Users</h3>
+<a class="btn btn-info" href="exportPengguna.php?export=true">Export to .csv</a>
 	<?php include('pengguna/modalTambah.php');?>
 	<br>
 	<hr>
