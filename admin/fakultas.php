@@ -51,7 +51,7 @@
 						$no = 1;
 						if(mysqli_num_rows($query)==0){
 
-						}else{
+						}
                         while($data = mysqli_fetch_array($query))
                         {
                 ?>
@@ -159,7 +159,6 @@
 
 	</div>
 </section>
-<?php } ?>
 <!--*****************************-->
 <?php include('req/endtitle.php');?>
 <?php include('req/lihatProfil.php');?>
