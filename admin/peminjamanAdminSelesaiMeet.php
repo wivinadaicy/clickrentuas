@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Reservation</h2>
+			<h2>Meeting Room Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -29,7 +29,7 @@
 		
 <section class="panel">
     <header class="panel-heading">
-        <h2 class="panel-title">Finished Reservation</h2>
+        <h2 class="panel-title">Meeting Room Finished Reservation</h2>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
@@ -50,7 +50,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara join pengguna on pengguna.id_pengguna=peminjaman.id_pengguna AND kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='3' AND jenis_ruangan='2' order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join kategori_acara join pengguna on pengguna.id_pengguna=peminjaman.id_pengguna AND kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE status_peminjaman='3' AND jenis_ruangan='2' order by peminjaman.waktu_edit desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -78,7 +78,7 @@ if(mysqli_num_rows($query)==0){
                             
                         <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#detailpinjamnya<?php echo $data['id_peminjaman'];?>"><i class="fa fa-eye"></i>
                         </a>
-                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-download'></i>
+                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" target="_blank" ><i class='fa fa-download'></i>
                             </a>
                         </td>
                     </tr>

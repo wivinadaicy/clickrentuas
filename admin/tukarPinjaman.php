@@ -1,7 +1,7 @@
 <div id="tukarPinjaman<?php echo $dato['id_peminjaman'];?>" class="modal-block modal-block-sm mfp-hide">
 	<section class="panel">
 		<header class="panel-heading">
-			<h2 class="panel-title">Delete Data</h2>
+			<h2 class="panel-title">Change Room</h2>
 		</header>
 		<div class="panel-body">
 			<div class="modal-wrapper">

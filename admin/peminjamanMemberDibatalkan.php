@@ -47,7 +47,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' or status_peminjaman='5')AND peminjaman.id_peminjaman IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' or status_peminjaman='5')AND peminjaman.id_peminjaman IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -79,7 +79,7 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $kategori ?></td>
                         <td align="center">
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman<?php echo $data['id_peminjaman']  ?>" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
 <?php include('detailPeminjamanMember.php')?>

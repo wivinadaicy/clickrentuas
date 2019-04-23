@@ -28,7 +28,7 @@
       
       $dataquery1= mysqli_fetch_array($query); 
       $dataquery2=mysqli_fetch_array($query2);
-      $dataquery3=mysqli_fetch_array($query3);
+      //$dataquery3=mysqli_fetch_array($query3);
 
       $tanggalbuat=date("l, d F Y",strtotime($dataquery2['waktu_edit'])); 
       $namalengkap= $dataquery1['nama_lengkap'];

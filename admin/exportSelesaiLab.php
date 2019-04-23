@@ -27,7 +27,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join kate
                 $jr = "Ruang Meeting";
             }
 
-        $lineData = array($row['id_peminjaman'], $row['acara'], $row['tanggal_peminjaman'], $row['waktu_peminjaman'], $row['nama_ruangan'],$jr, $row['nama_lengkap'],$row['peminjaman.deskripsi']);
+        $lineData = array($row['id_peminjaman'], $row['acara'], $row['tanggal_peminjaman'], $row['waktu_mulai'] . " - " . $row['waktu_selesai'], $row['nama_ruangan'],$jr, $row['nama_lengkap'],$row['deskripsi_acara']);
         fputcsv($f, $lineData, $delimiter);
     }
      

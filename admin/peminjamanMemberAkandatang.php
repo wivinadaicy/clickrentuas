@@ -48,7 +48,7 @@
                 <tbody>
                 <?php
                 $hariini = date('Y-m-d');
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='1' AND tanggal_peminjaman>='$hariini'  order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan  join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime()) order by tanggal_peminjaman asc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -86,17 +86,17 @@ if(mysqli_num_rows($query)==0){
                         if($dqq['user_edit']!=$id){
                         ?>
                             <!--chat admin, ganti iconnya ver-->
-                            <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                            <a href="#chatadmin<?php echo $data['id_peminjaman'] ?>" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
                         <?php
                         }
                         ?>
                             
                             
                             <!-- YANG INI BELUM JADI, iconnya buat print gitu-->
-                            <a href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $idp ?>" class="btn btn-primary" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
+                            <a href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" class="btn btn-primary" target="_blank" data-toggle="tooltip" data-placement="top" title="Print" ><i class="fa fa-download"></i></a>
 
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman<?php echo $data['id_peminjaman']  ?>" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
                         
 
                             <!--batalkan peminjaman, ganti iconnya ver-->
@@ -108,7 +108,7 @@ if(mysqli_num_rows($query)==0){
 <?php
 $pesann = mysqli_query($koneksi, "SELECT * FROM pesan join pengguna on pengguna.id_pengguna=pesan.id_penggunaKirimPesan WHERE id_peminjaman='$idp'");
 ?>
-<div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
+<div id="chatadmin<?php echo $data['id_peminjaman'] ?>" class="modal-block modal-full-color modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
             <h2 class="panel-title">Chat with Staff</h2>
@@ -135,7 +135,12 @@ $pesann = mysqli_query($koneksi, "SELECT * FROM pesan join pengguna on pengguna.
             <div class="row">
                 <div class="col-md-12 text-right">
                 <div class="col-md-12 text-right">
-                        <a class="btn btn-primary" href="bukaPesan.php?idpesan=<?php echo $idpesan?>">OK</a>
+                <?php 
+                $ahg = $data['id_peminjaman'];
+                $pesannn = mysqli_query($koneksi, "SELECT * FROM pesan where id_peminjaman='$ahg'");
+                $dpesannn = mysqli_fetch_array($pesannn);
+                ?>
+                        <a class="btn btn-primary" href="bukaPesan.php?idpesan=<?php echo $dpesannn['id_pesan']?>">OK</a>
                         <button class="btn btn-default modal-dismiss">Cancel</button>
                     </div>
                 </div>

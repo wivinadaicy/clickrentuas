@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='2' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime())");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='2' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime()) order by tanggal_peminjaman asc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -149,7 +149,7 @@ if(mysqli_num_rows($query)==0){
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman<=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai>= curtime())");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='2' AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman>=curdate()) or id_peminjaman in (select id_peminjaman from peminjaman where waktu_selesai<=curtime() and tanggal_peminjaman=curdate()) and status_peminjaman='1'  order by tanggal_peminjaman desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -176,7 +176,7 @@ if(mysqli_num_rows($query)==0){
                         <td class=" actions-fade">
                         <a class="modal-with-form btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" href="#detailpinjamnya<?php echo $data['id_peminjaman'];?>"><i class="fa fa-eye"></i>
                         </a>
-                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php" target="_blank" ><i class='fa fa-download' ></i>
+                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" target="_blank" ><i class='fa fa-download' ></i>
                             </a>
                             <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-danger"data-toggle="tooltip" data-placement="top" title="Finish" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
                         </td>

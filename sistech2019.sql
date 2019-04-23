@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 12:19 PM
+-- Generation Time: Apr 23, 2019 at 06:53 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -50,7 +50,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('BR-1', 'R-1', 2, 'Keyboard', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', '0', '0000-00-00 00:00:00', 'USER-1', '0000-00-00 00:00:00', 0),
+('BR-1', 'R-1', 2, 'Keyboardaa', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', 'USER-1', '2019-04-23 23:51:10', 'USER-1', '0000-00-00 00:00:00', 0),
 ('BR-2', 'R-1', 2, 'Monitor', 'Acer', 20, '2019-04-18', 'USER-1', '2019-04-20 17:49:13', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-20 21:57:19', 1),
 ('BR-3', 'R-1', 1, 'Photoshop CC 2017', 'Adobe', 20, '2019-04-20', 'USER-1', '2019-04-20 17:51:15', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-4', 'R-2', 3, 'Kipas', 'Panasonic', 5, '2019-04-20', 'USER-1', '2019-04-20 17:53:07', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
@@ -77,7 +77,8 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `name`, `phone`, `email`, `message`, `waktu_kirim`, `status_pesan`, `replied_by`) VALUES
-(1, 'John Doe', '08217474', 'johndoe@gmail.com', 'Halo, apakah dapat meminjam saat hari libur?', '2019-04-21 15:18:45', 2, 'USER-1');
+(1, 'John Doe', '08217474', 'johndoe@gmail.com', 'Halo, apakah dapat meminjam saat hari libur?', '2019-04-21 15:18:45', 2, 'USER-1'),
+(2, 'Lala', 'Yayaya', 'wivinatugas@gmail.com', 'Halo, kalau mau membatalkan ruangan bagaimana?', '2019-04-22 18:22:28', 0, '0');
 
 -- --------------------------------------------------------
 
@@ -174,6 +175,13 @@ CREATE TABLE `log_barang` (
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `log_barang`
+--
+
+INSERT INTO `log_barang` (`id_logBarang`, `id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_edit`, `waktu_edit`) VALUES
+(1, 'BR-1', 'R-1', 2, 'Keyboardaa', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-23 23:51:10');
+
 -- --------------------------------------------------------
 
 --
@@ -250,16 +258,6 @@ CREATE TABLE `log_peminjaman` (
   `user_edit` varchar(40) NOT NULL,
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `log_peminjaman`
---
-
-INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_edit`, `waktu_edit`) VALUES
-(1, 'PJ-1', '2019-04-25', 'R-2', '07:15:00', '08:15:00', 'USER-4', 'Kelas Multimedia', 30, 1, 'Kelas lab untuk angkatan 2018 SI', 1, 'USER-1', '2019-04-22 01:29:26'),
-(2, 'PJ-2', '2019-04-23', 'R-4', '10:15:00', '14:15:00', 'USER-4', 'Konsultasi SBD', 4, 5, 'Konsultasi project dari angkatan 2018', 4, 'USER-3', '2019-04-22 01:52:11'),
-(3, 'PJ-6', '2019-04-24', 'R-6', '10:15:00', '12:15:00', 'USER-4', 'Sidang skripsi', 30, 5, 'Sidang oleh pak Kusno, bu Surya, dan pak Hery', 0, 'USER-1', '2019-04-22 13:28:56'),
-(4, 'PJ-3', '2019-04-24', 'R-4', '07:15:00', '18:15:00', 'USER-3', 'Falcon Hackaton', 50, 3, 'Lomba programming 24 jam', 0, 'USER-1', '2019-04-22 13:28:56');
 
 -- --------------------------------------------------------
 
@@ -397,13 +395,13 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('PJ-1', '2019-04-25', 'R-2', '07:15:00', '08:15:00', 'USER-4', 'Kelas Multimedia', 30, 1, 'Kelas lab untuk angkatan 2018 SI', 1, 'USER-4', '2019-04-22 01:21:29', 'USER-1', '2019-04-22 01:29:26', '0', '0000-00-00 00:00:00', 0),
-('PJ-2', '2019-04-23', 'R-4', '10:15:00', '14:15:00', 'USER-4', 'Konsultasi SBD', 4, 5, 'Konsultasi project dari angkatan 2018', 4, 'USER-4', '2019-04-22 01:49:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-3', '2019-04-24', 'R-4', '07:15:00', '18:15:00', 'USER-3', 'Falcon Hackaton', 50, 3, 'Lomba programming 24 jam', 0, 'USER-3', '2019-04-22 02:11:31', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-4', '2019-04-24', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 0, 'USER-5', '2019-04-22 02:54:11', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-5', '2019-04-25', 'R-4', '12:15:00', '13:15:00', 'USER-1', 'Quick Meeting', 30, 5, 'Meeting mendadak dengan semua dosen', 0, 'USER-1', '2019-04-22 03:07:55', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-1', '2019-04-23', 'R-2', '07:15:00', '08:15:00', 'USER-4', 'Kelas Multimedia', 30, 1, 'Kelas lab untuk angkatan 2018 SI', 3, 'USER-4', '2019-04-22 01:21:29', 'USER-1', '2019-04-23 23:02:02', '0', '0000-00-00 00:00:00', 0),
+('PJ-2', '2019-04-24', 'R-4', '10:15:00', '14:15:00', 'USER-4', 'Konsultasi SBD', 4, 5, 'Konsultasi project dari angkatan 2018', 6, 'USER-4', '2019-04-22 01:49:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-3', '2019-04-23', 'R-5', '07:15:00', '18:15:00', 'USER-3', 'Falcon Hackaton', 50, 3, 'Lomba programming 24 jam', 3, 'USER-3', '2019-04-22 02:11:31', 'USER-1', '2019-04-23 23:21:15', '0', '0000-00-00 00:00:00', 0),
+('PJ-4', '2019-04-24', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 0, 'USER-5', '2019-04-22 02:54:11', 'USER-1', '2019-04-22 23:42:26', '0', '0000-00-00 00:00:00', 0),
+('PJ-5', '2019-04-21', 'R-4', '12:15:00', '13:15:00', 'USER-1', 'Quick Meeting', 30, 5, 'Meeting mendadak dengan semua dosen', 6, 'USER-1', '2019-04-22 03:07:55', 'USER-1', '2019-04-23 22:47:50', '0', '0000-00-00 00:00:00', 0),
 ('PJ-6', '2019-04-24', 'R-6', '10:15:00', '12:15:00', 'USER-4', 'Sidang skripsi', 30, 5, 'Sidang oleh pak Kusno, bu Surya, dan pak Hery', 0, 'USER-4', '2019-04-22 03:21:38', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-7', '2019-04-24', 'R-5', '14:15:00', '16:15:00', 'USER-1', 'Makan Bersama', 30, 4, 'Ramah tamah dalam rangka hari guru', 1, 'USER-1', '2019-04-22 13:01:05', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PJ-7', '2019-04-24', 'R-4', '14:15:00', '16:15:00', 'USER-1', 'Makan Bersama', 30, 4, 'Ramah tamah dalam rangka hari guru', 0, 'USER-1', '2019-04-22 13:01:05', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -438,7 +436,6 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 1, 2, '0', '2019-04-13 17:56:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('USER-2', 'elfkyushfly@gmail.com', '202cb962ac59075b964b07152d234b70', 'Wivina Admin', 'p', '2019-04-11', 'Asdfgf', '1234567890', '2019-04-22', 4, 4, 'USER-1', '2019-04-22 02:14:14', 'USER-1', '2019-04-22 02:47:26', '0', '0000-00-00 00:00:00', 0),
 ('USER-3', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin', 'p', '2019-04-20', 'Jalan M.H Thamrin, Karawaci', '082163747575', '2019-04-20', 2, 2, 'USER-1', '2019-04-20 23:11:34', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('USER-4', 'verenv999999@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Dosen', 'p', '2019-04-10', 'Jalan Mawar, Karawaci', '081246477474', '2019-04-22', 3, 2, '0', '2019-04-22 01:11:55', 'USER-1', '2019-04-22 01:13:44', '0', '0000-00-00 00:00:00', 0),
 ('USER-5', 'wivinadaicy.wd@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Dosen', 'p', '2019-04-16', 'Jalan Haskdadfg, Jakarta', '0821538384848', '2019-04-22', 3, 2, '0', '2019-04-22 02:25:49', 'USER-1', '2019-04-22 02:52:19', '0', '0000-00-00 00:00:00', 0);
@@ -456,16 +453,6 @@ CREATE TABLE `pesan` (
   `id_peminjaman` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pesan`
---
-
-INSERT INTO `pesan` (`id_pesan`, `id_penggunaKirimPesan`, `topik_pesan`, `id_peminjaman`) VALUES
-('PS-1', 'USER-1', 'Peminjaman: <b>PJ-1</b> - Acara: <b>Kelas Multimedia</b>', 'PJ-1'),
-('PS-2', 'USER-3', 'Peminjaman: <b>PJ-2</b> - Acara: <b>Konsultasi SBD</b>', 'PJ-2'),
-('PS-3', 'USER-1', 'Peminjaman: <b>PJ-6</b> - Acara: <b>Sidang skripsi</b>', 'PJ-6'),
-('PS-4', 'USER-1', 'Peminjaman: <b>PJ-3</b> - Acara: <b>Falcon Hackaton</b>', 'PJ-3');
-
 -- --------------------------------------------------------
 
 --
@@ -481,21 +468,6 @@ CREATE TABLE `pesan_detail` (
   `pesan` text NOT NULL,
   `status_pesan` int(11) NOT NULL COMMENT '0: TERKIRIM, 1: READ'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pesan_detail`
---
-
-INSERT INTO `pesan_detail` (`id_pesanDetail`, `id_pesan`, `id_penggunaKe`, `id_penggunaDari`, `tanggal_waktu`, `pesan`, `status_pesan`) VALUES
-('PD-1', 'PS-1', 'USER-4', 'USER-1', '2019-04-22 01:29:26', 'Selamat peminjaman dengan kode PJ-1 untuk acara Kelas Multimedia sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
-('PD-2', 'PS-1', 'USER-1', 'USER-4', '2019-04-22 01:46:48', 'Terima kasih ya. Nanti saya ambil kunci sama siapa?', 1),
-('PD-3', 'PS-1', 'USER-1', 'USER-4', '2019-04-22 01:46:57', 'Harap dikasi tau ya', 1),
-('PD-4', 'PS-2', 'USER-4', 'USER-3', '2019-04-22 01:52:12', 'Maaf peminjaman dengan kode PJ-2 ditolak. Dengan alasan: Maaf ya, gaboleh minjem cuma buat konsultasi project. Dosen yang bersangkutan juga tidak setuju', 1),
-('PD-5', 'PS-1', 'USER-4', 'USER-1', '2019-04-22 01:53:24', 'Ok siyap', 1),
-('PD-6', 'PS-2', 'USER-3', 'USER-4', '2019-04-22 01:54:34', 'Yah, oke deh terima kasih', 0),
-('PD-7', 'PS-3', 'USER-4', 'USER-1', '2019-04-22 13:28:56', 'Mohon maaf, peminjaman anda dengan kode: PJ-6 dan nama acara: Sidang skripsi ditukar ruangannya dari Meeting Room 1 menjadi Meeting Room 3. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.', 0),
-('PD-8', 'PS-4', 'USER-3', 'USER-1', '2019-04-22 13:29:02', 'Mohon maaf, peminjaman anda dengan kode: PJ-3 dan nama acara: Falcon Hackaton ditukar ruangannya dari Meeting Room 3 menjadi Meeting Room 1. Penukaran dilakukan atas pertimbangan yang jelas. Jika Anda tidak setuju, silahkan membatalkan peminjaman.', 0),
-('PD-9', 'PS-4', 'USER-3', 'USER-1', '2019-04-22 17:04:12', 'Hai', 0);
 
 -- --------------------------------------------------------
 
@@ -783,7 +755,7 @@ ALTER TABLE `waktu_jadwal`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -70,6 +70,7 @@ if(mysqli_num_rows($query)==0){
                             }else{
                                 $kategori = "Meeting Room";
                             }
+                            $idpinjammm=$data['id_peminjaman'];
                         ?>
                     <tr>
                         <td><?php echo $no ?></td>
@@ -80,7 +81,7 @@ if(mysqli_num_rows($query)==0){
                         
                         <td class=" actions-fade">
                             <!--iconnya buat liat detail kayak biasa-->
-                            <a href="#detailpeminjaman" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
+                            <a href="#detailpeminjaman<?php echo $idpinjammm ?>" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail" ><i class="fa fa-eye"></i></a>
                         
                         </td>
                     </tr>

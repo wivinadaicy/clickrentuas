@@ -48,7 +48,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime())");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman>=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai<= curtime()) order by tanggal_peminjaman asc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -148,7 +148,7 @@ if(mysqli_num_rows($query)==0){
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND peminjaman.tanggal_peminjaman<=curdate() AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman=curdate() and waktu_selesai>= curtime())");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pengguna join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan AND pengguna.id_pengguna = peminjaman.id_pengguna WHERE ruangan.jenis_ruangan='1' AND status_peminjaman='1' AND id_peminjaman not in (select id_peminjaman from peminjaman where tanggal_peminjaman>=curdate()) or id_peminjaman in (select id_peminjaman from peminjaman where waktu_selesai<=curtime() and tanggal_peminjaman=curdate()) and status_peminjaman='1' order by tanggal_peminjaman desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>

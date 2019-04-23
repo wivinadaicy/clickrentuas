@@ -216,9 +216,10 @@ $now = date('H:i');
 	<div class="panel col-md-12">
 		<div class="panel-body">
 		<h4 style="text-align:center; color: black; font-weight:bold; background">Reservation</h4>
-					<div id="calendarr"></div>
-				<div class="panel" id="warna">
-				
+					<div id="calendarrr"></div>
+
+				<div class="panel" id="warnat">
+
 				</div>
 		</div>
 	</div>
@@ -393,8 +394,7 @@ $now = date('H:i');
 
 <script>
 $(document).ready(function() {
-   var calendar = $('#calendarr').fullCalendar({
-    editable:true,
+   var calendar = $('#calendarrr').fullCalendar({
     events: 'load3.php',
     selectable:true,
 	selectHelper:true,
@@ -427,29 +427,34 @@ $(document).ready(function() {
   });
 
 
-function cekWarna(){
+function cekWarnat(){
   
   $.ajax({
       url:"cekWarna2.php",
       dataType: "JSON",
       success: function(respond){
-          $('#warna').empty();
-          $('#warna').append(respond);
+          $('#warnat').empty();
+          $('#warnat').append(respond);
       }
   });
 }
 
 window.onload = function() {
-  cekWarna();
+  cekWarnaaa();
 };
 </script>
+
+
+
+
+
+
 
 
 
 <script>
 $(document).ready(function() {
    var calendar = $('#calendars').fullCalendar({
-    editable:true,
     events: 'load4.php',
     selectable:true,
 	selectHelper:true,
@@ -482,7 +487,7 @@ $(document).ready(function() {
   });
 
 
-function cekWarna(){
+function cekWarnaaa(){
   
   $.ajax({
       url:"cekWarna3.php",
@@ -495,6 +500,6 @@ function cekWarna(){
 }
 
 window.onload = function() {
-  cekWarna();
+  cekWarnaaa();
 };
 </script>

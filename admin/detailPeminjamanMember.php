@@ -1,4 +1,4 @@
-<div id="detailpeminjaman" class="modal-block modal-block-primary mfp-hide">
+<div id="detailpeminjaman<?php echo $data['id_peminjaman'] ?>" class="modal-block modal-block-primary mfp-hide">
     <section class="panel">
         <form class="form-horizontal mb-lg" method="post">
         <header class="panel-heading">

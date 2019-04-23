@@ -46,7 +46,7 @@
                 </thead>
                 <tbody>
                 <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='USER-2' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE log_peminjaman.status_peminjaman='5') order by peminjaman.waktu_edit desc");
+                        $query = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE log_peminjaman.status_peminjaman='5') order by peminjaman.waktu_edit desc");
                         $no=0;
 if(mysqli_num_rows($query)==0){
     ?>
@@ -76,7 +76,7 @@ if(mysqli_num_rows($query)==0){
                         <td><?php echo $mulai . " - " . $selesai ?></td>
                         <td><?php echo $data['nama_ruangan'] ?></td>
                         <td><?php echo $kategori ?></td>
-                        <td class="actions-hover actions-fade">
+                        <td>
                         <?php 
                         $idp = $data['id_peminjaman'];
                         $qq = mysqli_query($koneksi, "SELECT * FROM peminjaman WHERE id_peminjaman='$idp'");
@@ -88,7 +88,9 @@ if(mysqli_num_rows($query)==0){
                         <?php
                         }
                         ?>
+                        <a href="#detailpeminjaman<?php echo $data['id_peminjaman']  ?>" class="modal-sizes btn btn-default" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-eye"></i></a>
                         </td>
+                        
                     </tr>
                     <?php include('detailPeminjamanMember.php')?>
 <?php
