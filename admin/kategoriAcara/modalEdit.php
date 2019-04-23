@@ -14,7 +14,7 @@
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Event Category<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="jenisacara"  id="namafakultas" class="form-control" placeholder="insert faculty" required value = "<?php echo $data['jenis_acara'] ?>">
+					<input type="text" name="jenisacara"  id="jenisacara" class="form-control" placeholder="insert faculty" required value = "<?php echo $data['jenis_acara'] ?>">
 				</div>
 			</div>
 			
