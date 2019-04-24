@@ -2,7 +2,7 @@
     <section class="panel">
         <form class="form-horizontal mb-lg" method="post">
         <header class="panel-heading">
-            <h2 class="panel-title">Details of Students Data</h2>
+            <h2 class="panel-title">Details of Lecturer Data</h2>
         </header>
         <div class="panel-body">
             	<div class="form-group mt-lg">
@@ -67,7 +67,7 @@
 <?php if($data['status_pengguna']=="4"){ ?>
 			<section id="editmhs<?php echo $data['id_pengguna'] ?>">
 			<hr class="separator">
-			<h3>Students Data</h3>
+			<h3>Data Mahasiswa</h3>
 			<?php
 			$idpenggunanya = $data['id_pengguna'];
 			$querymhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE id_pengguna='$idpenggunanya'");
