@@ -363,7 +363,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="kategoriAcara.php">
 										 Event Category
 									</a>
 								</li>
