@@ -10,7 +10,7 @@ $query = mysqli_query($koneksi, "SELECT * from pengguna WHERE status_delete='0' 
  
  
     $delimiter = ",";
-    $filename = "DATA_DOSEN-(" . date('Y-m-d') . ").csv"; // Create file name
+    $filename = "DATA_PENGGUNA-(" . date('Y-m-d') . ").csv"; // Create file name
      
     //create a file pointer
     $f = fopen('php://memory', 'w'); 
