@@ -216,8 +216,8 @@ $now = date('H:i');
 	<div class="panel col-md-12">
 		<div class="panel-body">
 		<h4 style="text-align:center; color: black; font-weight:bold; background">My Reservation</h4>
-					<div id="calendars"></div>
-				<div class="panel" id="warnas">
+					<div id="kal"></div>
+				<div class="panel" id="warkal">
 				
 				</div>
 		</div>
@@ -446,5 +446,11 @@ function cekWarnaaa(){
 
 window.onload = function() {
   cekWarnaaa();
+  //alert("hello"); 
+  cekWarnak();
 };
+</script>
+<script>
+
+
 </script>

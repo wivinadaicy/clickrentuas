@@ -13,7 +13,7 @@ while($row = mysqli_fetch_array($query))
 {
     $idruangan=$row['id_ruangan'];
     $warna= $color[$x];
-    $query2 = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan on ruangan.id_ruangan=peminjaman.id_ruangan WHERE peminjaman.id_ruangan='$idruangan'");
+    $query2 = mysqli_query($koneksi, "SELECT * FROM peminjaman join ruangan on ruangan.id_ruangan=peminjaman.id_ruangan WHERE peminjaman.id_ruangan='$idruangan' AND id_pengguna='$id' AND peminjaman.id_peminjaman not in (select peminjaman.id_peminjaman from peminjaman where status_peminjaman='0' OR status_peminjaman='4' OR status_peminjaman='5' OR status_peminjaman='6')");
     while($rows = mysqli_fetch_array($query2)){
         $tanggal = $rows['tanggal_peminjaman'];
         $gabungmulai = $rows['tanggal_peminjaman'] . " " . $rows["waktu_mulai"];

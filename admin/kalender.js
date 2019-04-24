@@ -1,5 +1,6 @@
 $(document).ready(function() {
-   var calendar = $('#calendarrr').fullCalendar({
+   var calendarx = $('#kal').fullCalendar({
+    editable:true,
     events: 'load3.php',
     selectable:true,
 	selectHelper:true,
@@ -15,35 +16,35 @@ $(document).ready(function() {
     },
     dayRender: function (date, cell) {
 
-	var today = new Date();
-	var end = new Date();                
-	end.setDate(today.getDate()-1);                 
+                    var today = new Date();
+                    var end = new Date();                
+                    end.setDate(today.getDate()-1);                 
 
 
-	if( date < end) {
-	cell.css("background-color", "lightgray");
-	} // this is for previous date 
+                    if( date < end) {
+                    cell.css("background-color", "lightgray");
+                    } // this is for previous date 
 
-	if(date > today) {
-		cell.css("background-color", "white");
-	}
-	},
+                    if(date > today) {
+                        cell.css("background-color", "white");
+                    }
+
+
+                }
+        
    });
   });
 
-
-function cekWarnat(){
+  function cekWarnak(){
   
-  $.ajax({
-      url:"cekWarna2.php",
-      dataType: "JSON",
-      success: function(respond){
-          $('#warnat').empty();
-          $('#warnat').append(respond);
-      }
-  });
-}
+    $.ajax({
+        url:"cekWarna2.php",
+        dataType: "JSON",
+        success: function(respond){
+            $('#warkal').empty();
+            $('#warkal').append(respond);
+        }
+    });
+  }
 
-window.onload = function() {
-  cekWarnaaa();
-};
+
