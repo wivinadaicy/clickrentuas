@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
    var calendar = $('#calendarrr').fullCalendar({
     events: 'load3.php',
