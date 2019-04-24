@@ -347,6 +347,11 @@
 										 Students
 									</a>
 								</li>
+                                <li>
+									<a href="dosen.php">
+										 Lecturers
+									</a>
+								</li>
 								<li>
 									<a href="prodi.php">
 										 Major
