@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 06:53 PM
+-- Generation Time: Apr 24, 2019 at 04:20 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -259,6 +259,14 @@ CREATE TABLE `log_peminjaman` (
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `log_peminjaman`
+--
+
+INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `waktu_mulai`, `waktu_selesai`, `id_pengguna`, `acara`, `jumlah_peserta`, `id_kategoriAcara`, `deskripsi_acara`, `status_peminjaman`, `user_edit`, `waktu_edit`) VALUES
+(1, 'PJ-4', '2019-04-24', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 1, 'USER-1', '2019-04-24 01:37:45'),
+(2, 'PJ-4', '2019-04-23', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 3, 'USER-1', '2019-04-24 01:40:14');
+
 -- --------------------------------------------------------
 
 --
@@ -398,10 +406,11 @@ INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `
 ('PJ-1', '2019-04-23', 'R-2', '07:15:00', '08:15:00', 'USER-4', 'Kelas Multimedia', 30, 1, 'Kelas lab untuk angkatan 2018 SI', 3, 'USER-4', '2019-04-22 01:21:29', 'USER-1', '2019-04-23 23:02:02', '0', '0000-00-00 00:00:00', 0),
 ('PJ-2', '2019-04-24', 'R-4', '10:15:00', '14:15:00', 'USER-4', 'Konsultasi SBD', 4, 5, 'Konsultasi project dari angkatan 2018', 6, 'USER-4', '2019-04-22 01:49:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-3', '2019-04-23', 'R-5', '07:15:00', '18:15:00', 'USER-3', 'Falcon Hackaton', 50, 3, 'Lomba programming 24 jam', 3, 'USER-3', '2019-04-22 02:11:31', 'USER-1', '2019-04-23 23:21:15', '0', '0000-00-00 00:00:00', 0),
-('PJ-4', '2019-04-24', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 0, 'USER-5', '2019-04-22 02:54:11', 'USER-1', '2019-04-22 23:42:26', '0', '0000-00-00 00:00:00', 0),
-('PJ-5', '2019-04-21', 'R-4', '12:15:00', '13:15:00', 'USER-1', 'Quick Meeting', 30, 5, 'Meeting mendadak dengan semua dosen', 6, 'USER-1', '2019-04-22 03:07:55', 'USER-1', '2019-04-23 22:47:50', '0', '0000-00-00 00:00:00', 0),
-('PJ-6', '2019-04-24', 'R-6', '10:15:00', '12:15:00', 'USER-4', 'Sidang skripsi', 30, 5, 'Sidang oleh pak Kusno, bu Surya, dan pak Hery', 0, 'USER-4', '2019-04-22 03:21:38', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-7', '2019-04-24', 'R-4', '14:15:00', '16:15:00', 'USER-1', 'Makan Bersama', 30, 4, 'Ramah tamah dalam rangka hari guru', 0, 'USER-1', '2019-04-22 13:01:05', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PJ-4', '2019-04-23', 'R-6', '07:15:00', '08:15:00', 'USER-5', 'Bimbingan Skripsi A', 2, 5, 'Bimbingan dengan pak Arnold', 3, 'USER-5', '2019-04-22 02:54:11', 'USER-1', '2019-04-24 01:40:14', '0', '0000-00-00 00:00:00', 0),
+('PJ-5', '2019-04-26', 'R-4', '12:15:00', '13:15:00', 'USER-1', 'Quick Meeting', 30, 5, 'Meeting mendadak dengan semua dosen', 1, 'USER-1', '2019-04-22 03:07:55', 'USER-1', '2019-04-23 22:47:50', '0', '0000-00-00 00:00:00', 0),
+('PJ-6', '2019-04-23', 'R-6', '10:15:00', '12:15:00', 'USER-4', 'Sidang skripsi', 30, 5, 'Sidang oleh pak Kusno, bu Surya, dan pak Hery', 0, 'USER-4', '2019-04-22 03:21:38', 'USER-1', '2019-04-24 01:22:04', '0', '0000-00-00 00:00:00', 0),
+('PJ-7', '2019-04-24', 'R-4', '14:15:00', '16:15:00', 'USER-1', 'Makan Bersama', 30, 4, 'Ramah tamah dalam rangka hari guru', 4, 'USER-1', '2019-04-22 13:01:05', 'USER-1', '2019-04-23 23:54:57', '0', '0000-00-00 00:00:00', 0),
+('PJ-8', '2019-04-25', 'R-1', '11:15:00', '12:15:00', 'USER-1', 'Abcd', 3, 2, '234', 4, 'USER-1', '2019-04-24 00:00:35', 'USER-1', '2019-04-24 00:25:42', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -453,6 +462,14 @@ CREATE TABLE `pesan` (
   `id_peminjaman` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `id_penggunaKirimPesan`, `topik_pesan`, `id_peminjaman`) VALUES
+('PS-1', 'USER-1', 'Peminjaman: <b>PJ-6</b> - Acara: <b>Sidang skripsi</b>', 'PJ-6'),
+('PS-2', 'USER-1', 'Peminjaman: <b>PJ-4</b> - Acara: <b>Bimbingan Skripsi A</b>', 'PJ-4');
+
 -- --------------------------------------------------------
 
 --
@@ -468,6 +485,20 @@ CREATE TABLE `pesan_detail` (
   `pesan` text NOT NULL,
   `status_pesan` int(11) NOT NULL COMMENT '0: TERKIRIM, 1: READ'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan_detail`
+--
+
+INSERT INTO `pesan_detail` (`id_pesanDetail`, `id_pesan`, `id_penggunaKe`, `id_penggunaDari`, `tanggal_waktu`, `pesan`, `status_pesan`) VALUES
+('PD-1', 'PS-1', 'USER-4', 'USER-1', '2019-04-24 00:43:02', 'Selamat peminjaman dengan kode PJ-6 untuk acara Sidang skripsi sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
+('PD-2', 'PS-1', 'USER-4', 'USER-1', '2019-04-24 01:06:32', 'Selamat peminjaman dengan kode PJ-6 untuk acara Sidang skripsi sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
+('PD-3', 'PS-1', 'USER-4', 'USER-1', '2019-04-24 01:20:55', 'Selamat peminjaman dengan kode PJ-6 untuk acara Sidang skripsi sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
+('PD-4', 'PS-1', 'USER-4', 'USER-1', '2019-04-24 01:22:04', 'Peminjaman Anda telah selesai. Terima kasih telah menggunakan Click&Rent SISTech untuk memesan ruangan!', 1),
+('PD-5', 'PS-2', 'USER-5', 'USER-1', '2019-04-24 01:27:04', 'Maaf peminjaman dengan kode PJ-4 ditolak. Dengan alasan: GAK BOLEH SAMASEKALI YA AWAS KAMU', 1),
+('PD-6', 'PS-2', 'USER-5', 'USER-1', '2019-04-24 01:33:28', 'Selamat peminjaman dengan kode PJ-4 untuk acara Bimbingan Skripsi A sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
+('PD-7', 'PS-2', 'USER-5', 'USER-1', '2019-04-24 01:37:45', 'Selamat peminjaman dengan kode PJ-4 untuk acara Bimbingan Skripsi A sudah diterima. Gunakan fitur chatting ini untuk menghubungi pengurus ruangan!', 1),
+('PD-8', 'PS-2', 'USER-5', 'USER-1', '2019-04-24 01:40:14', 'Peminjaman Anda telah selesai. Terima kasih telah menggunakan Click&Rent SISTech untuk memesan ruangan!', 0);
 
 -- --------------------------------------------------------
 
