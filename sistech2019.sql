@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2019 at 07:03 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: May 01, 2019 at 08:50 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -50,11 +50,18 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('BR-1', 'R-1', 2, 'Keyboardaa', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', 'USER-1', '2019-04-23 23:51:10', 'USER-1', '0000-00-00 00:00:00', 0),
+('BR-1', 'R-1', 2, 'Keyboard', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-04-20 17:48:46', 'USER-1', '2019-05-02 00:27:24', 'USER-1', '0000-00-00 00:00:00', 0),
+('BR-10', 'R-2', 2, 'Printer', 'Canon', 1, '2019-04-18', 'USER-1', '2019-05-02 00:32:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-11', 'R-6', 2, 'Mouse', 'Steelseries', 2, '2019-05-01', 'USER-1', '2019-05-02 00:34:04', 'USER-1', '2019-05-02 00:34:23', '0', '0000-00-00 00:00:00', 0),
+('BR-12', 'R-5', 2, 'AC', 'Samsung', 1, '2019-03-22', 'USER-1', '2019-05-02 00:35:41', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-2', 'R-1', 2, 'Monitor', 'Acer', 20, '2019-04-18', 'USER-1', '2019-04-20 17:49:13', '0', '0000-00-00 00:00:00', 'USER-1', '2019-04-20 21:57:19', 1),
 ('BR-3', 'R-1', 1, 'Photoshop CC 2017', 'Adobe', 20, '2019-04-20', 'USER-1', '2019-04-20 17:51:15', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('BR-4', 'R-2', 3, 'Kipas', 'Panasonic', 5, '2019-04-20', 'USER-1', '2019-04-20 17:53:07', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('BR-5', 'R-4', 2, 'Proyektor', 'Epson', 1, '2019-03-20', 'USER-1', '2019-04-24 12:44:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('BR-5', 'R-4', 2, 'Proyektor', 'Epson', 1, '2019-03-20', 'USER-1', '2019-04-24 12:44:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-6', 'R-3', 2, 'AC', 'Panasonic', 3, '2019-05-01', 'USER-1', '2019-05-02 00:28:46', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-7', 'R-3', 1, 'Adobe After Effect', 'Adobe', 20, '2019-04-30', 'USER-1', '2019-05-02 00:29:43', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-8', 'R-5', 2, 'Monitor', 'Samsung', 2, '2019-04-17', 'USER-1', '2019-05-02 00:31:29', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('BR-9', 'R-6', 2, 'Monitor', 'Asus', 2, '2019-04-11', 'USER-1', '2019-05-02 00:32:04', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -72,6 +79,13 @@ CREATE TABLE `contact` (
   `status_pesan` int(11) NOT NULL COMMENT '0: BELUM READ; 1:READ; 2:DIBALAS',
   `replied_by` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id_contact`, `name`, `phone`, `email`, `message`, `waktu_kirim`, `status_pesan`, `replied_by`) VALUES
+(1, 'Veren', '081315739332', 'verenvalencia@yahoo.co.id', 'Hai Min! saya mau bertanya mengenai cara daftar akun bagaimana ya?', '2019-05-02 01:34:33', 0, '0');
 
 -- --------------------------------------------------------
 
@@ -96,7 +110,9 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fakultas`, `nama_fakultas`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('FK-1', 'Sistech', 'USER-1', '2019-04-24 09:57:57', '0', '0000-00-00 00:00:00', 'USER-1', '0000-00-00 00:00:00', 0);
+('FK-1', 'Sistech', 'USER-1', '2019-04-24 09:57:57', '0', '0000-00-00 00:00:00', 'USER-1', '0000-00-00 00:00:00', 0),
+('FK-2', 'FaST', 'USER-1', '2019-05-02 01:31:53', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('FK-3', 'Business School', 'USER-1', '2019-05-02 01:32:02', '0', '0000-00-00 00:00:00', 'USER-1', '2019-05-02 01:32:04', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +161,8 @@ INSERT INTO `kategori_acara` (`id_kategoriAcara`, `jenis_acara`, `user_add`, `wa
 (2, 'Kelas Pengganti', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 (3, 'Himpunan Mahasiswa', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
 (4, 'Acara Dosen', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
-(5, 'Lain-lain', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0);
+(5, 'Lain-lain', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 0),
+(6, 'Acara BEM', 'USER-1', '2019-05-02 01:31:12', '0', '0000-00-00 00:00:00', 'USER-1', '2019-05-02 01:31:17', 1);
 
 -- --------------------------------------------------------
 
@@ -165,6 +182,14 @@ CREATE TABLE `log_barang` (
   `user_edit` varchar(40) NOT NULL,
   `waktu_edit` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log_barang`
+--
+
+INSERT INTO `log_barang` (`id_logBarang`, `id_barang`, `id_ruangan`, `id_jenisBarang`, `nama_barang`, `merek`, `stok_barang`, `tanggal_beli`, `user_edit`, `waktu_edit`) VALUES
+(1, 'BR-1', 'R-1', 2, 'Keyboard', 'Logitech', 20, '2019-04-20', 'USER-1', '2019-05-02 00:27:24'),
+(2, 'BR-11', 'R-6', 2, 'Mouse', 'Steelseries', 2, '2019-05-01', 'USER-1', '2019-05-02 00:34:23');
 
 -- --------------------------------------------------------
 
@@ -247,7 +272,11 @@ INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_pemi
 (4, 'PJ-7', '2019-04-30', 'R-5', '09:15:00', '10:15:00', 'USER-4', 'Meeting Sedikit', 50, 4, 'asd wqe wet erteryryt', 1, 'USER-1', '2019-04-29 10:26:05'),
 (5, 'PJ-7', '2019-04-30', 'R-5', '09:15:00', '10:15:00', 'USER-4', 'Meeting Sedikit', 50, 4, 'asd wqe wet erteryryt', 3, 'USER-1', '2019-05-01 10:57:12'),
 (6, 'PJ-1', '2019-04-29', 'R-3', '09:15:00', '10:15:00', 'USER-1', 'KP SBD', 69, 1, 'gy', 3, 'USER-1', '2019-05-01 11:19:26'),
-(7, 'PJ-8', '2019-05-31', 'R-6', '10:15:00', '11:15:00', 'USER-4', 'Belajar Sendiri', 1, 5, 'fgfdggdf', 4, 'USER-1', '2019-05-01 11:28:14');
+(7, 'PJ-8', '2019-05-31', 'R-6', '10:15:00', '11:15:00', 'USER-4', 'Belajar Sendiri', 1, 5, 'fgfdggdf', 4, 'USER-1', '2019-05-01 11:28:14'),
+(8, 'PJ-13', '2019-05-31', 'R-6', '13:15:00', '14:15:00', 'USER-1', 'Kelas IT Security', 4, 2, 'Membahas password security', 1, 'USER-1', '2019-05-02 01:28:00'),
+(9, 'PJ-12', '2019-05-16', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'Kelas SPS', 50, 1, 'rwgtb dghdfg yteyr', 4, 'USER-1', '2019-05-02 01:28:57'),
+(10, 'PJ-2', '2019-05-02', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'KP Strukdat', 50, 1, 'asfsd esf d sfdfsdf', 5, 'USER-1', '2019-05-02 01:30:12'),
+(11, 'PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 5, 'USER-1', '2019-05-02 01:30:28');
 
 -- --------------------------------------------------------
 
@@ -382,10 +411,11 @@ INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `
 ('PJ-1', '2019-04-29', 'R-3', '09:15:00', '10:15:00', 'USER-1', 'KP SBD', 69, 1, 'gy', 3, 'USER-1', '2019-04-27 16:28:47', 'USER-1', '2019-05-01 11:19:26', '0', '0000-00-00 00:00:00', 0),
 ('PJ-10', '2019-05-25', 'R-2', '09:15:00', '10:15:00', 'USER-5', 'KP IT SEC', 20, 3, 'sdfgsf dfg fghg dghf', 0, 'USER-5', '2019-05-01 11:46:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-11', '2019-05-16', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Kelas po', 10, 1, 'etsfuyr tu tutghgfhhdg', 0, 'USER-1', '2019-05-01 11:48:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-12', '2019-05-16', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'Kelas SPS', 50, 1, 'rwgtb dghdfg yteyr', 0, 'USER-1', '2019-05-01 11:59:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-2', '2019-05-02', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'KP Strukdat', 50, 1, 'asfsd esf d sfdfsdf', 1, 'USER-1', '2019-05-01 09:13:20', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-12', '2019-05-16', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'Kelas SPS', 50, 1, 'rwgtb dghdfg yteyr', 4, 'USER-1', '2019-05-01 11:59:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-13', '2019-05-31', 'R-6', '13:15:00', '14:15:00', 'USER-1', 'Kelas IT Security', 4, 2, 'Membahas password security', 1, 'USER-1', '2019-05-02 01:27:23', 'USER-1', '2019-05-02 01:28:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-2', '2019-05-02', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'KP Strukdat', 50, 1, 'asfsd esf d sfdfsdf', 5, 'USER-1', '2019-05-01 09:13:20', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-3', '2019-05-24', 'R-4', '15:15:00', '16:15:00', 'USER-1', 'Diskusi Paper', 5, 5, 'bimbingan tugas mata kuliah EIS', 1, 'USER-1', '2019-05-01 09:16:11', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 1, 'USER-1', '2019-05-01 09:17:39', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 5, 'USER-1', '2019-05-01 09:17:39', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-5', '2019-05-24', 'R-5', '07:15:00', '18:15:00', 'USER-4', 'Maraton rapat', 50, 3, 'ffff fff fff ff', 4, 'USER-4', '2019-05-01 10:00:02', 'USER-1', '2019-05-01 10:26:11', '0', '0000-00-00 00:00:00', 0),
 ('PJ-6', '2019-05-24', 'R-5', '09:15:00', '17:15:00', 'USER-4', 'Meeting Maraton', 50, 4, 'asd asd assd assdas', 5, 'USER-4', '2019-05-01 10:02:25', 'USER-1', '2019-05-01 10:26:05', '0', '0000-00-00 00:00:00', 0),
 ('PJ-7', '2019-04-30', 'R-5', '09:15:00', '10:15:00', 'USER-4', 'Meeting Sedikit', 50, 4, 'asd wqe wet erteryryt', 3, 'USER-4', '2019-04-28 10:02:25', 'USER-1', '2019-05-01 10:57:12', '0', '0000-00-00 00:00:00', 0),
@@ -505,7 +535,8 @@ CREATE TABLE `program_studi` (
 INSERT INTO `program_studi` (`id_programStudi`, `nama_programStudi`, `id_fakultas`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
 ('PS-1', 'Sistem Informasi', 'FK-1', 'USER-1', '2019-04-24 09:58:20', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PS-2', 'Teknik Informatika', 'FK-1', 'USER-1', '2019-04-24 09:58:31', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('PS-3', 'Sistem Komputer', 'FK-1', 'USER-1', '2019-04-24 09:58:55', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('PS-3', 'Sistem Komputer', 'FK-1', 'USER-1', '2019-04-24 09:58:55', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PS-4', 'Mathematics', 'FK-2', 'USER-1', '2019-05-02 01:32:23', '0', '0000-00-00 00:00:00', 'USER-1', '2019-05-02 01:32:37', 1);
 
 -- --------------------------------------------------------
 
@@ -763,7 +794,7 @@ ALTER TABLE `waktu_jadwal`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

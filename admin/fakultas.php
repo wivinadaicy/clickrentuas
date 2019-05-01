@@ -91,6 +91,7 @@
 		</div>
 
 		<h2 class="panel-title">Deleted Faculty</h2>
+         <h5>Faculties data that deleted temporary from the table above (can be restore)</h5>
 	</header>
 	<div class="panel-body">
 		<table  class="table table-bordered table-striped mb-none" id="datatable-default2">
@@ -113,7 +114,7 @@
 					<td> <?php echo $no;?></td>
 					<td> <?php echo $data['nama_fakultas'] ?></td>
 					<td class="text-center">
-						<a class="modal-sizes btn btn-warning mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_fakultas"]?>"><i class="fa fa-trash-o"></i></a>
+						<a class="modal-sizes btn btn-primary mb-xs mt-xs mr-xs btn" data-toggle="tooltip" data-placement="top" title="Restore" href="#restore<?php echo $data["id_fakultas"]?>"><i class="fa fa-recycle"></i></a>
 						<a class="btn mb-xs mt-xs mr-xs btn btn-success"data-toggle="tooltip" data-placement="top" title="Log" href="fakultasLog.php?id=<?php echo $data['id_fakultas'];?>"><i class="fa fa-file"></i></a>
 					</td>
                 </tr>

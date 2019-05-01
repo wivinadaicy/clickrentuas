@@ -245,7 +245,7 @@ $pengguna = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$o
 <!-- HEADER -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td bgcolor="#333333" align="center">
+        <td bgcolor="#bbb7b7" align="center">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">
@@ -520,7 +520,7 @@ $acaranya = $dacarah['acara'];
 <!-- HEADER -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td bgcolor="#333333" align="center">
+        <td bgcolor="#bbb7b7" align="center">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">

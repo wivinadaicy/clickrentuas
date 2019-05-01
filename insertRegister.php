@@ -60,7 +60,7 @@ $msg='
 <!DOCTYPE html>
 <html>
 <head>
-<title>A Responsive Email Template</title>
+<title></title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -164,7 +164,7 @@ $msg='
 <!-- HEADER -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td bgcolor="#333333" align="center">
+        <td bgcolor="#bbb7b7" align="center">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 5px 0;" class="logo">
