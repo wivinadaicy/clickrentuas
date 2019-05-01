@@ -124,7 +124,7 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="w4-last-name">IPK Terakhir</label>
 									<div class="col-sm-7">
-										<input type="text" class="form-control" name="ipkterakhir" id="formIpk" required>
+										<input type="number" class="form-control" name="ipkterakhir" id="formIpk" required max="4">
 									</div>
 								</div>
 			</section>

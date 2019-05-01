@@ -84,7 +84,7 @@ if(mysqli_num_rows($query)==0){
                         if($dqq['user_edit']!=$id){
                         ?>
                             <!--chat admin, ganti iconnya ver-->
-                            <a href="#chatadmin" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                            <a href="#chatadmin<?php echo $data['id_peminjaman']  ?>" class="modal-sizes btn btn-warning" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
                         <?php
                         }
                         ?>
@@ -95,8 +95,9 @@ if(mysqli_num_rows($query)==0){
                     <?php include('detailPeminjamanMember.php')?>
 <?php
 $pesann = mysqli_query($koneksi, "SELECT * FROM pesan join pengguna on pengguna.id_pengguna=pesan.id_penggunaKirimPesan WHERE id_peminjaman='$idp'");
+
 ?>
-<div id="chatadmin" class="modal-block modal-full-color modal-block-primary mfp-hide">
+<div id="chatadmin<?php echo $data['id_peminjaman']  ?>" class="modal-block modal-full-color modal-block-primary mfp-hide">
     <section class="panel">
         <header class="panel-heading">
             <h2 class="panel-title">Chat with staff</h2>
@@ -112,6 +113,7 @@ $pesann = mysqli_query($koneksi, "SELECT * FROM pesan join pengguna on pengguna.
                     <br>Admin Data:
                     <?php
                     $dataadmin = mysqli_fetch_array($pesann);
+                    $idpesan = $dataadmin['id_pesan'];
                     $pengurus = $dataadmin['nama_lengkap'];
                     ?>
                     Name : <b><?php echo $pengurus ?> <br></b>

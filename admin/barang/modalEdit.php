@@ -28,7 +28,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Room<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<select name="ruangan">
+					<select name="ruangan" required>
 					<?php
 					$r = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
 					while($dr = mysqli_fetch_array($r)){
@@ -41,7 +41,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Brand<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" id="merek" name="merek" class="form-control" placeholder="ketik merek barang" value = "<?php echo $data['merek'] ?>">
+					<input type="text" id="merek" name="merek" class="form-control" placeholder="ketik merek barang" value = "<?php echo $data['merek'] ?>" required>
 				</div>
 			</div>
 			<div class="form-group">

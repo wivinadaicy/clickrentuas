@@ -17,25 +17,8 @@ $mulai = $_POST['mulai'];
 $selesai = $_POST['selesai'];
 $ruang = $_POST['ruang'];
 
-$akalinMulai = strtotime("+1 minutes", strtotime($mulai));
-$mulainya = date('h:i:s', $akalinMulai);
 
-$akalinSelesai = strtotime("-1 minutes", strtotime($selesai));
-$selesainya = date('h:i:s', $akalinSelesai);
-
-
-$query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruangan='$ruang' AND ruangan.id_ruangan NOT IN 
-(SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.status_peminjaman>0 AND peminjaman.tanggal_peminjaman = '$tanggalPinjam' AND 
-(
-    ((peminjaman.waktu_mulai > '$mulainya') AND (peminjaman.waktu_mulai<'$selesainya'))
-                OR
-                ((peminjaman.waktu_mulai<= '$mulainya') AND (peminjaman.waktu_selesai>='$selesainya'))
-                OR
-                ((peminjaman.waktu_mulai = '$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
-                OR
-                ((peminjaman.waktu_mulai < '$mulainya') AND (peminjaman.waktu_selesai>'$mulainya') AND (peminjaman.waktu_selesai<'$selesainya'))
-    
-    ))");
+$query = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE ruangan.jenis_ruangan='$ruang' AND ruangan.id_ruangan NOT IN (SELECT peminjaman.id_ruangan FROM peminjaman WHERE peminjaman.status_peminjaman>0 AND peminjaman.tanggal_peminjaman = '$tanggalPinjam' AND ( ((peminjaman.waktu_mulai > '$mulai') AND (peminjaman.waktu_mulai<'$selesai')) OR ((peminjaman.waktu_mulai<= '$mulai') AND (peminjaman.waktu_selesai>='$selesai')) OR ((peminjaman.waktu_mulai = '$mulai') AND (peminjaman.waktu_selesai<'$selesai')) OR ((peminjaman.waktu_mulai < '$mulai') AND (peminjaman.waktu_selesai>'$mulai') AND (peminjaman.waktu_selesai<'$selesai')) ))");
 
 $kalimat = '<div class="col-lg-12"><h3 style="text-align:center; font-weight:bold; background-color:grey; color:white">Available Rooms</h3></div>';
 
@@ -47,8 +30,7 @@ while($ruangsedia=mysqli_fetch_array($query)){
     $querym= mysqli_query($koneksi, "SELECT * FROM peminjaman");
     $baris = mysqli_num_rows($querym);
     $barisbaru = $baris+1;
-
-    $kalimat = $kalimat . 
+     $kalimat = $kalimat . 
   "<div class='col-lg-4' id='" . $ruangsedia['id_ruangan'] . "'>
         <div class='card'>
             <div class='card-body'>
@@ -79,10 +61,7 @@ while($ruangsedia=mysqli_fetch_array($query)){
     
     
     
-    
-    
-    
-    
+ 
     
     
     

@@ -27,7 +27,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Date of Birth <span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="date" name="tanggallahir" class="form-control" id="jeniskelamin" disabled  value = "<?php echo $data['tanggal_lahir']?>">
+					<input type="text" name="tanggallahir" class="form-control" id="jeniskelamin" disabled  value = "<?php echo date("d M Y", strtotime($data['tanggal_lahir'])) ?>">
 				</div>
 			</div>
 			<div class="form-group">

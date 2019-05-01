@@ -64,7 +64,8 @@ $datapinjaman = mysqli_fetch_array($pinjaman);
     $orangpinjam = $datapinjaman['id_pengguna'];
     $pesannya = "Peminjaman Anda telah selesai. Terima kasih telah menggunakan Click&Rent SISTech untuk memesan ruangan!";
 
-    $cekpesannya = mysqli_fetch_array($kirimpesan);
+    $kirimpesand = mysqli_query($koneksi, "SELECT * FROM pesan WHERE id_peminjaman='$idpinjam'");
+    $cekpesannya = mysqli_fetch_array($kirimpesand);
     $idpesannya = $cekpesannya['id_pesan'];
 
     $insertdetailpesan = mysqli_query($koneksi, "INSERT INTO pesan_detail VALUES ('$jadihtgpsndtlnya','$idpesannya','$orangpinjam','$id',now(),'$pesannya','0')");

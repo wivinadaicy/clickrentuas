@@ -31,13 +31,14 @@
 <section class="panel">
     <header class="panel-heading">
     <?php $idpem = $_GET['id']?>
-        <h2 class="panel-title">User Log <?php echo $_GET['id'] ?></h2>
-    </header>
-    <div class="panel-body">
     <?php
     $add = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$idpem'");
     $riw = mysqli_fetch_array($add);
     ?>
+        <h2 class="panel-title">User Log - '<?php echo $riw['nama_lengkap'] ?>' (<?php echo $_GET['id'] ?>)</h2>
+    </header>
+    <div class="panel-body">
+    
     <h5><b>Input Date:</b> <?php echo date("d M Y | H:i", strtotime($riw['waktu_add'])) ?> WIB</h5>
 
     <?php 
@@ -51,7 +52,7 @@
     <?php
     }else{
     ?>
-        <h5><b>User Input:</b> "Reserved by the owner"</h5>
+        <h5><b>User Input:</b> "by owner"</h5>
     <?php
     }
     ?>
@@ -112,7 +113,14 @@
 											</td>
 											<td>
                                                 <?php 
-                                                 if($data['user_edit']=="0"){echo $data['nama_lengkap'];  }else{ echo $data['user_edit'];}
+                                                 if($data['user_edit']=="0"){echo $data['nama_lengkap'];  }else{
+                                                    $ue = $data['user_edit'];
+
+                                                    $qurry = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE id_pengguna='$ue'");
+                                                    $dqurry = mysqli_fetch_array($qurry);
+
+                                                    echo $dqurry['nama_lengkap'];
+                                                }
                                                 ?>
 											</td>
                                             

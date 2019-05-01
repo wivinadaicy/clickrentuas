@@ -117,7 +117,7 @@
 										<span class="input-group-addon">
 											<i class="fa fa-calendar"></i>
 										</span>
-									<input type="date" class="form-control"  name="tanggallahir" id="formTanggal">
+									<input type="date" format="YYYY-MM-DD" class="form-control"  name="tanggallahir" id="formTanggal">
 									</div>
 								</div>	
 							</div>

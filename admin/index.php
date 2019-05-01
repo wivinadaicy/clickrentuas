@@ -331,7 +331,7 @@ $now = date('H:i');
 		<hr>
 		<?php
 		$hariini = date('Y-m-d');
-		$querym = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='1' AND tanggal_peminjaman>='$hariini'  order by peminjaman.waktu_edit desc");
+		$querym = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='1' AND tanggal_peminjaman>='$hariini'  order by peminjaman.waktu_edit desc");
 		$dqm = mysqli_fetch_array($querym);
 		?>
 		<h3 style="text-align:center"><?php echo $dqm['count(peminjaman.id_peminjaman)'] ?></h3>
@@ -344,7 +344,7 @@ $now = date('H:i');
 		<h4 style="text-align: center"><b>My Finished Reservation</b></h4>
 		<hr>
 		<?php
-		$queryn = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='3' order by peminjaman.waktu_edit desc");
+		$queryn = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='3' order by peminjaman.waktu_edit desc");
 		$dqn = mysqli_fetch_array($queryn);
 		?>
 		<h3 style="text-align:center"><?php echo $dqn['count(peminjaman.id_peminjaman)'] ?></h3>
@@ -356,16 +356,16 @@ $now = date('H:i');
 		<h4 style="text-align: center"><b>My Cancelled & Not Approved Reservation</b></h4>
 		<hr>
 		<?php
-		$queryo = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' OR status_peminjaman='5')");
+		$queryo = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' OR status_peminjaman='5')");
 		$dqo = mysqli_fetch_array($queryo);
 		?>
 		<h3 style="text-align:center"><?php echo $dqo['count(peminjaman.id_peminjaman)'] ?></h3>
 		<?php 
-		$cancel = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' or status_peminjaman='5')AND peminjaman.id_peminjaman IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
+		$cancel = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND (status_peminjaman='4' or status_peminjaman='5')AND peminjaman.id_peminjaman IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
 		$dcancel = mysqli_fetch_array($cancel);
 
 
-		$notprov = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join pesan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
+		$notprov = mysqli_query($koneksi, "SELECT count(peminjaman.id_peminjaman) FROM peminjaman join ruangan join kategori_acara on kategori_acara.id_kategoriAcara = peminjaman.id_kategoriAcara AND ruangan.id_ruangan = peminjaman.id_ruangan WHERE id_pengguna='$id' AND status_peminjaman='4' AND peminjaman.id_peminjaman NOT IN (SELECT log_peminjaman.id_peminjaman FROM log_peminjaman WHERE status_peminjaman='5') order by peminjaman.waktu_edit desc");
 		$dnotprov = mysqli_fetch_array($notprov);
 		?>
 		<a href="peminjamanMemberDibatalkan.php"><h6 style="text-align:right">View Cancelled (<?php echo $dcancel['count(peminjaman.id_peminjaman)'] ?>)</h6></a>

@@ -149,7 +149,7 @@ $jenis= $_GET['jenis'];
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-desktop"></i>
 									</span>
 									<?php
 									$namar = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE id_ruangan='$room'");
@@ -167,7 +167,7 @@ $jenis= $_GET['jenis'];
 							<div class="col-sm-7">
 								<div class="input-group">
 									<span class="input-group-addon">
-										<i class="fa fa-calendar"></i>
+										<i class="fa fa-gift"></i>
 									</span>
 								<input type="text" class="form-control"  name="namaacara" id="namaacara" required>
 								</div>
@@ -198,9 +198,9 @@ $jenis= $_GET['jenis'];
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-group"></i>
 									</span>
-									<input class="form-control" required type="number" name="jumlahpeserta" id="jumlahpeserta">
+									<input class="form-control" required type="number" name="jumlahpeserta" id="jumlahpeserta" min="1" max="<?php echo $datanamar['kapasitas']; ?>">
 								</div>	
 							</div>
 						</div>
@@ -210,7 +210,7 @@ $jenis= $_GET['jenis'];
 							<div class="col-sm-7">
 								<div class="input-group mb-md">
 									<span class="input-group-addon">
-										<i class="fa fa-envelope"></i>
+										<i class="fa fa-comment"></i>
 									</span>
 									<textarea name="deskripsiacara" id="deskripsiacara" required class="form-control"></textarea>
 								</div>	

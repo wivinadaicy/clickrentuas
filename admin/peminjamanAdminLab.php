@@ -9,7 +9,7 @@
 <!--*****************************-->
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Reservation</h2>
+			<h2>Laboratory Reservation</h2>
 
 			<div class="right-wrapper pull-right">
 				<ol class="breadcrumbs">
@@ -178,7 +178,7 @@ if(mysqli_num_rows($query)==0){
                         </a>
                             <a class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="PDF" href="cetakPeminjamanAkanDatang.php?idpinjam=<?php echo $data['id_peminjaman'] ?>" target="_blank" ><i class='fa fa-download' ></i>
                             </a>
-                            <a class="btn btn-danger mb-xs mt-xs mr-xs modal-sizes btn btn-danger "data-toggle="tooltip" data-placement="top" title="Finish" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-trash-o'></i></a>
+                            <a class="btn btn-success mb-xs mt-xs mr-xs modal-sizes"data-toggle="tooltip" data-placement="top" title="Finish" href="#selesaikan<?php echo $data['id_peminjaman'];?>"><i class='fa fa-flag-checkered'></i></a>
                         </td>
                     </tr>
 

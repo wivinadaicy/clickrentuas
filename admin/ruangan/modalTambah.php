@@ -35,7 +35,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Floor<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" id="lantai" name="lantai" class="form-control" placeholder="Insert Location">
+					<input type="text" id="lantai" name="lantai" class="form-control" placeholder="Insert Location" required>
 				</div>
 			</div>
 			<div class="form-group">

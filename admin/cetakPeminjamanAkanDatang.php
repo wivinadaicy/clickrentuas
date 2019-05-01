@@ -29,12 +29,17 @@
       $dataquery1= mysqli_fetch_array($query); 
       $dataquery2=mysqli_fetch_array($query2);
       //$dataquery3=mysqli_fetch_array($query3);
-
-      $tanggalbuat=date("l, d F Y",strtotime($dataquery2['waktu_edit'])); 
+      if($dataquery1['waktu_edit']=="0000-00-00 00:00:00"){
+        $tanggalbuat=date("l, d F Y",strtotime($dataquery1['waktu_add'])); 
+      }else{
+        $tanggalbuat=date("l, d F Y",strtotime($dataquery2['waktu_edit'])); 
+      }
+    
+      
       $namalengkap= $dataquery1['nama_lengkap'];
       $emailpengguna= $dataquery1['email'];
-      $deskripsi= $dataquery2['deskripsi_acara'];
-      $tanggalpeminjaman =date("l, d F Y",strtotime($dataquery2['tanggal_peminjaman']));
+      $deskripsi= $dataquery1['deskripsi_acara'];
+      $tanggalpeminjaman =date("l, d F Y",strtotime($dataquery1['tanggal_peminjaman']));
       $namaruangan= $dataquery1['nama_ruangan'];
       $jenisruangan= $dataquery1['jenis_ruangan'];
         if($jenisruangan=="1"){

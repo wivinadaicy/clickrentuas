@@ -165,7 +165,7 @@ $idp = "PJ-" . $hq;
 									<span class="input-group-addon">
 										<i class=" fa fa-group"></i>
 									</span>
-									<input class="form-control" required type="number" name="jumlahpeserta" id="jumlahpeserta">
+									<input class="form-control" required type="number" name="jumlahpeserta" id="jumlahpeserta" readonly>
 								</div>	
 							</div>
 						</div>
@@ -277,4 +277,24 @@ $("#waktuSelesai").change(function () {
         
     });
 
+
+	function cekTotalPeserta(){
+	$(document).ready(function(){
+  var ruangans2 = $('#namaruangan').children("option:selected").val();
+	$.ajax({
+		type:"post",
+		url:"totalParticipant.php",
+		dataType: "JSON",
+		data: {ruangans:ruangans2},
+		success: function(respond){
+			$('#jumlahpeserta').prop('value','');
+			$('#jumlahpeserta').prop('value',respond);
+		}
+	});
+});
+}
+$("#namaruangan").change(function () {
+	cekTotalPeserta();
+        
+    });
 </script>

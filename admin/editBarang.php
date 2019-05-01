@@ -65,7 +65,7 @@ $data=mysqli_fetch_array($query);
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Ruangan<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<select name="ruangan">
+					<select name="ruangan" required>
 					<?php
 					$r = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE status_delete='0'");
 					while($dr = mysqli_fetch_array($r)){

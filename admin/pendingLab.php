@@ -86,7 +86,7 @@ $setlogdata = mysqli_query($koneksi,
 			<tr>
 				<td><?php echo $data['nama_lengkap']?></td>
 				<td><?php echo $data['acara']?></td>
-				<td><?php echo $data['tanggal_peminjaman']?></td>
+				<td><?php echo date("l, d M Y",strtotime($data['tanggal_peminjaman']))?></td>
 				<td><?php echo $data['waktu_mulai'] . " - " . $data['waktu_selesai']?></td>
                 <td><?php echo $data['nama_ruangan']?></td>
 				<td class="text-center">

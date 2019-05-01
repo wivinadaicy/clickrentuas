@@ -86,7 +86,7 @@ if(mysqli_num_rows($query)==0){
                         if($dqq['user_edit']!=$id){
                         ?>
                             <!--chat admin, ganti iconnya ver-->
-                            <a href="#chatadmin<?php echo $data['id_peminjaman'] ?>" class="modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
+                            <a href="#chatadmin<?php echo $data['id_peminjaman'] ?>" class=" btn btn-warning modal-sizes" data-toggle="tooltip" data-placement="top" title="Chat" ><i class="fa fa-envelope"></i></a>
                         <?php
                         }
                         ?>

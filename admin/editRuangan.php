@@ -51,7 +51,7 @@ $data=mysqli_fetch_array($query);
 			<div class="form-group mt-lg">
 				<label class="col-sm-3 control-label">Room Name<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="namaruangan"  id="namaruangan" class="form-control" placeholder="Insert Room Name" value="<?php echo $data['nama_ruangan'] ?>" >
+					<input type="text" name="namaruangan"  id="namaruangan" class="form-control" placeholder="Insert Room Name" value="<?php echo $data['nama_ruangan'] ?>" required>
 				</div>
 			</div>
 			<div class="form-group mt-lg">
@@ -64,19 +64,19 @@ $data=mysqli_fetch_array($query);
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Floor<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" id="lantai" name="lantai" class="form-control" placeholder="Insert Location" value="<?php echo $data['gedung_lantai'] ?>" >
+					<input type="text" id="lantai" name="lantai" class="form-control" placeholder="Insert Location" value="<?php echo $data['gedung_lantai'] ?>" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Capacity<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="number" name="kapasitas"  id="stok" class="form-control" placeholder="Insert Capacity of the Room" required value="<?php echo $data['kapasitas'] ?>" >
+					<input type="number" name="kapasitas"  id="stok" class="form-control" placeholder="Insert Capacity of the Room" required value="<?php echo $data['kapasitas'] ?>" required>
 				</div>
 			</div>
             <div class="form-group">
 				<label class="col-sm-3 control-label">Description<span class="required">*</span></label>
 				<div class="col-sm-9">
-					<input type="text" name="deskripsi"  id="stok" class="form-control" placeholder="Insert Description of the Room" required value="<?php echo $data['deskripsi'] ?>" >
+					<input type="text" name="deskripsi"  id="stok" class="form-control" placeholder="Insert Description of the Room" required value="<?php echo $data['deskripsi'] ?>" required>
 				</div>
 			</div>
                 <div class="row">

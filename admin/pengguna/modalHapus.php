@@ -6,7 +6,7 @@
 		<div class="panel-body">
 			<div class="modal-wrapper">
 				<div class="modal-text">
-					<p>Are you sure you want to delete data from user with the name " <?php echo $data['nama_lengkap']?>" ?</p>
+					<p>Are you sure you want to delete data from user with the name "<?php echo $data['nama_lengkap']?>" ?</p>
 				</div>
 			</div>
 		</div>
