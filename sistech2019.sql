@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2019 at 08:50 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: May 02, 2019 at 07:10 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -276,7 +276,9 @@ INSERT INTO `log_peminjaman` (`id_logPeminjaman`, `id_peminjaman`, `tanggal_pemi
 (8, 'PJ-13', '2019-05-31', 'R-6', '13:15:00', '14:15:00', 'USER-1', 'Kelas IT Security', 4, 2, 'Membahas password security', 1, 'USER-1', '2019-05-02 01:28:00'),
 (9, 'PJ-12', '2019-05-16', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'Kelas SPS', 50, 1, 'rwgtb dghdfg yteyr', 4, 'USER-1', '2019-05-02 01:28:57'),
 (10, 'PJ-2', '2019-05-02', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'KP Strukdat', 50, 1, 'asfsd esf d sfdfsdf', 5, 'USER-1', '2019-05-02 01:30:12'),
-(11, 'PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 5, 'USER-1', '2019-05-02 01:30:28');
+(11, 'PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 5, 'USER-1', '2019-05-02 01:30:28'),
+(12, 'PJ-16', '2019-04-23', 'R-6', '16:15:00', '18:15:00', 'USER-1', 'Acara Charity', 4, 2, 'Mengundang dosen dari universitas luar', 3, 'USER-1', '2019-05-02 08:58:11'),
+(13, 'PJ-17', '2019-04-23', 'R-1', '16:15:00', '17:15:00', 'USER-1', 'Acara Charity', 5, 2, 'Mengundang dosen dari universitas luar', 3, 'USER-1', '2019-05-02 08:58:26');
 
 -- --------------------------------------------------------
 
@@ -310,7 +312,9 @@ INSERT INTO `log_pengguna` (`id_logPengguna`, `id_pengguna`, `email`, `kata_sand
 (2, 'USER-2', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin', 'p', '2019-04-10', 'Jalan M.H. Thamrin, Karawaci', '09821737464', '2019-04-26', 3, 2, 'USER-1', '2019-04-26 23:07:12'),
 (3, 'USER-2', 'verenvalenciaa@gmail.com', '550e1bafe077ff0b0b67f4e32f29d751', 'Veren Admin', 'p', '2019-04-10', 'Jalan M.H. Thamrin, Karawaci', '09821737464', '2019-04-26', 2, 2, 'USER-1', '2019-04-26 23:10:46'),
 (4, 'USER-3', 'elfkyushfly@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Elf Dosenn', 'p', '2019-05-15', 'Jalan Melati, no 18', '08234356755', '2019-05-01', 3, 1, 'USER-3', '2019-05-01 08:07:14'),
-(5, 'USER-3', 'elfkyushfly@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Elf Dosenn', 'p', '2019-05-15', 'Jalan Melati, no 18', '08234356755', '2019-05-01', 3, 2, 'USER-1', '2019-05-01 08:07:59');
+(5, 'USER-3', 'elfkyushfly@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Elf Dosenn', 'p', '2019-05-15', 'Jalan Melati, no 18', '08234356755', '2019-05-01', 3, 2, 'USER-1', '2019-05-01 08:07:59'),
+(6, 'USER-6', 'kathrinyuwono@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '2019-05-23', 'Jalan afshdsfkjhjhsdfk sddfsgdf', '082136475847', '2019-05-02', 3, 1, 'USER-6', '2019-05-02 09:52:42'),
+(7, 'USER-6', 'kathrinyuwono@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '2019-05-23', 'Jalan afshdsfkjhjhsdfk sddfsgdf', '082136475847', '2019-05-02', 3, 3, 'USER-1', '2019-05-02 09:53:18');
 
 -- --------------------------------------------------------
 
@@ -413,7 +417,15 @@ INSERT INTO `peminjaman` (`id_peminjaman`, `tanggal_peminjaman`, `id_ruangan`, `
 ('PJ-11', '2019-05-16', 'R-1', '09:15:00', '10:15:00', 'USER-1', 'Kelas po', 10, 1, 'etsfuyr tu tutghgfhhdg', 0, 'USER-1', '2019-05-01 11:48:33', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-12', '2019-05-16', 'R-2', '07:15:00', '18:15:00', 'USER-1', 'Kelas SPS', 50, 1, 'rwgtb dghdfg yteyr', 4, 'USER-1', '2019-05-01 11:59:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-13', '2019-05-31', 'R-6', '13:15:00', '14:15:00', 'USER-1', 'Kelas IT Security', 4, 2, 'Membahas password security', 1, 'USER-1', '2019-05-02 01:27:23', 'USER-1', '2019-05-02 01:28:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-14', '2019-05-01', 'R-2', '13:15:00', '15:15:00', 'USER-1', 'Kelas Lab Multimedia', 4, 2, 'Membahas password security', 1, 'USER-1', '2019-05-02 01:27:23', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-15', '2019-05-01', 'R-6', '13:15:00', '18:15:00', 'USER-1', 'KP EIS', 4, 2, 'Membahas Enterprise diluar Indonesia', 1, 'USER-1', '2019-04-29 01:27:23', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-16', '2019-04-23', 'R-6', '16:15:00', '18:15:00', 'USER-1', 'Acara Charity', 4, 2, 'Mengundang dosen dari universitas luar', 3, 'USER-1', '2019-04-21 01:27:23', 'USER-1', '2019-05-02 08:58:11', '0', '0000-00-00 00:00:00', 0),
+('PJ-17', '2019-04-23', 'R-1', '16:15:00', '17:15:00', 'USER-1', 'Acara Charity', 5, 2, 'Mengundang dosen dari universitas luar', 3, 'USER-1', '2019-04-21 01:27:23', 'USER-1', '2019-05-02 08:58:26', '0', '0000-00-00 00:00:00', 0),
+('PJ-18', '2019-05-25', 'R-2', '08:15:00', '10:15:00', 'USER-4', 'Bazzar', 20, 3, 'sdfgsf dfg fghg dghf', 0, 'USER-4', '2019-05-01 11:46:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-19', '2019-05-25', 'R-1', '08:15:00', '18:15:00', 'USER-1', 'Pelatihan', 20, 3, 'dfg fghg dghf', 0, 'USER-1', '2019-05-01 11:46:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-2', '2019-05-02', 'R-1', '08:15:00', '09:15:00', 'USER-1', 'KP Strukdat', 50, 1, 'asfsd esf d sfdfsdf', 5, 'USER-1', '2019-05-01 09:13:20', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-20', '2019-05-25', 'R-2', '08:15:00', '18:15:00', 'USER-2', 'Pelatihan X', 20, 3, 'dfg fghg dghf', 0, 'USER-2', '2019-05-01 11:46:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('PJ-21', '2019-05-25', 'R-3', '08:15:00', '18:15:00', 'USER-2', 'Pelajaran', 20, 3, 'dfg fghg dghf', 0, 'USER-2', '2019-05-01 11:46:27', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-3', '2019-05-24', 'R-4', '15:15:00', '16:15:00', 'USER-1', 'Diskusi Paper', 5, 5, 'bimbingan tugas mata kuliah EIS', 1, 'USER-1', '2019-05-01 09:16:11', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-4', '2019-05-02', 'R-5', '07:15:00', '17:15:00', 'USER-1', 'Hari Guru', 50, 3, 'memperingati hari guru', 5, 'USER-1', '2019-05-01 09:17:39', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('PJ-5', '2019-05-24', 'R-5', '07:15:00', '18:15:00', 'USER-4', 'Maraton rapat', 50, 3, 'ffff fff fff ff', 4, 'USER-4', '2019-05-01 10:00:02', 'USER-1', '2019-05-01 10:26:11', '0', '0000-00-00 00:00:00', 0),
@@ -454,11 +466,12 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_hp`, `tanggal_masuk`, `status_pengguna`, `status_daftar`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_delete`, `status_delete`) VALUES
-('USER-1', 'wivinadaicy@yahoo.com', '202cb962ac59075b964b07152d234b70', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 1, 2, '0', '2019-04-13 17:56:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('USER-1', 'wivinadaicy@yahoo.com', '25d55ad283aa400af464c76d713c07ad', 'Wivina Admin', 'p', '1999-10-23', 'Jalan newton no 16', '082153967707', '2019-04-13', 1, 2, '0', '2019-04-13 17:56:26', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('USER-2', 'verenvalenciaa@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Veren Admin', 'p', '2019-04-10', 'Jalan M.H. Thamrin, Karawaci', '09821737464', '2019-04-26', 2, 2, '0', '2019-04-26 22:57:34', 'USER-1', '2019-04-26 23:10:46', '0', '0000-00-00 00:00:00', 0),
 ('USER-3', 'elfkyushfly@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Elf Dosenn', 'p', '2019-05-15', 'Jalan Melati, no 18', '08234356755', '2019-05-01', 3, 2, '0', '2019-05-01 07:58:24', 'USER-1', '2019-05-01 08:07:59', '0', '0000-00-00 00:00:00', 0),
 ('USER-4', 'verenv999999@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Veren Mahasiswa', 'p', '2019-05-15', 'jalan asda no 19', '089616961915', '2019-05-01', 4, 2, 'USER-1', '2019-05-01 08:17:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('USER-5', 'wivinatugas@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'John Doe mhs', 'p', '2019-05-23', 'jalan haha, no 47', '1234567890', '2019-05-01', 4, 2, 'USER-1', '2019-05-01 11:41:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('USER-5', 'wivinatugas@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'John Doe mhs', 'p', '2019-05-23', 'jalan haha, no 47', '1234567890', '2019-05-01', 4, 2, 'USER-1', '2019-05-01 11:41:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('USER-6', 'kathrinyuwono@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '2019-05-23', 'Jalan afshdsfkjhjhsdfk sddfsgdf', '082136475847', '2019-05-02', 3, 3, '0', '2019-05-02 09:50:34', 'USER-1', '2019-05-02 09:53:18', 'USER-1', '2019-05-02 09:53:18', 0);
 
 -- --------------------------------------------------------
 

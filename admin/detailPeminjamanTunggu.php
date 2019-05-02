@@ -65,7 +65,7 @@ $data = mysqli_fetch_array($query);
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar"></i> <!--ganti-->
                             </span>
-                            <input type="text" name="tanggalpeminjaman"  id="tanggalpeminjaman" class="form-control" value="<?php echo $data['tanggal_peminjaman'] ?>" disabled/>
+                            <input type="text" name="tanggalpeminjaman"  id="tanggalpeminjaman" class="form-control" value="<?php echo date('l, d M Y', strtotime($data['tanggal_peminjaman']))  ?>" disabled/>
                         </div>
                     </div>
                 </div>
@@ -281,7 +281,7 @@ $data = mysqli_fetch_array($query);
     <div class="col-lg-6">
         <section class="panel-body">
             <h4 class="center" style="font-weight:bold; color: green">Waiting List (Time &amp;Room)</h4>
-            <p>Date: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+            <p>Date: <b><?php echo date('l, d M Y', strtotime($data['tanggal_peminjaman'])) ?></b></p>
             <p>Room: <b><?php echo $data['nama_ruangan'] ?></b></p>
 	        <hr>
             <table  class="table table-bordered table-striped mb-none" id="datatable-default">
@@ -403,7 +403,7 @@ $tolakcuy='';
     <div class="col-lg-6">
         <section class="panel-body">
         <h4 class="center" style="font-weight:bold; color: green">Other Waiting List (Time&amp; not same Room)</h4>
-            <p>Date: <b><?php echo $data['tanggal_peminjaman'] ?></b></p>
+            <p>Date: <b><?php echo date('l, d M Y', strtotime($data['tanggal_peminjaman'])) ?></b></p>
             <?php
             if($data['jenis_ruangan']=="1"){
                 $jr = "Laboratorium";

@@ -123,7 +123,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-key"></i>
                             </span>
-                            <input type="password" name="passbaru" id="passbaru" class="form-control" placeholder="Password" required minlength="8"/>
+                            <input type="password" name="passbaru" id="passbaru" class="form-control" placeholder="Password" required min="8"/>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-key"></i>
                             </span>
-                            <input type="password" name="passkonfir" id="passkonfir" class="form-control" placeholder="Password" required minlength="8" oninput="cekPassword()"/>
+                            <input type="password" name="passkonfir" id="passkonfir" class="form-control" placeholder="Password" required min="8" oninput="cekPassword()"/>
                         </div>
                         <p style="font-size:10px; color:red" id="cekpasnya"></p>
                     </div>
