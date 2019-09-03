@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2019 at 07:10 AM
+-- Generation Time: Sep 03, 2019 at 08:32 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -85,7 +85,8 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id_contact`, `name`, `phone`, `email`, `message`, `waktu_kirim`, `status_pesan`, `replied_by`) VALUES
-(1, 'Veren', '081315739332', 'verenvalencia@yahoo.co.id', 'Hai Min! saya mau bertanya mengenai cara daftar akun bagaimana ya?', '2019-05-02 01:34:33', 0, '0');
+(1, 'Veren', '081315739332', 'verenvalencia@yahoo.co.id', 'Hai Min! saya mau bertanya mengenai cara daftar akun bagaimana ya?', '2019-05-02 01:34:33', 2, 'USER-1'),
+(2, 'John Doe', '0812238434645', 'wivinadaicy@yahoo.com', 'Halo mau nanya, kalo hari minggu boleh pinjem lab ga?', '2019-05-02 12:28:12', 0, '0');
 
 -- --------------------------------------------------------
 
@@ -378,7 +379,9 @@ CREATE TABLE `mahasiswa` (
 
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_pengguna`, `id_programStudi`, `angkatan`, `semester`, `total_sks`, `ipk_terakhir`, `user_add`, `waktu_add`, `user_edit`, `waktu_edit`, `user_delete`, `waktu_Delete`, `status_delete`) VALUES
 ('00000020271', 'USER-4', 'PS-3', 2018, 5, 23, 3, 'USER-1', '2019-05-01 08:17:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('036457', 'USER-5', 'PS-3', 2004, 4, 4, 4, 'USER-1', '2019-05-01 11:41:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
+('01081170004', 'USER-7', 'PS-1', 2017, 7, 20, 4, 'USER-1', '2019-05-02 12:24:02', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('036457', 'USER-5', 'PS-3', 2004, 4, 4, 4, 'USER-1', '2019-05-01 11:41:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('908217002', 'USER-8', 'PS-2', 2107, 4, 3, 4, 'USER-1', '2019-05-02 12:25:43', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -471,7 +474,10 @@ INSERT INTO `pengguna` (`id_pengguna`, `email`, `kata_sandi`, `nama_lengkap`, `j
 ('USER-3', 'elfkyushfly@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Elf Dosenn', 'p', '2019-05-15', 'Jalan Melati, no 18', '08234356755', '2019-05-01', 3, 2, '0', '2019-05-01 07:58:24', 'USER-1', '2019-05-01 08:07:59', '0', '0000-00-00 00:00:00', 0),
 ('USER-4', 'verenv999999@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'Veren Mahasiswa', 'p', '2019-05-15', 'jalan asda no 19', '089616961915', '2019-05-01', 4, 2, 'USER-1', '2019-05-01 08:17:32', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
 ('USER-5', 'wivinatugas@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', 'John Doe mhs', 'p', '2019-05-23', 'jalan haha, no 47', '1234567890', '2019-05-01', 4, 2, 'USER-1', '2019-05-01 11:41:59', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
-('USER-6', 'kathrinyuwono@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '2019-05-23', 'Jalan afshdsfkjhjhsdfk sddfsgdf', '082136475847', '2019-05-02', 3, 3, '0', '2019-05-02 09:50:34', 'USER-1', '2019-05-02 09:53:18', 'USER-1', '2019-05-02 09:53:18', 0);
+('USER-6', 'kathrinyuwono@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '2019-05-23', 'Jalan afshdsfkjhjhsdfk sddfsgdf', '082136475847', '2019-05-02', 3, 3, '0', '2019-05-02 09:50:34', 'USER-1', '2019-05-02 09:53:18', 'USER-1', '2019-05-02 09:53:18', 0),
+('USER-7', 'ltandiwijaya@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Laurencia', 'p', '2019-05-23', 'jalan asd sdfsd sdgsg ', '1234567890', '2019-05-02', 4, 2, 'USER-1', '2019-05-02 12:24:02', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('USER-8', 'amkaheja@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Amelia Kaheja', 'p', '2019-05-17', 'jalan asfjsdjf no 98', '12345678', '2019-05-02', 4, 2, 'USER-1', '2019-05-02 12:25:43', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0),
+('USER-9', 'deborakathrin@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Debora Kathrin', 'p', '1999-06-18', 'Jalan ahahahah', '082136484748', '2019-09-02', 3, 0, '0', '2019-09-02 16:04:03', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -807,7 +813,7 @@ ALTER TABLE `waktu_jadwal`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
